@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl'; 
 import styles from './Map.module.css';
-import { useObserver } from 'mobx-react-lite';
-// import data from './../../data/region.json' 
+//import { useObserver } from 'mobx-react-lite';
+
 mapboxgl.accessToken = 'pk.eyJ1IjoiY2FyZG9lbmxpZW4iLCJhIjoiY2tiODI3Znl4MDAyazJ4cXJ6cWNvdWswcSJ9.aVAGrbiyl5I5yb5KROaD7A';
 
 const Map = () => {

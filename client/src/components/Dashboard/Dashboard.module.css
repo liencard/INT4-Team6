@@ -1,3 +1,18 @@
-.color a {
-    color: white;
+.container {
+    margin: 3.5rem 8rem;
+}
+
+.dashboard__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tab {
+    color:white;
+    padding: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.475rem;
+    font-size: 1.2rem;
+    border: .1rem solid white;
 }

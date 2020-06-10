@@ -3,7 +3,6 @@ import React from "react";
 import Ancestors from './components/Ancestors';
 import Dashboard from './components/Dashboard';
 import Map from './components/Map';
-import styles from './App.module.css';
 
 import { Route } from 'react-router-dom';
 import { Switch, Redirect } from 'react-router';

@@ -21,3 +21,7 @@
     font-size: 1.2rem;
     border: .1rem solid white;
 }
+
+.tab:first-child {
+    border-right: none;
+}

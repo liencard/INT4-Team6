@@ -1,7 +1,10 @@
 .container {
-    margin: 3.5rem 8rem;
-    z-index: 999;
+    padding: 3.5rem 8rem;
+    z-index: 2;
     background-color: transparent;
+    position: fixed;
+    width: 100%;
+    
 }
 
 .dashboard__header {

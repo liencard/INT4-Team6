@@ -14,9 +14,14 @@ const Map = () => {
         const map = new mapboxgl.Map({
           container: mapContainerRef.current,
           style: 'mapbox://styles/mapbox/dark-v10',
-            center: [13.356, 34.047],
-            zoom: 1.5,
+          center: [13.356, 34.047],
+          zoom: 1.5,
+          attributionControl: false,
         });
+        document.querySelector('.mapboxgl-ctrl-logo').style.display ='none';
+
+        /* ook handig: fitScreenCoordinates > altijd zelfde display van map ongeachte schermgrote - bij mij herhaalde de wereldmap 
+        en werd een blob herhaald aan de rechterkant */
 
         let hoveredRegionId = null;
         map.on("load", function() {
@@ -116,6 +121,8 @@ const Map = () => {
             });
 
             // ON CLICK
+            /* ook handig, functie fitBounds ipv flyTo (lijkt mij user friendlier voor alle devices + verschillende regio grotes) */
+            /* https://docs.mapbox.com/mapbox-gl-js/example/fitbounds/ */
             map.on('click', 'regions-layer', function (e) {
               map.flyTo({
                 center: [

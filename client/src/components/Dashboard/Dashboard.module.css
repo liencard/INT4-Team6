@@ -14,14 +14,20 @@
 }
 
 .tab {
-    color:white;
+    color:grey;
     padding: 1.4rem;
     text-transform: uppercase;
     letter-spacing: 0.475rem;
     font-size: 1.2rem;
-    border: .1rem solid white;
+    border: .1rem solid grey;
 }
 
-.tab:first-child {
-    border-right: none;
+.tab:last-child {
+    margin-left: -.1rem;
+    border-left: .1rem solid white;
+}
+
+.tabActive {
+    color: white;
+    border: .1rem solid white;
 }

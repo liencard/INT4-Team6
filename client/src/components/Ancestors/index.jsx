@@ -6,8 +6,6 @@ import Ancestor from '../Ancestor/index.jsx';
 import { useObserver } from "mobx-react-lite";
 import { useStore } from "../../hooks/useStore";
 
-
-
 const Ancestors = () => {
 const { ancestorStore } = useStore();
 const ancestors = ancestorStore.ancestors;

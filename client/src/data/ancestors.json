@@ -1,0 +1,43 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.113,
+                    51.604
+                ]
+            },
+            "properties": {
+                "NAME": "Lien",
+                "BIRTH": "25",
+                "iconSize": [
+                    60,
+                    60
+                ]
+            },
+            "id": 1
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.35,
+                    52.011
+                ]
+            },
+            "properties": {
+                "NAME": "Sarah",
+                "BIRTH": "25",
+                "iconSize": [
+                    60,
+                    60
+                ]
+            },
+            "id": 2
+        }
+    ]
+}

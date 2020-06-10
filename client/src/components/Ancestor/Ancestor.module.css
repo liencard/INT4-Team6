@@ -1,0 +1,15 @@
+.ancestor__name {
+    color: white;
+    font-family: essonnes-headline, Helvetica, sans-serif;
+    transform: translate(-60%, -500%);
+    width: 300px;
+    font-size: 35px;
+}
+
+.ancestor__date {
+    color: white;
+    font-family: essonnes-headline, Helvetica, sans-serif;
+    transform: translate(-60%, -850%);
+    font-size: 20px;
+    width: 300px;
+}

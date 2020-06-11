@@ -46,6 +46,7 @@ const Ancestor = ({ ancestor, ancestorStore }) => {
         position={[posX - 0.6, posY + 0.5, posZ + 0.2]}
         fontSize={0.1}
         color={'white'}
+        font={'./assets/fonts/DMSerifDisplay-Regular.ttf'}
       >
         {dates}
       </Text>

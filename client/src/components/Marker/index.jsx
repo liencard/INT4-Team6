@@ -1,37 +1,35 @@
 import React, { useState, useCallback } from 'react';
 import mapboxgl from 'mapbox-gl'; 
-import * as THREE from 'three';
-import { useSpring, a } from 'react-spring/three';
-import { useFrame, useThree } from 'react-three-fiber';
-//import { Text, HTML } from 'drei';
-//import styles from '../Ancestor/Ancestor.module.css';
-// import { Link } from 'react-router-dom';
-// import { ROUTES } from '../../consts';
+import styles from './Map.module.css';
 
+const Marker = (ancestor) => {
 
-const Marker = ({ ancestor}) => {
+    // const el = document.createElement('div');
+    // el.classList.add('markerr');
+    // el.style.backgroundImage = 'url(./assets/img/loc_male.svg)';
+    // el.style.width = '34px';
+    // el.style.height = '38px';
+    // let mapCoordinates = [];
+    // let mapLat = `${ancestor.mapLat}`;
+    // let mapLong = `${ancestor.mapLong}`;
+    // mapCoordinates.push(parseFloat(mapLong));
+    // mapCoordinates.push(parseFloat(mapLat));
+    // new mapboxgl.Marker(el)
+    //   .setLngLat(mapCoordinates)
+    //   .addTo(map);
 
-    console.log(ancestor[3]);
+    // el.addEventListener('click', function () {
+    //    window.alert('klik');
+    // });
 
-    const el = document.createElement('div');
-    el.classList.add('marker');
-    el.style.backgroundImage = 'url(./assets/img/loc_male.svg)';
+    //console.log(mapCoordinates);
 
-    //el.style.width = marker.properties.iconSize[0] + 'px';
-    //el.style.height = marker.properties.iconSize[1] + 'px';
+    console.log('hallo');
 
-    const mapCoordinates = `[${ancestor.mapLat},${ancestor.mapLong}]`;
-    console.log(mapCoordinates);
-
-    console.log('test');
-
-    new mapboxgl.Marker(el)
-      .setLngLat(mapCoordinates)
-      .addTo(map);
 
     return useObserver(() => (
         <>
-           
+            <div className={styles.marker}><p>hallo</p></div>
         </>
     ));
 };

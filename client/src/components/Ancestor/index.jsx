@@ -66,7 +66,7 @@ const Ancestor = ({ ancestor, ancestorStore }) => {
   const toggleHover = useCallback((e, value) => {
     e.stopPropagation(); /// !!!!
     setHover(value); // flicker bug
-  });
+  }); 
 
   return (
     <>

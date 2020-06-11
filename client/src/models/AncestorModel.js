@@ -18,7 +18,7 @@ class Ancestor {
     this.coordinates = (coordinates !== undefined) ? coordinates : this.coordinates;
     this.birthdate = (birthdate !== undefined) ? birthdate : this.birthdate;
     this.deathdate = (deathdate !== undefined) ? deathdate : this.deathdate;
-  };
+  }; 
 }
 
  decorate(Ancestor, {

@@ -6,7 +6,7 @@ import { Text, HTML } from 'drei';
 const Ancestor = ({ ancestor, ancestorStore }) => {
   // foto inladen
   const img = new THREE.TextureLoader().load(
-    './assets/img/ancestor_george.png'
+    './assets/img/test1.jpg'
   );
 
   // hover effect

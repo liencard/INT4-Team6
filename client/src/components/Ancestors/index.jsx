@@ -2,7 +2,7 @@ import React, { useState} from 'react';
 import { Canvas } from 'react-three-fiber';
 import Controls from '../Controls';
 import Ancestor from '../Ancestor/index.jsx';
-import Preview from '../Preview/index.jsx';
+import Sidebar from '../Sidebar/index.jsx';
 
 import { useObserver } from "mobx-react-lite";
 import { useStore } from "../../hooks/useStore";
@@ -22,18 +22,9 @@ const [ancestor, setAncestor] = useState(null);
     setAncestor(clickedAncestor);
   };
 
-  // const PreviewTest = () => {
-  //   if (ancestor) {
-  //     return ancestor.id;
-  //   } else {
-  //     return null;
-  //   }
-  // };
-
   return useObserver(() => (
     <>
-      {/* <PreviewTest /> */}
-      <Preview ancestor={ancestor} preview={preview} setPreview={setPreview} />
+      <Sidebar type={"preview"} content={ancestor} toggle={preview} setToggle={setPreview} />
       <Canvas
         camera={{
           fov: 70,

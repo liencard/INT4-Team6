@@ -22,7 +22,7 @@ const Ancestor = ({ ancestor, ancestorStore }) => {
   const states = useSpring({
     scale: hovered ? [1.1, 1.1, 1] : [1, 1, 1],
   });
-
+  
   // coordinaten ophalen
   let coordinates = ancestor.coordinates.split(',');
   let position = coordinates.map((coordinate) =>
@@ -31,6 +31,8 @@ const Ancestor = ({ ancestor, ancestorStore }) => {
   let posX = position[0];
   let posY = position[1];
   let posZ = position[2];
+
+  const dates = `${ancestor.birthdate} - ${ancestor.deathdate}`;
 
   const mesh = React.useRef();
 
@@ -83,7 +85,7 @@ const Ancestor = ({ ancestor, ancestorStore }) => {
         fontSize={0.1}
         color={'white'}
       >
-        {ancestor.birthdate} - {ancestor.deathdate}
+        {dates}
       </Text>
 
       <a.mesh

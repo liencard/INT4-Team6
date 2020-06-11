@@ -2,7 +2,7 @@ import React from 'react';
 import { useObserver } from 'mobx-react-lite';
 import styles from './Preview.module.css';
 
-const Preview = ({ancestor, preview}) => {
+const Preview = ({ancestor}) => {
 
   return useObserver(() => (
       <>

@@ -17,7 +17,8 @@ const Sidebar = ({type, content, toggle, setToggle}) => {
 
   return useObserver(() => (
     <div className={`${styles.sidebar} ${toggle ? styles.sidebarOpened : styles.sidebarClosed}`}>
-      <Content />
+        <button className={styles.closeButton} onClick={() => setToggle(false)}>close</button>
+        <Content />
     </div>
   ));
   

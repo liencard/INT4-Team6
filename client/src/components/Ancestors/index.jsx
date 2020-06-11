@@ -8,14 +8,14 @@ import { useStore } from "../../hooks/useStore";
 
 const Ancestors = () => {
 const { ancestorStore } = useStore();
-const ancestors = ancestorStore.ancestors;
+//const ancestors = ancestorStore.ancestors;
 
   return useObserver(() => (
     <>
       <Canvas
         camera={{
-          fov: 50,
-          position: [0, 0, 53],
+          fov: 70,
+          position: [0, 0, 63],
           near: 0.1,
           far: 500,
         }}

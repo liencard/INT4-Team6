@@ -1,16 +1,16 @@
-/* @value tokens: "./tokens.module.css";
-@value fontSizeMedium, notblack, solight,background,colorPrimary, spacer1, spacer2 from tokens;
 
 .button {
-  border: 0.1rem solid notblack;
-  padding: spacer1;
-  border-radius: spacer2;
-  font-size: fontSizeMedium;
-  color: notblack;
-  background-color: solight;
+  composes: smallSpaced from "./typo.module.css";
+  border: .1rem solid white;
+  padding: 1.4rem 2rem;
+  display: flex;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  padding-right: 4rem;
+  background-position: 85% center;
+  transition: ease-in-out .4s;
 }
 
 .button:hover {
-  background-color: background;
-  cursor: pointer;
-} */
+  background-color: #151515;
+}

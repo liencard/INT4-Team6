@@ -1,6 +1,7 @@
 import React from 'react';
 import { useObserver } from 'mobx-react-lite';
 import styles from './Preview.module.css';
+import Button from '../Button/index.jsx';
 
 const Preview = ({ancestor}) => {
 
@@ -21,13 +22,12 @@ const Preview = ({ancestor}) => {
             {ancestor.birthdate} - {ancestor.deathdate}
           </p>
         </div>
-
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        <p className={styles.intro}>
+          Mary Walcott was born in 1777 because her mother, a black slave was
+          allowed to give birth to a child by her white owner.
         </p>
       </div>
-      <button>Button</button>
+      <Button text={'read story'} to={'link'} />
     </>
   ));
 };

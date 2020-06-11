@@ -2,6 +2,9 @@ import React, { useRef, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl'; 
 import styles from './Map.module.css';
 //import { useObserver } from 'mobx-react-lite';
+import { useStore } from "../../hooks/useStore";
+import Marker from '../Ancestor/index.jsx';
+
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiY2FyZG9lbmxpZW4iLCJhIjoiY2tiODI3Znl4MDAyazJ4cXJ6cWNvdWswcSJ9.aVAGrbiyl5I5yb5KROaD7A';
 
@@ -9,6 +12,8 @@ const Map = () => {
     const mapContainerRef = useRef(null);
     const regionsJson = require('./../../data/region.json');
     const ancestorsJson = require('./../../data/ancestors.json');
+
+    const { ancestorStore } = useStore();
 
       useEffect(() => {
         const map = new mapboxgl.Map({
@@ -99,28 +104,32 @@ const Map = () => {
                 }
             });
 
-            // ANCESTORS
-            ancestorsJson.features.forEach(function (marker) {
+            // ANCESTORS MARKER
+            {ancestorStore.ancestors.forEach(ancestor => {
               const el = document.createElement('div');
-              el.className = 'marker';
-              el.style.backgroundImage =
-                'url(https://placekitten.com/g/' +
-                marker.properties.iconSize.join('/') +
-                '/)';
-              el.style.width = marker.properties.iconSize[0] + 'px';
-              el.style.height = marker.properties.iconSize[1] + 'px';
+              el.classList.add('marker');
+              el.style.backgroundImage = 'url(./assets/img/loc_male.svg)';
+              el.style.width = '34px';
+              el.style.height = '38px';
 
-              el.addEventListener('click', function () {
-                window.alert('klik');
-              });
-
-              // add marker to map
+              let mapCoordinates = [];
+              let mapLat = `${ancestor.mapLat}`;
+              let mapLong = `${ancestor.mapLong}`;
+              mapCoordinates.push(parseFloat(mapLong));
+              mapCoordinates.push(parseFloat(mapLat));
               new mapboxgl.Marker(el)
-                .setLngLat(marker.geometry.coordinates)
+                .setLngLat(mapCoordinates)
                 .addTo(map);
-            });
 
-            // ON CLICK
+              // el.addEventListener('click', function () {
+              //    window.alert('klik');
+              // });
+
+              console.log(mapCoordinates);
+            })
+          }
+
+
             /* ook handig, functie fitBounds ipv flyTo (lijkt mij user friendlier voor alle devices + verschillende regio grotes) */
             /* https://docs.mapbox.com/mapbox-gl-js/example/fitbounds/ */
             map.on('click', 'regions-layer', function (e) {
@@ -146,7 +155,6 @@ const Map = () => {
                 });
               }
             });
-
 
             var popup = new mapboxgl.Popup({
               closeOnClick: false,

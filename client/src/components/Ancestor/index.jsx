@@ -25,6 +25,7 @@ const Ancestor = ({ ancestor, ancestorStore }) => {
   
   // coordinaten ophalen
   let coordinates = ancestor.coordinates.split(',');
+
   let position = coordinates.map((coordinate) =>
     parseInt(coordinate) ? parseInt(coordinate) : coordinate
   );

@@ -1,5 +1,5 @@
 @import "./styles/reset.css";
-@value tokens: "style/tokens.module.css";
+@value tokens: "styles/tokens.module.css";
 @value main from tokens;
 
 @font-face {
@@ -36,10 +36,13 @@ html {
 }
 
 body {
-  font-family: sans-serif;
   height: 100%;
   background-color: #1c1c1c; /* background werkt niet? */
   color: white;
+
+  font-family: 'Corbel', sans-serif;
+  font-weight: lighter;
+  font-size: 1.6rem;
 }
 
 #root {

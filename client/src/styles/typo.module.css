@@ -1,16 +1,14 @@
 @value tokens: "./tokens.module.css";
-@value fontSizeSmall, fontSizeRegular, fontSizeMedium, fontSizeLarge, fontSizeExtraLarge, fontSizeRegular, fontBody, fontTitle tokens;
+@value fontSizeSmall, fontSizeRegular, fontSizeMedium, fontSizeLarge, fontSizeExtraLarge, fontSizeRegular, fontBody, fontTitle from tokens;
 
 .titleLarge {
   font-family: fontTitle;
   font-size: fontSizeExtraLarge;
-  font-weight: bold;
 }
 
 .titleRegular {
   font-family: fontTitle;
   font-size: fontSizeLarge;
-  font-weight: bold;
 }
 
 .subtitle {
@@ -21,15 +19,19 @@
   letter-spacing: 10%;
 }
 
-.buttonText {
+.smallSpaced {
   text-transform: uppercase;
   font-size: fontSizeSmall;
   font-weight: lighter;
-  letter-spacing: 50%;
+  letter-spacing: .3rem;
 }
 
-.topText {
+.top {
   font-size: fontSizeRegular;
   font-weight: normal;
   font-family: fontTitle;
+}
+
+.text {
+  line-height: 1.7;
 }

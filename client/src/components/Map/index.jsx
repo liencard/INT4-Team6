@@ -42,8 +42,8 @@ const Map = () => {
               'fill-opacity': [
                 'case',
                 ['boolean', ['feature-state', 'zoom'], false],
-                0.2,
-                1,
+                ["get", "TRANSPARENCY"],
+                ["get", "TRANSPARENCY"],
               ],
             },
           });
@@ -55,13 +55,13 @@ const Map = () => {
                 source: "regions",
                 layout: {},
                 paint: {
-                "line-color": "rgba(200, 100, 240, 0.8)",
+                "line-color": "rgb(200, 100, 240)",
                 "line-width": 2,
                 "line-opacity": [
                     "case",
                     ["boolean", ["feature-state", "zoom"], false],
                     0.4,
-                    1
+                    ["get", "TRANSPARENCY"]
                 ]
                 }
             });

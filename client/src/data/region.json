@@ -371,7 +371,8 @@
                 "ROOTS_PERCENTAGE": "12.2",
                 "NUMBER_ANCESTORS": "5",
                 "ZOOMX": -1.052,
-                "ZOOMY": 52.619
+                "ZOOMY": 52.619,
+                "TRANSPARENCY": 0.8
             },
             "id": 1
         },
@@ -669,7 +670,8 @@
                 "ROOTS_PERCENTAGE": "5.6",
                 "NUMBER_ANCESTORS": "2",
                 "ZOOMX": -0.370886,
-                "ZOOMY": 49.177666
+                "ZOOMY": 49.177666,
+                "TRANSPARENCY": 0.5
             },
             "id": 2
         },
@@ -1039,7 +1041,8 @@
                 "ROOTS_PERCENTAGE": "8.7",
                 "NUMBER_ANCESTORS": "3",
                 "ZOOMX": -3.232729,
-                "ZOOMY": 7.613330
+                "ZOOMY": 7.613330,
+                "TRANSPARENCY": 0.65
             },
             "id": 3
         },
@@ -1233,7 +1236,8 @@
                 "ROOTS_PERCENTAGE": "1.2",
                 "NUMBER_ANCESTORS": "0",
                 "ZOOMX": 2.185204,
-                "ZOOMY": 8.507205
+                "ZOOMY": 8.507205,
+                "TRANSPARENCY": 0.25
             },
             "id": 4
         },
@@ -1623,9 +1627,10 @@
                 "ROOTS_PERCENTAGE": "1.2",
                 "NUMBER_ANCESTORS": "0",
                 "ZOOMX": -83.391075,
-                "ZOOMY": 37.858114
+                "ZOOMY": 37.858114,
+                "TRANSPARENCY": 1
             },
-            "id": 4
+            "id": 6
         },
         {
             "type": "Feature",
@@ -2141,9 +2146,10 @@
                 "ROOTS_PERCENTAGE": "1.0",
                 "NUMBER_ANCESTORS": "0",
                 "ZOOMX": -81.049358,
-                "ZOOMY": 8.425713
+                "ZOOMY": 8.425713,
+                "TRANSPARENCY": 0.25
             },
-            "id": 4
+            "id": 7
         }
     ]
 }

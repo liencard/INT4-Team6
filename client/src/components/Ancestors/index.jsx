@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState} from 'react';
 import { Canvas } from 'react-three-fiber';
 import Controls from '../Controls';
 import Ancestor from '../Ancestor/index.jsx';
+import Preview from '../Preview/index.jsx';
 
 import { useObserver } from "mobx-react-lite";
 import { useStore } from "../../hooks/useStore";
@@ -10,8 +11,29 @@ const Ancestors = () => {
 const { ancestorStore } = useStore();
 //const ancestors = ancestorStore.ancestors;
 
+const [preview, setPreview] = useState(false);
+const [ancestor, setAncestor] = useState(null);
+
+  const handleClickAncestor = (e) => {
+    e.stopPropagation();
+    const clickedAncestor = ancestorStore.getAncestorById(e.eventObject.ancestorId);
+
+    setPreview(true);
+    setAncestor(clickedAncestor);
+  };
+
+  // const PreviewTest = () => {
+  //   if (ancestor) {
+  //     return ancestor.id;
+  //   } else {
+  //     return null;
+  //   }
+  // };
+
   return useObserver(() => (
     <>
+      {/* <PreviewTest /> */}
+      <Preview ancestor={ancestor} preview={preview} setPreview={setPreview} />
       <Canvas
         camera={{
           fov: 70,
@@ -25,7 +47,13 @@ const { ancestorStore } = useStore();
         <pointLight position={[10, 10, 10]} />
 
         {ancestorStore.ancestors.map((ancestor) => (
-          <Ancestor key={ancestor.id} ancestor={ancestor} />
+          <group
+            key={ancestor.id}
+            ancestorId={ancestor.id}
+            onClick={(e) => handleClickAncestor(e)}
+          >
+            <Ancestor ancestor={ancestor} ancestorStore={ancestorStore} />
+          </group>
         ))}
       </Canvas>
     </>

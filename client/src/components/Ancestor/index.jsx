@@ -5,15 +5,17 @@ import { useFrame, useThree } from 'react-three-fiber';
 // import { computeBoundsTree, disposeBoundsTree, acceleratedRaycast } from 'three-mesh-bvh'; 
 // bvh deleten uit package.json indien niet gebruiken voor id op te halen raycaster
 
-import { Text } from 'drei';
+import { Text, HTML } from 'drei';
 import styles from '../Ancestor/Ancestor.module.css';
 // import { Link } from 'react-router-dom';
 // import { ROUTES } from '../../consts';
 
 
-const Ancestor = ({ancestor}) => {
+const Ancestor = ({ ancestor, ancestorStore }) => {
   // foto inladen
-  const img = new THREE.TextureLoader().load('./assets/img/ancestor_george.png');
+  const img = new THREE.TextureLoader().load(
+    './assets/img/ancestor_george.png'
+  );
 
   // hover effect
   const [hovered, setHover] = useState(false);
@@ -25,12 +27,10 @@ const Ancestor = ({ancestor}) => {
   let coordinates = ancestor.coordinates.split(',');
   let position = coordinates.map((coordinate) =>
     parseInt(coordinate) ? parseInt(coordinate) : coordinate
-  ); 
+  );
   let posX = position[0];
   let posY = position[1];
   let posZ = position[2];
-
-
 
   const mesh = React.useRef();
 
@@ -64,14 +64,9 @@ const Ancestor = ({ancestor}) => {
   // }
 
   const toggleHover = useCallback((e, value) => {
-      e.stopPropagation(); /// !!!!
-      setHover(value)
-  });
-
-  const handleClickAncestor = (e) => {
     e.stopPropagation(); /// !!!!
-    console.log(e.eventObject.uuid); // findId in store op basis van deze id? uuid is wel random TO CHECK, uniek id meegeven als prop?
-  };
+    setHover(value); // flicker bug
+  });
 
   return (
     <>
@@ -93,9 +88,10 @@ const Ancestor = ({ancestor}) => {
 
       <a.mesh
         ref={mesh} // mag weg later
+        ancestorId={ancestor.id}
         onPointerOver={(e) => toggleHover(e, true)}
         onPointerOut={(e) => toggleHover(e, false)}
-        onClick={(e) => handleClickAncestor(e)}
+        // onClick={(e) => handleClickAncestor(e)}
         scale={states.scale}
         position={[posX, posY, posZ]}
       >

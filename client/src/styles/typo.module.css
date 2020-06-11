@@ -1,5 +1,19 @@
-/* @value tokens: "./tokens.module.css";
-@value fontSizeLarge, fontSizeMedium, background, spacer1 from tokens;
+@value tokens: "./tokens.module.css";
+@value fontSizeSmall, fontSizeRegular, fontSizeMedium, fontSizeLarge, fontSizeExtraLarge tokens;
+
+/* @value background: #1C1C1C;
+@value dark: #151515;
+@value faded: #707070;
+
+@value spacerSmall: 1.5rem;
+@value spacer: 3rem;
+
+@value fontSizeSmall: 1.2rem;
+@value fontSizeRegular: 1.6rem;
+@value fontSizeMedium: 2rem;
+@value fontSizeLarge: 2.6rem;
+@value fontSizeExtraLarge: 6rem; */
+
 
 .title1 {
   font-size: fontSizeLarge;
@@ -15,4 +29,4 @@
 .largeText {
   font-size: fontSizeMedium;
   font-weight: bold;
-} */
+}

@@ -1,16 +1,12 @@
-@value colorPrimary: #00bcd4;
-@value darkPrimary: #028494;
-@value colorBubbleMe: #bdbdbd;
+@value background: #1C1C1C;
+@value dark: #151515;
+@value faded: #707070;
 
-@value background: #cfd8dc;
-@value hover: #eee;
+@value spacerSmall: 1.5rem;
+@value spacer: 3rem;
 
-@value solight: whitesmoke;
-@value notblack: darkslategrey;
-
-@value spacer1: 1rem;
-@value spacer2: 1.5rem;
-@value spacerLarge: 6rem;
-
-@value fontSizeMedium: 1.8rem;
-@value fontSizeLarge: 3rem;
+@value fontSizeSmall: 1.2rem;
+@value fontSizeRegular: 1.6rem;
+@value fontSizeMedium: 2rem;
+@value fontSizeLarge: 2.6rem;
+@value fontSizeExtraLarge: 6rem;

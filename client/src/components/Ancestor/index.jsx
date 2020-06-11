@@ -83,7 +83,7 @@ const Ancestor = ({ ancestor, ancestorStore }) => {
         fontSize={0.1}
         color={'white'}
       >
-        1850 - 1940
+        {ancestor.birthdate} - {ancestor.deathdate}
       </Text>
 
       <a.mesh

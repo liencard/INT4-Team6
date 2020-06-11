@@ -1,6 +1,16 @@
 
 .button {
-  composes: buttonText from "./typo.module.css";
+  composes: smallSpaced from "./typo.module.css";
   border: .1rem solid white;
-  padding: 1.4rem;
+  padding: 1.4rem 2rem;
+  display: flex;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  padding-right: 4rem;
+  background-position: 85% center;
+  transition: ease-in-out .4s;
+}
+
+.button:hover {
+  background-color: #151515;
 }

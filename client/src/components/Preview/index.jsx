@@ -1,6 +1,7 @@
 import React from 'react';
 import { useObserver } from 'mobx-react-lite';
 import styles from './Preview.module.css';
+import Button from '../Button/index.jsx';
 
 const Preview = ({ancestor}) => {
 
@@ -26,7 +27,7 @@ const Preview = ({ancestor}) => {
           allowed to give birth to a child by her white owner.
         </p>
       </div>
-      <button>Button</button>
+      <Button text={'read story'} to={'link'} />
     </>
   ));
 };

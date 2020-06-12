@@ -11,7 +11,7 @@ const Dashboard = () => {
       <div className={styles.container}>
         {/* Header dashboard */}
         <div className={styles.dashboard__header}>
-          <img className={styles.img} src='./assets/img/fyfr.svg' alt="group img" width="37" height="39"/>
+          <img className={styles.img} src='./assets/img/FYFR.svg' alt="group img" width="37" height="39"/>
           <div className="dashboard__views">
             <NavLink to={`${ROUTES.ancestors}`} className={styles.tab} activeClassName={styles.tabActive}>
               Family Tree

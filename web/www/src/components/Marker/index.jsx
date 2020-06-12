@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import mapboxgl from 'mapbox-gl'; 
-import styles from './Map.module.css';
+import { useObserver } from 'mobx-react-lite';
+import styles from './../Map/Map.module.css';
 
 const Marker = (ancestor) => {
 

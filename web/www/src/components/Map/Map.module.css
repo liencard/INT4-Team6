@@ -1,9 +1,3 @@
-/*
-.mapboxgl-popup {
-  max-width: 400px;
-  font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
-} */
-
 .mapContainer {
   position: absolute;
   top: 0;
@@ -16,4 +10,25 @@
 .marker {
   width: 34px;
   height: 38px;
+  background-color: red;
+}
+
+.popupContent {
+  background-color: rgb(17, 17, 17);
+}
+
+.popupTip {
+  border-top-color: rgb(17, 17, 17) !important;
+}
+
+/* werkt niet!!! */
+.popupImage {
+  border-radius: 50%;
+  margin-top: -50%;
+  margin-bottom: 5px;
+  margin-left: 8%;
+}
+
+.test {
+  color: red;
 }

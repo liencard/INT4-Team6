@@ -33,7 +33,7 @@
     padding-bottom: spacerSmall;
 }
 
-.last {
+.paragraph:last-of-type {
     composes: text from "../../styles/typo.module.css";
     padding-bottom: 4rem;
 }

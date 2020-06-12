@@ -137,10 +137,13 @@ const Map = () => {
                 .setLngLat(mapCoordinates)
                 .addTo(map);
               console.log(mapCoordinates);
-              // el.addEventListener('click', function () {
-              //   window.alert('klik');
-              // });
-              //el.addEventListener('click', handleClickMarker);
+
+              el.addEventListener('click', function () {
+                window.alert('klik');
+
+              });
+              
+              //el.addEventListener('click', handleClickAncestor);
 
               // let popup = new mapboxgl.Popup({
               //   closeOnClick: false,
@@ -200,14 +203,14 @@ const Map = () => {
         });
 
         return () => map.remove();
-      }, []); 
+      });  // ,[] weggedaan
 
       return useObserver(() => (
         <>
           <Sidebar type={"preview"} content={ancestor} toggle={preview} setToggle={setPreview} />
           <div className={styles.mapContainer} ref={mapContainerRef}/>
 
-          {/* {ancestorStore.ancestors.map((ancestor) => (
+          {ancestorStore.ancestors.map((ancestor) => (
               <group
                 key={ancestor.id}
                 ancestorId={ancestor.id}
@@ -216,7 +219,7 @@ const Map = () => {
                 <Marker ancestor={ancestor} ancestorStore={ancestorStore} />
               </group>
             ))
-          } */}
+          }
         </>
       ));
 };

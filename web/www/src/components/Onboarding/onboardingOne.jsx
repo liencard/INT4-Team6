@@ -34,9 +34,8 @@ const OnboardingOne = () => {
                 <p className={styles.paragraph}>Discover your roots through an interactive dashboard. You get two different view options to dive into your ancestors.</p>
                 <p className={styles.paragraph}>You can discover your ancestors by scrolling through the differents generations in your family tree.</p>
                 <p className={styles.paragraph}>Or you can discover your ancestors by roots and see where all your ancestors originate from on a map.</p>
-                <p className={(styles.paragraph, styles.last)}>Go and explore.</p>
-
-                <Button text={'next step'} to="/onboarding-two" className={styles.button}/>
+                <p className={styles.paragraph}>Go and explore.</p>
+                <Button text={'next step'} to={'onboarding-two'} className={styles.button}/>
             </div>
     
             </div>

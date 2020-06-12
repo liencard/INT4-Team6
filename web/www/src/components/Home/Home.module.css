@@ -1,0 +1,31 @@
+@value tokens: "../../styles/tokens.module.css";
+@value spacer, spacerSmall, faded from tokens;
+
+.home__bg{
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  padding: 3.5rem 8rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title__wrapper {
+    width: 40rem;
+    margin-top: 11.7rem;
+    margin-left: 30rem;
+}
+
+.title {
+    font-size: 9.6rem;
+    color: white;
+    font-family: "MadeCanvas", "DMSerifDisplay", Helvetica, sans-serif;
+    text-transform: capitalize;
+    line-height: 85%;
+    margin-bottom: 9rem;
+}

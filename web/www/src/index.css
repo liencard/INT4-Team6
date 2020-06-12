@@ -23,6 +23,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'MadeCanvas';
+  src: url(./fonts/MadeCanvas/MADECanvasRegular.woff2) format('woff2'), url(./fonts/MadeCanvas/MADECanvasRegular.woff) format('woff');
+  font-weight: lighter;
+  font-style: normal;
+}
+
 html {
   box-sizing: border-box;
   height: 100%;

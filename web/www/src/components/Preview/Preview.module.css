@@ -1,0 +1,29 @@
+@value tokens: "../../styles/tokens.module.css";
+@value borderRadius, extraSmallScreen, spacerRegular, spacerSmall from tokens;
+
+.image {
+    background-color: black;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto;
+    display: block;
+}
+
+.name {
+    composes: titleRegular from "../../styles/typo.module.css";
+}
+
+.dates {
+    padding-top: 1rem;
+    composes: smallSpaced from "../../styles/typo.module.css";
+    letter-spacing: .1rem;
+}
+
+.header {
+    padding: 3rem 0 4rem;
+    text-align: center;
+}
+
+.intro {
+    composes: text from "../../styles/typo.module.css";
+}

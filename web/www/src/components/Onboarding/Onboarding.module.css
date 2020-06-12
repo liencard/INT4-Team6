@@ -1,0 +1,53 @@
+@value tokens: "../../styles/tokens.module.css";
+@value spacer, spacerSmall, faded from tokens;
+
+.onboarding__wrapper{
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  background-image: url('/assets/img/onboarding_1.png') /* als applicatie draait root map, anders package.json public path */
+}
+
+.header {
+    padding: 3.5rem 8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text__wrapper {
+    /* width: 40rem; */
+    padding-top: 18rem;
+    padding-left: 97rem;
+    padding-right: 7rem;
+}
+
+.title {
+    composes: titleLarge from "../../styles/typo.module.css";
+    margin-bottom: 4.5rem;
+}
+
+.paragraph {
+    composes: text from "../../styles/typo.module.css";
+    font-weight: lighter;
+    padding-bottom: spacerSmall;
+}
+
+.last {
+    composes: text from "../../styles/typo.module.css";
+    padding-bottom: 4rem;
+}
+
+.button {
+    width: 18rem;
+}
+
+.tab {
+    composes: top from "../../styles/typo.module.css";
+    color: faded;
+    padding-right: 1.5rem;
+}
+
+.tabActive {
+    color: white;
+}

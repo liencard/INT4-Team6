@@ -1,27 +1,36 @@
-import React, { useState } from 'react';
-import { useSpring, a } from 'react-spring/three';
+import React, { useState, useCallback } from 'react';
 import * as THREE from 'three';
-import { HTML, Text } from 'drei';
-import styles from '../Ancestor/Ancestor.module.css';
+import { useSpring, a } from 'react-spring/three';
 
-const Ancestor = ({ancestor}) => {
+import { Text, HTML } from 'drei';
+const Ancestor = ({ ancestor, ancestorStore }) => {
   // foto inladen
-  const img = new THREE.TextureLoader().load('./assets/img/ancestor_george.png');
+  const img = new THREE.TextureLoader().load(
+    './assets/img/test1.jpg'
+  );
 
   // hover effect
   const [hovered, setHover] = useState(false);
   const states = useSpring({
     scale: hovered ? [1.1, 1.1, 1] : [1, 1, 1],
   });
-
+  
   // coordinaten ophalen
   let coordinates = ancestor.coordinates.split(',');
+
   let position = coordinates.map((coordinate) =>
     parseInt(coordinate) ? parseInt(coordinate) : coordinate
-  ); 
+  );
   let posX = position[0];
   let posY = position[1];
   let posZ = position[2];
+
+  const dates = `${ancestor.birthdate} - ${ancestor.deathdate}`;
+
+  const toggleHover = useCallback((e, value) => {
+    e.stopPropagation();
+    setHover(value); // flicker bug
+  }); 
 
   return (
     <>
@@ -37,13 +46,15 @@ const Ancestor = ({ancestor}) => {
         position={[posX - 0.6, posY + 0.5, posZ + 0.2]}
         fontSize={0.1}
         color={'white'}
+        font={'./assets/fonts/DMSerifDisplay-Regular.ttf'}
       >
-        1850 - 1940
+        {dates}
       </Text>
 
       <a.mesh
-        onPointerOver={(e) => setHover(true)}
-        onPointerOut={(e) => setHover(false)}
+        ancestorId={ancestor.id}
+        onPointerOver={(e) => toggleHover(e, true)}
+        onPointerOut={(e) => toggleHover(e, false)}
         scale={states.scale}
         position={[posX, posY, posZ]}
       >

@@ -10357,6 +10357,11 @@ text-table@0.2.0, text-table@^0.2.0:
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
 
+three-mesh-bvh@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/three-mesh-bvh/-/three-mesh-bvh-0.2.0.tgz#efacf4a8d2587d598f0b132e7130c14fe9fba99c"
+  integrity sha512-ylq8Yh0uDNWfk8K4GN9cAWqSc14pIoZqlzC+h4ujee7iIDqZQYvs4GMbjVmD5nruD+DQR3FQvZsQItLceYDq/w==
+
 three@0.116.1:
   version "0.116.1"
   resolved "https://registry.yarnpkg.com/three/-/three-0.116.1.tgz#a393f7a81fdc3e2fbf57ded5ba47dc5bd3678ce0"

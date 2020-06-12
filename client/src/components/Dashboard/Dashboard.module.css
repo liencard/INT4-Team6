@@ -1,0 +1,32 @@
+.container {
+    padding: 3.5rem 8rem;
+    z-index: 2;
+    background-color: transparent;
+    position: fixed;
+    width: 100%;
+}
+
+.dashboard__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tab {
+    color:grey;
+    padding: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.475rem;
+    font-size: 1.2rem;
+    border: .1rem solid grey;
+}
+
+.tab:last-child {
+    margin-left: -.1rem;
+    border-left: .1rem solid white;
+}
+
+.tabActive {
+    color: white;
+    border: .1rem solid white;
+}

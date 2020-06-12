@@ -1,0 +1,38 @@
+@value tokens: "./tokens.module.css";
+@value fontSizeSmall, fontSizeRegular, fontSizeMedium, fontSizeLarge, fontSizeExtraLarge, fontSizeRegular, fontBody, fontTitle from tokens;
+
+.titleLarge {
+  font-family: fontTitle;
+  font-size: fontSizeExtraLarge;
+}
+
+.titleRegular {
+  font-family: fontTitle;
+  font-size: fontSizeLarge;
+}
+ 
+.subtitle {
+  text-transform: uppercase;
+  font-family: fontBody;
+  font-size: fontSizeMedium;
+  font-weight: bold;
+  letter-spacing: 10%;
+}
+
+.smallSpaced {
+  text-transform: uppercase;
+  font-size: fontSizeSmall;
+  font-weight: lighter;
+  letter-spacing: .3rem;
+  color: white;
+}
+
+.top {
+  font-size: fontSizeRegular;
+  font-weight: normal;
+  font-family: fontTitle;
+}
+
+.text {
+  line-height: 1.7;
+}

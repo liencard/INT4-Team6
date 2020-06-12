@@ -12,7 +12,7 @@ const Controls = ({ }) => {
 
     // https://discourse.threejs.org/t/how-to-limit-pan-in-orbitcontrols-for-orthographiccamera/9061/15
     var minPan = new THREE.Vector3(-2, -2, -15);
-    var maxPan = new THREE.Vector3(2, 2, 50);
+    var maxPan = new THREE.Vector3(2, 2, 60);
     var _v = new THREE.Vector3();
 
     //  controls.current.addEventListener('change', function () {
@@ -44,7 +44,7 @@ const Controls = ({ }) => {
         zoomSpeed={0.5}
 
         minDistance={43}
-        maxDistance={55}
+        maxDistance={70}
         mouseButtons={{
           LEFT: THREE.MOUSE.PAN, // make pan the default instead of rotate
           MIDDLE: THREE.MOUSE.ZOOM,

@@ -5,6 +5,7 @@ use Slim\Factory\AppFactory;
 use Slim\Routing\RouteCollectorProxy as RouteCollectorProxy;
 
 require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/dao/AncestorDAO.php';
 
 try {
   $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
@@ -14,7 +15,6 @@ try {
 
 date_default_timezone_set('UTC');
 
-require __DIR__ . '/dao/AncestorDAO.php';
 
 /**
  * Instantiate App

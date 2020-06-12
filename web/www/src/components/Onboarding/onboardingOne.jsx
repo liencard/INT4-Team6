@@ -36,7 +36,7 @@ const OnboardingOne = () => {
                 <p className={styles.paragraph}>Or you can discover your ancestors by roots and see where all your ancestors originate from on a map.</p>
                 <p className={(styles.paragraph, styles.last)}>Go and explore.</p>
 
-                <Button text={'next step'} to="/onboarding-two" className={styles.button}/>
+                <Button text={'next step'} to={'onboarding-two'} className={styles.button}/>
             </div>
     
             </div>

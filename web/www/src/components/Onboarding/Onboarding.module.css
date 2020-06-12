@@ -5,7 +5,8 @@
   background-repeat: no-repeat;
   height: 100vh;
   width: 100vw;
-  background-image: url('/assets/img/onboarding_1.png') /* als applicatie draait root map, anders package.json public path */
+  /* background-image: url('/assets/img/onboarding_1.png')  */
+  /* als applicatie draait root map, anders package.json public path */
 }
 
 .header {
@@ -33,10 +34,10 @@
     padding-bottom: spacerSmall;
 }
 
-.paragraph:last-of-type {
+/* .paragraph:last-of-type {
     composes: text from "../../styles/typo.module.css";
     padding-bottom: 4rem;
-}
+} */
 
 .button {
     width: 18rem;

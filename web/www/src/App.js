@@ -5,6 +5,7 @@ import Dashboard from './components/Dashboard';
 import Map from './components/Map';
 import OnboardingOne from './components/Onboarding/onboardingOne';
 import OnboardingTwo from './components/Onboarding/onboardingTwo';
+import OnboardingThree from './components/Onboarding/onboardingThree';
 
 import { Route } from 'react-router-dom';
 import { Switch, Redirect } from 'react-router';
@@ -18,6 +19,9 @@ const App = () => {
             </Route>
             <Route path="/onboarding-two">
               <OnboardingTwo />
+            </Route>
+            <Route path="/onboarding-three">
+              <OnboardingThree />
             </Route>
             <Route path="/ancestors">
               <Dashboard />

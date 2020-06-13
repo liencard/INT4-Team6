@@ -17,20 +17,8 @@ const Map = () => {
 
   const { ancestorStore } = useStore();
   const ancestors =  ancestorStore.ancestors;
-
-  // NOG FIXEN
   const [preview, setPreview] = useState(false);
   const [ancestor, setAncestor] = useState(null);
-
-  const handleClickAncestor = (e) => {
-    e.stopPropagation();
-    const clickedAncestor = ancestorStore.getAncestorById(
-      e.eventObject.ancestorId
-    );
-
-    setPreview(true);
-    setAncestor(clickedAncestor);
-  };
 
   useEffect(() => {
     const map = new mapboxgl.Map({
@@ -41,6 +29,7 @@ const Map = () => {
       attributionControl: false,
     });
     document.querySelector('.mapboxgl-ctrl-logo').style.display = 'none';
+    map.dragRotate.disable();
 
     let hoveredRegionId = null;
     map.on('load', function () {
@@ -56,8 +45,8 @@ const Map = () => {
         type: 'fill',
         source: 'regions',
         paint: {
-          'fill-color': 'rgba(200, 100, 240, 0.4)',
-          'fill-outline-color': 'rgba(200, 100, 240, 1)',
+          'fill-color': 'rgba(187, 114, 114, 0.4)',
+          'fill-outline-color': 'rgba(187, 114, 114, 1)',
           'fill-opacity': [
             'case',
             ['boolean', ['feature-state', 'zoom'], false],
@@ -73,7 +62,7 @@ const Map = () => {
         source: 'regions',
         layout: {},
         paint: {
-          'line-color': 'rgb(200, 100, 240)',
+          'line-color': 'rgba(187, 114, 114, 1)',
           'line-width': 2,
           'line-opacity': [
             'case',
@@ -154,8 +143,8 @@ const Map = () => {
       map.getCanvas().style.cursor = '';
     });
 
-    ancestorStore.ancestors.forEach((ancestor) => {
-        createMarker(ancestor, map)
+    ancestors.forEach((ancestor) => {
+      createMarker(ancestor, map);
     });
 
     map.on('mouseenter', 'markers', function (e) {
@@ -202,8 +191,16 @@ const Map = () => {
         popupTip.classList.add(styles.popupTip);
       }
     };
+
+    const handleClickAncestor = (e) => {
+      const clickedAncestor = ancestorStore.getAncestorById(ancestor.id);
+      setAncestor(clickedAncestor);
+      setPreview(true);
+    };
+      
     markerDiv.addEventListener('mouseenter', handleHoverMarker);
     markerDiv.addEventListener('mouseleave', () => marker.togglePopup());
+    markerDiv.addEventListener('click', handleClickAncestor);
 }
 
   return useObserver(() => (
@@ -216,17 +213,6 @@ const Map = () => {
       />
       
       <div className={styles.mapContainer} ref={mapContainerRef} />
-
-      {/* {ancestorStore.ancestors.map((ancestor) => (
-              <group
-                key={ancestor.id}
-                ancestorId={ancestor.id}
-                onClick={(e) => handleClickAncestor(e)}
-              >
-                <Marker ancestor={ancestor} ancestorStore={ancestorStore} />
-              </group>
-            ))
-          } */}
     </>
   ));
 };

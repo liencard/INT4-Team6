@@ -68,6 +68,12 @@
     color: white;
 }
 
+.button {
+    composes: button from "../../styles/components.module.css";
+    align-self: flex-end;
+    margin: 0;
+}
+
 .empty {
     width: 4rem;
     height: 4rem;

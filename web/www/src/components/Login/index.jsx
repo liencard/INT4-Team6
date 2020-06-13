@@ -27,13 +27,7 @@ const Login = () => {
             height="39"
           />
           <p className={styles.header__text}>Login</p>
-          <img
-            className={styles.img}
-            src="./assets/img/hamburger.svg"
-            alt="group img"
-            width="24"
-            height="12"
-          />
+          <div className={styles.empty} />
         </div>
       </div>
 
@@ -68,7 +62,9 @@ const Login = () => {
             />
 
             <div className={styles.form__extra}>
-              <a href="#">forgot password?</a>
+              <a href="#" className={styles.link}>
+                forgot password?
+              </a>
               <label>
                 <input type="checkbox" name="remember" />
                 Remember me
@@ -85,7 +81,10 @@ const Login = () => {
         </form>
 
         <p className={styles.subtext}>
-          Don't have an account? <a href="#">Sign up</a>
+          Don't have an account?{' '}
+          <a className={styles.link} href="#">
+            Sign up
+          </a>
         </p>
       </div>
     </div>

@@ -138,6 +138,11 @@
     margin-bottom: 8rem;
 }
 
+.button {
+    composes: button from "../../styles/components.module.css";
+    margin: 0;
+}
+
 .timeline__wrapper {
     display: grid;
     grid-template-columns: 1fr 2fr;

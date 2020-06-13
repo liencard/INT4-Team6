@@ -1,6 +1,7 @@
 import React from 'react';
 import { useObserver } from 'mobx-react-lite';
 import styles from './Home.module.css';
+import { Link } from 'react-router-dom';
 import Button from '../Button/index.jsx';
 
 const Home = () => {
@@ -20,7 +21,9 @@ const Home = () => {
               width="37"
               height="39"
             />
-            <Button text={'Login'} to={'login'} />
+            <Link to={'login'}className={styles.button} style={{backgroundImage: `url(./assets/img/arrow.svg)`}}>
+              login
+            </Link>
           </div>
         </div>
 

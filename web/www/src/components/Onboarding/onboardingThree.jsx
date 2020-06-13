@@ -3,7 +3,6 @@ import { NavLink, Link } from 'react-router-dom';
 import { ROUTES } from '../../consts';
 import { useObserver } from 'mobx-react-lite';
 import styles from './Onboarding.module.css';
-import Button from '../Button/index.jsx';
 
 const OnboardingThree = () => {
 
@@ -43,7 +42,9 @@ const OnboardingThree = () => {
                     <p className={styles.paragraph}>Found some very interesting story? Share it with a friend! Find similarities in your friend’s family tree, you might have a vague connection?</p>
                     <p className={styles.paragraph}>Stories that are worth the read should be bookmarked in your personal collection so you find them right away!</p>
                 </div>
-                <Button text={'next step'} to={'ancestors'}className={styles.button}/>
+                <Link to={'ancestors'}className={styles.button} style={{backgroundImage: `url(./assets/img/arrow.svg)`}}>
+                    next step
+                </Link>
             </div>
     
             </div>

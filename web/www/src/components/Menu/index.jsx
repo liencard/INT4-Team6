@@ -1,6 +1,6 @@
 import React from 'react';
 import { useObserver } from 'mobx-react-lite';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { ROUTES } from '../../consts';
 import styles from './Menu.module.css';
 import Button from '../Button/index.jsx';

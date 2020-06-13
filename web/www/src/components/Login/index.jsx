@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useObserver } from 'mobx-react-lite';
+import { NavLink} from 'react-router-dom';
+import { ROUTES } from '../../consts';
 import styles from './Login.module.css';
 import Button from '../Button/index.jsx';
 
@@ -19,13 +21,15 @@ const Login = () => {
     >
       <div className={styles.header}>
         <div className={styles.header__wrapper}>
-          <img
-            className={styles.img}
-            src="./assets/img/FYFR.svg"
-            alt="group img"
-            width="37"
-            height="39"
-          />
+          <NavLink to={`${ROUTES.home}`} >
+            <img
+              className={styles.img}
+              src="./assets/img/FYFR.svg"
+              alt="group img"
+              width="37"
+              height="39"
+            />
+          </NavLink>
           <p className={styles.header__text}>Login</p>
           <div className={styles.empty} />
         </div>

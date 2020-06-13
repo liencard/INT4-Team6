@@ -2,11 +2,11 @@
 @value spacer, spacerSmall, faded, fontTitle from tokens;
 
 .home__bg{
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-  width: 100vw;
-  padding: 3.5rem 8rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    padding: 3.5rem 8rem;
 }
 
 .img {
@@ -36,7 +36,7 @@
     -webkit-animation:load_down 1s 2s forwards;
 }
 
-.img__red {
+/* .img__red {
     position:fixed;
     opacity:0;
     left: 72.2rem;
@@ -44,7 +44,7 @@
     animation:load_red 1s 1.8s forwards;
     -webkit-animation:load_red 1s 1.8s forwards;
     width: 21.5rem;
-}
+} */
 
 .img__small {
     position:fixed;
@@ -56,7 +56,7 @@
     width: 19.5rem;
 }
 
-.img__mouw {
+/* .img__mouw {
     position:fixed;
     opacity:0;
     left: 84rem;
@@ -64,7 +64,7 @@
     animation:load_mouw 1s 2s forwards;
     -webkit-animation:load_mouw 1s 2s forwards;
     width: 14rem;
-}
+} */
 
 @keyframes load_up{
     from{opacity:0;top:100%}
@@ -76,20 +76,20 @@
     to{opacity:1;top:2%;}
 }
 
-@keyframes load_red{
+/* @keyframes load_red{
     from{opacity:0;top:-100%}
     to{opacity:1;top:5%;}
-}
+} */
 
 @keyframes load_small{
     from{opacity:0;top:100%}
     to{opacity:1;top:49%;}
 }
 
-@keyframes load_mouw{
+/* @keyframes load_mouw{
     from{opacity:0;top:100%}
     to{opacity:1;top:44%;}
-}
+} */
 
 .header {
     z-index: 2;

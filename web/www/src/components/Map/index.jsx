@@ -39,7 +39,7 @@ const Map = () => {
         type: 'geojson',
         data: regionsJson,
       });
-      map.setMaxZoom(5);
+      map.setMaxZoom(10);
       map.setMinZoom(1.5);
 
       map.addLayer({

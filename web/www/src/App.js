@@ -34,10 +34,6 @@ const App = () => {
               <Dashboard />
               <Map />
             </Route>
-            <Route exact path={ROUTES.dashboard}>
-              <Dashboard />
-              <Ancestors />
-            </Route>
             <Route path={ROUTES.login}>
               <Login />
             </Route>

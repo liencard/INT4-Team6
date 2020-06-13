@@ -26,6 +26,24 @@ const Preview = ({ancestor}) => {
           Mary Walcott was born in 1777 because her mother, a black slave was
           allowed to give birth to a child by her white owner.
         </p>
+
+        <div className={styles.info}>
+          <img className={styles.icon} src='./assets/img/icon_location.svg' alt="icon of location pin" width="21" height="25"/>
+          <div className={styles.info__wrapper}>
+            <p className={styles.info__title}>Georgia</p>
+            <p className={styles.info__subtitle}>United States of America</p>
+          </div>
+          <img className={styles.icon} src='./assets/img/icon_work.svg' alt="icon of work bag" width="24" height="22"/>
+          <div className={styles.info__wrapper}>
+            <p className={styles.info__title}>Farmer</p>
+            <p className={styles.info__subtitle}>Working at cotton fields</p>
+          </div>
+          <img className={styles.icon} src='./assets/img/icon_period.svg' alt="icon of travel back time icon" width="22" height="21"/>
+          <div className={styles.info__wrapper}>
+            <p className={styles.info__title}>The american revolution</p>
+            <p className={styles.info__subtitle}>1776 - 1789</p>
+          </div>
+        </div>
       </div>
       <Button text={'read story'} to={'link'} />
     </>

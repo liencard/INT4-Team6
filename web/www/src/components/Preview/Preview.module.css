@@ -27,3 +27,20 @@
 .intro {
     composes: text from "../../styles/typo.module.css";
 }
+
+.info {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    align-items: center;
+    grid-row-gap: 2rem;
+    margin-top: 4rem;
+}
+
+.info__title {
+    composes: top from "../../styles/typo.module.css";
+    padding-bottom: .6rem;
+}
+
+.info__subtitle {
+    composes: smallSpaced from "../../styles/typo.module.css";
+}

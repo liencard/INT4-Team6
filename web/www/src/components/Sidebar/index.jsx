@@ -17,7 +17,15 @@ const Sidebar = ({type, content, toggle, setToggle}) => {
 
   return useObserver(() => (
     <div className={`${styles.sidebar} ${toggle ? styles.sidebarOpened : styles.sidebarClosed}`}>
-        <button className={styles.close} onClick={() => setToggle(false)}>close</button>
+        <button className={styles.close} onClick={() => setToggle(false)}>
+          <img
+            className={styles.image}
+            src="./assets/img/close_arrow.svg"
+            alt="close"
+            height="18"
+            width="25"
+          />
+        </button>
         <Content />
     </div>
   ));

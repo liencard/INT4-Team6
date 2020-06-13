@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState,  } from 'react';
+import React, { useRef, useEffect, useState, useLayoutEffect } from 'react';
 import mapboxgl from 'mapbox-gl';
 import styles from './Map.module.css';
 // import './Map.module.css';
@@ -19,6 +19,7 @@ const Map = () => {
   const ancestors =  ancestorStore.ancestors;
   const [preview, setPreview] = useState(false);
   const [ancestor, setAncestor] = useState(null);
+  const [loading, setLoading] = useState('loading')
 
   useEffect(() => {
     const map = new mapboxgl.Map({
@@ -28,6 +29,7 @@ const Map = () => {
       zoom: 1.5,
       attributionControl: false,
     });
+
     document.querySelector('.mapboxgl-ctrl-logo').style.display = 'none';
     map.dragRotate.disable();
 
@@ -128,11 +130,21 @@ const Map = () => {
     });
 
     map.on('zoomend', function () {
-      if (map.getZoom() < 4) {
-        map.removeFeatureState({
-          source: 'regions',
-        });
-      }
+      // if (map.getZoom() < 4) {
+      //   map.removeFeatureState({
+      //     source: 'regions',
+      //   });
+      // }
+
+      ancestors.forEach((ancestor) => {
+        // mapboxgl-marker
+        if (map.getZoom() > 2) {
+          createMarker(ancestor, map);
+        } else if (map.getZoom() < 2) {
+          removeMarkers();
+        }
+      });
+
     });
 
     map.on('mouseenter', 'regions-layer', function (e) {
@@ -143,10 +155,6 @@ const Map = () => {
       map.getCanvas().style.cursor = '';
     });
 
-    ancestors.forEach((ancestor) => {
-      createMarker(ancestor, map);
-    });
-
     map.on('mouseenter', 'markers', function (e) {
       map.getCanvas().style.cursor = 'pointer';
     });
@@ -154,16 +162,31 @@ const Map = () => {
     return () => map.remove();
   }, []);
 
+
+
+  const removeMarkers = () => {
+    const markers = document.querySelectorAll('.mapboxgl-marker');
+    markers.forEach((marker) => marker.parentNode.removeChild(marker));
+  }
+
+
+
   const createMarker = (ancestor, map) => { 
+    // CSS neemt niet?
     let content = `<img src="./assets/img/ancestor_george.png" className=${styles.popupImage} height="60px" width="60px" />
       <p className=${styles.test}>${ancestor.name}</p>
       <p>${ancestor.birthdate} - ${ancestor.deathdate}</p>`;
     let popup = new mapboxgl.Popup({ offset: 25 }).setHTML(content);
     const el = document.createElement('div');
-    el.classList.add('marker');
-    el.style.backgroundImage = 'url(./assets/img/loc_male.svg)';
-    el.style.width = '34px';
-    el.style.height = '38px';
+    el.classList.add('marker'); // CSS neemt niet?
+    // el.style.backgroundImage = 'url(./assets/img/loc_male.svg)';
+    // el.style.width = '34px';
+    // el.style.height = '38px';
+    el.style.width = '10px';
+    el.style.height = '10px';
+    el.style.backgroundColor = 'red';
+    el.style.borderRadius = '50%';
+
     let mapCoordinates = [];
     let mapLat = `${ancestor.mapLat}`;
     let mapLong = `${ancestor.mapLong}`;
@@ -174,7 +197,6 @@ const Map = () => {
       .setLngLat(mapCoordinates)
       .setPopup(popup)
       .addTo(map);
-
     const markerDiv = marker.getElement();
 
     const handleHoverMarker = (e) => {
@@ -203,6 +225,10 @@ const Map = () => {
     markerDiv.addEventListener('click', handleClickAncestor);
 }
 
+
+
+
+
   return useObserver(() => (
     <>
       <Sidebar
@@ -211,7 +237,7 @@ const Map = () => {
         toggle={preview}
         setToggle={setPreview}
       />
-      
+
       <div className={styles.mapContainer} ref={mapContainerRef} />
     </>
   ));

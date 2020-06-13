@@ -33,12 +33,12 @@ const App = () => {
               <Dashboard />
               <Map />
             </Route>
-            <Route path={ROUTES.home}>
-              <Home />
-            </Route>
             <Route exact path={ROUTES.dashboard}>
               <Dashboard />
               <Ancestors />
+            </Route>
+            <Route path={ROUTES.home}>
+              <Home />
             </Route>
             <Route>
                 <p>Not found</p>

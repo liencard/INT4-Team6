@@ -1,6 +1,6 @@
 const ROUTES = {
-  home: '/home',
-  dashboard: '/',
+  home: '/',
+  dashboard: '/dashboard',
   ancestors: '/ancestors',
   map: '/map',
   onboardingOne: '/onboarding-one',

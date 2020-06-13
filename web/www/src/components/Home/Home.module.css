@@ -1,5 +1,5 @@
 @value tokens: "../../styles/tokens.module.css";
-@value spacer, spacerSmall, faded from tokens;
+@value spacer, spacerSmall, faded, fontTitle from tokens;
 
 .home__bg{
   background-repeat: no-repeat;
@@ -15,17 +15,50 @@
     align-items: center;
 }
 
+.content__wrapper {
+    display: grid;
+    grid-template-columns: 10rem 1fr 16rem;
+    margin-top: 5.5rem;
+}
+
 .title__wrapper {
     width: 40rem;
-    margin-top: 11.7rem;
-    margin-left: 30rem;
+    margin-top: 7rem;
+    margin-left: 19rem;
+    align-self: flex-end;
 }
 
 .title {
     font-size: 9.6rem;
     color: white;
-    font-family: "MadeCanvas", "DMSerifDisplay", Helvetica, sans-serif;
+    font-family: "MadeCanvas", "DMSerifDisplay", serif;
     text-transform: capitalize;
     line-height: 85%;
     margin-bottom: 9rem;
+}
+
+.timeline__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: repeat(4, 12rem) 7rem;
+    text-transform: capitalize;
+    font-family: fontTitle, serif;
+    font-size: 1.3rem;
+    align-self: flex-end;
+}
+
+.timeline__wrapper span {
+    padding-top: 2.4rem;
+}
+
+.timeline__wrapper span:nth-child(even) {
+    border-left: .1rem solid white;
+    padding-left: 1rem;
+}
+
+.sidetext {
+    font-family: fontTitle, serif;
+    font-size: 1.6rem;
+    line-height: 188.9%;
+    text-align: right;
 }

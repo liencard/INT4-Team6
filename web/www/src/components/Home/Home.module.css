@@ -9,7 +9,97 @@
   padding: 3.5rem 8rem;
 }
 
+.img {
+    position:fixed;
+    opacity:0;
+    height: 100%;
+}
+
+.img__left {
+    left: 43rem;
+    top:90%;
+    animation:load_down 1s 1.6s forwards;
+    -webkit-animation:load_down 1s 1.6s forwards;
+}
+
+.img__middle {
+    left: 70.2rem;
+    top:-100%;
+    animation:load_up 1s 2s forwards;
+    -webkit-animation:load_up 1s 2s forwards;
+}
+
+.img__right {
+    left: 76.4rem;
+    top:100%;
+    animation:load_down 1s 2s forwards;
+    -webkit-animation:load_down 1s 2s forwards;
+}
+
+.img__red {
+    position:fixed;
+    opacity:0;
+    left: 72.2rem;
+    top:100%;
+    animation:load_red 1s 1.8s forwards;
+    -webkit-animation:load_red 1s 1.8s forwards;
+    width: 21.5rem;
+}
+
+.img__small {
+    position:fixed;
+    opacity:0;
+    left: 45.5rem;
+    top:-100%;
+    animation:load_small 1s 2s forwards;
+    -webkit-animation:load_small 1s 2s forwards;
+    width: 19.5rem;
+}
+
+.img__mouw {
+    position:fixed;
+    opacity:0;
+    left: 84rem;
+    top:-100%;
+    animation:load_mouw 1s 2s forwards;
+    -webkit-animation:load_mouw 1s 2s forwards;
+    width: 14rem;
+}
+
+@keyframes load_up{
+    from{opacity:0;top:100%}
+    to{opacity:1;top:1.5%;}
+}
+
+@keyframes load_down{
+    from{opacity:0;top:-100%}
+    to{opacity:1;top:2%;}
+}
+
+@keyframes load_red{
+    from{opacity:0;top:-100%}
+    to{opacity:1;top:5%;}
+}
+
+@keyframes load_small{
+    from{opacity:0;top:100%}
+    to{opacity:1;top:49%;}
+}
+
+@keyframes load_mouw{
+    from{opacity:0;top:100%}
+    to{opacity:1;top:44%;}
+}
+
 .header {
+    z-index: 2;
+    position: fixed;
+    width: 90vw;
+    animation: cssAnimation 1s ease-in 3s forwards;
+    opacity: 0;
+}
+
+.header__wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -18,7 +108,18 @@
 .content__wrapper {
     display: grid;
     grid-template-columns: 10rem 1fr 16rem;
-    margin-top: 5.5rem;
+    z-index: 2;
+    position: fixed;
+    top: 10.5rem;
+    width: 90vw;
+    animation: cssAnimation 1s ease-in 3s forwards;
+    opacity: 0;
+}
+
+@keyframes cssAnimation {
+    0% { opacity: 0; }
+    50% { opacity: .5; }
+    100% { opacity: 1; }
 }
 
 .title__wrapper {
@@ -34,7 +135,7 @@
     font-family: "MadeCanvas", "DMSerifDisplay", serif;
     text-transform: capitalize;
     line-height: 85%;
-    margin-bottom: 9rem;
+    margin-bottom: 8rem;
 }
 
 .timeline__wrapper {

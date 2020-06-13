@@ -9,17 +9,28 @@ const Home = () => {
     <>
       <div
         className={styles.home__bg}
-        style={{ backgroundImage: `url(assets/img/home_header.png)` }}
+        style={{ backgroundImage: `url(assets/img/home_bgcolor.png)` }}
       >
         <div className={styles.header}>
-          <img
-            className={styles.img}
-            src="./assets/img/FYFR.svg"
-            alt="group img"
-            width="37"
-            height="39"
-          />
-          <Button text={'Login'} to={'login'} />
+          <div className={styles.header__wrapper}>
+            <img
+              className={styles.logo}
+              src="./assets/img/FYFR.svg"
+              alt="logo"
+              width="37"
+              height="39"
+            />
+            <Button text={'Login'} to={'login'} />
+          </div>
+        </div>
+
+        <div className={styles.sliced__wrapper}>
+          <img className={`${styles.img} ${styles.img__left}`} src="./assets/img/header_left.png" alt="left" />
+          <img className={`${styles.img} ${styles.img__middle}`}  src="./assets/img/header_middle.png" alt="middle" />
+          <img className={`${styles.img} ${styles.img__right}`}  src="./assets/img/header_right_old.png" alt="right" />
+          {/* <img className={`${styles.img__red}`}  src="./assets/img/header_red.png" alt="red" /> */}
+          <img className={`${styles.img__small}`}  src="./assets/img/header_small.png" alt="small" />
+          {/* <img className={`${styles.img__mouw}`}  src="./assets/img/header_mouw.png" alt="mouw" /> */}
         </div>
 
         <div className={styles.content__wrapper}>

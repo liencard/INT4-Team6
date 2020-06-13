@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { ROUTES } from '../../consts';
 import styles from './Dashboard.module.css';
-
+import { useObserver } from 'mobx-react-lite';
+import Sidebar from '../Sidebar/index.jsx';
 
 /* misschien is header eigenlijk een logischere naam voor deze component? */
+/* => uiteindelijk komt de info icone en share functie hier ook in niet?*/
+
 const Dashboard = () => {
-  return (
+    const [menu, setMenu] = useState(false);
+
+    const handleClickMenu = (e) => {
+    e.stopPropagation();
+    setMenu(true);
+  };
+
+
+  return useObserver(() => (
     <>
+      <Sidebar type={"menu"} toggle={menu} setToggle={setMenu} />
       <div className={styles.container}>
         {/* Header dashboard */}
         <div className={styles.dashboard__header}>
@@ -20,13 +32,16 @@ const Dashboard = () => {
               Roots DNA
             </NavLink>
           </div>
-          <img className={styles.img} src='./assets/img/hamburger.svg' alt="group img" width="24" height="12" />
+          <button onClick={(e) => handleClickMenu(e)}>
+            <img className={styles.img} src='./assets/img/hamburger.svg' alt="group img" width="24" height="12" />
+          </button>
         </div>
 
+        
       </div>
 
     </>
-  );
+  ));
 };
 
 export default Dashboard;

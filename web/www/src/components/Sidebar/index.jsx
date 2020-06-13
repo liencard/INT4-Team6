@@ -2,12 +2,13 @@ import React from 'react';
 import styles from './Sidebar.module.css';
 import { useObserver } from 'mobx-react-lite';
 import Preview from '../Preview/index.jsx';
+import Menu from '../Menu/index.jsx';
 
 const Sidebar = ({type, content, toggle, setToggle}) => {
 
     const Content = () => {
       if (toggle && type === 'menu') {
-        return 'menu komt hier'
+        return <Menu />;
       } else if (toggle && type === 'preview') {
         return  <Preview ancestor={content} />
       } else {

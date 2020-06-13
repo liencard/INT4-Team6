@@ -39,6 +39,7 @@
 .info__title {
     composes: top from "../../styles/typo.module.css";
     padding-bottom: .6rem;
+    text-transform: capitalize;
 }
 
 .info__subtitle {

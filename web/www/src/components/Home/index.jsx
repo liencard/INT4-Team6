@@ -19,7 +19,7 @@ const Home = () => {
             width="37"
             height="39"
           />
-          <Button text={'Login'} to={'onboarding-one'} />
+          <Button text={'Login'} to={'login'} />
         </div>
 
         <div className={styles.content__wrapper}>

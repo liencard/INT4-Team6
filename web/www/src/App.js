@@ -8,6 +8,7 @@ import OnboardingOne from './components/Onboarding/onboardingOne';
 import OnboardingTwo from './components/Onboarding/onboardingTwo';
 import OnboardingThree from './components/Onboarding/onboardingThree';
 import Home from './components/Home';
+import Login from './components/Login';
 
 import { Route } from 'react-router-dom';
 import { Switch, Redirect } from 'react-router';
@@ -36,6 +37,9 @@ const App = () => {
             <Route exact path={ROUTES.dashboard}>
               <Dashboard />
               <Ancestors />
+            </Route>
+            <Route path={ROUTES.login}>
+              <Login />
             </Route>
             <Route path={ROUTES.home}>
               <Home />

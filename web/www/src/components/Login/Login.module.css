@@ -1,0 +1,44 @@
+@value tokens: "../../styles/tokens.module.css";
+@value fontBody from tokens;
+
+.login__wrapper{
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  padding: 3.5rem 8rem;
+  display:grid;
+  grid-template-columns: 1fr 55rem;
+}
+
+.header {
+    position: fixed;
+}
+
+.header__wrapper {
+    width: 90vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__text {
+    composes: top from "../../styles/typo.module.css";
+}
+
+.login__img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.title {
+    composes: titleLarge from "../../styles/typo.module.css";
+}
+
+.subtitle {
+    font-family: fontBody;
+    font-weight: lighter;
+    font-size: 1.8rem;
+}

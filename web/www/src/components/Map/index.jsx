@@ -178,13 +178,10 @@ const Map = () => {
       <p>${ancestor.birthdate} - ${ancestor.deathdate}</p>`;
     let popup = new mapboxgl.Popup({ offset: 25 }).setHTML(content);
     const el = document.createElement('div');
-    el.classList.add('marker'); // CSS neemt niet?
+    el.classList.add(styles.marker);
     // el.style.backgroundImage = 'url(./assets/img/loc_male.svg)';
     // el.style.width = '34px';
     // el.style.height = '38px';
-    el.style.width = '10px';
-    el.style.height = '10px';
-    el.style.backgroundColor = 'red';
     el.style.borderRadius = '50%';
 
     let mapCoordinates = [];

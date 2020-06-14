@@ -133,7 +133,7 @@
 .timeline__wrapper span:nth-child(even) {
     border-left: .1rem solid white;
     padding-left: 1rem;
-}
+} 
 
 .sidetext {
     font-family: fontTitle, serif;
@@ -148,6 +148,6 @@
     }
 
     .timeline__wrapper {
-        grid-template-rows: repeat(4, 14mrem) 7rem;
+        grid-template-rows: repeat(4, 14rem) 7rem;
     }
 }

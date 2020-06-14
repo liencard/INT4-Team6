@@ -3,8 +3,10 @@
 @value dark: #151515;
 @value faded: #707070;
 
+
 @value spacerSmall: 1.5rem;
 @value spacer: 3rem;
+@value spacerBig: 8rem;
 
 @value fontSizeSmall: 1.2rem;
 @value fontSizeRegular: 1.6rem;

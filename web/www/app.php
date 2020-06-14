@@ -6,6 +6,7 @@ use Slim\Routing\RouteCollectorProxy as RouteCollectorProxy;
 
 require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/dao/AncestorDAO.php';
+require __DIR__ . '/dao/UserDAO.php';
 
 try {
   $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
@@ -50,6 +51,17 @@ $app->group('/api', function (RouteCollectorProxy $routeGroup) {
     $routeGroup->get('', function (Request $request, Response $response) {
       $ancestorDAO = new AncestorDAO();
       $data = $ancestorDAO->selectAll();
+      $response->getBody()->write(json_encode($data));
+      return $response
+              ->withHeader('Content-Type', 'application/json')
+              ->withStatus(200);
+    });
+  });
+
+  $routeGroup->group('/users', function (RouteCollectorProxy $routeGroup) {
+    $routeGroup->get('', function (Request $request, Response $response) {
+      $userDAO = new UserDAO();
+      $data = $userDAO->selectAll();
       $response->getBody()->write(json_encode($data));
       return $response
               ->withHeader('Content-Type', 'application/json')

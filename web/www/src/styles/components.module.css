@@ -8,9 +8,9 @@
   background-repeat: no-repeat;
   padding-right: 4rem;
   background-position: 85% center;
-  transition: ease-in-out .4s;
+  transition: ease-in-out .2s;
 }
 
 .button:hover {
-  background-color: #151515;
+  background-color: rgba(255,255,255,.15);
 }

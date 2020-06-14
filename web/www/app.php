@@ -7,6 +7,7 @@ use Slim\Routing\RouteCollectorProxy as RouteCollectorProxy;
 require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/dao/AncestorDAO.php';
 require __DIR__ . '/dao/UserDAO.php';
+require __DIR__ . '/dao/BookmarksDAO.php';
 
 try {
   $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
@@ -62,6 +63,17 @@ $app->group('/api', function (RouteCollectorProxy $routeGroup) {
     $routeGroup->get('', function (Request $request, Response $response) {
       $userDAO = new UserDAO();
       $data = $userDAO->selectAll();
+      $response->getBody()->write(json_encode($data));
+      return $response
+              ->withHeader('Content-Type', 'application/json')
+              ->withStatus(200);
+    });
+  });
+
+    $routeGroup->group('/bookmarks', function (RouteCollectorProxy $routeGroup) {
+    $routeGroup->get('', function (Request $request, Response $response) {
+      $bookmarkDAO = new BookmarkDAO();
+      $data = $bookmarkDAO->selectBookmarksByUser();
       $response->getBody()->write(json_encode($data));
       return $response
               ->withHeader('Content-Type', 'application/json')

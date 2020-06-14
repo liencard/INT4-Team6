@@ -1,16 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useObserver } from 'mobx-react-lite';
 import styles from './Home.module.css';
 import { Link } from 'react-router-dom';
 import Button from '../Button/index.jsx';
+import Login from '../LoginSidebar/index.jsx';
 
 const Home = () => {
+  const [login, setLogin] = useState(false);
+
+  const LoginView = () => {
+    if (login) {
+      return <Login login={login} />;
+    } else {
+      return '';
+    }
+  };
 
   return useObserver(() => (
     <>
-      <div
-        className={styles.home__wrapper}
-      >
+      <div className={styles.home__wrapper}>
         <div className={styles.header}>
           <div className={styles.header__wrapper}>
             <img
@@ -20,21 +28,48 @@ const Home = () => {
               width="37"
               height="39"
             />
-            <Link to={'login'}className={styles.button} style={{backgroundImage: `url(./assets/img/arrow.svg)`}}>
+            <button className={styles.button} onClick={(e) => setLogin(true)}>
+              Login
+            </button>
+            {/* <Link to={'login'}className={styles.button} style={{backgroundImage: `url(./assets/img/arrow.svg)`}}>
               login
-            </Link>
+            </Link> */}
           </div>
         </div>
 
-        <div className={styles.sliced__wrapper}>
-          <img className={`${styles.img} ${styles.img__left}`} src="./assets/img/header_left.jpg" alt="left" />
-          <img className={`${styles.img} ${styles.img__middle}`}  src="./assets/img/header_middle.jpg" alt="middle" />
-          <img className={`${styles.img} ${styles.img__right}`}  src="./assets/img/header_right.jpg" alt="right" />
-          <img className={`${styles.img__small}`}  src="./assets/img/header_small.jpg" alt="small" />
+        <div
+          className={`${styles.sliced__wrapper} ${
+            login ? styles.sliced__wrapperMove : ''
+          }`}
+        >
+          <img
+            className={`${styles.img} ${styles.img__left}`}
+            src="./assets/img/header_left.jpg"
+            alt="left"
+          />
+          <img
+            className={`${styles.img} ${styles.img__middle}`}
+            src="./assets/img/header_middle.jpg"
+            alt="middle"
+          />
+          <img
+            className={`${styles.img} ${styles.img__right}`}
+            src="./assets/img/header_right.jpg"
+            alt="right"
+          />
+          <img
+            className={`${styles.img__small}`}
+            src="./assets/img/header_small.jpg"
+            alt="small"
+          />
         </div>
 
         <div className={styles.content__wrapper}>
-          <div className={styles.timeline__wrapper}>
+          <div
+            className={`${styles.timeline__wrapper} ${
+              login ? styles.timeline__wrapperDissapear : ''
+            }`}
+          >
             <span>01</span>
             <span>Start Journey</span>
             <span>02</span>
@@ -47,7 +82,11 @@ const Home = () => {
             <span>Go explore</span>
           </div>
 
-          <div className={styles.title__wrapper}>
+          <div
+            className={`${styles.title__wrapper} ${
+              login ? styles.title__wrapperDissapear : ''
+            }`}
+          >
             <h1 className={styles.title}>Discover your hidden family roots</h1>
             <Button text={'Start now'} to={'link'} />
           </div>
@@ -58,6 +97,7 @@ const Home = () => {
           </p>
         </div>
       </div>
+      <LoginView />
     </>
   ));
 };

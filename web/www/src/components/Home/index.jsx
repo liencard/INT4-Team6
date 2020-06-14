@@ -9,8 +9,7 @@ const Home = () => {
   return useObserver(() => (
     <>
       <div
-        className={styles.home__bg}
-        style={{ backgroundImage: `url(assets/img/home_bgcolor.png)` }}
+        className={styles.home__wrapper}
       >
         <div className={styles.header}>
           <div className={styles.header__wrapper}>
@@ -28,12 +27,10 @@ const Home = () => {
         </div>
 
         <div className={styles.sliced__wrapper}>
-          <img className={`${styles.img} ${styles.img__left}`} src="./assets/img/header_left.png" alt="left" />
-          <img className={`${styles.img} ${styles.img__middle}`}  src="./assets/img/header_middle.png" alt="middle" />
-          <img className={`${styles.img} ${styles.img__right}`}  src="./assets/img/header_right_old.png" alt="right" />
-          {/* <img className={`${styles.img__red}`}  src="./assets/img/header_red.png" alt="red" /> */}
-          <img className={`${styles.img__small}`}  src="./assets/img/header_small.png" alt="small" />
-          {/* <img className={`${styles.img__mouw}`}  src="./assets/img/header_mouw.png" alt="mouw" /> */}
+          <img className={`${styles.img} ${styles.img__left}`} src="./assets/img/header_left.jpg" alt="left" />
+          <img className={`${styles.img} ${styles.img__middle}`}  src="./assets/img/header_middle.jpg" alt="middle" />
+          <img className={`${styles.img} ${styles.img__right}`}  src="./assets/img/header_right.jpg" alt="right" />
+          <img className={`${styles.img__small}`}  src="./assets/img/header_small.jpg" alt="small" />
         </div>
 
         <div className={styles.content__wrapper}>

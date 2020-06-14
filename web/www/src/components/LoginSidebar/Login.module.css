@@ -1,0 +1,27 @@
+@value tokens: "../../styles/tokens.module.css";
+@value fontBody, faded, spacerBig, spacer from tokens;
+
+
+.login__wrapper {
+    position: fixed;
+    color: red;
+    background-color: pink;
+    opacity: .1;
+    height: 100%;
+    top: 0;
+    right: 0;
+    margin: spacer spacerBig;
+    width: 40rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.login__wrapperClosed {
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+
+.login__wrapperOpened {
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+} 

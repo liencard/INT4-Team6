@@ -1,5 +1,5 @@
 @value tokens: "../../styles/tokens.module.css";
-@value fontBody, faded from tokens;
+@value fontBody, faded, spacerBig from tokens;
 
 .login__wrapper{
   background-repeat: no-repeat;
@@ -34,8 +34,12 @@
 }
 
 .content__wrapper {
-    margin: 18rem 8rem 0 8rem;
+    margin: 0 spacerBig;
     text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .title {
@@ -43,13 +47,14 @@
 }
 
 .subtitle {
-    font-family: fontBody;
+    composes: subtitle from "../../styles/typo.module.css";
     font-weight: lighter;
-    font-size: 1.8rem;
+    letter-spacing: .2em;
+    margin-top: 1rem;
 }
 
 .form {
-    margin-top: 3.5rem;
+    margin-top: 6rem;
     text-align: left;
     color: faded;
 }
@@ -57,7 +62,7 @@
 .form__wrapper {
     display: flex;
     flex-direction: column;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 }
 
 /* Visually hidden - zie thatsapp firebase */
@@ -75,12 +80,15 @@
 .form__input {
     margin-bottom: 1rem;
     background: transparent;
+    border: none;
     border-bottom: .1rem solid faded;
     padding: 1rem;
+    outline: none;
+    color: white;
 }
 
-.form__input:active {
-    border: .1rem solid white;
+.form__input:active, .form__input:focus {
+    border-bottom: .1rem solid white;
     background: transparent;
 }
 
@@ -102,7 +110,7 @@
     grid-template-columns: 18rem auto 18rem;
     align-items: center;
     text-align: center;
-    margin-top: 3rem;
+    margin-top: 6rem;
 }
 
 .line {

@@ -67,7 +67,7 @@ const Login = () => {
 
             <div className={styles.form__extra}>
               <a href="#" className={styles.link}>
-                forgot password?
+                Forgot password?
               </a>
               <label>
                 <input type="checkbox" name="remember" />

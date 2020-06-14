@@ -31,14 +31,14 @@ const Menu = () => {
             className={styles.nav}
             activeClassName={styles.tabActive}
           >
-            Dashboard
+            Family Tree
           </NavLink>
           <NavLink
-            to={'ling'}
+            to={`${ROUTES.map}`}
             className={styles.nav}
             activeClassName={styles.tabActive}
           >
-            Link 1
+            DNA Roots
           </NavLink>
           <NavLink
             to={'link'}

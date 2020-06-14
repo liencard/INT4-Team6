@@ -34,10 +34,11 @@
     width: 84.5rem;
     height: 100%;
     overflow: hidden;
+    transform: scale(.8);
 }
 
 .sliced__wrapperMove {
-    transform: translateX(-20rem);
+    transform: scale(.8) translateX(-20rem);
     transition: transform 0.6s ease-in-out;
 }
 
@@ -127,6 +128,12 @@
 .button {
     composes: button from "../../styles/components.module.css";
     margin: 0;
+    opacity: 1;
+   transition: opacity 0.4s ease-in-out;
+}
+
+.buttonDissapear {
+    opacity: 0;
 }
 
 .timeline__wrapper {
@@ -161,12 +168,25 @@
     text-align: right;
 }
 
+.sidetextDissolve {
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
 @media only screen and (min-width: 1600px) {
+    .sliced__wrapper {
+        transform: scale(1);
+    }
+
+    .sliced__wrapperMove {
+        transform: scale(1) translateX(-20rem);
+    }
+
     .title {
         font-size: 11rem;
     }
 
     .timeline__wrapper {
-        grid-template-rows: repeat(4, 14mrem) 7rem;
+        grid-template-rows: repeat(4, 14rem) 7rem;
     }
 }

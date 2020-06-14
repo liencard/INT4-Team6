@@ -18,6 +18,7 @@ const Home = () => {
 
   return useObserver(() => (
     <>
+      <LoginView />
       <div className={styles.home__wrapper}>
         <div className={styles.header}>
           <div className={styles.header__wrapper}>
@@ -28,7 +29,13 @@ const Home = () => {
               width="37"
               height="39"
             />
-            <button className={styles.button} onClick={(e) => setLogin(true)}>
+            <button
+              className={`${styles.button} ${
+                login ? styles.buttonDissapear : ''
+              }`}
+              style={{ backgroundImage: `url(./assets/img/arrow.svg)` }}
+              onClick={(e) => setLogin(true)}
+            >
               Login
             </button>
             {/* <Link to={'login'}className={styles.button} style={{backgroundImage: `url(./assets/img/arrow.svg)`}}>
@@ -91,13 +98,16 @@ const Home = () => {
             <Button text={'Start now'} to={'link'} />
           </div>
 
-          <p className={styles.sidetext}>
+          <p
+            className={`${styles.sidetext} ${
+              login ? styles.sidetextDissolve : ''
+            }`}
+          >
             Have you always wondered if your ancestors originated from another
             country? Eager to know where your history lies?
           </p>
         </div>
       </div>
-      <LoginView />
     </>
   ));
 };

@@ -1,3 +1,6 @@
+@value tokens: "../../styles/tokens.module.css";
+@value faded from tokens;
+
 .container {
     padding: 3.5rem 8rem;
     z-index: 2;
@@ -11,14 +14,14 @@
     justify-content: space-between;
     align-items: center;
 }
-
+ 
 .tab {
-    color:grey;
+    color: faded;
     padding: 1.4rem;
     text-transform: uppercase;
     letter-spacing: 0.475rem;
     font-size: 1.2rem;
-    border: .1rem solid grey;
+    border: .1rem solid faded;
 }
 
 .tab:last-child {
@@ -29,4 +32,25 @@
 .tabActive {
     color: white;
     border: .1rem solid white;
+}
+
+.dashboard__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: 5%;
+    width: 90vw;
+}
+
+.footer__share {
+    display:flex;
+    align-items: center;
+}
+
+.share__text {
+    composes: smallSpaced from "../../styles/typo.module.css";
+    color: faded;
+    margin-right: 1rem;
+    font-size: 1.4rem;
 }

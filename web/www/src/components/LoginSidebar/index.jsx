@@ -13,9 +13,6 @@ const Login = ({login}) => {
 
     return useObserver(() => (
       <div className={`${styles.content__wrapper} ${login ? styles.content__wrapperOpened : styles.content__wrapperClosed}`}>
-        {/* <Link to={`/`} className={styles.back__btn}>
-          Back
-        </Link> */}
 
         <h1 className={styles.title}>Welcome back</h1>
         <p className={styles.subtitle}>Sign in to your account</p>
@@ -45,8 +42,9 @@ const Login = ({login}) => {
               <a href="#" className={styles.link}>
                 Forgot password?
               </a>
-              <label>
+              <label className={styles.checkbox}>
                 <input type="checkbox" name="remember" />
+                <span className={styles.checkbox__input}></span>
                 Remember me
               </label>
             </div>

@@ -115,3 +115,54 @@
 .back__btn {
     color:white;
 }
+
+/* Custom checkbox */
+.checkbox {
+    cursor: pointer;
+    display: block;
+    position: relative;
+    padding-left: 2rem
+}
+
+.checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox__input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1.2rem;
+  width: 1.2rem;
+  border: .1rem solid faded;
+}
+
+.checkbox input:checked ~ .checkbox__input {
+  background-color: faded;
+}
+
+.checkbox__input:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox input:checked ~ .checkbox__input:after {
+  display: block;
+}
+
+.checkbox .checkbox__input:after {
+  left: .3rem;
+  top: .1rem;
+  width: .45rem;
+  height: .6rem;
+  border: solid white;
+  border-width: 0 .1rem .1rem 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}

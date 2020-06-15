@@ -16,7 +16,6 @@ const Dashboard = () => {
     setMenu(true);
   };
 
-
   return useObserver(() => (
     <>
       <Sidebar type={"menu"} toggle={menu} setToggle={setMenu} />
@@ -35,6 +34,15 @@ const Dashboard = () => {
           <button onClick={(e) => handleClickMenu(e)}>
             <img className={styles.img} src='./assets/img/hamburger.svg' alt="group img" width="24" height="12" />
           </button>
+        </div>
+
+        <div className={styles.dashboard__footer}>
+          <img className={styles.img} src='./assets/img/icon_info.svg' alt="info icon" width="27" height="27" />
+
+          <div className={styles.footer__share}>
+            <span className={styles.share__text}>share</span>
+            <img className={styles.img} src='./assets/img/icon_share.svg' alt="share icon" width="24" height="24" />
+          </div>
         </div>
 
         

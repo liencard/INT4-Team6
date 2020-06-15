@@ -13,11 +13,12 @@ class Ancestor {
     this.store.addAncestor(this);
   }
 
-  updateFromJson = ({ name = undefined, coordinates = undefined, birthdate = undefined, deathdate = undefined, mapLat = undefined, mapLong = undefined}) => {
+  updateFromJson = ({ name = undefined, coordinates = undefined, birthdate = undefined, deathdate = undefined, img = undefined, mapLat = undefined, mapLong = undefined}) => {
     this.name = (name !== undefined) ? name : this.name;
     this.coordinates = (coordinates !== undefined) ? coordinates : this.coordinates;
     this.birthdate = (birthdate !== undefined) ? birthdate : this.birthdate;
     this.deathdate = (deathdate !== undefined) ? deathdate : this.deathdate;
+    this.img = (img !== undefined) ? img : this.img;
     this.mapLat = (mapLat !== undefined) ? mapLat : this.mapLat;
     this.mapLong = (mapLong !== undefined) ? mapLong : this.mapLong;
   }; 

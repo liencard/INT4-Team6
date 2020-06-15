@@ -4,15 +4,31 @@ import { useSpring, a } from 'react-spring/three';
 
 import { Text, HTML } from 'drei';
 const Ancestor = ({ ancestor, ancestorStore }) => {
+  const imgName = ancestor.name.split(' ').join('');
+  const imgType = ancestor.img;
+  const imgSrc = `${imgName}_${imgType}.jpg`;
+  let imgSizeVertical = 1;
+  let textOffset = 0.55;
+
+  if (imgType === 1) {
+    imgSizeVertical = 1.12;
+  } else if (imgType === 2) {
+    imgSizeVertical = 1.32;
+    textOffset += 0.1;
+  } else if (imgType === 3) {
+    imgSizeVertical = 1.52;
+    textOffset += 0.2;
+  } 
+
   // foto inladen
   const img = new THREE.TextureLoader().load(
-    './assets/img/test1.jpg'
+    `./assets/img/ancestors/main/${imgSrc}`
   );
 
   // hover effect
   const [hovered, setHover] = useState(false);
   const states = useSpring({
-    scale: hovered ? [1.1, 1.1, 1] : [1, 1, 1],
+    scale: hovered ? [1.1, imgSizeVertical*1.1, 1] : [1, imgSizeVertical, 1],
   });
   
   // coordinaten ophalen
@@ -21,6 +37,7 @@ const Ancestor = ({ ancestor, ancestorStore }) => {
   let position = coordinates.map((coordinate) =>
     parseInt(coordinate) ? parseInt(coordinate) : coordinate
   );
+  
   let posX = position[0];
   let posY = position[1];
   let posZ = position[2];
@@ -35,7 +52,7 @@ const Ancestor = ({ ancestor, ancestorStore }) => {
   return (
     <>
       <Text
-        position={[posX - 0.6, posY + 0.7, posZ + 0.2]}
+        position={[posX - 0.6, textOffset + 0.2, posZ + 0.2]}
         fontSize={0.15}
         color={'white'}
         font={'./assets/fonts/DMSerifDisplay-Regular.ttf'}
@@ -43,7 +60,7 @@ const Ancestor = ({ ancestor, ancestorStore }) => {
         {ancestor.name}
       </Text>
       <Text
-        position={[posX - 0.6, posY + 0.5, posZ + 0.2]}
+        position={[posX - 0.6, textOffset, posZ + 0.2]}
         fontSize={0.1}
         color={'white'}
         font={'./assets/fonts/DMSerifDisplay-Regular.ttf'}

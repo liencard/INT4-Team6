@@ -1,5 +1,12 @@
+@value tokens: "../../styles/tokens.module.css";
+@value faded from tokens;
+
 .container {
     padding: 3.5rem 8rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
 }
 
 .header {
@@ -12,10 +19,48 @@
     composes: top from "../../styles/typo.module.css";
 }
 
+.bookmarks {
+    margin-top: 10rem;
+}
+
 .hidden {
     display: none;
 }
 
+.title {
+    text-align: center;
+    composes: smallSpaced from "../../styles/typo.module.css";
+    font-size: 2rem;
+    margin-bottom: 8rem;
+    font-weight: bold;
+}
+
 .bookmarks__wrapper {
     display: flex;
+    overflow-x: scroll;
+}
+
+.bookmarks__btn {
+    border: .1rem solid faded;
+    display: flex;
+    flex-direction: column;
+    padding: 7rem 9rem;
+    max-width: 30rem;
+}
+
+.btn__text {
+    composes: smallSpaced from "../../styles/typo.module.css";
+    color: faded;
+    text-align: center;
+    margin-top: 2.5rem;
+    line-height: 150%;
+}
+
+.bookmarks__btn:hover {
+    background-color: white;
+    opacity: .2;
+}
+
+.bookmarks__btn:hover .btn__text {
+    font-weight: 600;
 }

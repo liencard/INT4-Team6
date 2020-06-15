@@ -64,15 +64,16 @@ svg:hover {
 svg circle:hover {
     stroke: white;
 }
-svg path:hover {
-    cursor: pointer;
-    fill: white;
-}
 
 .share__text:hover {
     color: white;
     cursor: pointer;
 } 
+
+.footer__share:hover svg path {
+    cursor: pointer;
+    fill: white;
+}
 
 .info__popup {
     border: .1rem solid faded !important;

@@ -20,7 +20,7 @@
 }
 
 .bookmarks {
-    margin-top: 10rem;
+    margin-top: 10%;
 }
 
 .hidden {
@@ -63,4 +63,16 @@
 
 .bookmarks__btn:hover .btn__text {
     font-weight: 600;
+}
+
+/* EMPTY STATE */
+.emty__state {
+    margin-top: 10%;
+}
+
+.bookmark__empty {
+    width: 30rem;
+    height: 32.5rem;
+    border: .1rem solid faded;
+    margin-left: 3rem;
 }

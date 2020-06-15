@@ -72,7 +72,7 @@ svg path:hover {
 .share__text:hover {
     color: white;
     cursor: pointer;
-}
+} 
 
 .info__popup {
     border: .1rem solid faded !important;

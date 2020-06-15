@@ -51,7 +51,7 @@ const Menu = () => {
             to={`${ROUTES.bookmarks}`}
             className={styles.nav}
             activeClassName={styles.tabActive}
-          >
+          > 
             Bookmarks
           </NavLink>
           <NavLink

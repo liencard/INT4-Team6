@@ -1,0 +1,13 @@
+.container {
+    padding: 3.5rem 8rem;
+}
+
+.dashboard__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__title { 
+    composes: top from "../../styles/typo.module.css";
+}

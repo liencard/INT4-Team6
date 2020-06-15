@@ -9,6 +9,7 @@ import OnboardingTwo from './components/Onboarding/onboardingTwo';
 import OnboardingThree from './components/Onboarding/onboardingThree';
 import Home from './components/Home';
 import Login from './components/Login';
+import Bookmarks from './components/Bookmarks';
 
 import { Route } from 'react-router-dom';
 import { Switch, Redirect } from 'react-router';
@@ -16,34 +17,37 @@ import { useObserver } from "mobx-react-lite";
 
 const App = () => {
   return useObserver(() => (
-          <Switch>
-            <Route path={ROUTES.onboardingOne}>
-              <OnboardingOne />
-            </Route>
-            <Route path={ROUTES.onboardingTwo}>
-              <OnboardingTwo />
-            </Route>
-            <Route path={ROUTES.onboardingThree}>
-              <OnboardingThree />
-            </Route>
-            <Route path={ROUTES.ancestors}>
-              <Dashboard />
-              <Ancestors />
-            </Route>
-            <Route path={ROUTES.map}>
-              <Dashboard />
-              <Map />
-            </Route>
-            <Route path={ROUTES.login}>
-              <Login />
-            </Route>
-            <Route path={ROUTES.home}>
-              <Home />
-            </Route>
-            <Route>
-                <p>Not found</p>
-              </Route>
-          </Switch>
+    <Switch>
+      <Route path={ROUTES.onboardingOne}>
+        <OnboardingOne />
+      </Route>
+      <Route path={ROUTES.onboardingTwo}>
+        <OnboardingTwo />
+      </Route>
+      <Route path={ROUTES.onboardingThree}>
+        <OnboardingThree />
+      </Route>
+      <Route path={ROUTES.bookmarks}>
+        <Bookmarks />
+      </Route>
+      <Route path={ROUTES.ancestors}>
+        <Dashboard />
+        <Ancestors />
+      </Route>
+      <Route path={ROUTES.map}>
+        <Dashboard />
+        <Map />
+      </Route>
+      <Route path={ROUTES.login}>
+        <Login />
+      </Route>
+      <Route path={ROUTES.home}>
+        <Home />
+      </Route>
+      <Route>
+        <p>Not found</p>
+      </Route>
+    </Switch>
     ));
  }
 

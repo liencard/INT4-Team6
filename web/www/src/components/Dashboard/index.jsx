@@ -63,7 +63,6 @@ const Dashboard = () => {
 
         <div className={styles.dashboard__footer}>
           <svg
-
             data-tip={`${
               url === '/ancestors'
                 ? 'Travel through generations of ancestors by dragging & scrolling'

@@ -19,18 +19,3 @@
 .bookmarks__wrapper {
     display: flex;
 }
-
-.bookmark {
-    display: grid;
-}
-
-.bookmark__info {
-    display: flex;
-    justify-content: space-between;
-    grid-row: 2;
-}
-
-.bookmark__img {
-    width: 30rem;
-    height: 30rem;
-}

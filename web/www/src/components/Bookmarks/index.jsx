@@ -1,8 +1,9 @@
- import React, { useState } from 'react';
- import styles from './Bookmarks.module.css';
- import { useObserver } from 'mobx-react-lite';
- import { useStore } from '../../hooks/useStore';
- import Sidebar from '../Sidebar/index.jsx';
+import React, { useState } from 'react';
+import styles from './Bookmarks.module.css';
+import { useObserver } from 'mobx-react-lite';
+import { useStore } from '../../hooks/useStore';
+import Sidebar from '../Sidebar/index.jsx';
+import Bookmark from '../Bookmark/index.jsx';
 
 
  const Bookmarks = () => {
@@ -14,6 +15,8 @@
       setMenu(true);
     }; 
    
+    console.log(bookmarkStore.bookmarks);
+
    return useObserver(() => (
      <>
        <Sidebar type={'menu'} toggle={menu} setToggle={setMenu} />
@@ -44,19 +47,17 @@
            <h2 className={styles.hidden}>Bookmarked</h2>
            <p className={styles.title}>Stories you've saved that are worth the read.</p>
            <div className={styles.bookmarks__wrapper}>
-             <article className={styles.bookmark}>
-                <div className={styles.bookmark__info}>
-                    <h3 className={styles.bookmark__name}>Ethan Cole</h3>
-                    <p className={styles.bookmark__date}>1914 - 1879</p>
-                </div>
-                <img
-                  className={styles.bookmark__img}
-                  src="./assets/img/ancestors/thumbnail/GeorgeCole.jpg"
-                  alt="ancestor"
-                  width="300"
-                  height="300"
-                />
-             </article>
+                    
+            {bookmarkStore.bookmarks.map((bookmark) => (
+                <group
+                  key={bookmark.id}
+                  bookmarkId={bookmark.id}
+                >
+                <Bookmark bookmark={bookmark}/>
+              </group>
+            ))}
+            
+             
            </div>
          </section>
        </div>

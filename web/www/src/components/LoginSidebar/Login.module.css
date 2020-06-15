@@ -1,27 +1,113 @@
 @value tokens: "../../styles/tokens.module.css";
 @value fontBody, faded, spacerBig, spacer from tokens;
 
-
-.login__wrapper {
+.content__wrapper {
+    z-index: 3;
+    margin: 0 spacerBig;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     position: fixed;
-    color: red;
-    background-color: pink;
-    opacity: .1;
     height: 100%;
     top: 0;
     right: 0;
     margin: spacer spacerBig;
     width: 40rem;
-    transition: transform 0.3s ease-in-out;
+    transition: opacity 0.6s ease-in-out; 
 }
 
-.login__wrapperClosed {
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
+.content__wrapperClosed {
+    opacity: 0;
 }
 
+.content__wrapperOpened {
+    opacity: 1;
+}
 
-.login__wrapperOpened {
-    transform: translateX(0);
-    transition: transform 0.3s ease-in-out;
-} 
+.title {
+    composes: titleLarge from "../../styles/typo.module.css";
+}
+
+.subtitle {
+    composes: subtitle from "../../styles/typo.module.css";
+    font-weight: lighter;
+    letter-spacing: .2em;
+    margin-top: 1rem;
+}
+
+.form {
+    margin-top: 6rem;
+    text-align: left;
+    color: faded;
+}
+
+.form__wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4rem;
+}
+
+/* Visually hidden - zie thatsapp firebase */
+.form__label {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0 !important;
+    border: 0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
+}
+
+.form__input {
+    margin-bottom: 1rem;
+    background: transparent;
+    border: none;
+    border-bottom: .1rem solid faded;
+    padding: 1rem;
+    outline: none;
+    color: white;
+}
+
+.form__input:active, .form__input:focus {
+    border-bottom: .1rem solid white;
+    background: transparent;
+}
+
+.form__extra {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    color: faded;
+}
+
+.link {
+    color: white;
+    text-decoration: underline;
+    color: faded;
+}
+
+.divider {
+    display: grid;
+    grid-template-columns: 18rem auto 18rem;
+    align-items: center;
+    text-align: center;
+    margin-top: 6rem;
+}
+
+.line {
+    width: 100%;
+    height: .1rem;
+    background-color: faded;
+}
+
+.subtext {
+    color: faded;
+    margin-top: 1.5rem;
+}
+
+.empty {
+    width: 4rem;
+    height: 4rem;
+}

@@ -29,18 +29,22 @@ const Home = () => {
               width="37"
               height="39"
             />
-            <button
-              className={`${styles.button} ${
-                login ? styles.buttonDissapear : ''
-              }`}
-              style={{ backgroundImage: `url(./assets/img/arrow.svg)` }}
-              onClick={(e) => setLogin(true)}
-            >
-              Login
-            </button>
-            {/* <Link to={'login'}className={styles.button} style={{backgroundImage: `url(./assets/img/arrow.svg)`}}>
-              login
-            </Link> */}
+            <div className={styles.button__wrapper}>
+              <button
+                className={`${login ? styles.buttonDissapear : styles.button}`}
+                style={{ backgroundImage: `url(./assets/img/arrow.svg)` }}
+                onClick={(e) => setLogin(true)}
+              >
+                Login
+              </button>
+              <button
+                className={`${login ? styles.button__back : styles.buttonDissapear}`}
+                style={{ backgroundImage: `url(./assets/img/arrow_back.svg)` }}
+                onClick={(e) => setLogin(false)}
+              >
+                Back
+              </button>
+            </div>
           </div>
         </div>
 

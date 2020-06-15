@@ -128,11 +128,21 @@
     composes: button from "../../styles/components.module.css";
     margin: 0;
     opacity: 1;
-   transition: opacity 0.4s ease-in-out;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.button__back {
+    composes: button from "../../styles/components.module.css";
+    margin: 0;
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out;
+    padding-right: 2rem;
+    padding-left: 4rem;
+    background-position: 15% center;
 }
 
 .buttonDissapear {
-    opacity: 0;
+    display: none;
 }
 
 .timeline__wrapper {

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Login.module.css';
+import { Link } from 'react-router-dom';
 import { useObserver } from 'mobx-react-lite';
 import Button from '../Button/index.jsx';
 
@@ -12,6 +13,10 @@ const Login = ({login}) => {
 
     return useObserver(() => (
       <div className={`${styles.content__wrapper} ${login ? styles.content__wrapperOpened : styles.content__wrapperClosed}`}>
+        {/* <Link to={`/`} className={styles.back__btn}>
+          Back
+        </Link> */}
+
         <h1 className={styles.title}>Welcome back</h1>
         <p className={styles.subtitle}>Sign in to your account</p>
 

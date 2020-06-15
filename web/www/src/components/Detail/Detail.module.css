@@ -1,0 +1,32 @@
+@value tokens: "../../styles/tokens.module.css";
+@value fontBody, faded, spacerBig from tokens;
+
+.header::before {
+    content: '';
+    /* position: absolute; */
+    background-repeat: no-repeat;
+    right: 0; /* helemaal rechts positioneren */
+
+    /* Image size */
+    background-size: auto 100vh;
+
+    /* Canvas size */
+    width: 46vw; /* 50vw - maar met beetje margin links */
+    height: 100%;
+}
+
+.container {
+    max-width: 106rem;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.title {
+    composes: titleLarge from "../../styles/typo.module.css";
+    font-size: 13rem;
+}
+
+.date {
+    font-size: 6rem;
+    font-weight: bold;
+}

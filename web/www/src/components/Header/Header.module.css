@@ -1,0 +1,14 @@
+.header {
+    z-index: 5;
+    position: fixed;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 3.5rem 8rem 0;
+}
+
+.logo {
+}

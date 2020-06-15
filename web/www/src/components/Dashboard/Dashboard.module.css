@@ -54,3 +54,18 @@
     margin-right: 1rem;
     font-size: 1.4rem;
 }
+
+svg:hover {
+    cursor: pointer;
+    fill: white;
+}
+
+svg path:hover {
+    cursor: pointer;
+    fill: white;
+}
+
+.share__text:hover {
+    color: white;
+    cursor: pointer;
+}

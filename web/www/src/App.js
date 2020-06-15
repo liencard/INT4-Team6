@@ -10,6 +10,7 @@ import OnboardingThree from './components/Onboarding/onboardingThree';
 import Home from './components/Home';
 import Login from './components/Login';
 import Bookmarks from './components/Bookmarks';
+import Detail from './components/Detail';
 
 import { Route } from 'react-router-dom';
 import { Switch, Redirect } from 'react-router';
@@ -38,6 +39,9 @@ const App = () => {
         <Dashboard />
         <Map />
       </Route>
+      <Route path={ROUTES.detail}>
+        <Detail />
+      </Route>
       <Route path={ROUTES.login}>
         <Login />
       </Route>
@@ -48,7 +52,7 @@ const App = () => {
         <p>Not found</p>
       </Route>
     </Switch>
-    ));
+  ));
  }
 
 export default App;

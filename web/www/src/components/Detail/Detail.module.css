@@ -1,11 +1,13 @@
 @value tokens: "../../styles/tokens.module.css";
 @value fontBody, faded, spacerBig from tokens;
 
+
 .header::before {
     content: '';
     /* position: absolute; */
     background-repeat: no-repeat;
     background-image: url('/assets/img/detail/MargeretEvans_portrait.png');
+    background-size: cover;
     right: 0; /* helemaal rechts positioneren */
 
     /* Image size */

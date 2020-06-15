@@ -1,3 +1,5 @@
+@value tokens: "./tokens.module.css";
+@value dark from tokens;
 
 .button {
   composes: smallSpaced from "./typo.module.css";

@@ -55,13 +55,13 @@
     font-size: 1.4rem;
 }
 
-svg:hover {
+.dashboard__footer svg:hover {
     cursor: pointer;
     fill: white;
     stroke: white;
 }
 
-svg circle:hover {
+.dashboard__footer svg circle:hover {
     stroke: white;
 }
 

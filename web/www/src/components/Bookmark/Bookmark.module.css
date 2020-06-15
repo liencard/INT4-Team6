@@ -10,10 +10,6 @@
     margin-top: 1.5rem;
 }
 
-.bookmark__img {
-    width: 30rem;
-    height: 30rem;
-}
 
 .bookmark__name {
     composes: top from "../../styles/typo.module.css";
@@ -21,4 +17,31 @@
 
 .bookmark__date {
     font-variant: small-caps;
+}
+
+.img__wrapper {
+    display: grid;
+}
+
+.bookmark__img {
+    width: 30rem;
+    height: 30rem;
+    grid-column: 1;
+    grid-row:1;
+}
+
+.bookmark__hover {
+    background-color: black;
+    opacity: .65;
+    grid-column: 1;
+    grid-row:1;
+    width: 30rem;
+    height: 30rem;
+    display:none;
+}
+
+.img__wrapper:hover .bookmark__hover{
+    display: flex;
+    align-items: center;
+    justify-self: center;
 }

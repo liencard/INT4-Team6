@@ -6,27 +6,34 @@ const Detail = () => {
 
   return (
     <>
-        <Header logo={true} menu={true} />
-      <section
-        className={`${styles.container} ${styles.header}`}
-      >
-        <p>Sixth Generation</p>
-        <h1 className={styles.title}>
-          Margaret <br />
-          Evans
-        </h1>
-        <p className={styles.date}>1822 - 1884</p>
-        <p>Origin</p>
-        <p>
-          Margaret was born in 1822 in London, United Kingdom and came from a
-          Middle class family, the Evans.
-        </p>
-        <p>Evans</p>
-        <p>
-          Evans is a patronymic surname meaning "son of Evan." The given name
-          Evan derives from the Welsh name Ifan, a cognate of John, meaning
-          "gracious gift of Jehovah."
-        </p>
+      <Header logo={true} menu={true} />
+      <section className={`${styles.container} ${styles.header}`}>
+        <div className={styles.ancestor}>
+          <p className={styles.generation}>Sixth Generation</p>
+          <h1 className={styles.name}>
+            Margaret <br />
+            Evans
+          </h1>
+          <p className={styles.date}>1822 - 1884</p>
+        </div>
+        <div className={styles.intro}>
+          <h2 className={styles.hidden}>Intro</h2>
+          <section>
+            <h3 className={styles.subtitle}>Origin</h3>
+            <p>
+              Margaret was born in 1822 in London, United Kingdom and came from
+              a Middle class family, the Evans.
+            </p>
+          </section>
+          <section>
+            <h3 className={styles.subtitle}>Evans</h3>
+            <p>
+              Evans is a patronymic surname meaning "son of Evan." The given
+              name Evan derives from the Welsh name Ifan, a cognate of John,
+              meaning "gracious gift of Jehovah."
+            </p>
+          </section>
+        </div>
       </section>
 
       <h2>Industrial Revolution</h2>

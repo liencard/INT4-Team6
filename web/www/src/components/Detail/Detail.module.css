@@ -17,8 +17,12 @@
     height: 100%;
 }
 
+.hidden {
+    display: none;
+}
+
 .header {
-    padding-top: 30rem;
+    padding-top: 20rem;
 }
 
 .container {
@@ -27,9 +31,14 @@
     height: 100%;
 }
 
-.title {
+.name {
     composes: titleLarge from "../../styles/typo.module.css";
     font-size: 13rem;
+}
+
+.subtitle {
+    composes: subtitle from "../../styles/typo.module.css";
+    padding-bottom: 2rem;
 }
 
 .date {
@@ -37,4 +46,18 @@
     font-weight: bold;
     -webkit-text-stroke: 1px white;
     -webkit-text-fill-color: transparent;
+}
+
+.generation {
+    font-family: 'CarneysGalleryScript', sans-serif;
+}
+
+.intro {
+    margin-top: 20rem;
+    display: flex;
+    width: 50%;
+}
+
+.ancestor {
+    margin-left: 8rem;
 }

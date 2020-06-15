@@ -27,7 +27,8 @@
 .nav {
     composes: top from "../../styles/typo.module.css";
     margin-bottom: 3rem;
-    color: white;
+	color: white;
+	/* transition: transform .3s; */
 }
 
 
@@ -66,7 +67,7 @@
 	transform: translateX(0px);
 }
 
-/* .menu__nav .nav:hover,
+/*.menu__nav .nav:hover,
 .menu__nav .nav:focus {
 	transform: translate3d(0.5em,0,0);
 }

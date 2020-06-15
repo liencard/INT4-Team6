@@ -6,7 +6,7 @@ import { Text, HTML } from 'drei';
 const Ancestor = ({ ancestor, ancestorStore }) => {
   const imgName = ancestor.name.split(' ').join('');
   const imgType = ancestor.img;
-  const imgSrc = `${imgName}_${imgType}.jpg`;
+  const imgSrc = `${imgName}.jpg`;
   let imgSizeVertical = 1;
   let textOffset = 0.55;
 

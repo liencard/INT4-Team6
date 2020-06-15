@@ -76,7 +76,7 @@
 }
 
 .info__popup {
-    border: .1rem solid faded !important;
+    /* border: .1rem solid faded !important; */
     width: 24rem !important;
     font-size: 1.4rem !important;
     line-height: 130% !important;

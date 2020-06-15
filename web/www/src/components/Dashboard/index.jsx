@@ -84,6 +84,8 @@ const Dashboard = () => {
 
           <ReactTooltip
             effect="solid"
+            border="true"
+            borderColor="grey"
             delayHide={700}
             className={styles.info__popup}
             place="top"

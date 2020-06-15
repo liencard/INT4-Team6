@@ -30,6 +30,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'CarneysGalleryScript';
+  src: url(./fonts/CarneysGalleryScript/CarneysGalleryScript.woff2) format('woff2'), url(./fonts/CarneysGalleryScript/CarneysGalleryScript.woff) format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html {
   box-sizing: border-box;
   height: 100%;

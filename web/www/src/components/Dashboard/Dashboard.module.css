@@ -58,8 +58,12 @@
 svg:hover {
     cursor: pointer;
     fill: white;
+    stroke: white;
 }
 
+svg circle:hover {
+    stroke: white;
+}
 svg path:hover {
     cursor: pointer;
     fill: white;
@@ -76,5 +80,4 @@ svg path:hover {
     font-size: 1.4rem !important;
     line-height: 130% !important;
     font-family: fontBody !important;
-
 }

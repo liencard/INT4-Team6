@@ -18,6 +18,9 @@ const Dashboard = () => {
     setMenu(true);
   };
 
+  //console.log(window.location.pathname);
+  const url = window.location.pathname;
+
   return useObserver(() => (
     <>
       <Sidebar type={'menu'} toggle={menu} setToggle={setMenu} />
@@ -59,10 +62,13 @@ const Dashboard = () => {
         </div>
 
         <div className={styles.dashboard__footer}>
-          {/* <img className={styles.img} src='./assets/img/icon_info.svg' alt="info icon" width="27" height="27" /> */}
-
           <svg
-            data-tip="Travel through generations of ancestors by dragging & scrolling"
+
+            data-tip={`${
+              url === '/ancestors'
+                ? 'Travel through generations of ancestors by dragging & scrolling'
+                : 'Click or scroll on a regio to zoom in and find your ancestors.'
+            }`}
             width="27"
             height="27"
             viewBox="0 0 27 27"

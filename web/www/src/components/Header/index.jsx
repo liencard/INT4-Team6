@@ -27,23 +27,28 @@ const Header = ({logo, menu}) => {
     const MenuView = () => {
         if (menu) {
             return (
-                <>
-                    <Sidebar type={'menu'} toggle={menuToggle} setToggle={setMenu} />
-                    <button onClick={(e) => setMenu(true)}>
-                        <img
-                        className={styles.img}
-                        src="./assets/img/hamburger.svg"
-                        alt="group img"
-                        width="24"
-                        height="12"
-                        />
-                    </button>
-                </>
+                <button onClick={(e) => setMenu(true)}>
+                    <img
+                    className={styles.img}
+                    src="./assets/img/hamburger.svg"
+                    alt="group img"
+                    width="24"
+                    height="12"
+                    />
+                </button>
             )
         } else {
             return '';
         }
     }
+
+    // const SidebarView = () => {
+    //     if (menu) {
+    //         return <Sidebar type={'menu'} toggle={menuToggle} setToggle={setMenu}/>;
+    //     } else {
+    //         return '';
+    //     }
+    // }
 
   return useObserver(() => (
     <>
@@ -51,6 +56,8 @@ const Header = ({logo, menu}) => {
         <LogoView />
         <MenuView />
       </div>
+      {/* <SidebarView /> */}
+      <Sidebar type={'menu'} toggle={menuToggle} setToggle={setMenu} />
     </>
   ));
 };

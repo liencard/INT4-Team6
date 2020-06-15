@@ -5,6 +5,7 @@
     content: '';
     /* position: absolute; */
     background-repeat: no-repeat;
+    background-image: url('/assets/img/detail/MargeretEvans_portrait.png');
     right: 0; /* helemaal rechts positioneren */
 
     /* Image size */
@@ -13,6 +14,10 @@
     /* Canvas size */
     width: 46vw; /* 50vw - maar met beetje margin links */
     height: 100%;
+}
+
+.header {
+    padding-top: 30rem;
 }
 
 .container {
@@ -29,4 +34,6 @@
 .date {
     font-size: 6rem;
     font-weight: bold;
+    -webkit-text-stroke: 1px white;
+    -webkit-text-fill-color: transparent;
 }

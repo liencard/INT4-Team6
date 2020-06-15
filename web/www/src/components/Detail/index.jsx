@@ -9,7 +9,6 @@ const Detail = () => {
         <Header logo={true} menu={true} />
       <section
         className={`${styles.container} ${styles.header}`}
-        style={{ backgroundImage: `url(./assets/img/detail/MargeretEvans_portrait.png)` }}
       >
         <p>Sixth Generation</p>
         <h1 className={styles.title}>

@@ -8,7 +8,6 @@ import OnboardingOne from './components/Onboarding/onboardingOne';
 import OnboardingTwo from './components/Onboarding/onboardingTwo';
 import OnboardingThree from './components/Onboarding/onboardingThree';
 import Home from './components/Home';
-import Login from './components/Login';
 import Bookmarks from './components/Bookmarks';
 import Detail from './components/Detail';
 
@@ -41,9 +40,6 @@ const App = () => {
       </Route>
       <Route path={ROUTES.detail}>
         <Detail />
-      </Route>
-      <Route path={ROUTES.login}>
-        <Login />
       </Route>
       <Route path={ROUTES.home}>
         <Home />

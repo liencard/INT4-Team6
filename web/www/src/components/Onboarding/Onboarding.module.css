@@ -9,7 +9,7 @@
   display:grid;
   grid-template-columns: 1fr 55rem;
 
-  /background-image: url("/assets/img/onboarding_bg.png");
+  background-image: url("/assets/img/lines_bg.png");
   /* als applicatie draait root map, anders package.json public path */
 }
 

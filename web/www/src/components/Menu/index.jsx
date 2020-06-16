@@ -36,7 +36,7 @@ const Menu = () => {
 
     loadCurrentUser();
     
-  }, [uiStore.currentUser, setCurrentUser])
+  }, [uiStore.currentUser, setCurrentUser, currentUser])
 
   return useObserver(() => {
     if (state === STATE_LOADING) {

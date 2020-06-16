@@ -22,35 +22,12 @@ import Header from '../Header/index.jsx';
 
    return useObserver(() => (
      <>
-       <Header logo={true} menu={true} content={true} text={"Bookmarked Ancestors"}/>
+       <Header logo={true} menu={true} content={true} text={"Bookmarked Ancestors"} />
        <div
          className={styles.container}
          style={{ backgroundImage: `url(assets/img/bookmark_bg.png)` }}
        >
-
-         {/* <div className={styles.header}>
-           <img
-             className={styles.img}
-             src="./assets/img/FYFR.svg"
-             alt="group img"
-             width="37"
-             height="39"
-           />
-           <div className={styles.header__title}>
-             <p>Bookmarked Ancestors</p>
-           </div>
-           <button onClick={(e) => handleClickMenu(e)}>
-             <img
-               className={styles.img}
-               src="./assets/img/hamburger.svg"
-               alt="group img"
-               width="24"
-               height="12"
-             />
-           </button>
-         </div> */}
          
-
          {bookmarkStore.bookmarks.length > 0 ? (
            <section className={styles.bookmarks}>
              <h2 className={styles.hidden}>Bookmarked</h2>

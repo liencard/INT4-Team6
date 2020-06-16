@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import * as THREE from 'three';
 import { useSpring, a } from 'react-spring/three';
-import { useObserver } from 'mobx-react-lite';g
+import { useObserver } from 'mobx-react-lite';
 
 import { Text, HTML } from 'drei';
 const Ancestor = ({ ancestor, ancestorStore }) => {

@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useObserver } from 'mobx-react-lite';
-import { NavLink } from 'react-router-dom';
-import { ROUTES } from '../../consts';
 import { useStore } from '../../hooks/useStore';
 import styles from './Menu.module.css';
 import Button from '../Button/index.jsx';
+import NavBar from '../NavBar/index.jsx';
 
 const Menu = () => {
 
@@ -41,13 +40,27 @@ const Menu = () => {
 
   return useObserver(() => {
     if (state === STATE_LOADING) {
-      return 'loading user';
+      return (
+        <>
+          <div className={styles.menu__wrapper}>
+            <img
+              className={styles.image}
+              src="./assets/img/ancestors/tumbnail/AliceBaker.jpg"
+              alt=""
+              height="140"
+              width="140"
+            />
+            <h2 className={styles.name}>Loading user</h2>
+
+            <NavBar/>
+          </div>
+          <Button text={'logout'} to={'link'} />
+        </>
+      )
     }
     return (
     <>
       <div className={styles.menu__wrapper}>
-
-        {/* current user */}
         <img
           className={styles.image}
           src={uiStore.currentUser.avatar}
@@ -57,44 +70,7 @@ const Menu = () => {
         />
         <h2 className={styles.name}>{currentUser.name}</h2>
 
-        {/* menu  */}
-        <div className={styles.menu__nav}>
-          <NavLink
-            to={`${ROUTES.ancestors}`}
-            className={styles.nav}
-            activeClassName={styles.tabActive}
-          >
-            Family Tree
-          </NavLink>
-          <NavLink
-            to={`${ROUTES.map}`}
-            className={styles.nav}
-            activeClassName={styles.tabActive}
-          >
-            DNA Roots
-          </NavLink>
-          <NavLink
-            to={'link'}
-            className={styles.nav}
-            activeClassName={styles.tabActive}
-          >
-            Link 2
-          </NavLink>
-          <NavLink
-            to={`${ROUTES.bookmarks}`}
-            className={styles.nav}
-            activeClassName={styles.tabActive}
-          > 
-            Bookmarks
-          </NavLink>
-          <NavLink
-            to={'settings'}
-            className={styles.nav}
-            activeClassName={styles.tabActive}
-          >
-            Settings
-          </NavLink>
-        </div>
+        <NavBar />
       </div>
       <Button text={'logout'} to={'link'} />
     </>

@@ -59,12 +59,7 @@
 }
 
 .bookmarks__btn:hover {
-    background-color: black;
-    opacity: .2;
-}
-
-.bookmarks__btn:hover .btn__text {
-    font-weight: 600;
+    background-color: rgba(0,0,0,.2);
 }
 
 /* EMPTY STATE */

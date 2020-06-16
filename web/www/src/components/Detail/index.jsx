@@ -6,7 +6,7 @@ const Detail = () => {
 
   return (
     <>
-      <Header logo={true} menu={true} />
+      <Header logo={true} menu={true} content={false}/>
       <article className={`${styles.container} ${styles.intro}`}>
         <div className={styles.intro__ancestor}>
           <p className={styles.generation}>Sixth Generation</p>

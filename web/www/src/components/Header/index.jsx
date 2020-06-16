@@ -66,6 +66,8 @@ const Header = ({logo, menu, content, text, toggleDashboard}) => {
             </NavLink>
         </div>
       );
+    } else {
+      return '';
     }
   }
 

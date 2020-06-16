@@ -1,3 +1,6 @@
+@value tokens: "../../styles/tokens.module.css";
+@value faded, fontBody from tokens;
+
 .mapContainer {
   position: absolute;
   top: 0;
@@ -15,6 +18,24 @@
 
 .popupContent {
   background-color: rgb(17, 17, 17);
+  text-align: center;
+  font-family: fontBody;
+}
+
+.popupContent img {
+  border-radius: 50%;
+  margin-top: -50%;
+  margin-bottom: 5px;
+  margin-left: 8%;
+}
+
+.popupContent p {
+  font-size: 1.6rem;
+}
+
+.popupContent span {
+  color: faded;
+  font-size: 1.4rem;
 }
 
 .popupTip {
@@ -29,6 +50,13 @@
   margin-left: 8%;
 }
 
+/* TEST CODE */
 .test {
-  color: red;
+  width: 300px;
+  height:300px;
+  padding: 10rem;
+}
+
+.test svg circle:hover {
+  fill: red;
 }

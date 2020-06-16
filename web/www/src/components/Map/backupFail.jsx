@@ -15,6 +15,7 @@ mapboxgl.accessToken =
 const Map = () => {
   const mapContainerRef = useRef(null);
   const regionsJson = require('../../data/region.json');
+  
 
   const { ancestorStore } = useStore();
   const ancestors =  ancestorStore.ancestors;
@@ -31,6 +32,7 @@ const Map = () => {
       attributionControl: false,
     });
 
+    document.querySelector('.mapboxgl-ctrl-logo').style.display = 'none';
     map.dragRotate.disable();
 
     let hoveredRegionId = null;
@@ -163,33 +165,23 @@ const Map = () => {
 
     return () => map.remove();
   }, []);
-  // ON LOAD
 
 
   const removeMarkers = () => {
-    const $markers = document.querySelectorAll('.mapboxgl-marker');
-    $markers.forEach((marker) => marker.parentNode.removeChild(marker));
+    // const $markers = document.querySelectorAll('.mapboxgl-marker');
+    // $markers.forEach((marker) => marker.parentNode.removeChild(marker));
   }
 
   const createMarker = (ancestor, map) => { 
-    // CSS neemt niet?
     const imgName = ancestor.name.split(' ').join('');
-    let content = `<img src="./assets/img/ancestors/thumbnail/${imgName}.jpg" class="popupImage" style="border-radius: 50%" height="60px" width="60px" />
+    let content = `<img src="./assets/img/ancestors/thumbnail/${imgName}.jpg" className=${styles.popupImage} height="60px" width="60px" />
       <p className=${styles.test}>${ancestor.name}</p>
       <span>${ancestor.birthdate} - ${ancestor.deathdate}</span>`;
-    let popup = new mapboxgl.Popup({ offset: 25 }).setHTML(content);
 
     // CREATE AND STYLE MARKER
     const el = document.createElement('div');
-    // el.classList.add(styles.marker);
-    // el.style.borderRadius = '50%';
-
-    // TEST VOOR TOOLTIP
-    el.innerHTML += `
-        <svg data-tip="test" height="10" width="10">
-          <circle cx="5" cy="5" r="5" fill="pink" />
-        </svg> 
-      `;
+    el.classList.add(styles.marker);
+    el.style.borderRadius = '50%';
 
     // FIX COORDINATES
     let mapCoordinates = [];
@@ -201,12 +193,20 @@ const Map = () => {
     // ADD MARKER TO MAP
     const marker = new mapboxgl.Marker(el)
       .setLngLat(mapCoordinates)
-      .setPopup(popup)
+      // .setPopup(popup)
       .addTo(map);
     const markerDiv = marker.getElement();
 
     const handleHoverMarker = (e) => {
-      marker.togglePopup();
+      console.log(ancestor)
+      console.log(e)
+      // marker.togglePopup();
+
+      let popup = new mapboxgl.Popup({ offset: 25 })
+        .setLngLat(mapCoordinates)
+        .setHTML(content)
+        .addTo(map);
+
       // refs
       // let popup = document.getElementsByClassName('mapboxgl-popup')[0];
       // if (popup) {
@@ -227,12 +227,12 @@ const Map = () => {
       setPreview(true);
     };
       
-    markerDiv.addEventListener('mouseenter', handleHoverMarker);
-    markerDiv.addEventListener('mouseleave', () => marker.togglePopup());
+    markerDiv.addEventListener('mouseenter', (e) => handleHoverMarker(e));
+    // markerDiv.addEventListener('mouseleave', (e) => handleHoverOutMarker(e));
     markerDiv.addEventListener('click', handleClickAncestor);
 
 
-} // END USER EFFECT?
+}
 
 
   return useObserver(() => (

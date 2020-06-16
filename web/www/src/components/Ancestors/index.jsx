@@ -22,9 +22,12 @@ const [ancestor, setAncestor] = useState(null);
     setAncestor(clickedAncestor);
   };
 
+  /* useobserver weghalen, usestate & useobserver proberen te splitsen */
   return useObserver(() => (
     <>
       <Sidebar type={"preview"} content={ancestor} toggle={preview} setToggle={setPreview} />
+
+      {/* canvas aparte component maken, ancestorstore binnenhalen en useobserver weghalen */}
       <Canvas
         camera={{
           fov: 70,
@@ -47,6 +50,7 @@ const [ancestor, setAncestor] = useState(null);
           </group>
         ))}
       </Canvas>
+
     </>
   ));
 };

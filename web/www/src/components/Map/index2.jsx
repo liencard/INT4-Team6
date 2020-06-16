@@ -14,6 +14,8 @@ mapboxgl.accessToken =
 
 const Map = () => {
   const mapContainerRef = useRef(null);
+  const popupRef = useRef(null);
+
   const regionsJson = require('../../data/region.json');
 
   const { ancestorStore } = useStore();
@@ -31,6 +33,7 @@ const Map = () => {
       attributionControl: false,
     });
 
+    document.querySelector('.mapboxgl-ctrl-logo').style.display = 'none';
     map.dragRotate.disable();
 
     let hoveredRegionId = null;
@@ -163,8 +166,6 @@ const Map = () => {
 
     return () => map.remove();
   }, []);
-  // ON LOAD
-
 
   const removeMarkers = () => {
     const $markers = document.querySelectorAll('.mapboxgl-marker');
@@ -174,22 +175,24 @@ const Map = () => {
   const createMarker = (ancestor, map) => { 
     // CSS neemt niet?
     const imgName = ancestor.name.split(' ').join('');
-    let content = `<img src="./assets/img/ancestors/thumbnail/${imgName}.jpg" class="popupImage" style="border-radius: 50%" height="60px" width="60px" />
+    let content = `<img src="./assets/img/ancestors/thumbnail/${imgName}.jpg" className=${styles.popupImage} height="60px" width="60px" />
       <p className=${styles.test}>${ancestor.name}</p>
       <span>${ancestor.birthdate} - ${ancestor.deathdate}</span>`;
+
+      
     let popup = new mapboxgl.Popup({ offset: 25 }).setHTML(content);
 
     // CREATE AND STYLE MARKER
     const el = document.createElement('div');
-    // el.classList.add(styles.marker);
-    // el.style.borderRadius = '50%';
+    el.classList.add(styles.marker);
+    el.style.borderRadius = '50%';
 
     // TEST VOOR TOOLTIP
-    el.innerHTML += `
-        <svg data-tip="test" height="10" width="10">
-          <circle cx="5" cy="5" r="5" fill="pink" />
-        </svg> 
-      `;
+    // el.innerHTML += `
+    //     <svg data-tip="test" height="10" width="10">
+    //       <circle cx="5" cy="5" r="5" fill="pink" />
+    //     </svg> 
+    //   `;
 
     // FIX COORDINATES
     let mapCoordinates = [];
@@ -232,7 +235,7 @@ const Map = () => {
     markerDiv.addEventListener('click', handleClickAncestor);
 
 
-} // END USER EFFECT?
+} 
 
 
   return useObserver(() => (
@@ -244,16 +247,11 @@ const Map = () => {
         setToggle={setPreview}
       />
 
-      {/* <div className={styles.test} >
-        <svg data-tip='test hellloooo werk :(' height="100" width="100">
-          <circle cx="50" cy="50" r="50" fill="pink" />
-        </svg> 
-      </div> */}
-
+      {/* 
       <ReactTooltip
-        //effect="solid"
-        //place="top"
-      />
+      //effect="solid"
+      //place="top"
+      /> */}
 
       <div className={styles.mapContainer} ref={mapContainerRef} />
     </>

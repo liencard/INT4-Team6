@@ -1234,7 +1234,7 @@
             "properties": {
                 "REGION_NAME": "Benin/Togo",
                 "ROOTS_PERCENTAGE": "1.2",
-                "NUMBER_ANCESTORS": "0",
+                "NUMBER_ANCESTORS": "no",
                 "ZOOMX": 2.185204,
                 "ZOOMY": 8.507205,
                 "TRANSPARENCY": 0.25
@@ -2144,7 +2144,7 @@
             "properties": {
                 "REGION_NAME": "Central America",
                 "ROOTS_PERCENTAGE": "1.0",
-                "NUMBER_ANCESTORS": "0",
+                "NUMBER_ANCESTORS": "no",
                 "ZOOMX": -81.049358,
                 "ZOOMY": 8.425713,
                 "TRANSPARENCY": 0.25

@@ -1,9 +1,9 @@
 import React, { useState, useCallback } from 'react';
 import * as THREE from 'three';
 import { useSpring, a } from 'react-spring/three';
-import { useObserver } from 'mobx-react-lite';
+//import { useObserver } from 'mobx-react-lite';
 
-import { Text, HTML } from 'drei';
+import { Text } from 'drei';
 const Ancestor = ({ ancestor, ancestorStore }) => {
   const imgName = ancestor.name.split(' ').join('');
   const imgType = ancestor.img;
@@ -26,7 +26,7 @@ const Ancestor = ({ ancestor, ancestorStore }) => {
     `./assets/img/ancestors/main/${imgSrc}`
   );
 
-  // hover effect
+  //hover effect
   const [hovered, setHover] = useState(false);
   const states = useSpring({
     scale: hovered ? [1.1, imgSizeVertical*1.1, 1] : [1, imgSizeVertical, 1],
@@ -68,11 +68,11 @@ const Ancestor = ({ ancestor, ancestorStore }) => {
       >
         {dates}
       </Text>
-
+      
       <a.mesh
         ancestorId={ancestor.id}
         onPointerOver={(e) => toggleHover(e, true)}
-        onPointerOut={(e) => toggleHover(e, false)}
+        onPointerLeave={(e) => toggleHover(e, false)}
         scale={states.scale}
         position={[posX, posY, posZ]}
       >

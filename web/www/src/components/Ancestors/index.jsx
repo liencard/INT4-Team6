@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef} from 'react';
 import { Canvas } from 'react-three-fiber';
 import Controls from '../Controls';
 import Ancestor from '../Ancestor/index.jsx';
@@ -42,15 +42,17 @@ console.log(ancestors.allAncestors);
         <ambientLight color="#ffffff" intensity={0.1} />
         <pointLight position={[10, 10, 10]} />
 
-        {ancestorStore.ancestors.map((ancestor) => (
-          <group
-            key={ancestor.id}
-            ancestorId={ancestor.id}
-            onClick={(e) => handleClickAncestor(e)}
-          >
-            <Ancestor ancestor={ancestor} ancestorStore={ancestorStore} />
-          </group>
-        ))}
+
+          {ancestorStore.ancestors.map((ancestor) => (
+            <group
+              key={ancestor.id}
+              ancestorId={ancestor.id}
+              onClick={(e) => handleClickAncestor(e)}
+            >
+              <Ancestor ancestor={ancestor} ancestorStore={ancestorStore} />
+            </group>
+          ))}
+
       </Canvas>
     );
   };

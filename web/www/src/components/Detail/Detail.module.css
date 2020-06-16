@@ -78,8 +78,31 @@
     font-size: 13rem;
 }
 
+  /* background-image: url("./../../../public/assets/img/onboarding_bg.png"); */
+  /* als applicatie draait root map, anders package.json public path */
+
 .timeframe {
     margin-bottom: 20rem;
+}
+
+.timeframe::before {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    background-image: url("/assets/img/detail/MargeretEvans_revolution.png");
+    background-repeat: no-repeat;
+
+    /* Position */
+    margin-top: -10rem;
+    left: 0;
+
+    /* Image size */
+    background-size: auto 100%;
+
+    /* Canvas size */
+    width: 50vw;
+    height: 85rem;
+    
 }
 
 .timeframe__title {
@@ -105,13 +128,40 @@
 }
 
 .living {
-    padding-right: 63rem;
+    /* padding-right: 63rem; */
     margin-bottom: 20rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.living__text {
+    max-width: 42rem;
+}
+
+.living__img {
+    margin-top: -8rem;
+}
+
+.living__imgFamily {
+    position: absolute;
+    transform: translate(-8rem, 20rem)
 }
 
 .work {
-    padding-left: 63rem;
+    /* padding-left: 63rem; */
     margin-bottom: 20rem;
+    display: flex;
+}
+
+.work__img {
+    position: absolute;
+    z-index: -1;
+    transform: translate(-8rem, -15rem);
+}
+
+.work__text {
+    max-width: 41rem;
+    margin-left: auto;
 }
 
 .work section {
@@ -120,5 +170,15 @@
 
 .death__start {
     margin-top: 15rem;
-    padding-left: 63rem;
+    /* padding-left: 63rem; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.death__text {
+    max-width: 41rem;
+}
+
+.death__img {
+    transform: translate(0, -10rem);
 }

@@ -21,25 +21,50 @@
     display: none;
 }
 
-.header {
-    padding-top: 20rem;
-}
-
 .container {
     max-width: 106rem;
     margin: 0 auto;
-    height: 100%;
 }
 
-.name {
+.title {
     composes: titleLarge from "../../styles/typo.module.css";
-    font-size: 13rem;
+    padding-bottom: 2rem;
 }
 
 .subtitle {
     composes: subtitle from "../../styles/typo.module.css";
     padding-bottom: 2rem;
 }
+
+.text {
+    /* composes: text from "../../styles/typo.module.css"; */
+    line-height: 1.5;
+    padding-bottom: 1.5rem;
+}
+
+.intro {
+    padding-top: 20rem;
+    margin-bottom: 20rem;
+}
+
+.intro__info {
+    margin-top: 20rem;
+    display: flex;
+    width: 50%;
+}
+
+.intro__info section {
+    margin-right: 3em;
+}
+
+.intro__ancestor {
+    margin-left: 8rem;
+}
+
+.generation {
+    font-family: 'CarneysGalleryScript', sans-serif;
+}
+
 
 .date {
     font-size: 6rem;
@@ -48,16 +73,52 @@
     -webkit-text-fill-color: transparent;
 }
 
-.generation {
-    font-family: 'CarneysGalleryScript', sans-serif;
+.name {
+    composes: titleLarge from "../../styles/typo.module.css";
+    font-size: 13rem;
 }
 
-.intro {
-    margin-top: 20rem;
+.timeframe {
+    margin-bottom: 20rem;
+}
+
+.timeframe__title {
+    text-align: center;
+    padding-bottom: 5rem;
+}
+
+.timeframe__info {
     display: flex;
-    width: 50%;
+    flex: 1;	
 }
 
-.ancestor {
-    margin-left: 8rem;
+.timeframe__info section {
+    flex-basis: 100%;
+}
+
+.timeframe__info section:not(:last-of-type) {
+    padding-right: 4rem;
+}
+
+.timeframe__dates {
+    font-size: 2rem;
+}
+
+.living {
+    padding-right: 63rem;
+    margin-bottom: 20rem;
+}
+
+.work {
+    padding-left: 63rem;
+    margin-bottom: 20rem;
+}
+
+.work section {
+    margin-bottom: 3rem;
+}
+
+.death__start {
+    margin-top: 15rem;
+    padding-left: 63rem;
 }

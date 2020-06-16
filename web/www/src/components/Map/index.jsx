@@ -108,6 +108,7 @@ const Map = () => {
           'text-color': 'rgba(255,255,255,1)',
         },
       });
+
     });
 
     map.on('click', 'regions-layer', function (e) {
@@ -135,6 +136,15 @@ const Map = () => {
           removeMarkers();
         }
       });
+
+      // Test for hide placenames
+      // if (map.getZoom() < 4) {
+      //   map.style.stylesheet.layers.forEach(function (layer) {
+      //     if (layer.type === 'symbol') {
+      //       map.removeLayer(layer.id);
+      //     }
+      //   });
+      // }
     });
 
     map.on('mouseenter', 'regions-layer', function (e) {

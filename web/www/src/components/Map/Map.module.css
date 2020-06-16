@@ -15,51 +15,32 @@
   background-color: blue;
 }
 
-.popupContent {
-  background-color: rgb(17, 17, 17);
-  text-align: center;
-  font-family: fontBody;
+.popup {
+  color: white !important;
 }
 
-.popupContent img {
+/* tip */
+.popup div:first-of-type {
+  border-top-color: rgb(17, 17, 17);
+}
+
+/* content */
+.popup div:last-of-type {
+  background-color: rgb(17, 17, 17);
+  text-align: center;
+}
+
+.popup div:last-of-type img {
   border-radius: 50%;
   margin-top: -50%;
   margin-bottom: 5px;
-  margin-left: 8%;
 }
 
-.popupContent p {
-  font-size: 1.6rem;
-}
-
-.popupContent span {
-  color: faded;
+.popup div:last-of-type p {
   font-size: 1.4rem;
 }
 
-.popupTip {
-  border-top-color: rgb(17, 17, 17) !important;
-}
-
-/* werkt niet!!! */
-.popupImage {
-  border-radius: 50% !important;
-  margin-top: -50% !important;
-  margin-bottom: 5px !important;
-  margin-left: 8% !important;
-}
-
-/* TEST CODE */
-.test {
-  width: 300px;
-  height:300px;
-  padding: 10rem;
-}
-
-.test svg circle:hover {
-  fill: red;
-}
-
-.testje {
-  z-index: 9999;
+.popup div:last-of-type span {
+  color: faded;
+  font-size: 1.2rem;
 }

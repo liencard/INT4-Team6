@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { ROUTES } from '../../consts';
 import Sidebar from '../Sidebar/index.jsx';
 import Bookmark from '../Bookmark/index.jsx';
+import Header from '../Header/index.jsx';
 
 
  const Bookmarks = () => {
@@ -21,13 +22,13 @@ import Bookmark from '../Bookmark/index.jsx';
 
    return useObserver(() => (
      <>
-       <Sidebar type={'menu'} toggle={menu} setToggle={setMenu} />
-
+       <Header logo={true} menu={true} content={true} text={"Bookmarked Ancestors"}/>
        <div
          className={styles.container}
          style={{ backgroundImage: `url(assets/img/bookmark_bg.png)` }}
        >
-         <div className={styles.header}>
+
+         {/* <div className={styles.header}>
            <img
              className={styles.img}
              src="./assets/img/FYFR.svg"
@@ -47,7 +48,8 @@ import Bookmark from '../Bookmark/index.jsx';
                height="12"
              />
            </button>
-         </div>
+         </div> */}
+         
 
          {bookmarkStore.bookmarks.length > 0 ? (
            <section className={styles.bookmarks}>

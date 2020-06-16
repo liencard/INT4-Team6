@@ -2,7 +2,7 @@
 @value faded from tokens;
 
 .container {
-    padding: 3.5rem 8rem;
+    /* padding: 3.5rem 8rem; */
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;

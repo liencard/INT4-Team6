@@ -10,7 +10,7 @@ const OnboardingOne = () => {
         <>
             <div 
                 className={styles.onboarding__wrapper}
-                style={{backgroundImage: `url(assets/img/lines_bg.png)`}}
+                //style={{backgroundImage: `url(assets/img/lines_bg.png)`}}
             >
 
                 <div className={styles.header}>

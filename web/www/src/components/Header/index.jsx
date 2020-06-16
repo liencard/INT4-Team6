@@ -5,7 +5,7 @@ import styles from './Header.module.css';
 import { useObserver } from 'mobx-react-lite';
 import Sidebar from '../Sidebar/index.jsx';
 
-const Header = ({logo, menu}) => {
+const Header = ({logo, menu, content, text, toggleDashboard}) => {
     const [menuToggle, setMenu] = useState(false);
 
     const LogoView = () => {
@@ -42,6 +42,33 @@ const Header = ({logo, menu}) => {
         }
     }
 
+  const TextView = () => {
+    if (content && text)  {
+      return (
+        <p className={styles.text}>{text}</p>
+      )
+    } else if (content && toggleDashboard){
+      return (
+        <div className={styles.dashboard__views}>
+          <NavLink
+            to={`${ROUTES.ancestors}`}
+            className={styles.tab}
+            activeClassName={styles.tabActive}
+          >
+            Family Tree
+            </NavLink>
+          <NavLink
+            to={`${ROUTES.map}`}
+            className={styles.tab}
+            activeClassName={styles.tabActive}
+          >
+            Roots DNA
+            </NavLink>
+        </div>
+      );
+    }
+  }
+
     // const SidebarView = () => {
     //     if (menu) {
     //         return <Sidebar type={'menu'} toggle={menuToggle} setToggle={setMenu}/>;
@@ -54,6 +81,7 @@ const Header = ({logo, menu}) => {
     <>
       <div className={styles.header}>
         <LogoView />
+        <TextView />
         <MenuView />
       </div>
       {/* <SidebarView /> */}

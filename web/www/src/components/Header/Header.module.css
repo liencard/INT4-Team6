@@ -1,7 +1,11 @@
+@value tokens: "../../styles/tokens.module.css";
+@value faded, fontBody from tokens;
+
 .header {
     z-index: 2;
     position: fixed;
     width: 100%;
+    top: 0;
 
     display: flex;
     justify-content: space-between;
@@ -11,4 +15,33 @@
 }
 
 .logo {
+}
+
+.text { 
+    composes: top from "../../styles/typo.module.css";
+}
+
+.dashboard__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ 
+.tab {
+    color: faded;
+    padding: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.475rem;
+    font-size: 1.2rem;
+    border: .1rem solid faded;
+}
+
+.tab:last-child {
+    margin-left: -.1rem;
+    border-left: .1rem solid white;
+}
+
+.tabActive {
+    color: white;
+    border: .1rem solid white;
 }

@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import * as THREE from 'three';
 import { useSpring, a } from 'react-spring/three';
+import { useObserver } from 'mobx-react-lite';g
 
 import { Text, HTML } from 'drei';
 const Ancestor = ({ ancestor, ancestorStore }) => {
@@ -49,7 +50,7 @@ const Ancestor = ({ ancestor, ancestorStore }) => {
     setHover(value); // flicker bug
   }); 
 
-  return (
+  return useObserver(() => (
     <>
       <Text
         position={[posX - 0.6, textOffset + 0.2, posZ + 0.2]}
@@ -79,7 +80,7 @@ const Ancestor = ({ ancestor, ancestorStore }) => {
         <a.meshBasicMaterial attach="material" map={img} transparent={true} />
       </a.mesh>
     </>
-  );
+  ));
 };
 
 export default Ancestor;

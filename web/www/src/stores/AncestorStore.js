@@ -18,6 +18,10 @@ class AncestorStore {
     this.ancestors.push(ancestor);
   };
 
+  get allAncestors() {
+    return this.ancestors
+  }
+
   updateAncestorFromServer(json) {
     let ancestor = this.ancestors.find((ancestor) => ancestor.id === json.id);
     if (!ancestor) {

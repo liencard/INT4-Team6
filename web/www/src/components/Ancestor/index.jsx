@@ -50,7 +50,7 @@ const Ancestor = ({ ancestor, ancestorStore }) => {
     setHover(value); // flicker bug
   }); 
 
-  return useObserver(() => (
+  return (
     <>
       <Text
         position={[posX - 0.6, textOffset + 0.2, posZ + 0.2]}
@@ -80,7 +80,7 @@ const Ancestor = ({ ancestor, ancestorStore }) => {
         <a.meshBasicMaterial attach="material" map={img} transparent={true} />
       </a.mesh>
     </>
-  ));
+  );
 };
 
 export default Ancestor;

@@ -1,18 +1,24 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { Canvas } from 'react-three-fiber';
 import Controls from '../Controls';
 import Ancestor from '../Ancestor/index.jsx';
 import Sidebar from '../Sidebar/index.jsx';
+import CanvasTest from './canvas.jsx';
 
 import { useObserver } from "mobx-react-lite";
 import { useStore } from "../../hooks/useStore";
+import styles from './Ancestors.module.css';
+
 
 const Ancestors = () => {
 const { ancestorStore } = useStore();
-//const ancestors = ancestorStore.ancestors;
-
 const [preview, setPreview] = useState(false);
 const [ancestor, setAncestor] = useState(null);
+const [state, setState] = useState("loading");
+const [canvas, setCanvas] = useState(false);
+
+const ancestors = ancestorStore.ancestors;
+console.log(ancestors.allAncestors); 
 
   const handleClickAncestor = (e) => {
     e.stopPropagation();
@@ -22,12 +28,8 @@ const [ancestor, setAncestor] = useState(null);
     setAncestor(clickedAncestor);
   };
 
-  /* useobserver weghalen, usestate & useobserver proberen te splitsen */
-  return useObserver(() => (
-    <>
-      <Sidebar type={"preview"} content={ancestor} toggle={preview} setToggle={setPreview} />
-
-      {/* canvas aparte component maken, ancestorstore binnenhalen en useobserver weghalen */}
+  const CanvasView = () => {
+    return (
       <Canvas
         camera={{
           fov: 70,
@@ -50,9 +52,33 @@ const [ancestor, setAncestor] = useState(null);
           </group>
         ))}
       </Canvas>
+    );
+  };
 
+   useLayoutEffect(() => {
+     if (!canvas) {
+        // canvas rendert MAAR de ancestors binnen canvas niet
+        setCanvas(CanvasView());
+     }
+   }, [canvas, ancestors]);
+
+
+  return useObserver(() => (
+    <>
+      <Sidebar
+        type={'preview'}
+        content={ancestor}
+        toggle={preview}
+        setToggle={setPreview}
+      />
+
+      <div className={styles.canvas__container}>
+        {canvas}
+      </div>
     </>
-  ));
+  )
+  );
+
 };
 
 export default Ancestors;

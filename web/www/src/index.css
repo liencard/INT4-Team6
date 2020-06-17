@@ -57,6 +57,8 @@ body {
   font-family: 'Corbel', sans-serif;
   font-weight: lighter;
   font-size: 1.6rem;
+  
+  font-feature-settings: 'pnum' on, 'lnum' on;
 }
 
 #root {

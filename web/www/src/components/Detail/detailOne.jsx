@@ -7,7 +7,7 @@ const DetailOne = () => {
   return (
     <>
       <Header logo={true} menu={true} content={false} />
-      <div className={styles.detail}>
+      <div className={`${styles.detail} ${styles.detailMargaretEvans}`}>
         <div className={styles.container}>
           <article className={`${styles.intro} ${styles.content}`}>
             <div className={styles.intro__ancestor}>

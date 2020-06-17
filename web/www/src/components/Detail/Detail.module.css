@@ -7,12 +7,21 @@
 
 .detail {
     background-repeat: no-repeat, no-repeat, repeat;
-    background-image: url('/assets/img/detail/MargeretEvans_portrait.png'), url('/assets/img/detail/MargeretEvans_country.png'), url('/assets/img/detail/texture.jpg');
     top: 0;
     right: 0;
-    background-position: top right 10%, top right 50%, center;
-    background-size: auto 100vh, auto 90vh, contain;
     width: 100%;
+}
+
+.detailMargeretEvans {
+    background-image: url('/assets/img/detail/MargeretEvans_portrait.png'), url('/assets/img/detail/MargeretEvans_country.png'), url('/assets/img/detail/texture.jpg');
+    background-size: auto 100vh, auto 90vh, contain;
+    background-position: top right 10%, top right 50%, center;
+}
+
+.detailMaryWallcott {
+    background-image: url('/assets/img/detail/MaryWallcott_portrait.png'), url('/assets/img/detail/MaryWallcott_country.png'), url('/assets/img/detail/texture.jpg');
+    background-size: auto 90rem, auto 90vh, contain;
+    background-position: top 20rem right, top right 50%, center;
 }
 
 .hidden {

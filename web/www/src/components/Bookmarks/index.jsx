@@ -1,32 +1,61 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Bookmarks.module.css';
 import { useObserver } from 'mobx-react-lite';
 import { useStore } from '../../hooks/useStore';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../consts';
-import Sidebar from '../Sidebar/index.jsx';
 import Bookmark from '../Bookmark/index.jsx';
 import Header from '../Header/index.jsx';
 
 
  const Bookmarks = () => {
-    const { bookmarkStore } = useStore();
-    const [menu, setMenu] = useState(false);
 
-    const handleClickMenu = (e) => {
-      e.stopPropagation();
-      setMenu(true);
-    }; 
-   
-    console.log(bookmarkStore.bookmarks);
+  const STATE_LOADING = 'loading';
+  const STATE_LOADED = 'loaded';
+  const STATE_NOT_FOUND = 'notFound';
 
-   return useObserver(() => (
+  const { bookmarkStore } = useStore();
+
+  const [bookmark, setBookmark] = useState(bookmarkStore.bookmarks);
+  const [state, setState] = useState(STATE_LOADING);
+    
+  console.log(bookmarkStore.bookmarks);
+
+  useEffect(() => {
+    const loadBookmarks = async () => {
+      try {
+        if (bookmark) {
+          setState(STATE_LOADED);
+          return;
+        }
+        setBookmark(bookmarkStore.bookmarks);
+        setState(STATE_LOADED);
+      } catch (error) {
+        if (error.response && error.response.status === 404) {
+          setState(STATE_NOT_FOUND);
+        }
+      }
+    };
+
+    loadBookmarks();
+  }, [setBookmark, bookmark]);
+ 
+   return useObserver(() => {
+    
+    if (state === STATE_LOADING) {
+      return (
+        <>
+          <div className={styles.testDiv}>Loading Bookmarks</div>
+        </>
+      )
+    } 
+    return (
      <>
        <Header logo={true} menu={true} content={true} text={"Bookmarked Ancestors"} />
-       <div
+        <div
          className={styles.container}
          style={{ backgroundImage: `url(assets/img/bookmark_bg.png)` }}
-       >
+        >
          
          {bookmarkStore.bookmarks.length > 0 ? (
            <section className={styles.bookmarks}>
@@ -79,7 +108,8 @@ import Header from '../Header/index.jsx';
          )}
        </div>
      </>
-   ));
+    )
+   });
  };
 
  export default Bookmarks;

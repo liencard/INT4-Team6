@@ -11,7 +11,13 @@ class Bookmark {
     this.store.addBookmark(this);
   }
 
-  updateFromJson = ({ name = undefined, birthdate = undefined, deathdate = undefined }) => {
+  create = async () => this.store.createBookmark(this.asJson);
+
+  updateFromJson = ({
+    name = undefined,
+    birthdate = undefined,
+    deathdate = undefined,
+  }) => {
     this.name = name !== undefined ? name : this.name;
     this.birthdate = birthdate !== undefined ? birthdate : this.birthdate;
     this.deathdate = deathdate !== undefined ? deathdate : this.deathdate;

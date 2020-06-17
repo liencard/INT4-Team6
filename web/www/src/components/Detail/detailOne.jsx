@@ -1,10 +1,19 @@
 import React from 'react';
+import Bookmark from '../../models/BookmarkModel';
 import styles from './Detail.module.css';
 import Header from '../Header/index.jsx';
 
+import { useStore } from '../../hooks/useStore';
+
 const DetailOne = () => {
+
+  const { bookmarkStore } = useStore();
+
   const handleClickBookmark = () => {
     console.log("ancestor toevoegen")
+
+    // const bookmarkedAncestor = new BookmarkModel({store: bookmarkStore})
+    // bookmarkedAncestor.create();
   }
 
   return (

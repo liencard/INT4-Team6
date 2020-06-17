@@ -14,6 +14,11 @@ class BookmarkStore {
     jsonBookmarks.forEach((json) => this.updateBookmarkFromServer(json));
   };
 
+  createBookmark = async (bookmark) => {
+    const json = await this.bookmarksService.create(bookmark);
+    this.updateBookmarkFromServer(json);
+  };
+
   addBookmark = (bookmark) => {
     this.bookmarks.push(bookmark);
   };
@@ -33,7 +38,6 @@ class BookmarkStore {
     }
     return bookmark;
   }
-
 }
 
 decorate(BookmarkStore, {

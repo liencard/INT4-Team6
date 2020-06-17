@@ -34,6 +34,9 @@ class BookmarkDAO extends DAO {
 
   public function getValidationErrors($data) {
     $errors = array();
+    if(!isset($data['id'])) {
+      $errors['id'] = "Please fill in a id";
+    }
     if(!isset($data['user_id'])) {
       $errors['user_id'] = "Please fill in a user id";
     }

@@ -21,8 +21,6 @@ const Menu = () => {
 
     const loadCurrentUser = async () => {
       try {
-        
-      
         if (currentUser) {
           setState(STATE_LOADED);
           return;

@@ -1,19 +1,39 @@
 import React, { useState } from 'react';
 import styles from './Login.module.css';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useObserver } from 'mobx-react-lite';
-import Button from '../Button/index.jsx';
+import { useStore } from '../../hooks/useStore';
+import { ROUTES } from '../../consts';
 
 const Login = ({login}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    let history = useHistory();
+
+    const {uiStore, userStore} = useStore();
+    console.log(uiStore.currentUser);
+
     const handleSubmitLogin = async (e) => {
       e.preventDefault();
+
+      //await userStore.loadAllUsers();
+      //uiStore.setCurrentUser(userStore.resolveUser('4e8baf11-bb77-3f6b-97d1-69b8e51c2ebe'));
+
+      if (
+        password === uiStore.currentUser.password &&
+        email === uiStore.currentUser.email
+      ) {
+        history.push(ROUTES.ancestors);
+      }
+
     };  
 
     return useObserver(() => (
-      <div className={`${styles.content__wrapper} ${login ? styles.content__wrapperOpened : styles.content__wrapperClosed}`}>
-
+      <div
+        className={`${styles.content__wrapper} ${
+          login ? styles.content__wrapperOpened : styles.content__wrapperClosed
+        }`}
+      >
         <h1 className={styles.title}>Welcome back</h1>
         <p className={styles.subtitle}>Sign in to your account</p>
 
@@ -49,7 +69,8 @@ const Login = ({login}) => {
               </label>
             </div>
           </div>
-          <Button text={'login'} to={'onboarding-one'} />
+          <button className={styles.button}>Login </button>
+          {/* <input type="submit" value="Login" className={styles.button} /> */}
 
           <div className={styles.divider}>
             <div className={styles.line}></div>

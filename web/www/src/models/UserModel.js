@@ -14,17 +14,22 @@ class User {
 
   updateFromJson = ({
     name = undefined,
-    avatar = undefined
+    avatar = undefined,
+    email = undefined,
+    password = undefined
   }) => {
     this.name = name !== undefined ? name : this.name;
     this.avatar = avatar !== undefined ? avatar : this.avatar;
-
+    this.email = email !== undefined ? email : this.email;
+    this.password = password !== undefined ? password : this.password;
   };
 }
 
 decorate(User, {
   name: observable,
   avatar: observable,
+  email: observable,
+  password: observable,
   updateFromJson: action
 });
 

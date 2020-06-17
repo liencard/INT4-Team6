@@ -3,7 +3,6 @@ import { Canvas } from 'react-three-fiber';
 import Controls from '../Controls';
 import Ancestor from '../Ancestor/index.jsx';
 import Sidebar from '../Sidebar/index.jsx';
-import CanvasTest from './canvas.jsx';
 
 import { useObserver } from "mobx-react-lite";
 import { useStore } from "../../hooks/useStore";
@@ -62,7 +61,6 @@ let ancestors = ancestorStore.ancestors;
 
    useLayoutEffect(() => {
      if (ancestorStore.loadAllComplete && !canvas) {
-        // canvas rendert MAAR de ancestors binnen canvas niet
         setCanvas(<CanvasView />);
      }
    }, [canvas, ancestors]);

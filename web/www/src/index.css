@@ -4,35 +4,35 @@
 
 @font-face {
   font-family: 'DM Serif Display';
-  src: url(./fonts/DMSerifDisplay/DMSerifDisplay-Regular.woff2) format('woff2'), url(./fonts/DMSerifDisplay/DMSerifDisplay-Regular.woff) format('woff');
+  src: url(/assets/fonts/DMSerifDisplay/DMSerifDisplay-Regular.woff2) format('woff2'), url(/assets/fonts/DMSerifDisplay/DMSerifDisplay-Regular.woff) format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Corbel';
-  src: url(./fonts/Corbel/Corbel-Light.woff2) format('woff2'), url(./fonts/Corbel/Corbel-Light.woff) format('woff');
+  src: url(/assets/fonts/Corbel/Corbel-Light.woff2) format('woff2'), url(/assets/fonts/Corbel/Corbel-Light.woff) format('woff');
   font-weight: lighter;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Corbel';
-  src: url(./fonts/Corbel/Corbel-Bold.woff2) format('woff2'), url(./fonts/Corbel/Corbel-Bold.woff) format('woff');
+  src: url(/assets/fonts/Corbel/Corbel-Bold.woff2) format('woff2'), url(/assets/fonts/Corbel/Corbel-Bold.woff) format('woff');
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'MadeCanvas';
-  src: url(./fonts/MadeCanvas/MADECanvasRegular.woff2) format('woff2'), url(./fonts/MadeCanvas/MADECanvasRegular.woff) format('woff');
+  src: url(/assets/fonts/MadeCanvas/MADECanvasRegular.woff2) format('woff2'), url(/assets/fonts/MadeCanvas/MADECanvasRegular.woff) format('woff');
   font-weight: lighter;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'CarneysGalleryScript';
-  src: url(./fonts/CarneysGalleryScript/CarneysGalleryScript.woff2) format('woff2'), url(./fonts/CarneysGalleryScript/CarneysGalleryScript.woff) format('woff');
+  src: url(/assets/fonts/CarneysGalleryScript/CarneysGalleryScript.woff2) format('woff2'), url(/assets/fonts/CarneysGalleryScript/CarneysGalleryScript.woff) format('woff');
   font-weight: normal;
   font-style: normal;
 }

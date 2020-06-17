@@ -2,19 +2,17 @@
 @value fontBody, faded, spacerBig from tokens;
 
 
-.header::before {
-    content: '';
-    /* position: absolute; */
-    background-repeat: no-repeat;
-    background-image: url('/assets/img/detail/MargeretEvans_portrait.png');
-    right: 0; /* helemaal rechts positioneren */
 
-    /* Image size */
-    background-size: auto 100vh;
+/* GENERAL */
 
-    /* Canvas size */
-    width: 46vw; /* 50vw - maar met beetje margin links */
-    height: 100%;
+.detail {
+    background-repeat: no-repeat, no-repeat, repeat;
+    background-image: url('/assets/img/detail/MargeretEvans_portrait.png'), url('/assets/img/detail/MargeretEvans_country.png'), url('/assets/img/detail/texture.jpg');
+    top: 0;
+    right: 0;
+    background-position: top right 10%, top right 50%, center;
+    background-size: auto 100vh, auto 90vh, contain;
+    width: 100%;
 }
 
 .hidden {
@@ -25,6 +23,13 @@
     max-width: 106rem;
     margin: 0 auto;
 }
+
+.content {
+    margin-bottom: 20rem;
+}
+
+
+/* TYPOGRAPHY */
 
 .title {
     composes: titleLarge from "../../styles/typo.module.css";
@@ -37,14 +42,43 @@
 }
 
 .text {
-    /* composes: text from "../../styles/typo.module.css"; */
     line-height: 1.5;
     padding-bottom: 1.5rem;
+    z-index: 2;
+}
+
+.titleCentered {
+    text-align: center;
+    padding-bottom: 5rem;
+}
+
+.dates {
+    font-size: 2rem;
+}
+
+
+
+
+/* CONTENT - INTRO */
+
+.generation {
+    font-family: 'CarneysGalleryScript', sans-serif;
+}
+
+.name {
+    composes: titleLarge from "../../styles/typo.module.css";
+    font-size: 13rem;
+}
+
+.date {
+    font-size: 6rem;
+    font-weight: bold;
+    -webkit-text-stroke: 1px white;
+    -webkit-text-fill-color: transparent;
 }
 
 .intro {
     padding-top: 20rem;
-    margin-bottom: 20rem;
 }
 
 .intro__info {
@@ -61,53 +95,22 @@
     margin-left: 8rem;
 }
 
-.generation {
-    font-family: 'CarneysGalleryScript', sans-serif;
-}
 
 
-.date {
-    font-size: 6rem;
-    font-weight: bold;
-    -webkit-text-stroke: 1px white;
-    -webkit-text-fill-color: transparent;
-}
-
-.name {
-    composes: titleLarge from "../../styles/typo.module.css";
-    font-size: 13rem;
-}
-
-  /* background-image: url("./../../../public/assets/img/onboarding_bg.png"); */
-  /* als applicatie draait root map, anders package.json public path */
-
-.timeframe {
-    margin-bottom: 20rem;
-}
+/* CONTENT - TIMEFRAME */
 
 .timeframe::before {
-    z-index: -1;
     content: '';
     position: absolute;
     background-image: url("/assets/img/detail/MargeretEvans_revolution.png");
     background-repeat: no-repeat;
 
-    /* Position */
     margin-top: -10rem;
     left: 0;
 
-    /* Image size */
     background-size: auto 100%;
-
-    /* Canvas size */
     width: 50vw;
-    height: 85rem;
-    
-}
-
-.timeframe__title {
-    text-align: center;
-    padding-bottom: 5rem;
+    height: 60rem;
 }
 
 .timeframe__info {
@@ -123,19 +126,18 @@
     padding-right: 4rem;
 }
 
-.timeframe__dates {
-    font-size: 2rem;
-}
+
+
+/* CONTENT - LIVING */
 
 .living {
-    /* padding-right: 63rem; */
-    margin-bottom: 20rem;
     display: flex;
     justify-content: space-between;
 }
 
 .living__text {
     max-width: 42rem;
+    z-index: 2;
 }
 
 .living__img {
@@ -147,22 +149,24 @@
     transform: translate(-8rem, 20rem)
 }
 
+
+
+/* CONTENT - WORK */
+
 .work {
-    /* padding-left: 63rem; */
-    margin-bottom: 20rem;
     display: flex;
 }
 
 .work__img {
     position: absolute;
-    z-index: -1;
     transform: translate(-8rem, -15rem);
-    mix-blend-mode: color-dodge;
+    z-index: 1;
 }
 
 .work__text {
     max-width: 41rem;
     margin-left: auto;
+    z-index: 2;
 }
 
 .work section {
@@ -171,13 +175,16 @@
 
 .death__start {
     margin-top: 15rem;
-    /* padding-left: 63rem; */
     display: flex;
     justify-content: space-between;
 }
 
+
+/* CONTENT - DEATH */
+
 .death__text {
     max-width: 41rem;
+    z-index: 2;
 }
 
 .death__img {

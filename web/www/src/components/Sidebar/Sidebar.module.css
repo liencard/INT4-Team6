@@ -12,7 +12,7 @@
     box-shadow: 0 0 5rem 0 rgba(0,0,0,0.20);
     justify-content: space-between;
 
-    backdrop-filter: blur(25px);
+    backdrop-filter: blur(25px) !important;
     background-color: rgba(27, 27, 27, 0.80);
 }
 

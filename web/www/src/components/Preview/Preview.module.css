@@ -45,3 +45,7 @@
 .info__subtitle {
     composes: smallSpaced from "../../styles/typo.module.css";
 }
+
+.button {
+    composes: button from "../../styles/components.module.css";
+}

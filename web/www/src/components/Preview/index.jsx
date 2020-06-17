@@ -1,7 +1,7 @@
 import React from 'react';
 import { useObserver } from 'mobx-react-lite';
 import styles from './Preview.module.css';
-import Button from '../Button/index.jsx';
+import { Link } from 'react-router-dom';
 
 const Preview = ({ancestor}) => {
   const imgName = ancestor.name.split(' ').join('');
@@ -61,7 +61,7 @@ const Preview = ({ancestor}) => {
           </div>
         </div>
       </div>
-      <Button text={'read story'} to={'link'} />
+      <Link className={styles.button} to={`/detail/${ancestor.id}`}>read story</Link>
     </>
   ));
 };

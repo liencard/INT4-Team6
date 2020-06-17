@@ -9,7 +9,7 @@ const Detail = () => {
   /* if statement over exampleId gaan met useParam */
   return (
     <>
-      <DetailTwo />
+      <DetailOne />
     </>
   );
 };

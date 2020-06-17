@@ -49,7 +49,7 @@ const Header = ({logo, menu, content, text, toggleDashboard, togglePartners}) =>
       )
     } else if (content && toggleDashboard) {
       return (
-        <div className={styles.dashboard__views}>
+        <div>
           <NavLink
             to={`${ROUTES.ancestors}`}
             className={styles.tab}
@@ -68,20 +68,20 @@ const Header = ({logo, menu, content, text, toggleDashboard, togglePartners}) =>
       );
     } else if (content && togglePartners) { 
         return (
-          <div className={styles.dashboard__views}>
+          <div>
             <NavLink
-              to={`${ROUTES.ancestors}`}
+              to={`${ROUTES.detail}`}
               className={styles.tab}
               activeClassName={styles.tabActive}
             >
-              Family Tree
+              {content.name}
             </NavLink>
             <NavLink
-              to={`${ROUTES.map}`}
+              to={`${ROUTES.detail}`}
               className={styles.tab}
               activeClassName={styles.tabActive}
             >
-              Roots DNA
+              {content.partner}
             </NavLink>
           </div>
         );

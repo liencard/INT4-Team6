@@ -6,7 +6,7 @@ const DetailTwo = () => {
 
   return (
     <>
-      <Header logo={true} menu={true} content={false} />
+      <Header logo={true} menu={true} togglePartners={true} content={{name:'Naam hier', partner: 'Partner naam'}} />
       <div className={`${styles.detail} ${styles.detailMaryWallcott}`}>
         <div className={styles.container}>
           <article className={`${styles.intro} ${styles.content}`}>

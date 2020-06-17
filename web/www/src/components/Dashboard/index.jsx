@@ -26,7 +26,7 @@ const Dashboard = () => {
             data-tip={`${
               url === '/ancestors'
                 ? 'Travel through generations of ancestors by dragging & scrolling'
-                : 'Click or scroll on a regio to zoom in and find your ancestors.'
+                : 'Click or scroll on a region to zoom in and find your ancestors.'
             }`}
             width="27"
             height="27"

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useLayoutEffect, useRef, useMemo} from 'react';
 import { Canvas } from 'react-three-fiber';
 import Controls from '../Controls';
-import Effects from './effect.jsx';
+import Effects from './effects.jsx';
 import Ancestor from '../Ancestor/index.jsx';
 import Sidebar from '../Sidebar/index.jsx';
 
@@ -41,11 +41,11 @@ let ancestors = ancestorStore.ancestors;
           near: 0.1,
           far: 500,
         }}
+        onCreated={({ gl }) => gl.setClearColor('#1c1c1c')}
       >
         <Controls />
         <ambientLight color="#ffffff" intensity={0.1} />
         <pointLight position={[10, 10, 10]} />
-
         {ancestors.map((ancestor) => (
           <group
             key={ancestor.id}

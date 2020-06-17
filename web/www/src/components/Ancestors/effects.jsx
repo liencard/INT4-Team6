@@ -23,14 +23,16 @@ extend({
 });
 
 export default function Effects() {
-    console.log(BokehPass);
-    console.log(UnrealBloomPass);
 
   const composer = useRef();
   const { scene, gl, size, camera } = useThree();
-  const aspect = useMemo(() => new THREE.Vector2(size.width, size.height), [
-    size,
-  ]);
+  const aspect = useMemo(() => new THREE.Vector2(size.width, size.height), [size]);
+  
+  /* focus, de afstand waar hij op focused, wel exact op dat getal, dichter of verder is blur
+   aperture geen idee, 
+   maxblur intensiteit van blur */
+   const params = useMemo(() => ({ focus: 3.5, aperture: 0.01, maxblur: 0.005 }),[]);
+
   useEffect(() => void composer.current.setSize(size.width, size.height), [
     size,
   ]);
@@ -61,7 +63,7 @@ export default function Effects() {
       {/* <unrealBloomPass attachArray="passes" args={[aspect, 2, 1, 0.991]} /> */}
 
       {/* eigen probeersel */}
-      <bokehPass attachArray="passes" args={[aspect, 0, 0, 0]}  />
+      <bokehPass attachArray="passes" args={[scene, camera, params]} />
     </effectComposer>
   );
 }

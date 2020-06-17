@@ -55,7 +55,7 @@ let ancestors = ancestorStore.ancestors;
             <Ancestor ancestor={ancestor} ancestorStore={ancestorStore} />
           </group>
         ))}
-        <Effects />
+        {/* <Effects /> */}
       </Canvas>
     );
   };

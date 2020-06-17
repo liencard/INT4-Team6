@@ -23,7 +23,8 @@ extend({
 });
 
 export default function Effects() {
-
+    console.log(BokehPass);
+    console.log(UnrealBloomPass);
 
   const composer = useRef();
   const { scene, gl, size, camera } = useThree();
@@ -34,8 +35,6 @@ export default function Effects() {
     size,
   ]);
   useFrame(() => composer.current.render(), 2);
-
-
 
   return (
     <effectComposer ref={composer} args={[gl]}>
@@ -62,7 +61,7 @@ export default function Effects() {
       {/* <unrealBloomPass attachArray="passes" args={[aspect, 2, 1, 0.991]} /> */}
 
       {/* eigen probeersel */}
-      {/* <BokehPass attachArray="passes" args={[500, 5, 0.01]} renderToScreen  /> */}
+      <bokehPass attachArray="passes" args={[aspect, 0, 0, 0]}  />
     </effectComposer>
   );
 }

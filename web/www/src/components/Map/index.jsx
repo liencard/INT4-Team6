@@ -85,7 +85,8 @@ const Map = () => {
           ],
           'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
           'text-size': 16,
-          'text-offset': [0, 0]
+          'text-offset': [0, 0],
+          'text-allow-overlap': true
         },
         paint: {
           'text-color': 'rgba(255,255,255,1)',
@@ -103,8 +104,9 @@ const Map = () => {
             ' ancestors',
           ],
           'text-font': ['Open Sans Regular', 'Arial Unicode MS Regular'],
-          'text-size': 12,
-          'text-offset': [0, 2],
+          'text-size': 13,
+          'text-offset': [0, 1.3],
+          'text-allow-overlap': true
         },
         paint: {
           'text-color': 'rgba(255,255,255,1)',

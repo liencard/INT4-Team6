@@ -11,7 +11,8 @@ const Menu = () => {
   const STATE_LOADED = 'loaded';
   const STATE_NOT_FOUND = "notFound";
 
-  const { uiStore } = useStore();
+  const store = useStore();
+  const { uiStore  } = store;
 
   const [currentUser, setCurrentUser] = useState(uiStore.currentUser);
   const [state, setState] = useState(STATE_LOADING);
@@ -20,12 +21,18 @@ const Menu = () => {
 
     const loadCurrentUser = async () => {
       try {
-        const currentUser = await uiStore.currentUser;
-        if (!currentUser) {
-          setState(STATE_LOADING);
+        
+      
+        if (currentUser) {
+          setState(STATE_LOADED);
           return;
         }
-        setCurrentUser(currentUser);
+        await store.userStore.loadAllUsers();
+        store.uiStore.setCurrentUser(
+          store.userStore.resolveUser('4e8baf11-bb77-3f6b-97d1-69b8e51c2ebe')
+        );
+
+        setCurrentUser(store.uiStore.currentUser);
         setState(STATE_LOADED);
       } catch (error) {
         if (error.response && error.response.status === 404) {
@@ -36,7 +43,7 @@ const Menu = () => {
 
     loadCurrentUser();
     
-  }, [uiStore.currentUser, setCurrentUser, currentUser])
+  }, [store, setCurrentUser, currentUser])
 
   return useObserver(() => {
     if (state === STATE_LOADING) {

@@ -8,7 +8,6 @@ import CanvasTest from './canvas.jsx';
 import { useObserver } from "mobx-react-lite";
 import { useStore } from "../../hooks/useStore";
 import styles from './Ancestors.module.css';
-import { observe } from 'mobx';
 
 
 const Ancestors = () => {
@@ -18,12 +17,11 @@ const [ancestor, setAncestor] = useState(null);
 const [state, setState] = useState("loading");
 const [canvas, setCanvas] = useState(false);
 
-const stopObserve = observe(ancestorStore, (change) => {
-  if (change.name === 'loadAllComplete') {
-    setCanvas(<CanvasView />);
-  }
-});
-let ancestors = ancestorStore.ancestors;
+
+const [ancestors, setAncestors] = useState(null);
+
+// const ancestors = ancestorStore.ancestors;
+// console.log(ancestors.allAncestors); 
 
   const handleClickAncestor = (e) => {
     e.stopPropagation();
@@ -47,7 +45,7 @@ let ancestors = ancestorStore.ancestors;
         <ambientLight color="#ffffff" intensity={0.1} />
         <pointLight position={[10, 10, 10]} />
 
-        {ancestors.map((ancestor) => (
+        {ancestorStore.ancestors.map((ancestor) => (
           <group
             key={ancestor.id}
             ancestorId={ancestor.id}
@@ -61,14 +59,25 @@ let ancestors = ancestorStore.ancestors;
   };
 
    useLayoutEffect(() => {
-     if (ancestorStore.loadAllComplete && !canvas) {
-        // canvas rendert MAAR de ancestors binnen canvas niet
-        setCanvas(<CanvasView />);
+      const loadCanvas = async () => {
+        try {
+          const ancestorsFromStore = await ancestorStore.ancestors;
+          if (ancestorsFromStore && !canvas) {
+            setCanvas(CanvasView());
+            return;
+          }
+          setAncestors(ancestorsFromStore);
+          } catch (error) {
+             /* error */
+          }
      }
+
+     loadCanvas();
+
    }, [canvas, ancestors]);
 
 
-  return  (
+  return useObserver(() => (
     <>
       <Sidebar
         type={'preview'}
@@ -81,6 +90,7 @@ let ancestors = ancestorStore.ancestors;
         {canvas}
       </div>
     </>
+  )
   );
 
 };

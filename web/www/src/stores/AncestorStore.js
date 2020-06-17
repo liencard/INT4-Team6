@@ -6,12 +6,14 @@ class AncestorStore {
   constructor(rootStore) {
     this.rootStore = rootStore;
     this.ancestors = [];
+    this.loadAllComplete = false;
     this.ancestorsService = new RestService('ancestors');
   }
 
   loadAllAncestors = async () => {
     const jsonAncestors = await this.ancestorsService.getAll();
     jsonAncestors.forEach((json) => this.updateAncestorFromServer(json));
+    this.loadAllComplete = true;
   };
 
   addAncestor = (ancestor) => {
@@ -39,7 +41,9 @@ class AncestorStore {
 
 decorate(AncestorStore, {
   ancestors: observable,
+  loadAllComplete: observable,
   addAncestor: action,
+  loadAllAncestors: action,
   updateAncestorFromServer: action,
 });
 

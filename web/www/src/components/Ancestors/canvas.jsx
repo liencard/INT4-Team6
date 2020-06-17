@@ -10,6 +10,8 @@ const CanvasTest = () => {
     const [preview, setPreview] = useState(false);
     const [ancestor, setAncestor] = useState(null);
 
+    let ancestors = ancestorStore.ancestors;
+
     const handleClickAncestor = (e) => {
       e.stopPropagation();
       const clickedAncestor = ancestorStore.getAncestorById(
@@ -20,31 +22,31 @@ const CanvasTest = () => {
       setAncestor(clickedAncestor);
     };
     
-    return useObserver(() => (
-        <>
+    return useObserver(() =>(
+      <>
         <Canvas
-            camera={{
+          camera={{
             fov: 70,
             position: [0, 0, 63],
             near: 0.1,
             far: 500,
-            }}
+          }}
         >
-            <Controls />
-            <ambientLight color="#ffffff" intensity={0.1} />
-            <pointLight position={[10, 10, 10]} />
+          <Controls />
+          <ambientLight color="#ffffff" intensity={0.1} />
+          <pointLight position={[10, 10, 10]} />
 
-            {ancestorStore.ancestors.map((ancestor) => (
+          {ancestors.map((ancestor) => (
             <group
-                key={ancestor.id}
-                ancestorId={ancestor.id}
-                onClick={(e) => handleClickAncestor(e)}
+              key={ancestor.id}
+              ancestorId={ancestor.id}
+              onClick={(e) => handleClickAncestor(e)}
             >
-                <Ancestor ancestor={ancestor} ancestorStore={ancestorStore} />
+              <Ancestor ancestor={ancestor} ancestorStore={ancestorStore} />
             </group>
-            ))}
+          ))}
         </Canvas>
-        </>
+      </>
     )); 
 };
 

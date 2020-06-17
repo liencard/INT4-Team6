@@ -3,10 +3,21 @@ import styles from './Detail.module.css';
 import Header from '../Header/index.jsx';
 
 const DetailOne = () => {
+  const handleClickBookmark = () => {
+    console.log("ancestor toevoegen")
+  }
 
   return (
     <>
       <Header logo={true} menu={true} togglePartners={true} content={{name:'Naam hier', partner: 'Partner naam'}} />
+
+      <div className={styles.buttonsTest}>
+        <button className={styles.addBookmark} onClick={handleClickBookmark}>Add to bookmarks</button>
+        {/* link */}
+        <p>Previous generation</p>
+        <p>Next generation</p>
+      </div>
+
       <div className={`${styles.detail} ${styles.detailMargeretEvans}`}>
         <div className={styles.container}>
           <article className={`${styles.intro} ${styles.content}`}>

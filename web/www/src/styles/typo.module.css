@@ -20,6 +20,7 @@
 }
 
 .smallSpaced {
+  font-family: fontBody;
   text-transform: uppercase;
   font-size: fontSizeSmall;
   font-weight: lighter;

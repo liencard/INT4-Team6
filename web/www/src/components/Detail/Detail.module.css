@@ -2,6 +2,25 @@
 @value fontBody, faded, spacerBig from tokens;
 
 
+.buttonsTest {
+    composes: smallSpaced from "../../styles/typo.module.css";
+    position: absolute; /* of fixed */
+    right: 0;
+    padding: 9rem 8rem 0;
+    text-align: right;
+}
+
+.addBookmark {
+    composes: smallSpaced from "../../styles/typo.module.css";
+    padding: 1rem;
+    color: faded;
+}
+
+.buttonsTest p {
+    padding: 1rem;
+    color: faded;
+}
+
 
 /* GENERAL */
 

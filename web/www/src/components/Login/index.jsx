@@ -70,7 +70,6 @@ const Login = ({login}) => {
             </div>
           </div>
           <button className={styles.button}>Login </button>
-          {/* <input type="submit" value="Login" className={styles.button} /> */}
 
           <div className={styles.divider}>
             <div className={styles.line}></div>

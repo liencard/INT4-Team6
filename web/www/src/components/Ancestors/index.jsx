@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useLayoutEffect, useRef} from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef, useMemo} from 'react';
 import { Canvas } from 'react-three-fiber';
 import Controls from '../Controls';
+import Effects from './effect.jsx';
 import Ancestor from '../Ancestor/index.jsx';
 import Sidebar from '../Sidebar/index.jsx';
 
@@ -8,7 +9,6 @@ import { useObserver } from "mobx-react-lite";
 import { useStore } from "../../hooks/useStore";
 import styles from './Ancestors.module.css';
 import { observe } from 'mobx';
-
 
 const Ancestors = () => {
 const { ancestorStore } = useStore();
@@ -55,9 +55,13 @@ let ancestors = ancestorStore.ancestors;
             <Ancestor ancestor={ancestor} ancestorStore={ancestorStore} />
           </group>
         ))}
+        <Effects />
       </Canvas>
     );
   };
+
+
+
 
    useLayoutEffect(() => {
      if (ancestorStore.loadAllComplete && !canvas) {

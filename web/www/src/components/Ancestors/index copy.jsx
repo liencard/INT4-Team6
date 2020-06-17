@@ -49,14 +49,14 @@ const [state, setState] = useState(
         <pointLight position={[10, 10, 10]} />
 
         {ancestorStore.ancestors.map((ancestor) => (
-          <group
-            key={ancestor.id}
-            ancestorId={ancestor.id}
-            onClick={(e) => handleClickAncestor(e)}
-          >
-            <Ancestor ancestor={ancestor} ancestorStore={ancestorStore} />
-          </group>
-        ))}
+            <group
+              key={ancestor.id}
+              ancestorId={ancestor.id}
+              onClick={(e) => handleClickAncestor(e)}
+            >
+              <Ancestor ancestor={ancestor} ancestorStore={ancestorStore} />
+            </group>
+          ))}
       </Canvas>
     );
   };

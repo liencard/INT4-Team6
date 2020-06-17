@@ -83,7 +83,8 @@ const Map = () => {
             '%',
           ],
           'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
-          'text-size': 20,
+          'text-size': 16,
+          'text-offset': [0, 0]
         },
         paint: {
           'text-color': 'rgba(255,255,255,1)',
@@ -101,13 +102,14 @@ const Map = () => {
             ' ancestors',
           ],
           'text-font': ['Open Sans Regular', 'Arial Unicode MS Regular'],
-          'text-size': 14,
-          'text-offset': [0, 3],
+          'text-size': 12,
+          'text-offset': [0, 2],
         },
         paint: {
           'text-color': 'rgba(255,255,255,1)',
         },
       });
+
     });
 
     map.on('click', 'regions-layer', function (e) {
@@ -135,6 +137,15 @@ const Map = () => {
           removeMarkers();
         }
       });
+
+      // Test for hide placenames
+      // if (map.getZoom() < 4) {
+      //   map.style.stylesheet.layers.forEach(function (layer) {
+      //     if (layer.type === 'symbol') {
+      //       map.removeLayer(layer.id);
+      //     }
+      //   });
+      // }
     });
 
     map.on('mouseenter', 'regions-layer', function (e) {

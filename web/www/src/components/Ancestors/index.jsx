@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef} from 'react';
 import { Canvas } from 'react-three-fiber';
 import Controls from '../Controls';
 import Ancestor from '../Ancestor/index.jsx';

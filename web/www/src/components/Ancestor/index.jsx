@@ -7,7 +7,7 @@ import { Text } from 'drei';
 const Ancestor = ({ ancestor, ancestorStore }) => {
   const imgName = ancestor.name.split(' ').join('');
   const imgType = ancestor.img;
-  const imgSrc = `${imgName}.jpg`;
+  const imgSrc = `${imgName}`;
   let imgSizeVertical = 1;
   let textOffset = 0.55;
 
@@ -22,8 +22,12 @@ const Ancestor = ({ ancestor, ancestorStore }) => {
   } 
 
   // foto inladen
-  const img = new THREE.TextureLoader().load(
-    `./assets/img/ancestors/main/${imgSrc}`
+  const imgMain = new THREE.TextureLoader().load(
+    `./assets/img/ancestors/main/${imgSrc}.jpg`
+  );
+
+  const imgFiles = new THREE.TextureLoader().load(
+    `./assets/img/ancestors/files/${imgSrc}.png`
   );
 
   //hover effect
@@ -68,7 +72,19 @@ const Ancestor = ({ ancestor, ancestorStore }) => {
       >
         {dates}
       </Text>
-      
+
+
+      <a.mesh
+        position={[posX, posY - 0.2, posZ + 0.2]}
+      >
+        <planeGeometry attach="geometry" args={[1.58, 1.15]} />
+        <a.meshBasicMaterial
+          attach="material"
+          map={imgFiles}
+          transparent={true}
+        />
+      </a.mesh>
+
       <a.mesh
         ancestorId={ancestor.id}
         onPointerOver={(e) => toggleHover(e, true)}
@@ -77,7 +93,11 @@ const Ancestor = ({ ancestor, ancestorStore }) => {
         position={[posX, posY, posZ]}
       >
         <planeGeometry attach="geometry" args={[1, 1]} />
-        <a.meshBasicMaterial attach="material" map={img} transparent={true} />
+        <a.meshBasicMaterial
+          attach="material"
+          map={imgMain}
+          transparent={true}
+        />
       </a.mesh>
     </>
   );

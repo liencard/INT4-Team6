@@ -38,6 +38,7 @@ const Map = () => {
       });
       map.setMaxZoom(10);
       map.setMinZoom(1.5);
+      map.setPaintProperty('country-label', 'text-opacity', 0);
 
       map.addLayer({
         id: 'regions-layer',
@@ -132,20 +133,13 @@ const Map = () => {
 
       ancestors.forEach((ancestor) => {
         if (map.getZoom() > 2) {
+          map.setPaintProperty('country-label', 'text-opacity', 1);
           createMarker(ancestor, map);
         } else if (map.getZoom() < 2) {
+          map.setPaintProperty('country-label', 'text-opacity', 0);
           removeMarkers();
         }
       });
-
-      // Test for hide placenames
-      // if (map.getZoom() < 4) {
-      //   map.style.stylesheet.layers.forEach(function (layer) {
-      //     if (layer.type === 'symbol') {
-      //       map.removeLayer(layer.id);
-      //     }
-      //   });
-      // }
     });
 
     map.on('mouseenter', 'regions-layer', function (e) {

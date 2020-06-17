@@ -164,4 +164,3 @@ const DetailOne = () => {
 };
 
 export default DetailOne;
-export default DetailOne;

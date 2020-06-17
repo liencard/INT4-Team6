@@ -71,10 +71,30 @@ $app->group('/api', function (RouteCollectorProxy $routeGroup) {
   });
 
     $routeGroup->group('/bookmarks', function (RouteCollectorProxy $routeGroup) {
+    // GET BOOKMARKS
     $routeGroup->get('', function (Request $request, Response $response) {
       $bookmarkDAO = new BookmarkDAO();
       $data = $bookmarkDAO->selectBookmarksByUser();
       $response->getBody()->write(json_encode($data));
+      return $response
+              ->withHeader('Content-Type', 'application/json')
+              ->withStatus(200);
+    });
+
+    // ADD BOOKMARKS
+    $routeGroup->post('', function (Request $request, Response $response, $args) {
+      $bookmarkDAO = new BookmarkDAO();
+      $input = $request->getParsedBody();
+
+      $errors = $bookmarkDAO->getValidationErrors($input);
+      if (!empty($errors)) {
+        $response->getBody()->write(json_encode($errors));
+        return $response
+                ->withHeader('Content-Type', 'application/json')
+                ->withStatus(422);
+      }
+      $result = $bookmarkDAO->insert($input);
+      $response->getBody()->write(json_encode($result));
       return $response
               ->withHeader('Content-Type', 'application/json')
               ->withStatus(200);

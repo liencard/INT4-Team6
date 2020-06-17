@@ -8,7 +8,15 @@ class AncestorDAO extends DAO {
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
+
+  // public function getValidationErrors($data) {
+  //   $errors = array();
+  //   if(!isset($data['user_id'])) {
+  //     $errors['user_id'] = "Please fill in a user id";
+  //   }
+  //   if(!isset($data['ancestor_id'])) {
+  //     $errors['ancestor_id'] = "Please fill in a ancestor id";
+  //   }
+  //   return $errors;
+  // }
 }
-
-
-// hallofssdffsd

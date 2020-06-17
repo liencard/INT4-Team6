@@ -16,4 +16,30 @@ class BookmarkDAO extends DAO {
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
+
+  public function insert($data) {
+    $errors = $this->getValidationErrors($data);
+    if(empty($errors)) {
+      $sql = "INSERT INTO `int4_bookmarks` (`id`, `user_id`, `ancestor_id`) VALUES (:id, :user_id, :ancestor_id)";
+      $stmt = $this->pdo->prepare($sql);
+      $stmt->bindValue(':id', $data['id']);
+      $stmt->bindValue(':user_id', $data['user_id']);
+      $stmt->bindValue(':ancestor_id', $data['ancestor_id']);
+      if($stmt->execute()) {
+        return $this->selectById($data['id']);
+      }
+    }
+    return false;
+  }
+
+  public function getValidationErrors($data) {
+    $errors = array();
+    if(!isset($data['user_id'])) {
+      $errors['user_id'] = "Please fill in a user id";
+    }
+    if(!isset($data['ancestor_id'])) {
+      $errors['ancestor_id'] = "Please fill in a ancestor id";
+    }
+    return $errors;
+  }
 }

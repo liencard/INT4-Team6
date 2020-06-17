@@ -16,19 +16,21 @@ import Header from '../Header/index.jsx';
 
   const { bookmarkStore } = useStore();
 
-  const [bookmark, setBookmark] = useState(bookmarkStore.bookmarks);
+  const [bookmarks, setBookmarks] = useState(bookmarkStore.bookmarks);
   const [state, setState] = useState(STATE_LOADING);
     
-  console.log(bookmarkStore.bookmarks);
+  //console.log(bookmarkStore.bookmarks);
+
+  console.log(bookmarks);
 
   useEffect(() => {
     const loadBookmarks = async () => {
       try {
-        if (bookmark) {
+        if (bookmarks) {
           setState(STATE_LOADED);
           return;
         }
-        setBookmark(bookmarkStore.bookmarks);
+        setBookmarks(bookmarkStore.bookmarks);
         setState(STATE_LOADED);
       } catch (error) {
         if (error.response && error.response.status === 404) {
@@ -36,9 +38,8 @@ import Header from '../Header/index.jsx';
         }
       }
     };
-
     loadBookmarks();
-  }, [setBookmark, bookmark]);
+  }, [setBookmarks, bookmarks]);
  
    return useObserver(() => {
     

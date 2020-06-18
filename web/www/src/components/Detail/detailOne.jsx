@@ -19,24 +19,37 @@ const DetailOne = () => {
   const [ancestor, setAncestor] = useState(ancestorStore.getAncestorById(23));
   const [state, setState] = useState(STATE_LOADING);
 
+
+
+
   useEffect(() => {
     const loadAncestor = async (id) => {
+      console.log("use effect")
+
       try {
-        const ancestor = await ancestorStore.loadAncestor(id);
+        console.log("try");
+        const ancestor = await ancestorStore.getAncestorById(23);
+        console.log("done trying");
+        // console.log(ancestor);
         if (!ancestor) {
           setState(STATE_DOES_NOT_EXIST);
           return;
         }
         setAncestor(ancestor);
         setState(STATE_LOADED);
+
       } catch (error) {
         if (error.response && error.response.status === 404) {
           setState(STATE_DOES_NOT_EXIST);
         }
       }
+
     };
     loadAncestor(id);
-  }, [id, ancestorStore, setAncestor]);
+  }, [id, ancestor, ancestorStore.ancestors, setAncestor]);
+
+
+
 
   const handleClickBookmark = async () => {
     await userStore.loadAllUsers();
@@ -49,6 +62,9 @@ const DetailOne = () => {
     });
     bookmarkedAncestor.create();
   }
+
+
+
 
   return useObserver(() => {
     if (state === STATE_DOES_NOT_EXIST) {

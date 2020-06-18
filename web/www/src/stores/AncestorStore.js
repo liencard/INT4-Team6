@@ -50,6 +50,7 @@ decorate(AncestorStore, {
   ancestors: observable,
   loadAllComplete: observable,
   addAncestor: action,
+  loadAncestor: action,
   loadAllAncestors: action,
   updateAncestorFromServer: action,
   getAncestorById: action,

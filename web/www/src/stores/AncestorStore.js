@@ -16,6 +16,12 @@ class AncestorStore {
     this.loadAllComplete = true;
   };
 
+  loadAncestor = async (id) => {
+    const jsonAncestor = await this.ancestorsService.getById(id);
+    this.updateAncestorFromServer(jsonAncestor);
+    return this.getAncestorById(id);
+  };
+
   addAncestor = (ancestor) => {
     this.ancestors.push(ancestor);
   };
@@ -36,7 +42,8 @@ class AncestorStore {
     return ancestor;
   }
 
-  getAncestorById = (id) => this.ancestors.find((ancestor) => ancestor.id === id);
+  getAncestorById = (id) =>
+    this.ancestors.find((ancestor) => ancestor.id === id);
 }
 
 decorate(AncestorStore, {

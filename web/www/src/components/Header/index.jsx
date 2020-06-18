@@ -13,7 +13,7 @@ const Header = ({logo, menu, content, text, toggleDashboard, togglePartners}) =>
             return (
               <img
                 className={styles.logo}
-                src="./assets/img/FYFR.svg"
+                src="/assets/img/FYFR.svg"
                 alt="logo"
                 width="37"
                 height="39"
@@ -30,7 +30,7 @@ const Header = ({logo, menu, content, text, toggleDashboard, togglePartners}) =>
                 <button onClick={(e) => setMenu(true)}>
                     <img
                     className={styles.img}
-                    src="./assets/img/hamburger.svg"
+                    src="/assets/img/hamburger.svg"
                     alt="group img"
                     width="24"
                     height="12"

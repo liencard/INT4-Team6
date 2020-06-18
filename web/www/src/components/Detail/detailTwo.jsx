@@ -92,12 +92,12 @@ const DetailTwo = () => {
             <div className={styles.living__img}>
               <img
                 className={styles.living__imgFamily}
-                src="./assets/img/detail/MargeretEvans_family.png"
+                src="/assets/img/detail/MargeretEvans_family.png"
                 alt="Family"
                 width="260px"
               />
               <img
-                src="./assets/img/detail/MargeretEvans_house.png"
+                src="/assets/img/detail/MargeretEvans_house.png"
                 alt="House"
                 width="560px"
               />

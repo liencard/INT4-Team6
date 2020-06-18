@@ -173,12 +173,12 @@ const DetailOne = () => {
               <div className={styles.living__img}>
                 <img
                   className={styles.living__imgFamily}
-                  src="./assets/img/detail/MargeretEvans_family.png"
+                  src="/assets/img/detail/MargeretEvans_family.png"
                   alt="Family"
                   width="260px"
                 />
                 <img
-                  src="./assets/img/detail/MargeretEvans_house.png"
+                  src="/assets/img/detail/MargeretEvans_house.png"
                   alt="House"
                   width="560px"
                 />
@@ -189,7 +189,7 @@ const DetailOne = () => {
               <h2 className={styles.hidden}>Work</h2>
               <img
                 className={styles.work__img}
-                src="./assets/img/detail/MargeretEvans_work.png"
+                src="/assets/img/detail/MargeretEvans_work.png"
                 alt="Work"
                 width="800px"
               />
@@ -223,7 +223,7 @@ const DetailOne = () => {
               <section className={styles.death__start}>
                 <img
                   className={styles.death__img}
-                  src="./assets/img/detail/MargeretEvans_death.png"
+                  src="/assets/img/detail/MargeretEvans_death.png"
                   alt="Death"
                   width="540px"
                 />

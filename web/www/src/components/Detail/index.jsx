@@ -20,7 +20,6 @@ const Detail = () => {
 
   return useObserver(() => (
     <>
-      {/* {id === '23' ? <DetailOne /> : <p>test</p>} */}
 
       {(() => {
         if (id === '23') { // Margaret

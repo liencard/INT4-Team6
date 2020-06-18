@@ -57,6 +57,19 @@ $app->group('/api', function (RouteCollectorProxy $routeGroup) {
               ->withHeader('Content-Type', 'application/json')
               ->withStatus(200);
     });
+    $routeGroup->get('/{id}', function (Request $request, Response $response, $args) {
+      $ancestorDAO = new AncestorDAO();
+      $data = $ancestorDAO->selectById($args['id']);
+      // 2 mogelijke uitkomsten/routes
+      if (empty($data)) { // id bestaat niet
+        return $response
+              ->withStatus(404);
+      }
+      $response->getBody()->write(json_encode($data)); // id bestaat wel
+      return $response
+              ->withHeader('Content-Type', 'application/json')
+              ->withStatus(200);
+    });
   });
 
   $routeGroup->group('/users', function (RouteCollectorProxy $routeGroup) {

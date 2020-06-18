@@ -20,22 +20,20 @@ const DetailOne = () => {
   const [state, setState] = useState(STATE_LOADING);
 
 
-
-
   useEffect(() => {
     const loadAncestor = async (id) => {
       console.log("use effect")
 
       try {
         console.log("try");
-        const ancestor = await ancestorStore.getAncestorById(23);
-        console.log("done trying");
-        // console.log(ancestor);
-        if (!ancestor) {
-          setState(STATE_DOES_NOT_EXIST);
-          return;
-        }
-        setAncestor(ancestor);
+        const ancestorTest = await ancestorStore.loadAncestor(id);
+        console.log(ancestorTest)
+        // if (!ancestor) {
+        //   setState(STATE_LOADED);
+        //   return;
+        // }
+        setAncestor(ancestorTest);
+        console.log('loaded');
         setState(STATE_LOADED);
 
       } catch (error) {
@@ -50,7 +48,6 @@ const DetailOne = () => {
 
 
 
-
   const handleClickBookmark = async () => {
     await userStore.loadAllUsers();
     uiStore.setCurrentUser(userStore.resolveUser('4e8baf11-bb77-3f6b-97d1-69b8e51c2ebe'));
@@ -62,9 +59,6 @@ const DetailOne = () => {
     });
     bookmarkedAncestor.create();
   }
-
-
-
 
   return useObserver(() => {
     if (state === STATE_DOES_NOT_EXIST) {
@@ -82,7 +76,6 @@ const DetailOne = () => {
           togglePartners={true}
           content={{ name: 'Naam hier', partner: 'Partner naam' }}
         />
-
         <div className={styles.buttonsTest}>
           <button className={styles.addBookmark} onClick={handleClickBookmark}>
             Add to bookmarks

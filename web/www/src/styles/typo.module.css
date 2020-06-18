@@ -26,6 +26,8 @@
   font-weight: lighter;
   letter-spacing: .3rem;
   color: white;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  font-variant: small-caps;
 }
 
 .top {

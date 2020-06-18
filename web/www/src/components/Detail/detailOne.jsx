@@ -16,11 +16,8 @@ const DetailOne = () => {
   const STATE_DOES_NOT_EXIST = 'doesNotExist';
   const STATE_LOADED = 'fullyLoaded';
   
-  const [ancestor, setAncestor] = useState(ancestorStore.getAncestorById(23));
+  const [ancestor, setAncestor] = useState(undefined);
   const [state, setState] = useState(STATE_LOADING);
-
-
-
 
   useEffect(() => {
     const loadAncestor = async (id) => {
@@ -31,6 +28,7 @@ const DetailOne = () => {
         const ancestor = await ancestorStore.getAncestorById(23);
         console.log("done trying");
         // console.log(ancestor);
+        setAncestor(ancestor);
         if (!ancestor) {
           setState(STATE_DOES_NOT_EXIST);
           return;

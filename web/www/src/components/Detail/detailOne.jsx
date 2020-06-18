@@ -7,23 +7,16 @@ import { useStore } from '../../hooks/useStore';
 
 const DetailOne = () => {
 
-  const { bookmarkStore, uiStore, userStore } = useStore();
-
+  const { bookmarkStore, uiStore, userStore, ancestorStore } = useStore();
+  const ancestor = ancestorStore.getAncestorById(23);
 
   const handleClickBookmark = async () => {
-    console.log("ancestor toevoegen");
-
     await userStore.loadAllUsers();
-    uiStore.setCurrentUser(
-        userStore.resolveUser('4e8baf11-bb77-3f6b-97d1-69b8e51c2ebe')
-      );
-
-    console.log(uiStore.currentUser);
+    uiStore.setCurrentUser(userStore.resolveUser('4e8baf11-bb77-3f6b-97d1-69b8e51c2ebe'));
 
     const bookmarkedAncestor = new Bookmark({
-      //id: `${bookmarkStore.bookmarks.length}`,
       user_id: uiStore.currentUser.id,
-      ancestor_id: 28, // nu even hardcoded moet uiteindelijk {ancestor.id} worden
+      ancestor_id: ancestor.id,
       store: bookmarkStore,
     });
     bookmarkedAncestor.create();

@@ -45,6 +45,7 @@ decorate(AncestorStore, {
   addAncestor: action,
   loadAllAncestors: action,
   updateAncestorFromServer: action,
+  getAncestorById: action,
 });
 
 export default AncestorStore;

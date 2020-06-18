@@ -40,7 +40,6 @@ class UserStore {
     return user;
   }
 
-  // user ophalen op basis van zijn id + in je Message.js kan je deze functie dan ophalen
   resolveUser = (id) => this.users.find((user) => user.id === id);
 }
 

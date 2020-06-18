@@ -61,7 +61,7 @@ const Preview = ({ancestor}) => {
           </div>
         </div>
       </div>
-      <Link className={styles.button} to={`/detail/${ancestor.id}`}>read story</Link>
+      <Link className={styles.button}  to={`/detail/${ancestor.id}`}>read story</Link>
     </>
   ));
 };

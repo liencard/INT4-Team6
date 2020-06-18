@@ -38,7 +38,7 @@ const App = () => {
         <Dashboard />
         <Map />
       </Route>
-      <Route path={ROUTES.detail}>
+      <Route path={ROUTES.detail.path}>
         <Detail />
       </Route>
       <Route path={ROUTES.home}>

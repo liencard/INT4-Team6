@@ -66,9 +66,9 @@ import Header from '../Header/index.jsx';
              </p>
              <div className={styles.bookmarks__wrapper}>
                {bookmarkStore.bookmarks.map((bookmark) => (
-                 <group key={bookmark.id} bookmarkId={bookmark.id}>
+                 <ul key={bookmark.id} bookmarkid={bookmark.id}>
                    <Bookmark bookmark={bookmark} />
-                 </group>
+                 </ul>
                ))}
                <Link to={`${ROUTES.ancestors}`} className={styles.btn}>
                  <div className={styles.bookmarks__btn}>

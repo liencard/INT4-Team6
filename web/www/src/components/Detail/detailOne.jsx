@@ -1,5 +1,5 @@
 import React from 'react';
-import BookmarkModel from '../../models/BookmarkModel';
+import Bookmark from '../../models/BookmarkModel';
 import styles from './Detail.module.css';
 import Header from '../Header/index.jsx';
 
@@ -20,10 +20,10 @@ const DetailOne = () => {
 
     console.log(uiStore.currentUser);
 
-    const bookmarkedAncestor = new BookmarkModel({
-      id: `${bookmarkStore.bookmarks.length}`,
+    const bookmarkedAncestor = new Bookmark({
+      //id: `${bookmarkStore.bookmarks.length}`,
       user_id: uiStore.currentUser.id,
-      ancestor_id: '20', // nu even hardcoded moet uiteindelijk {ancestor.id} worden
+      ancestor_id: 28, // nu even hardcoded moet uiteindelijk {ancestor.id} worden
       store: bookmarkStore,
     });
     bookmarkedAncestor.create();

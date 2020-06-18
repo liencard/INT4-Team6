@@ -21,22 +21,18 @@ const DetailOne = () => {
 
   useEffect(() => {
     const loadAncestor = async (id) => {
-      console.log("use effect")
 
       try {
-        console.log("try");
-        const ancestor = await ancestorStore.getAncestorById(23);
-        console.log("done trying");
-        // console.log(ancestor);
-        setAncestor(ancestor);
-        if (!ancestor) {
-          setState(STATE_DOES_NOT_EXIST);
-          return;
-        }
-        setAncestor(ancestor);
-        setState(STATE_LOADED);
-
-      } catch (error) {
+            await ancestorStore.loadAllAncestors();
+            const ancestorId = parseInt(id);
+            const ancestor = await ancestorStore.loadAncestor(ancestorId);
+            if (!ancestor) {
+              setState(STATE_DOES_NOT_EXIST);
+              return;
+            } 
+            setAncestor(ancestor);
+            setState(STATE_LOADED);
+          } catch (error) {
         if (error.response && error.response.status === 404) {
           setState(STATE_DOES_NOT_EXIST);
         }
@@ -48,11 +44,9 @@ const DetailOne = () => {
 
 
 
-
   const handleClickBookmark = async () => {
     await userStore.loadAllUsers();
     uiStore.setCurrentUser(userStore.resolveUser('4e8baf11-bb77-3f6b-97d1-69b8e51c2ebe'));
-
     const bookmarkedAncestor = new Bookmark({
       user_id: uiStore.currentUser.id,
       ancestor_id: ancestor.id,
@@ -60,9 +54,6 @@ const DetailOne = () => {
     });
     bookmarkedAncestor.create();
   }
-
-
-
 
   return useObserver(() => {
     if (state === STATE_DOES_NOT_EXIST) {
@@ -80,7 +71,6 @@ const DetailOne = () => {
           togglePartners={true}
           content={{ name: 'Naam hier', partner: 'Partner naam' }}
         />
-
         <div className={styles.buttonsTest}>
           <button className={styles.addBookmark} onClick={handleClickBookmark}>
             Add to bookmarks

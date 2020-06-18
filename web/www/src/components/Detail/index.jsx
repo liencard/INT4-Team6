@@ -20,11 +20,11 @@ const Detail = () => {
 
   return useObserver(() => (
     <>
-      {id === '23' ? <DetailOne /> : <p>test</p>}
+      {/* {id === '23' ? <DetailOne /> : <p>test</p>} */}
 
-      {/* {(() => {
+      {(() => {
         if (id === '23') { // Margaret
-          <DetailOne />;
+          return <DetailOne />;
         } else if (id === '25'){ // Mary
           return <DetailTwo />;
         } else if (id === '4'){ // Benjamin
@@ -32,7 +32,7 @@ const Detail = () => {
         } else {
           return <DetailOther />;
         }
-      })()} */}
+      })()}
     </>
   ));
 };

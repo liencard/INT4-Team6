@@ -9,12 +9,12 @@ import { useObserver } from "mobx-react-lite";
 import { useStore } from "../../hooks/useStore";
 import styles from './Ancestors.module.css';
 import { observe } from 'mobx';
+import * as THREE from 'three';
 
 const Ancestors = () => {
 const { ancestorStore } = useStore();
 const [preview, setPreview] = useState(false);
 const [ancestor, setAncestor] = useState(null);
-const [state, setState] = useState("loading");
 const [canvas, setCanvas] = useState(false);
 
 const stopObserve = observe(ancestorStore, (change) => {
@@ -32,6 +32,16 @@ let ancestors = ancestorStore.ancestors;
     setAncestor(clickedAncestor);
   };
 
+  var curve = new THREE.CubicBezierCurve(
+    new THREE.Vector2(-10, 0),
+    new THREE.Vector2(-5, 15),
+    new THREE.Vector2(20, 15),
+    new THREE.Vector2(10, 0)
+  );
+
+  /* divisions -- number of pieces to divide the curve into. Default is 5. */
+  var points = curve.getPoints(50);
+
   const CanvasView = () => {
     return (
       <Canvas
@@ -46,6 +56,12 @@ let ancestors = ancestorStore.ancestors;
         <Controls />
         <ambientLight color="#ffffff" intensity={0.1} />
         <pointLight position={[10, 10, 10]} />
+{/* 
+        <line visible position={[1, 2, 3]}>
+          <bufferGeometry attach="geometry" setFromPoints={points} />
+          <lineBasicMaterial color="0xff0000" />
+        </line> */}
+
         {ancestors.map((ancestor) => (
           <group
             key={ancestor.id}

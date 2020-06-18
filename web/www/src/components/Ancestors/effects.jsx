@@ -33,9 +33,7 @@ export default function Effects() {
    maxblur intensiteit van blur */
    const params = useMemo(() => ({ focus: 3.5, aperture: 0.01, maxblur: 0.005 }),[]);
 
-  useEffect(() => void composer.current.setSize(size.width, size.height), [
-    size,
-  ]);
+  useEffect(() => void composer.current.setSize(size.width, size.height), [size]);
   useFrame(() => composer.current.render(), 2);
 
   return (

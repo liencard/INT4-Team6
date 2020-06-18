@@ -1,5 +1,5 @@
 import React from 'react';
-import Bookmark from '../../models/BookmarkModel';
+import BookmarkModel from '../../models/BookmarkModel';
 import styles from './Detail.module.css';
 import Header from '../Header/index.jsx';
 
@@ -7,13 +7,26 @@ import { useStore } from '../../hooks/useStore';
 
 const DetailOne = () => {
 
-  const { bookmarkStore } = useStore();
+  const { bookmarkStore, uiStore, userStore } = useStore();
 
-  const handleClickBookmark = () => {
-    console.log("ancestor toevoegen")
 
-    // const bookmarkedAncestor = new BookmarkModel({store: bookmarkStore})
-    // bookmarkedAncestor.create();
+  const handleClickBookmark = async () => {
+    console.log("ancestor toevoegen");
+
+    await userStore.loadAllUsers();
+    uiStore.setCurrentUser(
+        userStore.resolveUser('4e8baf11-bb77-3f6b-97d1-69b8e51c2ebe')
+      );
+
+    console.log(uiStore.currentUser);
+
+    const bookmarkedAncestor = new BookmarkModel({
+      id: `${bookmarkStore.bookmarks.length}`,
+      user_id: uiStore.currentUser.id,
+      ancestor_id: '20', // nu even hardcoded moet uiteindelijk {ancestor.id} worden
+      store: bookmarkStore,
+    });
+    bookmarkedAncestor.create();
   }
 
   return (

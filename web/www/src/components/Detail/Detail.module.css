@@ -1,7 +1,6 @@
 @value tokens: "../../styles/tokens.module.css";
 @value fontBody, faded, spacerBig from tokens;
 
-
 .buttons {
     composes: smallSpaced from "../../styles/typo.module.css";
     position: absolute; /* of fixed */

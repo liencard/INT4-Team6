@@ -25,9 +25,7 @@ class Bookmark {
     this.birthdate = birthdate !== undefined ? birthdate : this.birthdate;
     this.deathdate = deathdate !== undefined ? deathdate : this.deathdate;
     this.user_id = user_id !== undefined ? user_id : this.user_id;
-    this.ancestor_id =
-      ancestor_id !== undefined ? ancestor_id : this.ancestor_id;
-    // hier moet dan nog user_id & ancestor_id gedefieerd worden?
+    this.ancestor_id = ancestor_id !== undefined ? ancestor_id : this.ancestor_id;
   };
 
   get asJson() {

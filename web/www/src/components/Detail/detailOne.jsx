@@ -6,6 +6,7 @@ import { useStore } from '../../hooks/useStore';
 import Bookmark from '../../models/BookmarkModel';
 import styles from './Detail.module.css';
 import Header from '../Header/index.jsx';
+import Loader from '../Loader/index.jsx';
 
 const DetailOne = () => {
 
@@ -62,7 +63,7 @@ const DetailOne = () => {
       return <p>does not exist</p>;
     }
     if (state === STATE_LOADING) {
-      return <p>loading</p>;
+      return (<Loader/>);
     }
 
     return (

@@ -116,15 +116,15 @@ $app->group('/api', function (RouteCollectorProxy $routeGroup) {
     // DELETE BOOKMARK
     $routeGroup->delete('/{id}', function (Request $request, Response $response, $args) {
       $bookmarkDAO = new BookmarkDAO();
-      //$data = $bookmarkDAO->selectById($args['id']);
-      $id = $bookmarkDAO->selectById($args['id']);
+      $data = $bookmarkDAO->selectById($args['id']);
+      //$id = $bookmarkDAO->selectById($args['id']);
 
       if (empty($data)) {
         return $response
               ->withHeader('Content-Type', 'application/json')
               ->withStatus(404);
       }
-      $result = $bookmarkDAO->delete($id);
+      $result = $bookmarkDAO->delete($data);
       $response->getBody()->write(json_encode($result));
       return $response
               ->withHeader('Content-Type', 'application/json')

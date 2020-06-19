@@ -1,0 +1,31 @@
+@value tokens: "../../styles/tokens.module.css";
+@value faded from tokens;
+
+.loader__container {
+    width: 100vw;
+    height: 100vh;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+}
+.loader {
+  border: .8rem solid darkgray;
+  border-radius: 50%;
+  border-top: .8rem solid faded;
+  width: 10rem;
+  height: 10rem;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+

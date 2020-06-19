@@ -30,7 +30,6 @@ class BookmarkDAO extends DAO {
     if(empty($errors)) {
       $sql = "INSERT INTO `int4_bookmarks` (`user_id`, `ancestor_id`) VALUES (:user_id, :ancestor_id)";
       $stmt = $this->pdo->prepare($sql);
-      //$stmt->bindValue(':id', $data['id']);
       $stmt->bindValue(':user_id', $data['user_id']);
       $stmt->bindValue(':ancestor_id', $data['ancestor_id']);
       if($stmt->execute()) {
@@ -38,6 +37,13 @@ class BookmarkDAO extends DAO {
       }
     }
     return false;
+  }
+
+  public function delete($id) {
+    $sql = "DELETE FROM `int4_bookmarks` WHERE `id` = :id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':id', $id);
+    return $stmt->execute();
   }
 
   public function getValidationErrors($data) {

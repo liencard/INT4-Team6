@@ -19,6 +19,11 @@ class BookmarkStore {
     this.updateBookmarkFromServer(json);
   };
 
+  deleteBookmark = async (bookmark) => {
+    const json = await this.bookmarksService.delete(bookmark);
+    this.updateBookmarkFromServer(json);
+  };
+
   addBookmark = (bookmark) => {
     this.bookmarks.push(bookmark);
   };

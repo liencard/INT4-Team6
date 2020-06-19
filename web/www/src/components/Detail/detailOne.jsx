@@ -18,19 +18,25 @@ const DetailOne = () => {
   const STATE_LOADED = 'fullyLoaded';
   
   const [ancestor, setAncestor] = useState(undefined);
+  const [bookmark, setBookmark] = useState(undefined);
   const [state, setState] = useState(STATE_LOADING);
 
   useEffect(() => {
     const loadAncestor = async (id) => {
-
       try {
             await ancestorStore.loadAllAncestors();
+            await bookmarkStore.loadAllBookmarks();
             const ancestorId = parseInt(id);
             const ancestor = await ancestorStore.loadAncestor(ancestorId);
+            const bookmarkedAncestor = bookmarkStore.getBookmarkByAncestorid(ancestorId);
             if (!ancestor) {
               setState(STATE_DOES_NOT_EXIST);
               return;
-            } 
+            }
+            if (bookmarkedAncestor) {
+              setBookmark(bookmarkedAncestor);
+              console.log(bookmarkedAncestor);
+            }
             setAncestor(ancestor);
             setState(STATE_LOADED);
           } catch (error) {
@@ -49,13 +55,23 @@ const DetailOne = () => {
     await userStore.loadAllUsers();
     uiStore.setCurrentUser(userStore.resolveUser('4e8baf11-bb77-3f6b-97d1-69b8e51c2ebe'));
 
-    const bookmarkedAncestor = new Bookmark({
-      user_id: uiStore.currentUser.id,
-      ancestor_id: ancestor.id,
-      store: bookmarkStore,
-    });
-    bookmarkedAncestor.create();
-    bookmarkStore.loadAllBookmarks(); // bug fix probeersel
+    if (!bookmark) {
+      const bookmarkedAncestor = new Bookmark({
+        user_id: uiStore.currentUser.id,
+        ancestor_id: ancestor.id,
+        store: bookmarkStore,
+      });
+      bookmarkedAncestor.create();
+      setBookmark(bookmarkedAncestor);
+      console.log(`bookmarkedAncestor: ${bookmarkedAncestor}`); // undefined object
+      console.log(`bookmark na set: ${bookmark}`); // undefined??
+      bookmarkStore.loadAllBookmarks(); // bug fix probeersel
+
+    } else {
+        // eerst juiste bookmark krijgen?
+        // bookmark.delete(); // werkt niet
+        // setBookmark(false); // werkt
+    }
   }
 
   return useObserver(() => {
@@ -76,8 +92,7 @@ const DetailOne = () => {
         />
         <div className={styles.buttons}>
           <button className={styles.addBookmark} onClick={handleClickBookmark}>
-            {/* {bookmarkedAncestor  ? 'Add to bookmarks' : 'Remove bookmark'} */}
-            Add to bookmarks
+            {bookmark ? 'Remove bookmark' : 'Add to bookmarks'}
           </button>
           {/* link */}
           <p className={styles.buttons__previous}>Previous generation</p>

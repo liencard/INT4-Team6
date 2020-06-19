@@ -43,12 +43,15 @@ class BookmarkStore {
     }
     return bookmark;
   }
+
+  getBookmarkByAncestorid = (id) => this.bookmarks.find((bookmark) => bookmark.ancestor_id === id);
 }
 
 decorate(BookmarkStore, {
   bookmarks: observable,
   addBookmark: action,
   updateBookmarkFromServer: action,
+  getBookmarkByAncestorid: action
 });
 
 export default BookmarkStore;

@@ -84,11 +84,26 @@ $app->group('/api', function (RouteCollectorProxy $routeGroup) {
   });
 
     $routeGroup->group('/bookmarks', function (RouteCollectorProxy $routeGroup) {
-    // GET BOOKMARKS
+    // GET ALL BOOKMARKS
     $routeGroup->get('', function (Request $request, Response $response) {
       $bookmarkDAO = new BookmarkDAO();
       $data = $bookmarkDAO->selectBookmarksByUser();
       $response->getBody()->write(json_encode($data));
+      return $response
+              ->withHeader('Content-Type', 'application/json')
+              ->withStatus(200);
+    });
+
+    // GET BY ID
+    $routeGroup->get('/{id}', function (Request $request, Response $response, $args) {
+      $bookmarkDAO = new BookmarkDAO();
+      $data = $bookmarkDAO->selectById($args['id']);
+      // 2 mogelijke uitkomsten/routes
+      if (empty($data)) { // id bestaat niet
+        return $response
+              ->withStatus(404);
+      }
+      $response->getBody()->write(json_encode($data)); // id bestaat wel
       return $response
               ->withHeader('Content-Type', 'application/json')
               ->withStatus(200);
@@ -116,10 +131,9 @@ $app->group('/api', function (RouteCollectorProxy $routeGroup) {
     // DELETE BOOKMARK
     $routeGroup->delete('/{id}', function (Request $request, Response $response, $args) {
       $bookmarkDAO = new BookmarkDAO();
-      $data = $bookmarkDAO->selectById($args['id']);
-      //$id = $bookmarkDAO->selectById($args['id']);
-
-      if (empty($data)) {
+      $id = $args['id'];
+      
+      if (empty($id)) {
         return $response
               ->withHeader('Content-Type', 'application/json')
               ->withStatus(404);

@@ -42,8 +42,7 @@ class AncestorStore {
     return ancestor;
   }
 
-  getAncestorById = (id) =>
-    this.ancestors.find((ancestor) => ancestor.id === id);
+  getAncestorById = (id) => this.ancestors.find((ancestor) => ancestor.id === id);
 }
 
 decorate(AncestorStore, {

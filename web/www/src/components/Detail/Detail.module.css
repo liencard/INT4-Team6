@@ -2,7 +2,7 @@
 @value fontBody, faded, spacerBig from tokens;
 
 
-.buttonsTest {
+.buttons {
     composes: smallSpaced from "../../styles/typo.module.css";
     position: absolute; /* of fixed */
     right: 0;
@@ -14,11 +14,51 @@
     composes: smallSpaced from "../../styles/typo.module.css";
     padding: 1rem;
     color: faded;
+    /* font-weight: bold; */
+    padding-right: 3.5rem;
+    position: relative;
 }
 
-.buttonsTest p {
+.addBookmark:hover {
+    color: white;
+}
+
+.addBookmark::after {
+    content: '';
+    position: absolute;
+    background-image: url("/assets/img/icon_addbookmark.svg");
+    background-repeat: no-repeat;
+    width: 1.9rem;
+    height: 1.9rem;
+    right: -.1rem;
+}
+
+.buttons p {
     padding: 1rem;
     color: faded;
+    padding-right: 3.5rem;
+    position: relative;
+}
+
+.buttons p:hover {
+    color: white;
+}
+
+.buttons p::after {
+    content: '';
+    position: absolute;
+    background-repeat: no-repeat;
+    width: 1.9rem;
+    height: 1.9rem;
+    right: -.1rem;
+}
+
+.buttons__next::after {
+    background-image: url("/assets/img/icon_skip-right.svg");
+}
+
+.buttons__previous::after {
+    background-image: url("/assets/img/icon_skip-left.svg");
 }
 
 

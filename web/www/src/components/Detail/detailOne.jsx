@@ -47,13 +47,14 @@ const DetailOne = () => {
   const handleClickBookmark = async () => {
     await userStore.loadAllUsers();
     uiStore.setCurrentUser(userStore.resolveUser('4e8baf11-bb77-3f6b-97d1-69b8e51c2ebe'));
+
     const bookmarkedAncestor = new Bookmark({
       user_id: uiStore.currentUser.id,
       ancestor_id: ancestor.id,
       store: bookmarkStore,
     });
     bookmarkedAncestor.create();
-    bookmarkStore.loadAllBookmarks();
+    bookmarkStore.loadAllBookmarks(); // bug fix probeersel
   }
 
   return useObserver(() => {
@@ -70,15 +71,16 @@ const DetailOne = () => {
           logo={true}
           menu={true}
           togglePartners={true}
-          content={{ name: 'Naam hier', partner: 'Partner naam' }}
+          content={{ name: `${ancestor.name}`, partner: 'Richard Russell' }}
         />
-        <div className={styles.buttonsTest}>
+        <div className={styles.buttons}>
           <button className={styles.addBookmark} onClick={handleClickBookmark}>
+            {/* {bookmarkedAncestor  ? 'Add to bookmarks' : 'Remove bookmark'} */}
             Add to bookmarks
           </button>
           {/* link */}
-          <p>Previous generation</p>
-          <p>Next generation</p>
+          <p className={styles.buttons__previous}>Previous generation</p>
+          <p className={styles.buttons__next}>Next generation</p>
         </div>
 
         <div className={`${styles.detail} ${styles.detailMargeretEvans}`}>

@@ -47,6 +47,8 @@ decorate(Bookmark, {
   ancestor_id: observable,
   updateFromJson: action,
   asJson: computed,
+  create: action,
+  delete: action
 });
 
 export default Bookmark;

@@ -57,7 +57,7 @@ const Preview = ({ancestor}) => {
           />
           <div className={styles.info__wrapper}>
             <p className={styles.info__title}>{ancestor.occurrence}</p>
-            <p className={styles.info__subtitle}>{ancestor.occurrence_time}</p>
+            <p className={`${styles.info__subtitle} ${styles.number}`}>{ancestor.occurrence_time}</p>
           </div>
         </div>
       </div>

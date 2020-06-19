@@ -16,6 +16,7 @@
 }
 
 .bookmark__date {
+    composes: number from "../../styles/components.module.css";
     font-variant: small-caps;
 }
 

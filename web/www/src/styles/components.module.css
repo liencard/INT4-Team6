@@ -1,5 +1,5 @@
 @value tokens: "./tokens.module.css";
-@value dark from tokens;
+@value dark, fontBody from tokens;
 
 .button {
   composes: smallSpaced from "./typo.module.css";
@@ -19,5 +19,8 @@
 }
 
 .number {
+  font-family: 'Roboto', sans-serif;
+  font-weight: lighter;
   font-feature-settings: 'pnum' on, 'lnum' on;
+  letter-spacing: .1rem;
 }

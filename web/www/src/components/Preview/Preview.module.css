@@ -16,7 +16,8 @@
 .dates {
     padding-top: 1rem;
     composes: smallSpaced from "../../styles/typo.module.css";
-    letter-spacing: .1rem;
+    letter-spacing: .1rem; 
+    composes: number from "../../styles/components.module.css";
 }
 
 .header {
@@ -44,6 +45,10 @@
 
 .info__subtitle {
     composes: smallSpaced from "../../styles/typo.module.css";
+}
+
+.number {
+    composes: number from "../../styles/components.module.css";
 }
 
 .button {

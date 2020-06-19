@@ -121,6 +121,7 @@
 
 .dates {
     font-size: 2rem;
+    composes: number from "../../styles/components.module.css";
 }
 
 
@@ -138,6 +139,7 @@
 }
 
 .date {
+    font-family: 'Roboto', sans-serif;
     font-size: 6rem;
     font-weight: bold;
     -webkit-text-stroke: 1px white;

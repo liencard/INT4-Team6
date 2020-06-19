@@ -18,7 +18,10 @@ class BookmarkDAO extends DAO {
   }
 
   public function selectBookmarksByUser() {
-    $sql = "SELECT * FROM `int4_bookmarks` INNER JOIN `int4_ancestors` ON `int4_bookmarks`.`ancestor_id` = `int4_ancestors`.`id`";
+    $sql = "SELECT `int4_bookmarks`.`id`, `int4_bookmarks`.`ancestor_id`, `int4_ancestors`.`name`, `int4_ancestors`.`birthdate`, `int4_ancestors`.`deathdate` 
+      FROM `int4_bookmarks`
+      INNER JOIN `int4_ancestors` 
+      ON `int4_bookmarks`.`ancestor_id` = `int4_ancestors`.`id`";
     $stmt = $this->pdo->prepare($sql);
     // $stmt->bindValue(':user', $user);
     $stmt->execute();

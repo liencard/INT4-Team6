@@ -60,7 +60,7 @@ const Ancestor = ({ ancestor, ancestorStore }) => {
         position={[posX - 0.6, textOffset + 0.2, posZ + 0.2]}
         fontSize={0.15}
         color={'white'}
-        font={'./assets/fonts/DMSerifDisplay-Regular.ttf'}
+        font={'./assets/fonts/DMSerifDisplay/DMSerifDisplay-Regular.ttf'}
       >
         {ancestor.name}
       </Text>

@@ -80,14 +80,11 @@ const Ancestors = () => {
     );
   };
 
-
-  // DEZE CODE MAG WEG DENK IK?
-
-  //  useLayoutEffect(() => {
-  //    if (ancestorStore.loadAllComplete && !canvas) {
-  //       setCanvas(<CanvasView />);
-  //    }
-  //  }, [canvas, ancestors]);
+   useLayoutEffect(() => {
+     if (ancestorStore.loadAllComplete && !canvas) {
+        setCanvas(<CanvasView />);
+     }
+   }, [canvas, ancestors]);
 
 
   return  (

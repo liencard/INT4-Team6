@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { ROUTES } from '../../consts';
 import Bookmark from '../Bookmark/index.jsx';
 import Header from '../Header/index.jsx';
+import Loader from '../Loader/index.jsx';
 
 
  const Bookmarks = () => {
@@ -44,7 +45,7 @@ import Header from '../Header/index.jsx';
       return (
         <>
           <Header logo={true} menu={true} content={true} text={"Bookmarked Ancestors"} />
-          <div className={styles.testDiv}>Loading Bookmarks, loading GIF hier</div>
+          <Loader />
         </>
       )
     } 

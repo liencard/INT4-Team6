@@ -5,6 +5,8 @@ import Effects from './effects.jsx';
 import Ancestor from '../Ancestor/index.jsx';
 import Sidebar from '../Sidebar/index.jsx';
 
+import Loader from '../Loader/index.jsx';
+
 import { useObserver } from "mobx-react-lite";
 import { useStore } from "../../hooks/useStore";
 import styles from './Ancestors.module.css';
@@ -12,22 +14,24 @@ import { observe } from 'mobx';
 import * as THREE from 'three';
 
 const Ancestors = () => {
-const { ancestorStore } = useStore();
-const [preview, setPreview] = useState(false);
-const [ancestor, setAncestor] = useState(null);
-const [canvas, setCanvas] = useState(false);
 
-const stopObserve = observe(ancestorStore, (change) => {
-  if (change.name === 'loadAllComplete') {
-    setCanvas(<CanvasView />);
-  }
-});
-let ancestors = ancestorStore.ancestors;
+  const { ancestorStore } = useStore();
+  const [preview, setPreview] = useState(false);
+  const [ancestor, setAncestor] = useState(null);
+  const [canvas, setCanvas] = useState(false);
+
+  const stopObserve = observe(ancestorStore, (change) => {
+    if (change.name === 'loadAllComplete') {
+      setCanvas(<CanvasView />);
+    } else {
+      setCanvas(<Loader />);
+    }
+  });
+  let ancestors = ancestorStore.ancestors;
 
   const handleClickAncestor = (e) => {
     e.stopPropagation();
     const clickedAncestor = ancestorStore.getAncestorById(e.eventObject.ancestorId);
-
     setPreview(true);
     setAncestor(clickedAncestor);
   };
@@ -77,13 +81,13 @@ let ancestors = ancestorStore.ancestors;
   };
 
 
+  // DEZE CODE MAG WEG DENK IK?
 
-
-   useLayoutEffect(() => {
-     if (ancestorStore.loadAllComplete && !canvas) {
-        setCanvas(<CanvasView />);
-     }
-   }, [canvas, ancestors]);
+  //  useLayoutEffect(() => {
+  //    if (ancestorStore.loadAllComplete && !canvas) {
+  //       setCanvas(<CanvasView />);
+  //    }
+  //  }, [canvas, ancestors]);
 
 
   return  (

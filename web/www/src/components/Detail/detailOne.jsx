@@ -35,7 +35,6 @@ const DetailOne = () => {
             }
             if (bookmarkedAncestor) {
               setBookmark(bookmarkedAncestor);
-              console.log(bookmarkedAncestor);
             }
             setAncestor(ancestor);
             setState(STATE_LOADED);
@@ -47,8 +46,7 @@ const DetailOne = () => {
 
     };
     loadAncestor(id);
-  }, [id, ancestor, ancestorStore.ancestors, setAncestor]);
-
+  }, [ancestor, ancestorStore.ancestors, bookmark]);
 
 
   const handleClickBookmark = async () => {
@@ -61,16 +59,11 @@ const DetailOne = () => {
         ancestor_id: ancestor.id,
         store: bookmarkStore,
       });
-      bookmarkedAncestor.create();
-      setBookmark(bookmarkedAncestor);
-      console.log(`bookmarkedAncestor: ${bookmarkedAncestor}`); // undefined object
-      console.log(`bookmark na set: ${bookmark}`); // undefined??
-      bookmarkStore.loadAllBookmarks(); // bug fix probeersel
-
+      await bookmarkedAncestor.create();
+      await setBookmark(bookmarkedAncestor);
     } else {
-        // eerst juiste bookmark krijgen?
-        // bookmark.delete(); // werkt niet
-        // setBookmark(false); // werkt
+      await bookmark.delete(); 
+      await setBookmark(false);
     }
   }
 

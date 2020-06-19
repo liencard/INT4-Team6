@@ -18,7 +18,7 @@
   top: 85vh;
   box-shadow: inset 0 0 0 1px #FFF;
   border-radius: 25px;
-}
+} 
 .iconscroll:before {
   content: "";
   width: 8px;

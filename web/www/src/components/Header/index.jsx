@@ -29,7 +29,7 @@ const Header = ({logo, menu, content, text, toggleDashboard, togglePartners}) =>
             return (
                 <button onClick={(e) => setMenu(true)}>
                     <img
-                    className={styles.img}
+                    className={styles.hamburger}
                     src="/assets/img/hamburger.svg"
                     alt="group img"
                     width="24"

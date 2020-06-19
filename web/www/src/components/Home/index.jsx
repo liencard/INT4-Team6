@@ -39,7 +39,6 @@ const Home = () => {
               </button>
               <button
                 className={`${login ? styles.button__back : styles.buttonDissapear}`}
-                style={{ backgroundImage: `url(./assets/img/arrow_back.svg)` }}
                 onClick={(e) => setLogin(false)}
               >
                 Back

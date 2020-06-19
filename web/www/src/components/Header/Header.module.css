@@ -25,14 +25,12 @@
 }
  
 .tab {
-    /* color: faded; */
     color: rgb(190, 190, 190);
     padding: 1.4rem;
     text-transform: uppercase;
     letter-spacing: 0.475rem;
     font-size: 1.2rem;
     border: .1rem solid faded;
-    /* background-color: rgba(0,0,0, .7); */
     backdrop-filter: blur(25px);
     background-color: rgba(27, 27, 27, 0.80);
 }
@@ -45,4 +43,8 @@
 .tabActive {
     color: white;
     border: .1rem solid white;
+}
+
+.hamburger:hover {
+    cursor: pointer;
 }

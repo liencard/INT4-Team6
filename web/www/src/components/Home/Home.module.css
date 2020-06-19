@@ -141,6 +141,7 @@
     padding-right: 2rem;
     padding-left: 4rem;
     background-position: 15% center;
+    background-image: url('/assets/img/arrow_back.svg')
 }
 
 .buttonDissapear {

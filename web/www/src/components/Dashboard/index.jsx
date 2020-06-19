@@ -20,7 +20,6 @@ const Dashboard = () => {
     <>
       <Header logo={true} menu={true} content={true} toggleDashboard={true} />
       <div className={styles.container}>
-
         <div className={styles.dashboard__footer}>
           <svg
             data-tip={`${
@@ -50,6 +49,32 @@ const Dashboard = () => {
             className={styles.info__popup}
             place="top"
           />
+
+          <div>
+            {url === '/ancestors' ? (
+              <div className={styles.footer__guide}>
+                <img
+                  className={styles.logo}
+                  src="/assets/img/icon_scroll.svg"
+                  alt="logo"
+                  width="37"
+                  height="39"
+                />
+                <span className={styles.guide__text}>zoom</span>
+              </div>
+            ) : (
+              <div className={styles.footer__guide}>
+                <img
+                  className={styles.logo}
+                  src="/assets/img/icon_click.svg"
+                  alt="logo"
+                  width="37"
+                  height="39"
+                />
+                <span className={styles.guide__text}>click on region</span>
+              </div>
+            )}
+          </div>
 
           <div className={styles.footer__share}>
             <span className={styles.share__text}>share</span>

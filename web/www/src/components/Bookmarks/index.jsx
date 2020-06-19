@@ -16,16 +16,13 @@ import Header from '../Header/index.jsx';
 
   const { bookmarkStore } = useStore();
 
-  const [bookmarks, setBookmarks] = useState(bookmarkStore.bookmarks);
+  const [bookmarks, setBookmarks] = useState(undefined);
   const [state, setState] = useState(STATE_LOADING);
-    
-  //console.log(bookmarkStore.bookmarks);
-
-  console.log(bookmarks);
 
   useEffect(() => {
     const loadBookmarks = async () => {
       try {
+        await bookmarkStore.loadAllBookmarks();
         if (bookmarks) {
           setState(STATE_LOADED);
           return;
@@ -46,10 +43,12 @@ import Header from '../Header/index.jsx';
     if (state === STATE_LOADING) {
       return (
         <>
-          <div className={styles.testDiv}>Loading Bookmarks</div>
+          <Header logo={true} menu={true} content={true} text={"Bookmarked Ancestors"} />
+          <div className={styles.testDiv}>Loading Bookmarks, loading GIF hier</div>
         </>
       )
     } 
+    
     return (
      <>
        <Header logo={true} menu={true} content={true} text={"Bookmarked Ancestors"} />

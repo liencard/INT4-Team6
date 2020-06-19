@@ -69,15 +69,15 @@ const DetailOne = () => {
           logo={true}
           menu={true}
           togglePartners={true}
-          content={{ name: 'Naam hier', partner: 'Partner naam' }}
+          content={{ name: `${ancestor.name}`, partner: 'Richard Russell' }}
         />
-        <div className={styles.buttonsTest}>
+        <div className={styles.buttons}>
           <button className={styles.addBookmark} onClick={handleClickBookmark}>
             Add to bookmarks
           </button>
           {/* link */}
-          <p>Previous generation</p>
-          <p>Next generation</p>
+          <p className={styles.buttons__previous}>Previous generation</p>
+          <p className={styles.buttons__next}>Next generation</p>
         </div>
 
         <div className={`${styles.detail} ${styles.detailMargeretEvans}`}>

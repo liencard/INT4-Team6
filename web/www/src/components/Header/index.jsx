@@ -11,13 +11,15 @@ const Header = ({logo, menu, content, text, toggleDashboard, togglePartners}) =>
     const LogoView = () => {
         if (logo) {
             return (
-              <img
-                className={styles.logo}
-                src="/assets/img/FYFR.svg"
-                alt="logo"
-                width="37"
-                height="39"
-              />
+              <Link to={ROUTES.ancestors}>
+                <img
+                  className={styles.logo}
+                  src="/assets/img/FYFR.svg"
+                  alt="logo"
+                  width="37"
+                  height="39"
+                />
+              </Link>
             );
         } else {
             return '';

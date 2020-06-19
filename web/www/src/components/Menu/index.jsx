@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useObserver } from 'mobx-react-lite';
 import { useStore } from '../../hooks/useStore';
+import { Link } from 'react-router-dom';
 import styles from './Menu.module.css';
-import Button from '../Button/index.jsx';
 import NavBar from '../NavBar/index.jsx';
+import { ROUTES } from '../../consts';
 
 const Menu = () => {
 
@@ -48,38 +49,48 @@ const Menu = () => {
       return (
         <>
           <div className={styles.menu__wrapper}>
+            <div>
+              <img
+                className={styles.image}
+                src="./assets/img/ancestors/tumbnail/AliceBaker.jpg"
+                alt=""
+                height="140"
+                width="140"
+              />
+              <h2 className={styles.name}>Loading user</h2>
+            </div>
+
+            <NavBar />
+
+            <Link to={ROUTES.home} className={styles.button}>
+              Log out
+            </Link>
+          </div>
+        </>
+      );
+    }
+    return (
+      <>
+        <div className={styles.menu__wrapper}>
+          <div>
             <img
               className={styles.image}
-              src="./assets/img/ancestors/tumbnail/AliceBaker.jpg"
+              src={uiStore.currentUser.avatar}
               alt=""
               height="140"
               width="140"
             />
-            <h2 className={styles.name}>Loading user</h2>
-
-            <NavBar/>
+            <h2 className={styles.name}>{currentUser.name}</h2>
           </div>
-          <Button text={'logout'} to={'link'} />
-        </>
-      )
-    }
-    return (
-    <>
-      <div className={styles.menu__wrapper}>
-        <img
-          className={styles.image}
-          src={uiStore.currentUser.avatar}
-          alt=""
-          height="140"
-          width="140"
-        />
-        <h2 className={styles.name}>{currentUser.name}</h2>
 
-        <NavBar />
-      </div>
-      <Button text={'logout'} to={'link'} />
-    </>
-    )
+          <NavBar />
+
+          <Link to={ROUTES.home} className={styles.button}>
+            Log out
+          </Link>
+        </div>
+      </>
+    );
   });
 };
 

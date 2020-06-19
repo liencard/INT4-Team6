@@ -1,8 +1,14 @@
 @value tokens: "../../styles/tokens.module.css";
-@value borderRadius, extraSmallScreen, spacerRegular, spacerSmall from tokens;
+@value borderRadius, extraSmallScreen, spacerRegular, spacerSmall, faded from tokens;
 
 .menu__wrapper {
     text-align: center;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    height: 100%;
+
 }
 
 .image {
@@ -16,4 +22,21 @@
 .name {
     composes: titleRegular from "../../styles/typo.module.css";
     margin: 1rem;
+}
+
+.button {
+    composes: smallSpaced from "../../styles/typo.module.css";
+    position: relative;
+    padding-right: 1rem;
+}
+
+.button::after {
+    content: '';
+    position: absolute;
+    background-image: url("/assets/img/icon_logout.svg");
+    background-repeat: no-repeat;
+    width: 1.6rem;
+    height: 1.6rem;
+    left: 17.5rem;
+    top: -.3rem;
 }

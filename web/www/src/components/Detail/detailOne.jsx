@@ -53,6 +53,7 @@ const DetailOne = () => {
       store: bookmarkStore,
     });
     bookmarkedAncestor.create();
+    bookmarkStore.loadAllBookmarks();
   }
 
   return useObserver(() => {

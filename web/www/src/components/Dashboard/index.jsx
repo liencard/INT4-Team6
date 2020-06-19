@@ -54,7 +54,7 @@ const Dashboard = () => {
             {url === '/ancestors' ? (
               <div className={styles.footer__guide}>
                 <img
-                  className={styles.logo}
+                  className={styles.icon__scroll}
                   src="/assets/img/icon_scroll.svg"
                   alt="logo"
                   width="37"

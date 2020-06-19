@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useLayoutEffect, useRef, useMemo} from 'react';
-import { Canvas } from 'react-three-fiber';
+import { Canvas, createPortal } from 'react-three-fiber';
 import Controls from '../Controls';
 import Effects from './effects.jsx';
 import Ancestor from '../Ancestor/index.jsx';
@@ -21,15 +21,21 @@ const Ancestors = () => {
   const [preview, setPreview] = useState(false);
   const [ancestor, setAncestor] = useState(null);
   const [canvas, setCanvas] = useState(false);
+  let ancestors = ancestorStore.ancestors;
 
+  /* eerste keer site inladen */
   const stopObserve = observe(ancestorStore, (change) => {
     if (change.name === 'loadAllComplete') {
       setCanvas(<CanvasView />);
-    } else {
-      setCanvas(<Loader />);
     }
   });
-  let ancestors = ancestorStore.ancestors;
+
+  /* wordt ook opgeroepen indien je komt vanuit ander component */
+  useLayoutEffect(() => {
+    if (ancestorStore.loadAllComplete && !canvas) {
+      setCanvas(<CanvasView />);
+    }
+  }, [canvas, ancestors]);
 
   const handleClickAncestor = (e) => {
     e.stopPropagation();
@@ -131,6 +137,9 @@ const Ancestors = () => {
         style = {{opacity: 1}}
       >
         {` `}
+      </div>
+      <div className={styles.canvas__container}>
+        {canvas ? canvas : <Loader />}
       </div>
 
       <div className={styles.canvas__container}>{canvas}</div>

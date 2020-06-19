@@ -65,7 +65,7 @@ const DetailOne = () => {
     if (state === STATE_LOADING) {
       return (<Loader/>);
     }
-
+ 
     return (
       <>
         <Header

@@ -50,7 +50,7 @@ const Dashboard = () => {
             place="top"
           />
 
-          <div>
+          {/* <div>
             {url === '/ancestors' ? (
               <div className={styles.footer__guide}>
                 <img
@@ -74,7 +74,7 @@ const Dashboard = () => {
                 <span className={styles.guide__text}>click on region</span>
               </div>
             )}
-          </div>
+          </div> */}
 
           <div className={styles.footer__share}>
             <span className={styles.share__text}>share</span>

@@ -15,6 +15,8 @@ import * as THREE from 'three';
 
 const Ancestors = () => {
 
+  const iconscroll = useRef();
+
   const { ancestorStore } = useStore();
   const [preview, setPreview] = useState(false);
   const [ancestor, setAncestor] = useState(null);
@@ -86,8 +88,32 @@ const Ancestors = () => {
      }
    }, [canvas, ancestors]);
 
+   
+   // DIT VIND HIJ
+   console.log(iconscroll); // als ik het log vind hij het wel
 
-  return  (
+
+  //  useEffect(() => {
+  //    window.addEventListener(`wheel`, handleMouseScroll);
+  //  }, []);
+
+   //this.that.iconscroll.style.opacity = 1;
+
+  // handleMouseScroll = (e) => {
+  //   //this.that.iconscroll.style.opacity -= Math.abs(e.deltaY) / 1000;
+  //   iconscroll.style.opacity -= Math.abs(e.deltaY) / 1000;
+  // }
+
+  // PROBEERSEL
+  //  const [offset, setOffset] = useState(0);
+  //  useEffect(() => {
+  //    window.onscroll = () => {
+  //      setOffset(iconscroll.style.opacity = 0);
+  //    };
+  //  }, []);
+  //  console.log(offset); 
+
+  return (
     <>
       <Sidebar
         type={'preview'}
@@ -96,9 +122,18 @@ const Ancestors = () => {
         setToggle={setPreview}
       />
 
-      <div className={styles.canvas__container}>
-        {canvas}
+      <div // _scroll
+        className={styles.iconscroll}
+        // ref={(iconscroll) => {
+        //   this.iconscroll = iconscroll;
+        // }}
+        ref={iconscroll}
+        style = {{opacity: 1}}
+      >
+        {` `}
       </div>
+
+      <div className={styles.canvas__container}>{canvas}</div>
     </>
   );
 

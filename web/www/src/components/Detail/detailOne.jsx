@@ -48,18 +48,14 @@ const DetailOne = () => {
     await userStore.loadAllUsers();
     uiStore.setCurrentUser(userStore.resolveUser('4e8baf11-bb77-3f6b-97d1-69b8e51c2ebe'));
 
-    if (xxx) {
-       const bookmarkedAncestor = new Bookmark({
+    const bookmarkedAncestor = new Bookmark({
          user_id: uiStore.currentUser.id,
          ancestor_id: ancestor.id,
          store: bookmarkStore,
        });
        bookmarkedAncestor.create();
-    } else {
-      bookmarkedAncestor.create();
-    }
-   
-  }
+  } 
+ 
 
   return useObserver(() => {
     if (state === STATE_DOES_NOT_EXIST) {
@@ -79,7 +75,8 @@ const DetailOne = () => {
         />
         <div className={styles.buttons}>
           <button className={styles.addBookmark} onClick={handleClickBookmark}>
-            {bookmarkedAncestor  ? 'Add to bookmarks' : 'Remove bookmark'}
+            {/* {bookmarkedAncestor  ? 'Add to bookmarks' : 'Remove bookmark'} */}
+            Add to bookmarks
           </button>
           {/* link */}
           <p className={styles.buttons__previous}>Previous generation</p>

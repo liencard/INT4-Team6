@@ -50,13 +50,13 @@ const DetailOne = () => {
     uiStore.setCurrentUser(userStore.resolveUser('4e8baf11-bb77-3f6b-97d1-69b8e51c2ebe'));
 
     const bookmarkedAncestor = new Bookmark({
-         user_id: uiStore.currentUser.id,
-         ancestor_id: ancestor.id,
-         store: bookmarkStore,
-       });
-       bookmarkedAncestor.create();
-  } 
- 
+      user_id: uiStore.currentUser.id,
+      ancestor_id: ancestor.id,
+      store: bookmarkStore,
+    });
+    bookmarkedAncestor.create();
+    bookmarkStore.loadAllBookmarks(); // bug fix probeersel
+  }
 
   return useObserver(() => {
     if (state === STATE_DOES_NOT_EXIST) {

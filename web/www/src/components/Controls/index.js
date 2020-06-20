@@ -44,7 +44,7 @@ const Controls = ({ }) => {
         zoomSpeed={0.5}
 
         minDistance={0}
-        maxDistance={25}
+        maxDistance={30}
         mouseButtons={{
           LEFT: THREE.MOUSE.PAN, // make pan the default instead of rotate
           MIDDLE: THREE.MOUSE.ZOOM,

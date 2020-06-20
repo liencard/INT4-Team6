@@ -46,6 +46,11 @@ react-tooltip@^4.2.7:
     prop-types "^15.7.2"
     uuid "^7.0.3"
 
+react-vertical-timeline@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/react-vertical-timeline/-/react-vertical-timeline-0.2.0.tgz#eda3cf993a5c683d9a8ab8ab188be4867e70ed5a"
+  integrity sha512-Khf6Y3EogQwx/vtc7zNRc+88uVj8yHlh4W9yKXGBRW2bYnvElvdrejzHrBfDoG23O/zjSClmCrf41RyhTtykgw==
+
 uuid@^7.0.3:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-7.0.3.tgz#c5c9f2c8cf25dc0a372c4df1441c41f5bd0c680b"

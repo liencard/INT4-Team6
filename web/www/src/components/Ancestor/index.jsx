@@ -9,7 +9,7 @@ const Ancestor = ({ ancestor, ancestorStore }) => {
   const imgType = ancestor.img;
   const imgSrc = `${imgName}`;
   let imgSizeVertical = 1;
-  let textOffset = 0.55;
+  let textOffset = 1.55;
 
   if (imgType === 1) {
     imgSizeVertical = 1.12;
@@ -44,7 +44,7 @@ const Ancestor = ({ ancestor, ancestorStore }) => {
   );
   
   let posX = position[0];
-  let posY = position[1];
+  let posY = position[1] + 1;
   let posZ = position[2];
 
   const dates = `${ancestor.birthdate} - ${ancestor.deathdate}`;

@@ -74,7 +74,7 @@ const DetailOne = () => {
     if (state === STATE_LOADING) {
       return (<Loader/>);
     }
- 
+  
     return (
       <>
         <Header
@@ -90,6 +90,19 @@ const DetailOne = () => {
           {/* link */}
           <p className={styles.buttons__previous}>Previous generation</p>
           <p className={styles.buttons__next}>Next generation</p>
+        </div>
+
+        <div className={styles.timeline__wrapper}>
+          <span>01</span>
+          <span>Origin</span>
+          <span>02</span>
+          <span>General info</span>
+          <span>03</span>
+          <span>The American Revolution</span>
+          <span>04</span>
+          <span>Enslaved population</span>
+          <span>05</span>
+          <span>Rise of the cotton industry</span>
         </div>
 
         <div className={`${styles.detail} ${styles.detailMargeretEvans}`}>

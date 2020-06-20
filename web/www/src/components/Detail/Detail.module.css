@@ -60,6 +60,30 @@
     background-image: url("/assets/img/icon_skip-left.svg");
 }
 
+.timeline__wrapper {
+    position: fixed;
+    left: 5rem;
+    top: 20vh;
+    width: 12rem;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: repeat(4, 12rem) 7rem;
+    text-transform: capitalize;
+    font-family: fontTitle, serif;
+    font-size: 1.3rem;
+    align-self: center;
+    color: faded;
+}
+
+.timeline__wrapper span {
+    padding-top: 2.4rem;
+}
+
+.timeline__wrapper span:nth-child(even) {
+    border-left: .1rem solid faded;
+    padding-left: 1.5rem;
+} 
+
 
 /* GENERAL */
 
@@ -130,7 +154,7 @@
 .generation {
     font-family: 'CarneysGalleryScript', sans-serif;
 }
-
+ 
 .name {
     composes: titleLarge from "../../styles/typo.module.css";
     font-size: 13rem;

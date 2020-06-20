@@ -166,41 +166,40 @@ const DetailThree = () => {
 
             <article className={`${styles.timeframe} ${styles.content}`}>
               <div className={styles.titleCentered}>
-                <h2 className={styles.title}>
-                  Trade with Europe and the Americas
-                </h2>
-                <span className={styles.dates}>1483 - 1885</span>
+                <h2 className={styles.title}>Black lives in America</h2>
+                <span className={styles.dates}>1900 - 1990</span>
               </div>
               <div className={styles.timeframe__info}>
                 <section>
                   <h3 className={styles.subtitle}>The start</h3>
                   <p className={styles.text}>
-                    At first, Ivory Coast traded gold, ivory and pepper with
-                    European and the Far East. With the rise of American
-                    colonies in the sixteenth century there was a need of
-                    slaves, which led to kidnapping and enslavement of people
-                    from West Africa.
+                    The begin of the nineteenth century was a time of
+                    transformation in political and legal statusses of the
+                    African Americans. They were freed from slavery and enjoyed
+                    the greater rights of being a citizen. There was still a
+                    long way to go for real eqaulity between the black and
+                    whites.
                   </p>
                 </section>
                 <section>
                   <h3 className={styles.subtitle}>The conflict</h3>
                   <p className={styles.text}>
-                    In the 18th century, Ivory Coast was invaded by two groups.
-                    The Akans and The Agni’s. They occupied the southeast and
-                    the centrail section. In 1843-1844, the year Mary passed
-                    away, French Admiral Bouet-Willaumez signed treaties with
-                    the kings. The French had control over the area until 1915,
-                    in the beginning of World War One.
+                    Through the early 1900s, many laws such as the Jim Crow laws
+                    were passed in the Southern states, where most blacked
+                    lived. These laws legally segregated schools, transportation
+                    systems and lodging. This wasn’t equality.
                   </p>
                 </section>
                 <section>
                   <h3 className={styles.subtitle}>Resulting in</h3>
                   <p className={styles.text}>
-                    In 1840’s, the French build fortified posts with the purpose
-                    of permanent tranding centers. The first posts were in
-                    Assinie and Grand-Bassanm which became the colony’s first
-                    capital. The French kept treaties, hoping to be able to
-                    expand trade.
+                    African Americans moved to the north to work there, due
+                    there were more work opportunities that also paid better.
+                    Also the laws played a role.
+                  </p>
+                  <p className={styles.text}>
+                    The north didn’t like this, so segregation became worse and
+                    recial tensions sky rocked over into deadly voilence.
                   </p>
                 </section>
               </div>
@@ -208,23 +207,126 @@ const DetailThree = () => {
 
             <article className={`${styles.living} ${styles.content}`}>
               <div className={styles.living__text}>
-                <h2 className={styles.title}>Unknown life</h2>
-                <p className={styles.text}>
-                  Mary was born in the early 1800’s in Africa which we couldn’t
-                  find much information about. Here might be a picture we assume
-                  is her, since it was a passport picture with her name on it
-                  but we can’t confirm it, so take it with a grain of salt. The
-                  hairstyle was typical 1800’s hair. The other image is a
-                  picture the French took close to the river in Ivory Coast.
-                </p>
+                <h2 className={styles.title}>Benjamin's life</h2>
+                <section>
+                  <h3 className={styles.subtitle}>1903, Birthday</h3>
+                  <p className={styles.text}>
+                    The family Cole’s were located in Louisiana were Benjamin
+                    was born and raised. They had two childeren, Issabelle whom
+                    was 4 years older than him. Until 16 they went to school in
+                    Louisiana but then decided to move to the North for a better
+                    life and better paying jobs.
+                  </p>
+                  <p className={styles.text}>
+                    In the North they stayed at Ohio. His father started working
+                    in the auto industry, the Ford Motor Company.
+                  </p>
+                </section>
+                <section>
+                  <h3 className={styles.subtitle}>Benjamin's Family</h3>
+                  <p className={styles.text}>
+                    When Benjamin was 24 he met a special girl he married. She
+                    was named Camillle Patterson. Camille was a maid and
+                    Benjamin studied to become a lawyer in Ohio State
+                    University. He didn’t agree with the lifestyle they were
+                    living in and he wanted to make a change.
+                  </p>
+                  <p className={styles.text}>
+                    He wanted his four childeren, Mary, Ruth, Eugene and George
+                    to live in a better sitution than he grew up in. After
+                    Benjamin finished his studies, they settled in Ohio.
+                  </p>
+                </section>
               </div>
               <div className={styles.living__img}>
                 <img
                   className={styles.living__imgFamily}
-                  src="/assets/img/detail/MaryWallcott_life.png"
-                  alt="Family"
-                  width="760px"
+                  src="/assets/img/detail/BenjaminCole_school.png"
+                  alt="Image of Benjamin's school"
+                  width="725px"
                 />
+                <img
+                  className={styles.living__imgPicture}
+                  src="/assets/img/detail/BenjaminCole_family.png"
+                  alt="Family pictures of Benjamin"
+                  width="700px"
+                />
+              </div>
+            </article>
+
+            <article className={`${styles.profession} ${styles.content}`}>
+              <div className={styles.titleCentered}>
+                <h2 className={styles.title}>The Lawyer</h2>
+                <span className={styles.dates}>1927 - 1940</span>
+              </div>
+              <div className={styles.profession__info}>
+                  <img
+                    className={styles.profession__img}
+                    src="/assets/img/detail/BenjaminCole_trail.png"
+                    alt="Court trial image"
+                    width="850px"
+                  />
+                <section>
+                  <h3 className={styles.subtitle}>Law firm</h3>
+                  <p className={styles.text}>
+                    After Benjamin graduated from Ohio State University he
+                    procedeed to work in a law firm in Ohio. He specialized in
+                    the right of citizens, most specificly most of his cases
+                    were helping his fellow African Americans who weren’t
+                    threated right by the justice system.
+                  </p>
+                  <p className={styles.text}>
+                    Unfortuantly, the law firm doesn’t exist anymore.
+                  </p>
+                </section>
+              </div>
+            </article>
+
+            <article className={`${styles.timeframe} ${styles.content}`}>
+              <div className={styles.titleCentered}>
+                <h2 className={styles.title}>African Americans in WWII</h2>
+                <span className={styles.dates}>1941 - 1945</span>
+              </div>
+              <div className={styles.living}>
+                <div className={styles.living__text}>
+                  <section>
+                    <h3 className={styles.subtitle}>1903, Birthday</h3>
+                    <p className={styles.text}>
+                      The family Cole’s were located in Louisiana were Benjamin
+                      was born and raised. They had two childeren, Issabelle
+                      whom was 4 years older than him. Until 16 they went to
+                      school in Louisiana but then decided to move to the North
+                      for a better life and better paying jobs.
+                    </p>
+                    <p className={styles.text}>
+                      In the North they stayed at Ohio. His father started
+                      working in the auto industry, the Ford Motor Company.
+                    </p>
+                  </section>
+                  <section>
+                    <h3 className={styles.subtitle}>Benjamin's Family</h3>
+                    <p className={styles.text}>
+                      When Benjamin was 24 he met a special girl he married. She
+                      was named Camillle Patterson. Camille was a maid and
+                      Benjamin studied to become a lawyer in Ohio State
+                      University. He didn’t agree with the lifestyle they were
+                      living in and he wanted to make a change.
+                    </p>
+                    <p className={styles.text}>
+                      He wanted his four childeren, Mary, Ruth, Eugene and
+                      George to live in a better sitution than he grew up in.
+                      After Benjamin finished his studies, they settled in Ohio.
+                    </p>
+                  </section>
+                </div>
+                <div className={styles.living__img}>
+                  <img
+                    //className={styles.living__imgFamily}
+                    src="/assets/img/detail/BenjaminCole_war.png"
+                    alt="War picture Benjamin"
+                    width="490px"
+                  />
+                </div>
               </div>
             </article>
 

@@ -293,7 +293,18 @@
     transform: translate(0, -8rem);
 }
 
+.detailBenjaminCole .living__text section {
+    margin-bottom: 7rem;
+}
 
+.detailBenjaminCole .living__imgFamily {
+    transform: translate(5rem, 35rem);
+    z-index: 2;
+}
+
+.detailBenjaminCole .living__imgPicture {
+    transform: translate(18rem, 0);
+}
 
 /* CONTENT - WORK */
 
@@ -315,6 +326,17 @@
 
 .work section {
     margin-bottom: 3rem;
+}
+
+.profession__info {
+    display: grid;
+    grid-template-columns: auto 45rem;
+    background-color: red;
+}
+
+.profession__img {
+    position: absolute;
+    left: 0;
 }
 
 

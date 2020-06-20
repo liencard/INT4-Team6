@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useLayoutEffect, useRef, useMemo, forwardRef} from 'react';
 import { Canvas, createPortal } from 'react-three-fiber';
-import Controls from '../Controls';
+import Controls from '../Controls/index.js';
 import Effects from './effects.jsx';
 import Line from './line.jsx';
 import Ancestor from '../Ancestor/index.jsx';
@@ -51,8 +51,6 @@ const Ancestors = () => {
     gl.shadowMap.enabled = true;
     gl.domElement.addEventListener('wheel', () => {
       scrolliconRef.current.classList.add(styles.iconscrollHidden);
-      console.log(scrolliconRef.current);
-      // setScrollicon(false);
     });
   }
 
@@ -81,10 +79,11 @@ const Ancestors = () => {
     return (
       <Canvas
         camera={{
-          fov: 70,
+          fov: 50,
           position: [0, 1.5, 25],
-          near: 0.1,
-          far: 500,
+          near: 2,
+          far: 50,
+          focus: 1
         }}
         onCreated={({ gl }) => canvasCreated(gl)}
       >
@@ -141,6 +140,7 @@ const Ancestors = () => {
             <Ancestor ancestor={ancestor} ancestorStore={ancestorStore} />
           </group>
         ))}
+         {/* <Effects /> */}
       </Canvas>
     );
   };

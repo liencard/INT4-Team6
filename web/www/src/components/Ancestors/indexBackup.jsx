@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useLayoutEffect, useRef, useMemo, forwardRef} from 'react';
 import { Canvas, createPortal } from 'react-three-fiber';
-import Controls from '../Controls';
+import Controls from '../Controls/indexOrbit';
 import Effects from './effects.jsx';
 import Ancestor from '../Ancestor/index.jsx';
 import Sidebar from '../Sidebar/index.jsx';

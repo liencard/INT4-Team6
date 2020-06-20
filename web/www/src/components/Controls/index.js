@@ -9,31 +9,16 @@ const Controls = ({ }) => {
     const controls = React.useRef();
     const { camera, gl } = useThree();
 
-
-    // https://discourse.threejs.org/t/how-to-limit-pan-in-orbitcontrols-for-orthographiccamera/9061/15
-    var minPan = new THREE.Vector3(-2, -2, -15);
-    var maxPan = new THREE.Vector3(2, 2, 60);
-    var _v = new THREE.Vector3();
-
-    //  controls.current.addEventListener('change', function () {
-    //    alert('Test');
-    //    _v.copy(controls.target);
-    //    controls.target.clamp(minPan, maxPan);
-    //    _v.sub(controls.target);
-    //    camera.position.sub(_v);
-    //  });
-
-    const handleChangeControls = (controls) => {
-      _v.copy(controls.target);
-      controls.target.clamp(minPan, maxPan);
-      _v.sub(controls.target);
-      camera.position.sub(_v);
-    };
-
+    var minPan = new THREE.Vector3(-11, 0, 0);
+    var maxPan = new THREE.Vector3(11, 7, 0);
+    var pan = new THREE.Vector3();
 
     useFrame(() => {
       controls.current.update();
-      // controls.current.addEventListener('change', handleChangeControls(controls));
+      pan.copy(controls.current.target);
+      controls.current.target.clamp(minPan, maxPan);
+      pan.sub(controls.current.target);
+      camera.position.sub(pan);
     });
 
     return (
@@ -42,9 +27,9 @@ const Controls = ({ }) => {
         args={[camera, gl.domElement]}
         dynamicDampingFactor={0.5}
         zoomSpeed={0.5}
-
         minDistance={0}
         maxDistance={30}
+
         mouseButtons={{
           LEFT: THREE.MOUSE.PAN, // make pan the default instead of rotate
           MIDDLE: THREE.MOUSE.ZOOM,

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useLayoutEffect, useRef, useMemo, forwardRe
 import { Canvas, createPortal } from 'react-three-fiber';
 import Controls from '../Controls';
 import Effects from './effects.jsx';
-import Lines from './lines.jsx';
+import Line from './line.jsx';
 import Ancestor from '../Ancestor/index.jsx';
 import Sidebar from '../Sidebar/index.jsx';
 
@@ -27,14 +27,14 @@ const Ancestors = () => {
   /* eerste keer site inladen */
   const stopObserve = observe(ancestorStore, (change) => {
     if (change.name === 'loadAllComplete') {
-      setCanvas(true);
+      setCanvas(<CanvasView />);
     }
   });
 
   /* wordt ook opgeroepen indien je komt vanuit ander component */
   useLayoutEffect(() => {
     if (ancestorStore.loadAllComplete && !canvas) {
-      setCanvas(true);
+      setCanvas(<CanvasView />);
     }
   }, [canvas, ancestors]);
 
@@ -47,11 +47,34 @@ const Ancestors = () => {
 
   const canvasCreated = (gl) => {
     gl.setClearColor('#1c1c1c');
+    gl.shadowMap.renderSingleSided = false;
+    gl.shadowMap.enabled = true;
     gl.domElement.addEventListener('wheel', () => {
       scrolliconRef.current.classList.add(styles.iconscrollHidden);
       console.log(scrolliconRef.current);
       // setScrollicon(false);
     });
+  }
+
+  const Light = () => {
+     const light = new THREE.DirectionalLight(0xffffff, .2, 100);
+     light.position.set(0, 50, 30);
+     light.castShadow = true;
+     light.shadow.radius = 15;
+     light.shadow.mapSize.width = 8000; // default
+     light.shadow.mapSize.height = 8000; // default
+     light.shadow.camera.near = 0.1; // default
+     light.shadow.camera.far = 500; // default
+     light.shadow.camera.top = -100; // default
+     light.shadow.camera.right = 100; // default
+     light.shadow.camera.left = -100; // default
+     light.shadow.camera.bottom = 100; // default
+     return (
+       <>
+        <ambientLight color="#ffffff" intensity={0.1} />
+        <primitive object={light} />
+      </>
+     );
   }
 
   const CanvasView = () => {
@@ -65,10 +88,34 @@ const Ancestors = () => {
         }}
         onCreated={({ gl }) => canvasCreated(gl)}
       >
-        <Lines />
+        {/* links voorouder 1, middenste coördinate uit array is optioneel voor een curve, rechts voorouder 2 */}
+        <Line
+          points={[
+            [0, -1, 60],
+            [-0.7, -1, 59.5],
+            [-2, -1, 57],
+          ]}
+        />
+        <Line
+          points={[
+            [0, -1, 60],
+            [0.7, -1, 59.5],
+            [2, -1, 57],
+          ]}
+        />
+
+        <mesh
+          receiveShadow
+          position={[0, -1.01, 60]}
+          rotation-x={-Math.PI / 2}
+          scale={[1.5,2.5]}
+        >
+          <planeBufferGeometry attach="geometry" args={[20, 20, 32, 32]} />
+          <shadowMaterial attach="material" />
+        </mesh>
+
         <Controls />
-        <ambientLight color="#ffffff" intensity={0.1} />
-        <pointLight position={[10, 10, 10]} />
+        <Light />
         {ancestors.map((ancestor) => (
           <group
             key={ancestor.id}
@@ -95,7 +142,7 @@ const Ancestors = () => {
         className={canvas ? styles.iconscroll : ''}
       />
       <div className={styles.canvas__container}>
-        {canvas ? <CanvasView /> : <Loader />}
+        {canvas ? canvas : <Loader />}
       </div>
     </>
   );

@@ -73,10 +73,7 @@ const Ancestor = ({ ancestor, ancestorStore }) => {
         {dates}
       </Text>
 
-
-      <a.mesh
-        position={[posX, posY - 0.2, posZ + 0.2]}
-      >
+      <a.mesh position={[posX, posY - 0.2, posZ + 0.2]}>
         <planeGeometry attach="geometry" args={[1.58, 1.15]} />
         <a.meshBasicMaterial
           attach="material"
@@ -86,6 +83,7 @@ const Ancestor = ({ ancestor, ancestorStore }) => {
       </a.mesh>
 
       <a.mesh
+        castShadow
         ancestorId={ancestor.id}
         onPointerOver={(e) => toggleHover(e, true)}
         onPointerLeave={(e) => toggleHover(e, false)}
@@ -99,6 +97,15 @@ const Ancestor = ({ ancestor, ancestorStore }) => {
           transparent={true}
         />
       </a.mesh>
+
+      <mesh
+        scale={[0.01, 0.01, 0.01]}
+        rotation-x={-Math.PI / 2}
+        position={new THREE.Vector3(posX, posY - 1, posZ)}
+      >
+        <circleGeometry attach="geometry" args={[5, 32]} />
+        <meshStandardMaterial attach="material" color="white" />
+      </mesh>
     </>
   );
 };

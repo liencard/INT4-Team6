@@ -99,14 +99,14 @@ const Ancestors = () => {
               <Line points={[[-9, 0, 12], [-8.1, 0, 10.5], [-8, 0, 9]]} /> {/* to amanda */ }
             <Line points={[[-5, 0, 15], [-5.2, 0, 13.5], [-7, 0, 12]]} /> {/* to lisa */}
           <Line points={[[-2, 0, 18], [-2.1, 0, 16.5], [-3, 0, 15]]} /> {/* to camille */ }
-            <Line points={[[-3, 0, 15], [-3.9, 0, 13.5], [-4, 0, 12]]} /> {/* to jacob */}
-            <Line points={[[-3, 0, 15], [-2.1, 0, 13.5], [-2, 0, 12]]} /> {/* to elisa */}
+            <Line points={[[-3, 0, 15], [-3.45, 0, 13.5], [-3.5, 0, 12]]} /> {/* to jacob */}
+            <Line points={[[-3, 0, 15], [-1.7, 0, 13.5], [-1.5, 0, 12]]} /> {/* to elisa */}
 
         {/* ELIZABETH */}
         <Line points={[[0, 0, 21], [1.5, 0, 20], [2, 0, 18]]} />
           <Line points={[[2, 0, 18], [2.1, 0, 16.5], [3, 0, 15]]} /> {/* to frederic */}
-            <Line points={[[3, 0, 15], [2.1, 0, 13.5], [2, 0, 12]]} /> {/* to steve */}
-            <Line points={[[3, 0, 15], [3.9, 0, 13.5], [4, 0, 12]]} /> {/* to sara */}
+            <Line points={[[3, 0, 15], [1.7, 0, 13.5], [1.5, 0, 12]]} /> {/* to steve */}
+            <Line points={[[3, 0, 15], [3.45, 0, 13.5], [3.5, 0, 12]]} /> {/* to sara */}
           <Line points={[[2, 0, 18], [4.2, 0, 16.5], [5, 0, 15]]} /> {/* to mathilde */}
             <Line points={[[5, 0, 15], [5.2, 0, 13.5], [7, 0, 12]]} /> {/* to jacob */}
               <Line points={[[7, 0, 12], [6.1, 0, 10.5], [6, 0, 9]]} /> {/* to samuel */}
@@ -140,7 +140,8 @@ const Ancestors = () => {
             <Ancestor ancestor={ancestor} ancestorStore={ancestorStore} />
           </group>
         ))}
-         {/* <Effects /> */}
+         <Effects />
+         <fog attach="fog" args={['#1c1c1c', 4, 25]} />
       </Canvas>
     );
   };

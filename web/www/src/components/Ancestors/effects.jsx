@@ -38,30 +38,18 @@ export default function Effects() {
 
   return (
     <effectComposer ref={composer} args={[gl]}>
-      {/* Will render our scene with our camera into the first render target. */}
       <renderPass attachArray="passes" scene={scene} camera={camera} />
       {/* ??? */}
-      <shaderPass
+      {/* <shaderPass
         attachArray="passes"
         args={[FXAAShader]}
         material-uniforms-resolution-value={[1 / size.width, 1 / size.height]}
         renderToScreen
-      />
-
-      {/* --------- */}
-      {/* schaduw */}
-      {/* <sSAOPass
-        attachArray="passes"
-        args={[scene, camera]}
-        kernelRadius={0.6}
-        maxDistance={0.03}
       /> */}
 
-      {/* licht en achtergrond */}
-      {/* <unrealBloomPass attachArray="passes" args={[aspect, 2, 1, 0.991]} /> */}
-
-      {/* eigen probeersel */}
-      <bokehPass attachArray="passes" args={[scene, camera, params]} />
+      {/* To read: https://github.com/vanruesc/postprocessing/issues/160 */}
+      {/* <depthOfFieldEffect /> */}
+      {/* <bokehPass attachArray="passes" args={[scene, camera, params]} /> */}
     </effectComposer>
   );
 }

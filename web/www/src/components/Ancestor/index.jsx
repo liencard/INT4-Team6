@@ -40,7 +40,7 @@ const Ancestor = ({ ancestor, ancestorStore }) => {
   let coordinates = ancestor.coordinates.split(',');
 
   let position = coordinates.map((coordinate) =>
-    parseInt(coordinate) ? parseInt(coordinate) : coordinate
+    parseFloat(coordinate) ? parseFloat(coordinate) : coordinate
   );
   
   let posX = position[0];
@@ -95,6 +95,7 @@ const Ancestor = ({ ancestor, ancestorStore }) => {
           attach="material"
           map={imgMain}
           transparent={true}
+          fog={true}
         />
       </a.mesh>
 

@@ -31,6 +31,7 @@ class Bookmark {
   get asJson() {
     return {
       id: this.id,
+      name: this.name,
       birthdate: this.birthdate,
       deathdate: this.deathdate,
       user_id: this.user_id,

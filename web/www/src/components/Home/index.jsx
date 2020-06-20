@@ -91,7 +91,7 @@ const Home = () => {
             <span>05</span>
             <span>Go explore</span>
           </div>
-
+ 
           <div
             className={`${styles.title__wrapper} ${
               login ? styles.title__wrapperDissapear : ''

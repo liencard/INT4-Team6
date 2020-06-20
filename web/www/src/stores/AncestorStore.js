@@ -20,9 +20,9 @@ class AncestorStore {
     const jsonAncestor = await this.ancestorsService.getById(id);
     this.updateAncestorFromServer(jsonAncestor);
     return this.getAncestorById(id);
-  };
+  }; 
 
-  addAncestor = (ancestor) => {
+  addAncestor = (ancestor) => { 
     this.ancestors.push(ancestor);
   };
 

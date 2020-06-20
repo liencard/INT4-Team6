@@ -174,7 +174,7 @@ const DetailOne = () => {
                 <section>
                   <h3 className={styles.subtitle}>Origin</h3>
                   <p className={styles.text}>
-                    Margaret was born in 1822 in London, United Kingdom and came
+                    Margaret was born in 1822 in Wockingham, England, United Kingdom and came
                     from a Middle class family, the Evans.
                   </p>
                 </section>

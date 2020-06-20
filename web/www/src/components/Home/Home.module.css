@@ -106,15 +106,11 @@
     margin-top: -18rem;
     margin-left: 19rem;
     align-self: center;
-    /* opacity: 1; */
-    /* transition: opacity .4s; */
 }
 
 .title__wrapperDissapear {
     transform: translateX(-100rem);
-    /* opacity: 0; */
     transition: transform 0.7s ease-in-out;
-    /* transition: opacity .4s; */
 }
 
 .title {
@@ -157,6 +153,7 @@
     font-size: 1.3rem;
     align-self: center;
     margin-top: -18rem;
+    color:faded;
 }
 
 .timeline__wrapperDissapear {
@@ -169,7 +166,7 @@
 }
 
 .timeline__wrapper span:nth-child(even) {
-    border-left: .1rem solid white;
+    border-left: .1rem solid faded;
     padding-left: 1rem;
 } 
 
@@ -178,6 +175,7 @@
     font-size: 1.6rem;
     line-height: 188.9%;
     text-align: right;
+    color: faded;
 }
 
 .sidetextDissolve {

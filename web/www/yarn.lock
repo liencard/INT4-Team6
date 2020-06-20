@@ -9040,6 +9040,11 @@ react-use-measure@^2.0.0:
   dependencies:
     debounce "^1.2.0"
 
+react-vertical-timeline@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/react-vertical-timeline/-/react-vertical-timeline-0.2.0.tgz#eda3cf993a5c683d9a8ab8ab188be4867e70ed5a"
+  integrity sha512-Khf6Y3EogQwx/vtc7zNRc+88uVj8yHlh4W9yKXGBRW2bYnvElvdrejzHrBfDoG23O/zjSClmCrf41RyhTtykgw==
+
 react@^16.13.0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"

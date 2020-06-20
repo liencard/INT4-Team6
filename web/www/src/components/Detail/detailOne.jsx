@@ -15,6 +15,16 @@ const DetailOne = () => {
 
   const feedbackRef = useRef();
 
+  // TRIALS TIMELINE
+  const chapterOneRef = useRef();
+  const chapterTwoRef = useRef();
+
+  let chapterLinks = [];
+  chapterLinks.push(chapterOneRef);
+  chapterLinks.push(chapterTwoRef);
+  console.log(chapterLinks);
+
+  // STATES
   const STATE_LOADING = 'loading';
   const STATE_DOES_NOT_EXIST = 'doesNotExist';
   const STATE_LOADED = 'fullyLoaded';
@@ -73,6 +83,21 @@ const DetailOne = () => {
     }
   }
 
+  // domElement.addEventListener('scroll', () => {
+  //   const fromTop = window.scrollY + window.innerHeight / 2;
+
+  //   chapterLinks.forEach(link => {
+  //     const section = document.querySelector(link.hash);
+  //     console.log(link.hash);
+
+  //     if (section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
+  //       link.childNodes[0].classList.add('current');
+  //     } else {
+  //       link.childNodes[0].classList.remove('current');
+  //     }
+  //   });
+  // });
+
   return useObserver(() => {
     if (state === STATE_DOES_NOT_EXIST) {
       return <p>does not exist</p>;
@@ -92,19 +117,21 @@ const DetailOne = () => {
 
         <div className={styles.buttons}>
           <button className={styles.addBookmark} onClick={handleClickBookmark}>
-            {bookmark ? 
-              <img 
+            {bookmark ? (
+              <img
                 src="/assets/img/icon_addedbookmark.svg"
                 alt="bookmark icon"
                 width="30"
-                height="30"/> 
-              : 
+                height="30"
+              />
+            ) : (
               <img
                 src="/assets/img/icon_addbookmark.svg"
                 alt="added bookmark icon"
                 width="30"
-                height="30" /> 
-            }
+                height="30"
+              />
+            )}
           </button>
           {/* 
           <p className={styles.buttons__previous}>Previous generation</p>
@@ -113,20 +140,22 @@ const DetailOne = () => {
 
         <div className={styles.timeline__wrapper}>
           <span>01</span>
-          <span>Origin</span>
+          <span ref={chapterOneRef}>Origin</span>
           <span>02</span>
-          <span>General info</span>
+          <span ref={chapterTwoRef}>Industrial Revolution</span>
           <span>03</span>
-          <span>The American Revolution</span>
+          <span>Evens Family</span>
           <span>04</span>
-          <span>Enslaved population</span>
+          <span>Profession</span>
           <span>05</span>
-          <span>Rise of the cotton industry</span>
+          <span>Cause of death</span>
         </div>
 
         <p
           ref={feedbackRef}
-          className={`${styles.feedback} ${bookmark ? styles.feedback__add : styles.feedback__remove}`}
+          className={`${styles.feedback} ${
+            bookmark ? styles.feedback__add : styles.feedback__remove
+          }`}
         ></p>
 
         <div className={`${styles.detail} ${styles.detailMargeretEvans}`}>

@@ -43,8 +43,8 @@ const Controls = ({ }) => {
         dynamicDampingFactor={0.5}
         zoomSpeed={0.5}
 
-        minDistance={43}
-        maxDistance={70}
+        minDistance={0}
+        maxDistance={25}
         mouseButtons={{
           LEFT: THREE.MOUSE.PAN, // make pan the default instead of rotate
           MIDDLE: THREE.MOUSE.ZOOM,

@@ -82,7 +82,7 @@ const Ancestors = () => {
       <Canvas
         camera={{
           fov: 70,
-          position: [0, 0, 63],
+          position: [0, 0, 25],
           near: 0.1,
           far: 500,
         }}
@@ -106,7 +106,7 @@ const Ancestors = () => {
 
         <mesh
           receiveShadow
-          position={[0, -1.01, 60]}
+          position={[0, -1.01, 20]}
           rotation-x={-Math.PI / 2}
           scale={[1.5,2.5]}
         >

@@ -70,21 +70,24 @@ const Header = ({logo, menu, content, text, toggleDashboard, togglePartners}) =>
       );
     } else if (content && togglePartners) { 
         return (
-          <div>
-            <NavLink
-              to={`${ROUTES.detail}`}
-              className={styles.tab}
-              activeClassName={styles.tabActive}
-            >
-              {content.name}
-            </NavLink>
-            <NavLink
-              to={`${ROUTES.detail}`}
-              className={styles.tab}
-              activeClassName={styles.tabActive}
-            >
-              {content.partner}
-            </NavLink>
+          <div className={styles.partners__wrapper}>
+            <p className={styles.text}>Toggle between partners</p>
+            <div className={styles.toggle}>
+              <NavLink
+                to={`${ROUTES.detail}`}
+                className={styles.tab}
+                activeClassName={styles.tabActive}
+              >
+                {content.name}
+              </NavLink>
+              <NavLink
+                to={`${ROUTES.detail}`}
+                className={styles.tab}
+                activeClassName={styles.tabActive}
+              >
+                {content.partner}
+              </NavLink>
+            </div>
           </div>
         );
     } else {

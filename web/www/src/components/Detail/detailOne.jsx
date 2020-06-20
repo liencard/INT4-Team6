@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { useObserver } from 'mobx-react-lite';
 import { useStore } from '../../hooks/useStore';
@@ -12,6 +12,8 @@ const DetailOne = () => {
 
   const { id } = useParams();
   const { bookmarkStore, uiStore, userStore, ancestorStore } = useStore();
+
+  const feedbackRef = useRef();
 
   const STATE_LOADING = 'loading';
   const STATE_DOES_NOT_EXIST = 'doesNotExist';
@@ -61,9 +63,13 @@ const DetailOne = () => {
       });
       await bookmarkedAncestor.create();
       await setBookmark(bookmarkedAncestor);
+      feedbackRef.current.classList.add(styles.feedback);
+      feedbackRef.current.innerHTML = "Added Bookmark";
     } else {
       await bookmark.delete(); 
       await setBookmark(false);
+      feedbackRef.current.classList.add(styles.feedbackkk);
+      feedbackRef.current.innerHTML = "Removed Bookmark";
     }
   }
 
@@ -83,13 +89,26 @@ const DetailOne = () => {
           togglePartners={true}
           content={{ name: `${ancestor.name}`, partner: 'Richard Russell' }}
         />
+
         <div className={styles.buttons}>
           <button className={styles.addBookmark} onClick={handleClickBookmark}>
-            {bookmark ? 'Remove bookmark' : 'Add to bookmarks'}
+            {bookmark ? 
+              <img 
+                src="/assets/img/icon_addedbookmark.svg"
+                alt="bookmark icon"
+                width="30"
+                height="30"/> 
+              : 
+              <img
+                src="/assets/img/icon_addbookmark.svg"
+                alt="added bookmark icon"
+                width="30"
+                height="30" /> 
+            }
           </button>
-          {/* link */}
+          {/* 
           <p className={styles.buttons__previous}>Previous generation</p>
-          <p className={styles.buttons__next}>Next generation</p>
+          <p className={styles.buttons__next}>Next generation</p> */}
         </div>
 
         <div className={styles.timeline__wrapper}>
@@ -104,6 +123,11 @@ const DetailOne = () => {
           <span>05</span>
           <span>Rise of the cotton industry</span>
         </div>
+
+        <p
+          ref={feedbackRef}
+          className={`${styles.feedback} ${bookmark ? styles.feedback__add : styles.feedback__remove}`}
+        ></p>
 
         <div className={`${styles.detail} ${styles.detailMargeretEvans}`}>
           <div className={styles.container}>

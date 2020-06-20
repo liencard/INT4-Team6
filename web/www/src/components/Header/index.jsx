@@ -78,14 +78,14 @@ const Header = ({logo, menu, content, text, toggleDashboard, togglePartners}) =>
                 className={styles.tab}
                 activeClassName={styles.tabActive}
               >
-                {content.name}
+                {content.woman}
               </NavLink>
               <NavLink
                 to={`${ROUTES.detail}`}
                 className={styles.tab}
                 activeClassName={styles.tabActive}
               >
-                {content.partner}
+                {content.man}
               </NavLink>
             </div>
           </div>

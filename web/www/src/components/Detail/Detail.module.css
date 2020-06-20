@@ -3,33 +3,11 @@
 
 .buttons {
     composes: smallSpaced from "../../styles/typo.module.css";
-    position: absolute; /* of fixed */
+    position: fixed; /* of fixed */
     right: 0;
     padding: 9rem 8rem 0;
     text-align: right;
 }
-
-/* .addBookmark {
-    composes: smallSpaced from "../../styles/typo.module.css";
-    padding: 1rem;
-    color: faded;
-    padding-right: 3.5rem;
-    position: relative;
-} */
-
-/* .addBookmark:hover {
-    color: white;
-} */
-
-/* .addBookmark::after {
-    content: '';
-    position: absolute;
-    background-image: url("/assets/img/icon_addbookmark.svg");
-    background-repeat: no-repeat;
-    width: 1.9rem;
-    height: 1.9rem;
-    right: -.1rem;
-} */
 
 .buttons p {
     padding: 1rem;
@@ -70,8 +48,10 @@
     text-transform: capitalize;
     font-family: fontTitle, serif;
     font-size: 1.3rem;
+    line-height: 140%;
     align-self: center;
     color: faded;
+    z-index: 8;
 }
 
 .timeline__wrapper span {
@@ -93,7 +73,7 @@
     padding: 1rem 2rem;
     border: .1rem solid faded;
     background-color: dark;
-    z-index: 10;
+    z-index: 8;
     opacity: 0;
 }
 
@@ -140,8 +120,14 @@
 
 .detailMaryWallcott {
     background-image: url('/assets/img/detail/MaryWallcott_portrait.png'), url('/assets/img/detail/MaryWallcott_country.png'), url('/assets/img/detail/texture.jpg');
-    background-size: auto 90rem, auto 90vh, contain;
-    background-position: top 20rem right, top right 50%, center;
+    background-size: auto 80rem, auto 80vh, contain;
+    background-position: top 20rem right, top 5% right 70%, center;
+}
+
+.detailBenjaminCole {
+    background-image: url('/assets/img/detail/BenjaminCole_portrait.png'), url('/assets/img/detail/MaryWallcott_country.png'), url('/assets/img/detail/texture.jpg');
+    background-size: auto 90rem, auto 80vh, contain;
+    background-position: top 1rem right 10rem, top 5% right 70%, center;
 }
 
 .hidden {
@@ -212,7 +198,8 @@
 
 .intro__info {
     margin-top: 20rem;
-    display: flex;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
     width: 50%;
 }
 
@@ -225,10 +212,9 @@
 }
 
 
-
 /* CONTENT - TIMEFRAME */
 
-.timeframe::before {
+.detailMargeretEvans .timeframe::before {
     content: '';
     position: absolute;
     background-image: url("/assets/img/detail/MargeretEvans_revolution.png");
@@ -240,6 +226,30 @@
     background-size: auto 100%;
     width: 50vw;
     height: 60rem;
+}
+
+/* .backgroundImage {
+    background-image: url("/assets/img/detail/MaryWallcott_slaves.png");
+    background-repeat: no-repeat;
+    position: relative;
+    min-width: 100vw;
+    min-height: 100vh;
+    margin-bottom: -60rem;
+} */
+
+.detailMaryWallcott .timeframe::after {
+    content: '';
+    position: absolute;
+    background-image: url("/assets/img/detail/MaryWallcott_slaves.png");
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 100rem;
+}
+
+.timeframe {
+    z-index: 2;
 }
 
 .timeframe__info {
@@ -275,7 +285,12 @@
 
 .living__imgFamily {
     position: absolute;
-    transform: translate(-8rem, 20rem)
+    transform: translate(-8rem, 20rem);
+}
+
+.detailMaryWallcott .living__imgFamily {
+    right: 0;
+    transform: translate(0, -8rem);
 }
 
 
@@ -302,14 +317,27 @@
     margin-bottom: 3rem;
 }
 
-.death__start {
-    margin-top: 15rem;
-    display: flex;
-    justify-content: space-between;
-}
-
 
 /* CONTENT - DEATH */
+.death {
+    padding: 15rem 0;
+}
+
+.detailMaryWallcott .death {
+    width: 72.5rem;
+    margin: 0 auto;
+}
+
+.death__start {
+    margin-top: 15rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5.8rem;
+}
+
+.detailMaryWallcott .death__start {
+    margin-top: 4rem;
+}
 
 .death__text {
     max-width: 41rem;

@@ -112,7 +112,7 @@ const DetailOne = () => {
           logo={true}
           menu={true}
           togglePartners={true}
-          content={{ name: `${ancestor.name}`, partner: 'Richard Russell' }}
+          content={{ woman: `${ancestor.name}`, man: 'Richard Russell' }}
         />
 
         <div className={styles.buttons}>
@@ -133,8 +133,8 @@ const DetailOne = () => {
               />
             )}
           </button>
-          {/* 
-          <p className={styles.buttons__previous}>Previous generation</p>
+
+          {/* <p className={styles.buttons__previous}>Previous generation</p>
           <p className={styles.buttons__next}>Next generation</p> */}
         </div>
 
@@ -306,13 +306,17 @@ const DetailOne = () => {
                   width="540px"
                 />
                 <div className={styles.death__text}>
-                  <h3 className={styles.subtitle}>The start</h3>
+                  <h3 className={styles.subtitle}>Pneumonia</h3>
                   <p className={styles.text}>
-                    During the 19th century life changed into the Industrial
-                    Revolution. Margaret was born into this revolution as a
-                    sewer. At the start of the century it caused many problems
-                    but later on the lifes of the people became more comfortable
-                    for the ordinary.
+                    In the 19th century, the three leading causes of death were
+                    pneumonia, tuberculosis and diarrhea.
+                  </p>
+                  <p className={styles.text}>
+                    Margaret got pneumonia when she was 62, which was pretty old
+                    for back then. Pneumonia is an acute or chronic inflammation
+                    of the longs which could be caused by a virus or a bacteria.
+                    Sometimes it appears by microorganisms or by phiscial or
+                    chemical irritants
                   </p>
                 </div>
               </section>

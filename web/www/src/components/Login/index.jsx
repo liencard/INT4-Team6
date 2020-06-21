@@ -40,13 +40,6 @@ const Login = ({login}) => {
           <div className={styles.form__wrapper}>
             <label className={styles.form__label}>Email</label>
             <div className={styles.input__wrapper}>
-              {/* <img
-                className={styles.logo}
-                src="/assets/icon_mail.svg"
-                alt="icon"
-                width="19"
-                height="15"
-              /> */}
               <svg
                 width="19"
                 height="15"

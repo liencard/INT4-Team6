@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './Sidebar.module.css';
 import { useObserver } from 'mobx-react-lite';
 import Preview from '../Preview/index.jsx';
@@ -35,6 +36,10 @@ const Sidebar = ({type, content, toggle, setToggle}) => {
     </div>
   ));
   
+};
+
+Sidebar.propTypes = {
+  type: PropTypes.string.isRequired,
 };
 
 export default Sidebar;

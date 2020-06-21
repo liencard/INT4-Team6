@@ -1,10 +1,10 @@
 import React, { useState, useCallback } from 'react';
+import PropTypes from 'prop-types';
 import * as THREE from 'three';
 import { useSpring, a } from 'react-spring/three';
-//import { useObserver } from 'mobx-react-lite';
-
 import { Text } from 'drei';
-const Ancestor = ({ ancestor, ancestorStore }) => {
+
+const Ancestor = ({ ancestor }) => {
   const imgName = ancestor.name.split(' ').join('');
   const imgType = ancestor.img;
   const imgSrc = `${imgName}`;
@@ -109,6 +109,10 @@ const Ancestor = ({ ancestor, ancestorStore }) => {
       </mesh>
     </>
   );
+};
+
+Ancestor.propTypes = {
+  ancestor: PropTypes.string.isRequired,
 };
 
 export default Ancestor;

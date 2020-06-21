@@ -8,7 +8,6 @@ import Bookmark from '../Bookmark/index.jsx';
 import Header from '../Header/index.jsx';
 import Loader from '../Loader/index.jsx';
 
-
  const Bookmarks = () => {
 
   const STATE_LOADING = 'loading';

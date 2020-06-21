@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useObserver } from 'mobx-react-lite';
 import styles from './Home.module.css';
-//import { Link } from 'react-router-dom';
 import Button from '../Button/index.jsx';
 import Login from '../Login/index.jsx';
 

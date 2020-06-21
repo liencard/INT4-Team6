@@ -2,7 +2,6 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useStore } from '../../hooks/useStore';
 import { useObserver } from 'mobx-react-lite';
-//import styles from './Detail.module.css';
 
 import DetailOne from './detailOne.jsx';
 import DetailTwo from './detailTwo.jsx';

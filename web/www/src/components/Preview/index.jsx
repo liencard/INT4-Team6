@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useObserver } from 'mobx-react-lite';
 import styles from './Preview.module.css';
 import { Link } from 'react-router-dom';
@@ -64,6 +65,10 @@ const Preview = ({ancestor}) => {
       <Link className={styles.button}  to={`/detail/${ancestor.id}`}>read story</Link>
     </>
   ));
+};
+
+Preview.propTypes = {
+  ancestor: PropTypes.string.isRequired,
 };
 
 export default Preview;

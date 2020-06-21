@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useLayoutEffect, useRef, useMemo, forwardRef} from 'react';
-import { Canvas, createPortal } from 'react-three-fiber';
+import React, { useState, useLayoutEffect, useRef} from 'react';
+import { Canvas} from 'react-three-fiber';
 import Controls from '../Controls/index.js';
 import Effects from './effects.jsx';
 import Line from './line.jsx';
@@ -8,12 +8,10 @@ import Sidebar from '../Sidebar/index.jsx';
 
 import Loader from '../Loader/index.jsx';
 
-import { useObserver } from "mobx-react-lite";
 import { useStore } from "../../hooks/useStore";
 import styles from './Ancestors.module.css';
 import { observe } from 'mobx';
 import * as THREE from 'three';
-import { useThree } from 'react-three-fiber'
 
 const Ancestors = () => {
   const { ancestorStore } = useStore();

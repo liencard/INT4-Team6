@@ -69,7 +69,7 @@ const Login = ({login}) => {
             </div>
           </div>
           {/* <button className={styles.button} to={'/onboarding-one'}>Login </button> */}
-          <Link to={'/onboarding-one'} className={styles.button} style={{backgroundImage: `url(./assets/img/arrow.svg)`}}>
+          <Link to={ROUTES.onboardingOne} className={styles.button} style={{backgroundImage: `url(./assets/img/arrow.svg)`}}>
             Login
           </Link>
 

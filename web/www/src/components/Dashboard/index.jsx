@@ -1,18 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './Dashboard.module.css';
 import { useObserver } from 'mobx-react-lite';
 import Header from '../Header/index.jsx';
 
 import ReactTooltip from 'react-tooltip';
 
-
 const Dashboard = () => {
-    const [menu, setMenu] = useState(false);
-
-    const handleClickMenu = (e) => {
-    e.stopPropagation();
-    setMenu(true);
-  };
 
   const url = window.location.pathname;
 
@@ -49,32 +42,6 @@ const Dashboard = () => {
             className={styles.info__popup}
             place="top"
           />
-
-          {/* <div>
-            {url === '/ancestors' ? (
-              <div className={styles.footer__guide}>
-                <img
-                  className={styles.icon__scroll}
-                  src="/assets/img/icon_scroll.svg"
-                  alt="logo"
-                  width="37"
-                  height="39"
-                />
-                <span className={styles.guide__text}>zoom</span>
-              </div>
-            ) : (
-              <div className={styles.footer__guide}>
-                <img
-                  className={styles.logo}
-                  src="/assets/img/icon_click.svg"
-                  alt="logo"
-                  width="37"
-                  height="39"
-                />
-                <span className={styles.guide__text}>click on region</span>
-              </div>
-            )}
-          </div> */}
 
           <div className={styles.footer__share}>
             <span className={styles.share__text}>share</span>

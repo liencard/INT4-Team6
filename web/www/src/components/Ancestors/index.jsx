@@ -45,6 +45,7 @@ const Ancestors = () => {
 
   const canvasCreated = (gl) => {
     gl.setClearColor('#1c1c1c');
+    gl.shadowMapType = THREE.PCFSoftShadowMap;
     gl.shadowMap.renderSingleSided = false;
     gl.shadowMap.enabled = true;
     gl.domElement.addEventListener('wheel', () => {
@@ -53,18 +54,18 @@ const Ancestors = () => {
   }
 
   const Light = () => {
-     const light = new THREE.DirectionalLight(0xffffff, .2, 100);
-     light.position.set(0, 50, 30);
+     const light = new THREE.DirectionalLight(0xffffff, 1, 100);
+     light.position.set(0, 50, 12);
      light.castShadow = true;
-     light.shadow.radius = 15;
-     light.shadow.mapSize.width = 8000; // default
-     light.shadow.mapSize.height = 8000; // default
-     light.shadow.camera.near = 0.1; // default
-     light.shadow.camera.far = 500; // default
-     light.shadow.camera.top = -100; // default
-     light.shadow.camera.right = 100; // default
-     light.shadow.camera.left = -100; // default
-     light.shadow.camera.bottom = 100; // default
+     light.shadow.radius = 8; // blur
+     light.shadow.mapSize.width = 1024;
+     light.shadow.mapSize.height = 512;
+     light.shadow.camera.near = 0.5;
+     light.shadow.camera.far = 500;
+     light.shadow.camera.top = -100;
+     light.shadow.camera.right = 100;
+     light.shadow.camera.left = -100;
+     light.shadow.camera.bottom = 100;
      return (
        <>
         <ambientLight color="#ffffff" intensity={0.1} />
@@ -129,6 +130,14 @@ const Ancestors = () => {
 
         <Controls />
         <Light />
+        <mesh
+          scale={[0.01, 0.01, 0.01]}
+          rotation-x={-Math.PI / 2}
+          position={new THREE.Vector3(0, 0, 21)}
+        >
+          <circleGeometry attach="geometry" args={[5, 32]} />
+          <meshStandardMaterial attach="material" color="white" />
+        </mesh>
         {ancestors.map((ancestor) => (
           <group
             key={ancestor.id}

@@ -45,7 +45,7 @@ const Ancestors = () => {
 
   const canvasCreated = (gl) => {
     // gl.setClearColor('#1c1c1c');
-    gl.shadowMapType = THREE.PCFSoftShadowMap;
+    // gl.shadowMapType = THREE.PCFSoftShadowMap;
     gl.shadowMap.renderSingleSided = false;
     gl.shadowMap.enabled = true;
     gl.domElement.addEventListener('wheel', () => {
@@ -68,7 +68,7 @@ const Ancestors = () => {
      light.shadow.camera.bottom = 100;
      return (
        <>
-        <ambientLight color="#ffffff" intensity={0.1} />
+        <ambientLight color="#ffffff" intensity={0.5} />
         <primitive object={light} />
       </>
      );
@@ -119,13 +119,14 @@ const Ancestors = () => {
               <Line points={[[9, 0, 12], [10.5, 0, 10.5], [11, 0, 9]]} /> {/* to william */}
 
         <mesh
-          receiveShadow
+          receiveShadow={true}
           position={[0, -.01, 20]}
           rotation-x={-Math.PI / 2}
           scale={[1.5, 2.5]}
         >
           <planeBufferGeometry attach="geometry" args={[20, 20, 32, 32]} />
-          <shadowMaterial attach="material" />
+          <meshStandardMaterial attach="material" color="white" />
+          {/* <shadowMaterial attach="material" /> */}
         </mesh>
 
         <Controls />
@@ -147,8 +148,8 @@ const Ancestors = () => {
             <Ancestor ancestor={ancestor} ancestorStore={ancestorStore} />
           </group>
         ))}
-         <Effects />
-         <fog attach="fog" args={['#1c1c1c', 4, 25]} />
+         {/* <Effects />
+         <fog attach="fog" args={['#1c1c1c', 4, 25]} /> */}
       </Canvas>
     );
   };

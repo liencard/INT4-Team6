@@ -34,6 +34,8 @@ const DetailOne = () => {
   
   const [ancestor, setAncestor] = useState(undefined);
   const [bookmark, setBookmark] = useState(undefined);
+  const [ancestorWoman, setAncestorWoman] = useState(undefined);
+  const [ancestorMan, setAncestorMan] = useState(undefined);
   const [state, setState] = useState(STATE_LOADING);
 
   useEffect(() => {
@@ -52,6 +54,10 @@ const DetailOne = () => {
               setBookmark(bookmarkedAncestor);
             }
             setAncestor(ancestor);
+            const ancestorWoman = ancestorStore.getAncestorById(ancestor.woman);
+            const ancestorMan = ancestorStore.getAncestorById(ancestor.man);
+            setAncestorWoman(ancestorWoman);
+            setAncestorMan(ancestorMan);
             setState(STATE_LOADED);
           } catch (error) {
         if (error.response && error.response.status === 404) {
@@ -116,7 +122,7 @@ const DetailOne = () => {
           logo={true}
           menu={true}
           togglePartners={true}
-          content={{ woman: `${ancestor.name}`, man: 'Richard Russell' }}
+          content={{ woman: `${ancestorWoman.name}`, man: `${ancestorMan.name}`  }}
           to={{ woman: `${ancestor.woman}`, man: `${ancestor.man}` }}
         />
 

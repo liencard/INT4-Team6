@@ -48,8 +48,6 @@ const DetailThree = () => {
         const ancestorMan = ancestorStore.getAncestorById(ancestor.man);
         setAncestorWoman(ancestorWoman);
         setAncestorMan(ancestorMan);
-        console.log(ancestorWoman.name);
-        console.log(ancestorMan.name);
         setState(STATE_LOADED);
       } catch (error) {
         if (error.response && error.response.status === 404) {

@@ -21,6 +21,8 @@ const DetailOther = () => {
   
   const [ancestor, setAncestor] = useState(undefined);
   const [bookmark, setBookmark] = useState(undefined);
+  const [ancestorWoman, setAncestorWoman] = useState(undefined);
+  const [ancestorMan, setAncestorMan] = useState(undefined);
   const [state, setState] = useState(STATE_LOADING);
 
   useEffect(() => {
@@ -39,6 +41,10 @@ const DetailOther = () => {
               setBookmark(bookmarkedAncestor);
             }
             setAncestor(ancestor);
+            const ancestorWoman = ancestorStore.getAncestorById(ancestor.woman);
+            const ancestorMan = ancestorStore.getAncestorById(ancestor.man);
+            setAncestorWoman(ancestorWoman);
+            setAncestorMan(ancestorMan);
             setState(STATE_LOADED);
             
           } catch (error) {
@@ -66,7 +72,7 @@ const DetailOther = () => {
           logo={true}
           menu={true}
           togglePartners={true}
-          content={{ woman: 'Camille Patterson', man: `${ancestor.name}` }}
+          content={{ woman: `${ancestorWoman.name}`, man: `${ancestorMan.name}` }}
           to={{ woman: `${ancestor.woman}`, man: `${ancestor.man}` }}
         />
 

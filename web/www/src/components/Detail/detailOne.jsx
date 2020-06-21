@@ -161,9 +161,6 @@ const DetailOne = () => {
               />
             )}
           </button>
-
-          {/* <p className={styles.buttons__previous}>Previous generation</p>
-          <p className={styles.buttons__next}>Next generation</p> */}
         </div>
 
         <div className={styles.timeline__wrapper}>

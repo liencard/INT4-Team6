@@ -136,7 +136,10 @@ const DetailTwo = () => {
           logo={true}
           menu={true}
           togglePartners={true}
-          content={{ woman: `${ancestorWoman.name}`, man: `${ancestorMan.name}` }}
+          content={{
+            woman: `${ancestorWoman.name}`,
+            man: `${ancestorMan.name}`,
+          }}
           to={{ woman: `${ancestor.woman}`, man: `${ancestor.man}` }}
         />
 
@@ -162,13 +165,21 @@ const DetailTwo = () => {
 
         <div className={styles.timeline__wrapper}>
           <span>01</span>
-          <span ref={chapterOneRef} data-chapter={1} className={styles.current}>Origin</span>
+          <span ref={chapterOneRef} data-chapter={1} className={styles.current}>
+            Origin
+          </span>
           <span>02</span>
-          <span ref={chapterTwoRef} data-chapter={2}>Trade with europe and the americas</span>
+          <span ref={chapterTwoRef} data-chapter={2}>
+            Trade with europe and the americas
+          </span>
           <span>03</span>
-          <span ref={chapterThreeRef} data-chapter={3}>Unknown life</span>
+          <span ref={chapterThreeRef} data-chapter={3}>
+            Unknown life
+          </span>
           <span>04</span>
-          <span ref={chapterFourRef} data-chapter={4}>Cause of death</span>
+          <span ref={chapterFourRef} data-chapter={4}>
+            Cause of death
+          </span>
         </div>
 
         <p
@@ -180,7 +191,11 @@ const DetailTwo = () => {
 
         <div className={`${styles.detail} ${styles.detailMaryWallcott}`}>
           <div>
-            <article ref={chapterOneRefArticle} data-chapter={1} className={`${styles.intro} ${styles.content}`}>
+            <article
+              ref={chapterOneRefArticle}
+              data-chapter={1}
+              className={`${styles.intro} ${styles.content}`}
+            >
               <div className={styles.intro__ancestor}>
                 <p className={styles.generation}>Seventh Generation</p>
                 <h1 className={styles.name}>
@@ -210,7 +225,11 @@ const DetailTwo = () => {
 
             <div className={styles.backgroundImage}></div>
 
-            <article ref={chapterTwoRefArticle} data-chapter={2} className={`${styles.timeframe} ${styles.content}`}>
+            <article
+              ref={chapterTwoRefArticle}
+              data-chapter={2}
+              className={`${styles.timeframe} ${styles.content}`}
+            >
               <div className={styles.titleCentered}>
                 <h2 className={styles.title}>
                   Trade with Europe and the Americas
@@ -252,7 +271,11 @@ const DetailTwo = () => {
               </div>
             </article>
 
-            <article ref={chapterThreeRefArticle} data-chapter={3} className={`${styles.living} ${styles.content}`}>
+            <article
+              ref={chapterThreeRefArticle}
+              data-chapter={3}
+              className={`${styles.living} ${styles.content}`}
+            >
               <div className={styles.living__text}>
                 <h2 className={styles.title}>Unknown life</h2>
                 <p className={styles.text}>
@@ -274,7 +297,11 @@ const DetailTwo = () => {
               </div>
             </article>
 
-            <article ref={chapterFourRefArticle} data-chapter={4} className={`${styles.death} ${styles.content}`}>
+            <article
+              ref={chapterFourRefArticle}
+              data-chapter={4}
+              className={`${styles.death} ${styles.content}`}
+            >
               <div className={styles.titleCentered}>
                 <h2 className={styles.title}>Possible causes of death</h2>
                 <span className={styles.dates}>1787 - 1844</span>
@@ -305,13 +332,17 @@ const DetailTwo = () => {
             </article>
 
             <div className={styles.buttons__generation}>
-              <Link
-                to={`${ancestor.mother}`}
-                className={styles.buttons__previous}
-                activeClassName={styles.tabActive}
-              >
-                Previous generation
-              </Link>
+              {ancestor.mother || ancestor.father ? (
+                <Link
+                  to={`${ancestor.woman ? ancestor.mother : ancestor.father}`}
+                  className={styles.buttons__previous}
+                  activeClassName={styles.tabActive}
+                >
+                  Previous generation
+                </Link>
+              ) : (
+                ''
+              )};
               <Link
                 to={`${ancestor.child}`}
                 className={styles.buttons__next}

@@ -73,8 +73,14 @@ const DetailOther = () => {
           logo={true}
           menu={true}
           togglePartners={true}
-          content={{ woman: `${ancestorWoman ? ancestorWoman.name : 'Unknown'}`, man: `${ancestorMan ? ancestorMan.name : 'Unknown'}` }}
-          to={{ woman: `${ancestorWoman ? ancestor.woman : ancestor.man}`, man: `${ancestorMan ? ancestor.man : ancestor.woman}` }}
+          content={{
+            woman: `${ancestorWoman ? ancestorWoman.name : 'Unknown'}`,
+            man: `${ancestorMan ? ancestorMan.name : 'Unknown'}`,
+          }}
+          to={{
+            woman: `${ancestorWoman ? ancestor.woman : ancestor.man}`,
+            man: `${ancestorMan ? ancestor.man : ancestor.woman}`,
+          }}
         />
         <div className={`${styles.detail} ${styles.detail__other}`}>
           <div className={styles.container}>
@@ -91,13 +97,15 @@ const DetailOther = () => {
             </article>
 
             <div className={styles.buttons__generation}>
-              <Link
-                to={`${ancestor.mother}`}
-                className={styles.buttons__previous}
-                activeClassName={styles.tabActive}
-              >
-                Previous generation
-              </Link>
+              { (ancestor.mother || ancestor.father) ? (
+                  <Link
+                    to={`${ancestor.woman ? ancestor.mother : ancestor.father}`}
+                    className={styles.buttons__previous}
+                    activeClassName={styles.tabActive}
+                  >
+                    Previous generation
+                  </Link>
+              ) : ('')};
               <Link
                 to={`${ancestor.child}`}
                 className={styles.buttons__next}
@@ -108,23 +116,6 @@ const DetailOther = () => {
             </div>
           </div>
         </div>
-
-        {/* <Timeline
-        height={300}
-        progress={state.progress}
-        onSelect={(p) => setState({ progress: p })}
-      >
-        <Bookmark progress={20} onSelect={(p) => setState({ progress: p })}>
-          Hi there 20%
-        </Bookmark>
-        <Marker progress={33} /> 
-        <Bookmark progress={55} onSelect={(p) => setState({ progress: p })}>
-          Hi there 55%
-        </Bookmark>
-        <Bookmark progress={75} onSelect={(p) => setState({ progress: p })}>
-          Hi there 75%
-        </Bookmark>
-      </Timeline> */}
       </>
     );
   });

@@ -44,7 +44,7 @@ const Ancestors = () => {
   };
 
   const canvasCreated = (gl) => {
-    gl.setClearColor('#1c1c1c');
+    // gl.setClearColor('#1c1c1c');
     gl.shadowMapType = THREE.PCFSoftShadowMap;
     gl.shadowMap.renderSingleSided = false;
     gl.shadowMap.enabled = true;

@@ -52,7 +52,7 @@ const Menu = () => {
             <div>
               <img
                 className={styles.image}
-                src="./assets/img/ancestors/tumbnail/AliceBaker.jpg"
+                src="/assets/img/ancestors/thumbnail/AliceBaker.jpg"
                 alt=""
                 height="140"
                 width="140"

@@ -58,7 +58,7 @@ const DetailOne = () => {
 
     };
     loadAncestor(id);
-  }, [ancestor, ancestorStore.ancestors, bookmark]);
+  }, [ancestor, ancestorStore.ancestors, bookmark, ancestorStore, bookmarkStore, id]);
 
 
   const handleClickBookmark = async () => {

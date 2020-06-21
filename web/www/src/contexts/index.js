@@ -1,6 +1,5 @@
 import { createContext } from "react";
 import RootStore from "../stores";
-import User from '../models/UserModel';
 
 const store = new RootStore();
 

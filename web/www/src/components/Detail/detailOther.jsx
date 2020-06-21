@@ -4,7 +4,7 @@ import styles from './Detail.module.css';
 import { useParams } from 'react-router-dom';
 import { useStore } from '../../hooks/useStore';
 
-import { Timeline, Bookmark } from 'react-vertical-timeline';
+//import { Timeline, Bookmark } from 'react-vertical-timeline';
 
 
 const DetailOther = () => {
@@ -13,7 +13,7 @@ const DetailOther = () => {
     const ancestor = ancestorStore.getAncestorById(id);
 
     console.log(id);
-    //console.log(ancestor);
+    console.log(ancestor);
 
   return (
     <>

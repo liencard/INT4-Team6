@@ -12,7 +12,7 @@ import Bookmarks from './components/Bookmarks';
 import Detail from './components/Detail';
 
 import { Route } from 'react-router-dom';
-import { Switch, Redirect } from 'react-router';
+import { Switch } from 'react-router';
 import { useObserver } from "mobx-react-lite";
 
 const App = () => {

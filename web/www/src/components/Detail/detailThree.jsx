@@ -49,7 +49,7 @@ const DetailThree = () => {
       }
     };
     loadAncestor(id);
-  }, [ancestor, ancestorStore.ancestors, bookmark]);
+  }, [ancestor, ancestorStore.ancestors, bookmark, ancestorStore, bookmarkStore, id]);
 
   // ADD & REMOVE BOOKMARK
   const handleClickBookmark = async () => {
@@ -242,7 +242,7 @@ const DetailThree = () => {
                 <img
                   className={styles.living__imgFamily}
                   src="/assets/img/detail/BenjaminCole_school.png"
-                  alt="Image of Benjamin's school"
+                  alt="Benjamin's school"
                   width="725px"
                 />
                 <img
@@ -263,7 +263,7 @@ const DetailThree = () => {
                   <img
                     className={styles.profession__img}
                     src="/assets/img/detail/BenjaminCole_trail.png"
-                    alt="Court trial image"
+                    alt="Court trial"
                     width="850px"
                   />
                 <section>

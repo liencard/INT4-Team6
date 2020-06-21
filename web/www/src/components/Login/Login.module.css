@@ -64,19 +64,33 @@
     overflow: hidden;
 }
 
+.input__wrapper {
+    margin-bottom: 1.5rem;
+}
+
 .form__input {
-    margin-bottom: 1rem;
     background: transparent;
     border: none;
+    margin-left: -2rem;
     border-bottom: .1rem solid faded;
-    padding: 1rem;
+    padding: 1.5rem;
+    padding-left: 3rem;
     outline: none;
     color: white;
+    width: 100%;
 }
 
 .form__input:active, .form__input:focus {
     border-bottom: .1rem solid white;
     background: transparent;
+}
+
+.input__wrapper svg path {
+    fill: faded;
+}
+
+.form__input:active svg path , .form__input:focus svg path {
+    fill: white;
 }
 
 .form__extra {

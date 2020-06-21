@@ -50,7 +50,7 @@ const DetailTwo = () => {
       }
     };
     loadAncestor(id);
-  }, [ancestor, ancestorStore.ancestors, bookmark]);
+  }, [ancestor, ancestorStore.ancestors, bookmark, ancestorStore, bookmarkStore, id]);
 
   // ADD & REMOVE BOOKMARK
   const handleClickBookmark = async () => {

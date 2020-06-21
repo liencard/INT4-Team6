@@ -1,17 +1,37 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import Popup from 'reactjs-popup';
 import styles from './Popup.module.css';
 
-    const PopupShare = () => {
+const PopupShare = () => {
 
-    const contentStyle = {
-      maxWidth: '70rem',
-      width: '90%',
-      border: 'none',
-      boxShadow: '-20px 0px 25px rgba(0, 0, 0, 0.2)',
-      backdropFilter: 'blur(25px)',
-      background: 'rgba(28, 28, 28, 0.6)',
-    };
+  const [link, setLink] = useState('https://findyourfamilyroots.com/u/497412/789789988548?&perm=see');
+  const copyInput = useRef();
+
+  const handleCopyLink = e => {
+    e.preventDefault();
+
+    // COPY TEXT TO CLIPBOARD
+    copyInput.current.select();
+    copyInput.current.setSelectionRange(0, 99999);
+    document.execCommand('copy');
+  }
+
+  const contentStyle = {
+    maxWidth: '70rem',
+    width: '90%',
+    border: 'none',
+    boxShadow: '-20px 0px 25px rgba(0, 0, 0, 0.2)',
+    backdropFilter: 'blur(25px)',
+    background: 'rgba(28, 28, 28, 0.6)',
+  };
+
+  const contentTooltipStyle = {
+    border: '1px solid #A0A0A0',
+    background: 'rgba(28, 28, 28, 0.6)',
+    color: '#707070',
+    borderRadius: '.4rem',
+    padding: '1rem 1.5rem'
+  };
 
   return (
     <>
@@ -46,24 +66,38 @@ import styles from './Popup.module.css';
               <p className={styles.intro}>
                 Invite a friend to meet your ancestors.
               </p>
+            </div>
 
-              <form className={styles.form__share}>
+            <div className="actions">
+              <form className={styles.form__share} onSubmit={handleCopyLink}>
                 <input
                   className={styles.form__input}
                   type="text"
-                  placeholder="https://findyourfamilyroots.com/u/497412/789789988548?&perm=see"
-                  // value={email}
-                  // onChange={(e) => setEmail(e.currentTarget.value)}
+                  value={link}
+                  onChange={(e) => setLink(e.currentTarget.value)}
+                  ref={copyInput}
                 />
-                <button className={styles.link__btn}>generate link</button>
+                <Popup
+                  trigger={(open) => (
+                    <button className={styles.link__btn}>
+                      {open ? 'Copied link' : 'generate link'}
+                    </button>
+                  )}
+                  position="top center"
+                  closeOnDocumentClick
+                  contentStyle={contentTooltipStyle}
+                >
+                  <span>Link copied to clipboard</span>
+                </Popup>
               </form>
-              <label className={styles.checkbox}>
-                <input type="checkbox" name="remember" />
-                <span className={styles.checkbox__input}></span>I agree by
-                checking the box that I am sharing my personal family tree and
-                information.
-              </label>
             </div>
+
+            <label className={styles.checkbox}>
+              <input type="checkbox" name="remember" />
+              <span className={styles.checkbox__input}></span>I agree by
+              checking the box that I am sharing my personal family tree and
+              information.
+            </label>
           </div>
         )}
       </Popup>

@@ -55,6 +55,19 @@
 
 
 /* SHARE POPUP */
+
+.share__text {
+    composes: smallSpaced from "../../styles/typo.module.css";
+    color: faded;
+    margin-right: 1rem;
+    font-size: 1.4rem;
+}
+
+.share__text:hover {
+    color: white;
+    cursor: pointer;
+} 
+
 .share {
     padding: 4rem 1.5rem;
     text-align: center;

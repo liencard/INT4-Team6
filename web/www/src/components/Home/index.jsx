@@ -27,7 +27,7 @@ const Home = () => {
               alt="logo"
               width="37"
               height="39"
-            />
+            /> 
             <div className={styles.button__wrapper}>
               <button
                 className={`${login ? styles.buttonDissapear : styles.button}`}

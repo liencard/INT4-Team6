@@ -136,7 +136,7 @@ const DetailTwo = () => {
         ></p>
 
         <div className={`${styles.detail} ${styles.detailMaryWallcott}`}>
-          <div className={styles.container}>
+          <div>
             <article className={`${styles.intro} ${styles.content}`}>
               <div className={styles.intro__ancestor}>
                 <p className={styles.generation}>Seventh Generation</p>

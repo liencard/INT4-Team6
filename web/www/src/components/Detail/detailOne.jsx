@@ -168,7 +168,7 @@ const DetailOne = () => {
 
         <div className={styles.timeline__wrapper}>
           <span>01</span>
-          <span ref={chapterOneRef} data-chapter={1}>Origin</span>
+          <span ref={chapterOneRef} data-chapter={1} className={styles.current}>Origin</span>
           <span>02</span>
           <span ref={chapterTwoRef} data-chapter={2}>Industrial Revolution</span>
           <span>03</span>

@@ -117,6 +117,26 @@ const DetailThree = () => {
     }
   };
 
+  window.addEventListener('scroll', () => {
+    const fromTop = window.scrollY + window.innerHeight / 2;
+    chapterLinks.forEach((link) => {
+      if (link) {
+        chapterArticles.forEach((article) => {
+          if (link.dataset.chapter === article.dataset.chapter) {
+            if (
+              article.offsetTop <= fromTop &&
+              article.offsetTop + article.offsetHeight > fromTop
+            ) {
+              link.classList.add(styles.current);
+            } else {
+              link.classList.remove(styles.current);
+            }
+          }
+        });
+      }
+    });
+  });
+
   return useObserver(() => {
     if (state === STATE_DOES_NOT_EXIST) {
       return <p>does not exist</p>;
@@ -157,7 +177,7 @@ const DetailThree = () => {
 
         <div className={styles.timeline__wrapper}>
           <span>01</span>
-          <span ref={chapterOneRef} data-chapter={1}>Origin</span>
+          <span ref={chapterOneRef} data-chapter={1} className={styles.current}>Origin</span>
           <span>02</span>
           <span ref={chapterTwoRef} data-chapter={2}>Black lives in America</span>
           <span>03</span>

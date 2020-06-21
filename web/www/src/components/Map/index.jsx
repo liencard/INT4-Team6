@@ -23,7 +23,7 @@ const Map = () => {
       container: mapContainerRef.current,
       style: 'mapbox://styles/mapbox/dark-v10',
       center: [13.356, 34.047],
-      zoom: 1.5,
+      zoom: 2,
       attributionControl: false,
     });
 
@@ -101,12 +101,13 @@ const Map = () => {
           'text-field': [
             'concat',
             ['to-string', ['get', 'NUMBER_ANCESTORS']],
-            ' ancestors',
+            ' found in ',
+            ['to-string', ['get', 'REGION_NAME']],
           ],
           'text-font': ['Open Sans Regular', 'Arial Unicode MS Regular'],
           'text-size': 13,
-          'text-offset': [0, 1.3],
-          'text-allow-overlap': true
+          'text-offset': [0, 2],
+          'text-allow-overlap': false,
         },
         paint: {
           'text-color': 'rgba(255,255,255,1)',

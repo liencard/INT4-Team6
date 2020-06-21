@@ -156,10 +156,10 @@
 } */
 
 .content {
-    margin-bottom: 20rem;
+    /* margin-bottom: 20rem; */
 
     max-width: 106rem;
-    margin: 0 auto;
+    margin: 0 auto 20rem;
 }
 
 
@@ -442,5 +442,6 @@
 }
 
 .current {
-    color: red !important;
+    color: white;
+    text-decoration: underline;
 }

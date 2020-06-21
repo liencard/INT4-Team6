@@ -73,10 +73,9 @@ const DetailOther = () => {
           logo={true}
           menu={true}
           togglePartners={true}
-          content={{ woman: `${ancestorWoman.name}`, man: `${ancestorMan.name}` }}
-          to={{ woman: `${ancestor.woman}`, man: `${ancestor.man}` }}
+          content={{ woman: `${ancestorWoman ? ancestorWoman.name : 'Unknown'}`, man: `${ancestorMan ? ancestorMan.name : 'Unknown'}` }}
+          to={{ woman: `${ancestorWoman ? ancestor.woman : ancestor.man}`, man: `${ancestorMan ? ancestor.man : ancestor.woman}` }}
         />
-
         <div className={`${styles.detail} ${styles.detail__other}`}>
           <div className={styles.container}>
             <article className={`${styles.intro} ${styles.content}`}>

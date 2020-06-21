@@ -23,7 +23,7 @@ const Home = () => {
           <div className={styles.header__wrapper}>
             <img
               className={styles.logo}
-              src="./assets/img/FYFR.svg"
+              src="/assets/img/FYFR.svg"
               alt="logo"
               width="37"
               height="39"
@@ -31,7 +31,7 @@ const Home = () => {
             <div className={styles.button__wrapper}>
               <button
                 className={`${login ? styles.buttonDissapear : styles.button}`}
-                style={{ backgroundImage: `url(./assets/img/arrow.svg)` }}
+                style={{ backgroundImage: `url(/assets/img/arrow.svg)` }}
                 onClick={(e) => setLogin(true)}
               >
                 Login
@@ -53,22 +53,22 @@ const Home = () => {
         >
           <img
             className={`${styles.img} ${styles.img__left}`}
-            src="./assets/img/header_left.jpg"
+            src="/assets/img/header_left.jpg"
             alt="left"
           />
           <img
             className={`${styles.img} ${styles.img__middle}`}
-            src="./assets/img/header_middle.jpg"
+            src="/assets/img/header_middle.jpg"
             alt="middle"
           />
           <img
             className={`${styles.img} ${styles.img__right}`}
-            src="./assets/img/header_right.jpg"
+            src="/assets/img/header_right.jpg"
             alt="right"
           />
           <img
             className={`${styles.img__small}`}
-            src="./assets/img/header_small.jpg"
+            src="/assets/img/header_small.jpg"
             alt="small"
           />
         </div>

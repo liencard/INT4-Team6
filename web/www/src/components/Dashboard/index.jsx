@@ -4,15 +4,119 @@ import { useObserver } from 'mobx-react-lite';
 import Header from '../Header/index.jsx';
 
 import ReactTooltip from 'react-tooltip';
+import Popup from 'reactjs-popup';
 
 const Dashboard = () => {
 
   const url = window.location.pathname;
 
+  const contentStyle = {
+    maxWidth: '815px',
+    width: '90%',
+    border: 'none',
+    boxShadow: '-20px 0px 25px rgba(0, 0, 0, 0.2)',
+    backdropFilter: 'blur(25px)',
+    background: 'rgba(28, 28, 28, 0.6)',
+  };
+
+  const PopupExample = () => (
+    <Popup
+      trigger={
+        <button className={styles.play__btn}>
+          <svg
+            className={styles.play__icon}
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="20" cy="20" r="20" fill="#C4C4C4" />
+            <path
+              d="M17.2802 27.3558L17.2802 12.3428L26.9944 19.4077L17.2802 27.3558Z"
+              fill="black"
+            />
+          </svg>
+        </button>
+      }
+      modal
+      contentStyle={contentStyle}
+    >
+      {(close) => (
+        <div className={styles.modal}>
+          <a className={styles.close} onClick={close}>
+            &times;
+          </a>
+          <div className={styles.header}> New Feature, Coming Soon </div>
+          <div className={styles.content}>
+            <p className={styles.intro}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, a
+              nostrum. Dolorem, repellat quidem ut, minima sint vel eveniet
+              quibusdam voluptates delectus doloremque, explicabo tempore dicta
+              adipisci fugit amet dignissimos?
+            </p>
+
+            <iframe
+              src="https://player.vimeo.com/video/414068439"
+              width="640"
+              height="360"
+              frameborder="0"
+              allow="autoplay; fullscreen"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <div className={styles.actions}>
+            {/* <Popup
+              trigger={<button className={styles.button}> Trigger </button>}
+              position="top center"
+              closeOnDocumentClick
+            >
+              <span>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
+                magni omnis delectus nemo, maxime molestiae dolorem numquam
+                mollitia, voluptate ea, accusamus excepturi deleniti ratione
+                sapiente! Laudantium, aperiam doloribus. Odit, aut.
+              </span>
+            </Popup>
+            <button
+              className={styles.button}
+              onClick={() => {
+                console.log('modal closed ');
+                close();
+              }}
+            >
+              close modal
+            </button> */}
+          </div>
+        </div>
+      )}
+    </Popup>
+  );
+
   return useObserver(() => (
     <>
       <Header logo={true} menu={true} content={true} toggleDashboard={true} />
+
+      <PopupExample className={styles.popup} />
+
       <div className={styles.container}>
+        {/* <div className={styles.play}>
+          <svg
+            className={styles.play__icon}
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="20" cy="20" r="20" fill="#C4C4C4" />
+            <path
+              d="M17.2802 27.3558L17.2802 12.3428L26.9944 19.4077L17.2802 27.3558Z"
+              fill="black"
+            />
+          </svg>
+        </div> */}
         <div className={styles.dashboard__footer}>
           <svg
             data-tip={`${
@@ -31,7 +135,7 @@ const Dashboard = () => {
             <path
               d="M14.7414 16.93V12.916C14.7414 11.098 14.8674 10.288 15.0474 10.198V10.108H12.1314V10.198C13.1574 10.198 13.2474 10.846 13.2654 12.16V16.93C13.2474 18.244 13.1574 18.91 12.1314 18.91V19H15.8754V18.91C14.8494 18.91 14.7414 18.244 14.7414 16.93ZM14.0034 8.218C14.5254 8.218 14.9574 7.786 14.9574 7.228C14.9574 6.67 14.5254 6.22 14.0034 6.22C13.4634 6.22 13.0494 6.67 13.0494 7.228C13.0494 7.786 13.4634 8.218 14.0034 8.218Z"
               fill="#A0A0A0"
-            /> 
+            />
           </svg>
 
           <ReactTooltip

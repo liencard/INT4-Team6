@@ -9059,6 +9059,11 @@ reactjs-mappletooltip@^1.4.63:
   resolved "https://registry.yarnpkg.com/reactjs-mappletooltip/-/reactjs-mappletooltip-1.4.63.tgz#71ec049763aa5eb1725fafdd98d6dcb63bf2c936"
   integrity sha1-cewEl2OqXrFyX6/dmNbctjvyyTY=
 
+reactjs-popup@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/reactjs-popup/-/reactjs-popup-1.5.0.tgz#09ef15daf9bf932e9adbf595f3976851c24913cf"
+  integrity sha512-9uoxUAcUomnNoBtdYXBmgsF4w46llsogE3tOvLb5IkR5MMrD6UZJK20ip9kDKXCYubSxNkdfQKqSb/c95rf/qA==
+
 read-pkg-up@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/read-pkg-up/-/read-pkg-up-2.0.0.tgz#6b72a8048984e0c41e79510fd5e9fa99b3b549be"

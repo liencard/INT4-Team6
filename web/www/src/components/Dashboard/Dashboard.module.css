@@ -1,5 +1,5 @@
 @value tokens: "../../styles/tokens.module.css";
-@value faded, fontBody from tokens;
+@value faded, dark, fontBody from tokens;
 
 .container {
     padding: 3.5rem 8rem;
@@ -9,29 +9,18 @@
     width: 100%;
 }
 
-.dashboard__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
- 
-.tab {
-    color: faded;
-    padding: 1.4rem;
-    text-transform: uppercase;
-    letter-spacing: 0.475rem;
-    font-size: 1.2rem;
-    border: .1rem solid faded;
+/* .play {
+    position: fixed;
+    left: 8rem;
+    top: 48%;
+} */
+
+.play__icon:hover circle{
+    fill: dark;
 }
 
-.tab:last-child {
-    margin-left: -.1rem;
-    border-left: .1rem solid white;
-}
-
-.tabActive {
-    color: white;
-    border: .1rem solid white;
+.play__icon:hover path{
+    fill: #FFF;
 }
 
 .dashboard__footer {
@@ -76,13 +65,55 @@
 }
 
 .info__popup {
-    /* border: .1rem solid faded !important; */
     width: 24rem !important;
     font-size: 1.4rem !important;
     line-height: 130% !important;
     font-family: fontBody !important;
 }
 
+/* POPUP */
 
+.play__btn {
+    position: fixed;
+    left: 8rem;
+    top: 48%;
+    z-index: 15;
+}
+
+.modal {
+    font-size: 1.6rem;
+    color: faded;
+    padding: 4rem;
+}
+
+.modal > .header {
+  width: 100%;
+  font-size: 2rem;
+  font-weight: bold;
+    color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  text-align: center;
+  padding-bottom: 3rem;
+}
+
+.modal .intro {
+    margin-bottom: 2rem;
+}
+
+.modal frame {
+    margin: 0 auto;
+}
+
+.modal > .close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  line-height: 20px;
+  right: 2rem;
+  top: 2rem;
+  font-size: 3rem;
+  color: white;
+}
 
 

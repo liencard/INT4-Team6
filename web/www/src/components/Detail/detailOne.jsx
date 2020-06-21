@@ -348,11 +348,17 @@ const DetailOne = () => {
             </article>
 
             <div className={styles.buttons__generation}>
-              <Link
-                to={`${ancestor.mother}`}
-                className={styles.buttons__previous}
-                activeClassName={styles.tabActive}
-              >Previous generation</Link>
+              {ancestor.mother || ancestor.father ? (
+                <Link
+                  to={`${ancestor.woman ? ancestor.mother : ancestor.father}`}
+                  className={styles.buttons__previous}
+                  activeClassName={styles.tabActive}
+                >
+                  Previous generation
+                </Link>
+              ) : (
+                ''
+              )};
               <Link
                 to={`${ancestor.child}`}
                 className={styles.buttons__next}

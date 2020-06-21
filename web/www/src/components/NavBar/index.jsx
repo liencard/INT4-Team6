@@ -25,26 +25,15 @@ const NavBar = () => {
                     DNA Roots
                 </NavLink>
                 <NavLink
-                    to={'link'}
-                    className={styles.nav}
-                    activeClassName={styles.tabActive}
-                >
-                    Link 2
-                </NavLink>
-                <NavLink
                     to={`${ROUTES.bookmarks}`}
                     className={styles.nav}
                     activeClassName={styles.tabActive}
                 > 
                     Bookmarks
                 </NavLink>
-                <NavLink
-                    to={'settings'}
-                    className={styles.nav}
-                    activeClassName={styles.tabActive}
-                >
+                <p className={styles.nav}>
                     Settings
-                </NavLink>
+                </p>
             </div>
         </>
     ));

@@ -13,6 +13,7 @@ const DetailOther = () => {
 
   const { id } = useParams();
   const { bookmarkStore, ancestorStore } = useStore();
+  
 
    // STATES
   const STATE_LOADING = 'loading';

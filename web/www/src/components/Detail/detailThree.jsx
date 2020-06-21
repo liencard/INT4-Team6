@@ -12,8 +12,43 @@ import Loader from '../Loader/index.jsx';
 const DetailThree = () => {
   const { id } = useParams();
   const { bookmarkStore, uiStore, userStore, ancestorStore } = useStore();
-
   const feedbackRef = useRef();
+
+  // TIMELINE
+  const chapterOneRef = useRef();
+  const chapterTwoRef = useRef();
+  const chapterThreeRef = useRef();
+  const chapterFourRef = useRef();
+  const chapterFiveRef = useRef();
+  const chapterSixRef = useRef();
+  const chapterSevenRef = useRef();
+
+  let chapterLinks = [];
+  chapterLinks.push(chapterOneRef.current);
+  chapterLinks.push(chapterTwoRef.current);
+  chapterLinks.push(chapterThreeRef.current);
+  chapterLinks.push(chapterFourRef.current);
+  chapterLinks.push(chapterFiveRef.current);
+  chapterLinks.push(chapterSixRef.current);
+  chapterLinks.push(chapterSevenRef.current);
+
+  // ARTICLES
+  const chapterOneRefArticle = useRef();
+  const chapterTwoRefArticle = useRef();
+  const chapterThreeRefArticle = useRef();
+  const chapterFourRefArticle = useRef();
+  const chapterFiveRefArticle = useRef();
+  const chapterSixRefArticle = useRef();
+  const chapterSevenRefArticle = useRef();
+
+  let chapterArticles = []
+  chapterArticles.push(chapterOneRefArticle.current);
+  chapterArticles.push(chapterTwoRefArticle.current);
+  chapterArticles.push(chapterThreeRefArticle.current);
+  chapterArticles.push(chapterFourRefArticle.current);
+  chapterArticles.push(chapterFiveRefArticle.current);
+  chapterArticles.push(chapterSixRefArticle.current);
+  chapterArticles.push(chapterSevenRefArticle.current);
 
   // STATES
   const STATE_LOADING = 'loading';
@@ -122,15 +157,19 @@ const DetailThree = () => {
 
         <div className={styles.timeline__wrapper}>
           <span>01</span>
-          <span>Origin</span>
+          <span ref={chapterOneRef} data-chapter={1}>Origin</span>
           <span>02</span>
-          <span>Black lives in America</span>
+          <span ref={chapterTwoRef} data-chapter={2}>Black lives in America</span>
           <span>03</span>
-          <span>Benjamins life</span>
+          <span ref={chapterThreeRef} data-chapter={3}>Benjamins life</span>
           <span>04</span>
-          <span>The lawyer</span>
+          <span ref={chapterFourRef} data-chapter={4}>The lawyer</span>
           <span>05</span>
-          <span>African Americans in WWII</span>
+          <span ref={chapterFiveRef} data-chapter={5}>African Americans in WWII</span>
+          <span>06</span>
+          <span ref={chapterSixRef} data-chapter={6}>XXXXXX</span>
+          <span>07</span>
+          <span ref={chapterSevenRef} data-chapter={7}>Possible causes of death</span>
         </div>
 
         <p
@@ -142,7 +181,7 @@ const DetailThree = () => {
 
         <div className={`${styles.detail} ${styles.detailBenjaminCole}`}>
           <div className={styles.container}>
-            <article className={`${styles.intro} ${styles.content}`}>
+            <article ref={chapterOneRefArticle} data-chapter={1} className={`${styles.intro} ${styles.content}`}>
               <div className={styles.intro__ancestor}>
                 <p className={styles.generation}>Third Generation</p>
                 <h1 className={styles.name}>
@@ -172,7 +211,7 @@ const DetailThree = () => {
               </div>
             </article>
 
-            <article className={`${styles.timeframe} ${styles.content}`}>
+            <article ref={chapterTwoRefArticle} data-chapter={2} className={`${styles.timeframe} ${styles.content}`}>
               <div className={styles.titleCentered}>
                 <h2 className={styles.title}>Black lives in America</h2>
                 <span className={styles.dates}>1900 - 1990</span>
@@ -213,7 +252,7 @@ const DetailThree = () => {
               </div>
             </article>
 
-            <article className={`${styles.living} ${styles.content}`}>
+            <article ref={chapterThreeRefArticle} data-chapter={3} className={`${styles.living} ${styles.content}`}>
               <div className={styles.living__text}>
                 <h2 className={styles.title}>Benjamin's life</h2>
                 <section>
@@ -262,7 +301,7 @@ const DetailThree = () => {
               </div>
             </article>
 
-            <article className={`${styles.profession} ${styles.content}`}>
+            <article ref={chapterFourRefArticle} data-chapter={4} className={`${styles.profession} ${styles.content}`}>
               <div className={styles.titleCentered}>
                 <h2 className={styles.title}>The Lawyer</h2>
                 <span className={styles.dates}>1927 - 1940</span>
@@ -292,7 +331,7 @@ const DetailThree = () => {
               </div>
             </article>
 
-            <article className={`${styles.timeframe} ${styles.content}`}>
+            <article ref={chapterFiveRefArticle} data-chapter={5} className={`${styles.timeframe} ${styles.content}`}>
               <div className={styles.titleCentered}>
                 <h2 className={styles.title}>African Americans in WWII</h2>
                 <span className={styles.dates}>1941 - 1945</span>
@@ -340,7 +379,11 @@ const DetailThree = () => {
               </div>
             </article>
 
-            <article className={`${styles.death} ${styles.content}`}>
+            <article ref={chapterSixRefArticle} data-chapter={6}>
+
+            </article>
+
+            <article ref={chapterSevenRefArticle} data-chapter={7} className={`${styles.death} ${styles.content}`}>
               <div className={styles.titleCentered}>
                 <h2 className={styles.title}>Possible causes of death</h2>
                 <span className={styles.dates}>1787 - 1844</span>

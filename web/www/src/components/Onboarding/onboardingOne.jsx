@@ -33,7 +33,7 @@ const OnboardingOne = () => {
 
                 <div 
                     className={styles.onboarding__img}
-                    style={{backgroundImage: `url(assets/img/onboarding1.jpg)`}}
+                    style={{backgroundImage: `url(assets/img/onboarding3.gif)`}}
                 ></div>
 
                 <div className={styles.text__wrapper}>

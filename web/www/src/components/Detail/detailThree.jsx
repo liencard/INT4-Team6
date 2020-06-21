@@ -22,6 +22,8 @@ const DetailThree = () => {
 
   const [ancestor, setAncestor] = useState(undefined);
   const [bookmark, setBookmark] = useState(undefined);
+  const [ancestorWoman, setAncestorWoman] = useState(undefined);
+  const [ancestorMan, setAncestorMan] = useState(undefined);
   const [state, setState] = useState(STATE_LOADING);
 
   useEffect(() => {
@@ -42,9 +44,13 @@ const DetailThree = () => {
           setBookmark(bookmarkedAncestor);
         }
         setAncestor(ancestor);
-        setState(STATE_LOADED);
         const ancestorWoman = ancestorStore.getAncestorById(ancestor.woman);
-        console.log(`${ancestorWoman.name}test`);
+        const ancestorMan = ancestorStore.getAncestorById(ancestor.man);
+        setAncestorWoman(ancestorWoman);
+        setAncestorMan(ancestorMan);
+        console.log(ancestorWoman.name);
+        console.log(ancestorMan.name);
+        setState(STATE_LOADED);
       } catch (error) {
         if (error.response && error.response.status === 404) {
           setState(STATE_DOES_NOT_EXIST);
@@ -92,7 +98,7 @@ const DetailThree = () => {
           logo={true}
           menu={true}
           togglePartners={true}
-          content={{ woman: 'Camille Patterson', man: `${ancestor.name}` }}
+          content={{ woman: `${ancestorWoman.name}`, man: `${ancestorMan.name}` }}
           to={{ woman: `${ancestor.woman}`, man: `${ancestor.man}` }}
         />
 

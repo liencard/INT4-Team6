@@ -13,19 +13,21 @@
     padding-bottom: 5rem;
 }
 
-
 .buttons__generation {
     display: flex;
     justify-content: space-between;
     composes: smallSpaced from "../../styles/typo.module.css";
     width: 73rem;
     margin: 0 auto;
-    color: faded;
     padding: 0 3.5rem;
     position: relative;
 }
 
-.buttons__generation p:hover {
+.buttons__previous, .buttons__next{
+    color: faded;
+}
+
+.buttons__previous:hover, .buttons__next:hover {
     color: white;
 }
 

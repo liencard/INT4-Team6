@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { useObserver } from 'mobx-react-lite';
 import { useStore } from '../../hooks/useStore';
+import { Link } from 'react-router-dom';
 
 import Bookmark from '../../models/BookmarkModel';
 import styles from './Detail.module.css';
@@ -113,6 +114,7 @@ const DetailOne = () => {
           menu={true}
           togglePartners={true}
           content={{ woman: `${ancestor.name}`, man: 'Richard Russell' }}
+          to={{ woman: `${ancestor.woman}`, man: `${ancestor.man}` }}
         />
 
         <div className={styles.buttons}>
@@ -323,8 +325,16 @@ const DetailOne = () => {
             </article>
 
             <div className={styles.buttons__generation}>
-              <p className={styles.buttons__previous}>Previous generation</p>
-              <p className={styles.buttons__next}>Next generation</p>
+              <Link
+                to={`${ancestor.mother}`}
+                className={styles.buttons__previous}
+                activeClassName={styles.tabActive}
+              >Previous generation</Link>
+              <Link
+                to={`${ancestor.child}`}
+                className={styles.buttons__next}
+                activeClassName={styles.tabActive}
+              >Next generation</Link>
             </div>
           </div>
         </div>

@@ -5,7 +5,7 @@ import styles from './Header.module.css';
 import { useObserver } from 'mobx-react-lite';
 import Sidebar from '../Sidebar/index.jsx';
 
-const Header = ({logo, menu, content, text, toggleDashboard, togglePartners}) => {
+const Header = ({logo, menu, content, text, toggleDashboard, togglePartners, to}) => {
     const [menuToggle, setMenu] = useState(false);
 
     const LogoView = () => {
@@ -74,17 +74,49 @@ const Header = ({logo, menu, content, text, toggleDashboard, togglePartners}) =>
             <p className={styles.text}>Toggle between partners</p>
             <div className={styles.toggle}>
               <NavLink
-                to={`${ROUTES.detail}`}
+                to={`${to.woman}`}
                 className={styles.tab}
                 activeClassName={styles.tabActive}
               >
+                <svg
+                  width="10"
+                  height="15"
+                  viewBox="0 0 10 15"
+                  fill="none"
+                  className={styles.toggle__icon}
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="5" cy="5" r="4.5" stroke="#A0A0A0" />
+                  <path d="M5 15L5 9" stroke="#A0A0A0" />
+                  <path d="M3 13L7 13" stroke="#A0A0A0" />
+                </svg>
                 {content.woman}
               </NavLink>
               <NavLink
-                to={`${ROUTES.detail}`}
+                to={`${to.man}`}
                 className={styles.tab}
                 activeClassName={styles.tabActive}
               >
+                <svg
+                  width="13"
+                  height="16"
+                  viewBox="0 0 13 16"
+                  fill="none"
+                  className={styles.toggle__icon}
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="4.89517"
+                    cy="10.4582"
+                    r="4.39517"
+                    stroke="#A0A0A0"
+                  />
+                  <path d="M7.16585 6.54216L10.3047 3.40332" stroke="#A0A0A0" />
+                  <path
+                    d="M10.6534 5.74988L10.6534 3.05717L7.8336 3.05654"
+                    stroke="#A0A0A0"
+                  />
+                </svg>
                 {content.man}
               </NavLink>
             </div>

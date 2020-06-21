@@ -28,6 +28,10 @@ class Ancestor {
     occurrence_time = undefined,
     mapLat = undefined,
     mapLong = undefined,
+    woman = undefined,
+    man = undefined,
+    child = undefined,
+    mother = undefined
   }) => {
     this.name = name !== undefined ? name : this.name;
     this.coordinates =
@@ -47,6 +51,10 @@ class Ancestor {
       occurrence_time !== undefined ? occurrence_time : this.occurrence_time;
     this.mapLat = mapLat !== undefined ? mapLat : this.mapLat;
     this.mapLong = mapLong !== undefined ? mapLong : this.mapLong;
+    this.woman = woman !== undefined ? woman : this.woman;
+    this.man = man !== undefined ? man : this.man;
+    this.child = child !== undefined ? child : this.child;
+    this.mother = mother !== undefined ? mother : this.mother;
   };
 }
 

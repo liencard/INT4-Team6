@@ -164,12 +164,21 @@ const Ancestors = () => {
       <div
         ref={scrolliconRef}
         className={canvas ? styles.iconscroll : ''}
-      />
+      >
+        <img
+          className={styles.icon}
+          src="/assets/img/icon_scroll.svg"
+          alt="Death"
+          width="40px"
+          height= "40px"
+        />
+        scroll
+      </div>
       <div className={styles.canvas__container}>
         {canvas ? canvas : <Loader />}
       </div>
     </>
-  );
+  ); 
 
 };
 

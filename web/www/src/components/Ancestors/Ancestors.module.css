@@ -5,7 +5,37 @@
 
 
 /* _scroll */
-.iconscroll,
+
+.iconscroll {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: absolute;
+  left: 48.5%;
+  bottom: 4vh;
+  z-index: 10;
+  opacity: 1;
+  margin: 0 auto;
+  animation: iconScale 4s infinite;
+  transform-origin: 50% 50%;
+}
+
+.iconscrollHidden {
+  opacity: 0;
+}
+
+.iconscroll img {
+    padding-bottom: .5rem;
+}
+
+@keyframes iconScale {
+    0%   { transform: scale(0.9); }
+    50%  { transform: scale(1.2); }
+    100% { transform: scale(0.9); }
+}
+
+/* .iconscroll,
 .iconscroll:before {
   position: absolute;
   left: 50%;
@@ -21,9 +51,9 @@
   border-radius: 2.5rem;
   opacity: 1;
   transition: opacity 3s ease-in-out;
-} 
+}  */
 
-.iconscroll:before {
+/* .iconscroll:before {
   content: "";
   width: .8rem;
   height: .8rem;
@@ -32,13 +62,9 @@
   border-radius: .4rem;
   margin-left: -.4rem;
   animation: scroll infinite 1.5s;
-}
+} */
 
-.iconscrollHidden {
-  opacity: 0;
-}
-
-@keyframes scroll {
+/* @keyframes scroll {
   0% {
     opacity: 1;
   }
@@ -46,4 +72,4 @@
     opacity: 0;
     transform: translateY(4.6rem);
   }
-}
+} */

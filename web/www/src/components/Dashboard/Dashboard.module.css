@@ -83,29 +83,6 @@
     font-family: fontBody !important;
 }
 
-.footer__guide {
-    display:flex;
-    flex-direction: column;
-    align-items: center;
 
-    animation-name: diamondScale;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-    transform-origin: 50% 50%;
-}
 
-@keyframes diamondScale {
-    0%   { transform: scale(0.9); }
-    50%  { transform: scale(1.2); }
-    100% { transform: scale(0.9); }
-}
 
-.footer__guide img {
-    padding-bottom: 1rem;
-}
-
-.guide__text {
-    composes: top from "../../styles/typo.module.css";
-    color: white;
-    font-family: fontBody;
-}

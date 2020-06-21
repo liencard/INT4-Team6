@@ -234,7 +234,7 @@ const DetailTwo = () => {
                 <h2 className={styles.title}>Possible causes of death</h2>
                 <span className={styles.dates}>1787 - 1844</span>
               </div>
-              <div className= {styles.death__start}>
+              <div className={styles.death__start}>
                 <section>
                   <h3 className={styles.subtitle}>Slavery</h3>
                   <p className={styles.text}>
@@ -258,6 +258,11 @@ const DetailTwo = () => {
                 </section>
               </div>
             </article>
+
+            <div className={styles.buttons__generation}>
+              <p className={styles.buttons__previous}>Previous generation</p>
+              <p className={styles.buttons__next}>Next generation</p>
+            </div>
           </div>
         </div>
       </>

@@ -260,12 +260,12 @@ const DetailThree = () => {
                 <span className={styles.dates}>1927 - 1940</span>
               </div>
               <div className={styles.profession__info}>
-                  <img
-                    className={styles.profession__img}
-                    src="/assets/img/detail/BenjaminCole_trail.png"
-                    alt="Court trial"
-                    width="850px"
-                  />
+                <img
+                  className={styles.profession__img}
+                  src="/assets/img/detail/BenjaminCole_trail.png"
+                  alt="Court trial"
+                  width="850px"
+                />
                 <section>
                   <h3 className={styles.subtitle}>Law firm</h3>
                   <p className={styles.text}>
@@ -359,6 +359,10 @@ const DetailThree = () => {
                 </section>
               </div>
             </article>
+            <div className={styles.buttons__generation}>
+              <p className={styles.buttons__previous}>Previous generation</p>
+              <p className={styles.buttons__next}>Next generation</p>
+            </div>
           </div>
         </div>
       </>

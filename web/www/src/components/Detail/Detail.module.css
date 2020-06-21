@@ -149,14 +149,17 @@
 .hidden {
     display: none;
 }
-
+/* 
 .container {
     max-width: 106rem;
     margin: 0 auto;
-}
+} */
 
 .content {
     margin-bottom: 20rem;
+
+    max-width: 106rem;
+    margin: 0 auto;
 }
 
 

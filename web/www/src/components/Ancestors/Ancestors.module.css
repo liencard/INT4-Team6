@@ -22,8 +22,11 @@
   z-index: 10;
   opacity: 1;
   margin: 0 auto;
-  animation: iconScale 4s infinite;
   transform-origin: 50% 50%;
+
+  opacity: 1;
+  transition: opacity 2s ease-in;
+  composes: smallSpaced from "../../styles/typo.module.css";
 }
 
 .iconscrollHidden {
@@ -31,7 +34,8 @@
 }
 
 .iconscroll img {
-    padding-bottom: .5rem;
+    margin-bottom: 2rem;
+    animation: iconScale 3s infinite;
 }
 
 @keyframes iconScale {

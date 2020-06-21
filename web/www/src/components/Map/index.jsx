@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useLayoutEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import styles from './Map.module.css';
 import { useObserver } from 'mobx-react-lite';
@@ -17,6 +17,7 @@ const Map = () => {
   const ancestors =  ancestorStore.ancestors;
   const [preview, setPreview] = useState(false);
   const [ancestor, setAncestor] = useState(null);
+  const clickiconRef = useRef();
 
   useEffect(() => {
     const map = new mapboxgl.Map({
@@ -117,6 +118,7 @@ const Map = () => {
     });
 
     map.on('click', 'regions-layer', function (e) {
+      clickiconRef.current.classList.add(styles.iconclickHidden);
       map.flyTo({
         center: [
           e.features[0].properties.ZOOMX,
@@ -211,7 +213,6 @@ const Map = () => {
     markerDiv.addEventListener('click', handleClickAncestor);
 }
 
-
   return useObserver(() => (
     <>
       <Sidebar
@@ -220,6 +221,17 @@ const Map = () => {
         toggle={preview}
         setToggle={setPreview}
       />
+
+      <div className={styles.iconclick} ref={clickiconRef}>
+        <img
+          className={styles.icon}
+          src="/assets/img/icon_click.svg"
+          alt="Death"
+          width="40px"
+          height="40px"
+        />
+        click
+      </div>
 
       <div className={styles.mapContainer} ref={mapContainerRef} />
     </>

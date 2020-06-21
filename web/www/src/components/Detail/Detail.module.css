@@ -344,9 +344,9 @@
     margin-bottom: 3rem;
 }
 
-.profession__info {
-    display: grid;
-    grid-template-columns: auto 45rem;
+.professionInfo {
+    /* display: grid;
+    grid-template-columns: auto 45rem; */
     background-color: red;
 }
 

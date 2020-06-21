@@ -40,6 +40,7 @@ const DetailOther = () => {
             }
             setAncestor(ancestor);
             setState(STATE_LOADED);
+            
           } catch (error) {
         if (error.response && error.response.status === 404) {
           setState(STATE_DOES_NOT_EXIST);
@@ -49,6 +50,7 @@ const DetailOther = () => {
       loadAncestor(id);
   }, [ancestor, ancestorStore.ancestors, bookmark, ancestorStore, bookmarkStore, id]);
 
+  
 
   return useObserver(() => {
     if (state === STATE_DOES_NOT_EXIST) {

@@ -21,9 +21,11 @@ const DetailOne = () => {
   const chapterTwoRef = useRef();
 
   let chapterLinks = [];
-  chapterLinks.push(chapterOneRef);
-  chapterLinks.push(chapterTwoRef);
+  chapterLinks.push(chapterOneRef.current);
+  chapterLinks.push(chapterTwoRef.current);
   console.log(chapterLinks);
+
+  //console.log(chapterOneRef);
 
   // STATES
   const STATE_LOADING = 'loading';
@@ -84,20 +86,21 @@ const DetailOne = () => {
     }
   }
 
-  // domElement.addEventListener('scroll', () => {
-  //   const fromTop = window.scrollY + window.innerHeight / 2;
+   window.addEventListener('scroll', () => {
+     const fromTop = window.scrollY + window.innerHeight / 2;
 
-  //   chapterLinks.forEach(link => {
-  //     const section = document.querySelector(link.hash);
-  //     console.log(link.hash);
+     chapterLinks.forEach(link => {
+       //const section = document.querySelector(link.hash);
+       //console.log(link.hash);
+       console.log(link);
 
-  //     if (section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
-  //       link.childNodes[0].classList.add('current');
-  //     } else {
-  //       link.childNodes[0].classList.remove('current');
-  //     }
-  //   });
-  // });
+    //    if (section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
+    //      link.childNodes[0].classList.add('current');
+    //    } else {
+    //      link.childNodes[0].classList.remove('current');
+    //    }
+     });
+   });
 
   return useObserver(() => {
     if (state === STATE_DOES_NOT_EXIST) {
@@ -142,7 +145,7 @@ const DetailOne = () => {
 
         <div className={styles.timeline__wrapper}>
           <span>01</span>
-          <span ref={chapterOneRef}>Origin</span>
+          <span ref={chapterOneRef} prop={'testttttt'}>Origin</span>
           <span>02</span>
           <span ref={chapterTwoRef}>Industrial Revolution</span>
           <span>03</span>

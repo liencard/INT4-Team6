@@ -43,6 +43,8 @@ const DetailThree = () => {
         }
         setAncestor(ancestor);
         setState(STATE_LOADED);
+        const ancestorWoman = ancestorStore.getAncestorById(ancestor.woman);
+        console.log(`${ancestorWoman.name}test`);
       } catch (error) {
         if (error.response && error.response.status === 404) {
           setState(STATE_DOES_NOT_EXIST);
@@ -261,13 +263,15 @@ const DetailThree = () => {
                 <h2 className={styles.title}>The Lawyer</h2>
                 <span className={styles.dates}>1927 - 1940</span>
               </div>
-              <div className={styles.profession__info}>
-                <img
+
+
+              <div className={styles.professionInfo}>
+                {/* <img
                   className={styles.profession__img}
                   src="/assets/img/detail/BenjaminCole_trail.png"
                   alt="Court trial"
                   width="850px"
-                />
+                /> */}
                 <section>
                   <h3 className={styles.subtitle}>Law firm</h3>
                   <p className={styles.text}>

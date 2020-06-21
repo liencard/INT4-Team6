@@ -440,3 +440,7 @@
     top: -.6rem;
     background-image: url("/assets/img/icon_skip-left.svg");
 }
+
+.current {
+    color: red !important;
+}

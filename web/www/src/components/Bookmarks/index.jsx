@@ -68,14 +68,12 @@ import Loader from '../Loader/index.jsx';
                 Stories you've saved that are worth the read.
               </p>
               <div className={styles.bookmarks__wrapper}>
-                <ul>
                   {bookmarkStore.bookmarks.map((bookmark) => (
-                    <li key={bookmark.id} bookmarkid={bookmark.id}>
+                    <div key={bookmark.id} bookmarkid={bookmark.id}>
                       {console.log(bookmark)}
                       <Bookmark bookmark={bookmark} />
-                    </li>
+                    </div>
                   ))}
-                </ul>
                 <Link to={`${ROUTES.ancestors}`} className={styles.btn}>
                   <div className={styles.bookmarks__btn}>
                     <img

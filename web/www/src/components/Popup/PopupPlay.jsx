@@ -2,6 +2,7 @@ import React from 'react';
 import Popup from 'reactjs-popup';
 import styles from './Popup.module.css';
 
+/* play button */
 const PopupPlay = () => {
   const contentStyle = {
     maxWidth: '70rem',

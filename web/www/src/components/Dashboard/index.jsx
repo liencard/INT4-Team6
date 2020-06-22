@@ -6,7 +6,7 @@ import PopupShare from '../Popup/popupShare.jsx';
 import PopupPlay from '../Popup/popupPlay.jsx';
 
 import ReactTooltip from 'react-tooltip';
-
+/* dashboard*/
 const Dashboard = () => {
 
   const url = window.location.pathname;

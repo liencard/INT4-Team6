@@ -2,11 +2,11 @@ import React from 'react';
 import styles from './Dashboard.module.css';
 import { useObserver } from 'mobx-react-lite';
 import Header from '../Header/index.jsx';
-import PopupShare from '../Popup/PopupShare.jsx';
-import PopupPlay from '../Popup/PopupPlay.jsx';
+import PopupShare from '../Popup/popupShare.jsx';
+import PopupPlay from '../Popup/popupPlay.jsx';
 
 import ReactTooltip from 'react-tooltip';
-
+/* dashboard*/
 const Dashboard = () => {
 
   const url = window.location.pathname;

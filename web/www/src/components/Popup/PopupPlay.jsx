@@ -2,6 +2,7 @@ import React from 'react';
 import Popup from 'reactjs-popup';
 import styles from './Popup.module.css';
 
+/* play button */
 const PopupPlay = () => {
   const contentStyle = {
     maxWidth: '70rem',
@@ -44,14 +45,11 @@ const PopupPlay = () => {
             <div className={styles.header}> New Feature, Coming Soon </div>
             <div className={styles.content}>
               <p className={styles.intro}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque,
-                a nostrum. Dolorem, repellat quidem ut, minima sint vel eveniet
-                quibusdam voluptates delectus doloremque, explicabo tempore
-                dicta adipisci fugit amet dignissimos?
+                Sit relaxed on your couch and experience your roots. A new free feature will release next month.
               </p>
 
               <iframe
-                src="https://player.vimeo.com/video/414068439"
+                src="https://player.vimeo.com/video/431288217?autoplay=1&title=0&byline=0&portrait=0"
                 width="580"
                 height="326"
                 frameborder="0"

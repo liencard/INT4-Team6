@@ -33,9 +33,14 @@ class BookmarkStore {
     if (!bookmark) {
       bookmark = new Bookmark({
         id: json.id,
-        store: this.rootStore.bookmarkStore,
+        name: json.name,
+        birthdate: json.birthdate,
+        deathdate: json.deathdate,
+        user_id: json.user_id,
+        ancestor_id: json.ancestor_id,
+        store: this.rootStore.bookmarkStore
       });
-    }
+    } 
     if (json.isDeleted) {
       this.bookmarks.remove(bookmark);
     } else {

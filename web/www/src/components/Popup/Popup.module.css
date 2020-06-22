@@ -12,8 +12,8 @@
 
 .play__btn {
     position: fixed;
-    left: 8rem;
-    top: 48%;
+    left: 7.5rem;
+    bottom: 10vh;
     z-index: 5;
 }
 

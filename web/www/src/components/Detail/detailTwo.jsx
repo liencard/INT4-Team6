@@ -10,12 +10,11 @@ import Header from '../Header/index.jsx';
 import Loader from '../Loader/index.jsx';
 
 const DetailTwo = () => {
-
   const { id } = useParams();
   const { bookmarkStore, uiStore, userStore, ancestorStore } = useStore();
   const feedbackRef = useRef();
 
-    // TIMELINE
+  // TIMELINE
   const chapterOneRef = useRef();
   const chapterTwoRef = useRef();
   const chapterThreeRef = useRef();
@@ -33,7 +32,7 @@ const DetailTwo = () => {
   const chapterThreeRefArticle = useRef();
   const chapterFourRefArticle = useRef();
 
-  let chapterArticles = []
+  let chapterArticles = [];
   chapterArticles.push(chapterOneRefArticle.current);
   chapterArticles.push(chapterTwoRefArticle.current);
   chapterArticles.push(chapterThreeRefArticle.current);
@@ -43,7 +42,7 @@ const DetailTwo = () => {
   const STATE_LOADING = 'loading';
   const STATE_DOES_NOT_EXIST = 'doesNotExist';
   const STATE_LOADED = 'fullyLoaded';
-  
+
   const [ancestor, setAncestor] = useState(undefined);
   const [bookmark, setBookmark] = useState(undefined);
   const [ancestorWoman, setAncestorWoman] = useState(undefined);
@@ -80,7 +79,14 @@ const DetailTwo = () => {
       }
     };
     loadAncestor(id);
-  }, [ancestor, ancestorStore.ancestors, bookmark, ancestorStore, bookmarkStore, id]);
+  }, [
+    ancestor,
+    ancestorStore.ancestors,
+    bookmark,
+    ancestorStore,
+    bookmarkStore,
+    id,
+  ]);
 
   // ADD & REMOVE BOOKMARK
   const handleClickBookmark = async () => {
@@ -108,17 +114,20 @@ const DetailTwo = () => {
 
   window.addEventListener('scroll', () => {
     const fromTop = window.scrollY + window.innerHeight / 2;
-    chapterLinks.forEach(link => {
+    chapterLinks.forEach((link) => {
       if (link) {
-         chapterArticles.forEach(article => {
-           if (link.dataset.chapter === article.dataset.chapter) {
-             if (article.offsetTop <= fromTop && article.offsetTop + article.offsetHeight > fromTop) {
-               link.classList.add(styles.current);
-             } else {
-               link.classList.remove(styles.current);
-             }
-           }
-         })
+        chapterArticles.forEach((article) => {
+          if (link.dataset.chapter === article.dataset.chapter) {
+            if (
+              article.offsetTop <= fromTop &&
+              article.offsetTop + article.offsetHeight > fromTop
+            ) {
+              link.classList.add(styles.current);
+            } else {
+              link.classList.remove(styles.current);
+            }
+          }
+        });
       }
     });
   });
@@ -163,7 +172,7 @@ const DetailTwo = () => {
           </button>
         </div>
 
-        <div className={styles.timeline__wrapper}>
+        <div className={`${styles.timeline__wrapper} ${styles.timeline__Mary}`}>
           <span>01</span>
           <span ref={chapterOneRef} data-chapter={1} className={styles.current}>
             Origin
@@ -342,7 +351,8 @@ const DetailTwo = () => {
                 </Link>
               ) : (
                 ''
-              )};
+              )}
+              ;
               <Link
                 to={`${ancestor.child}`}
                 className={styles.buttons__next}

@@ -10,7 +10,6 @@ import Header from '../Header/index.jsx';
 import Loader from '../Loader/index.jsx';
 
 const DetailOne = () => {
-
   const { id } = useParams();
   const { bookmarkStore, uiStore, userStore, ancestorStore } = useStore();
   const feedbackRef = useRef();
@@ -36,7 +35,7 @@ const DetailOne = () => {
   const chapterFourRefArticle = useRef();
   const chapterFiveRefArticle = useRef();
 
-  let chapterArticles = []
+  let chapterArticles = [];
   chapterArticles.push(chapterOneRefArticle.current);
   chapterArticles.push(chapterTwoRefArticle.current);
   chapterArticles.push(chapterThreeRefArticle.current);
@@ -47,7 +46,7 @@ const DetailOne = () => {
   const STATE_LOADING = 'loading';
   const STATE_DOES_NOT_EXIST = 'doesNotExist';
   const STATE_LOADED = 'fullyLoaded';
-  
+
   const [ancestor, setAncestor] = useState(undefined);
   const [bookmark, setBookmark] = useState(undefined);
   const [ancestorWoman, setAncestorWoman] = useState(undefined);
@@ -57,43 +56,50 @@ const DetailOne = () => {
   useEffect(() => {
     const loadAncestor = async (id) => {
       try {
-            await ancestorStore.loadAllAncestors();
-            await bookmarkStore.loadAllBookmarks();
-            const ancestorId = parseInt(id);
-            const ancestor = await ancestorStore.loadAncestor(ancestorId);
-            const bookmarkedAncestor = bookmarkStore.getBookmarkByAncestorid(ancestorId);
-            if (!ancestor) {
-              setState(STATE_DOES_NOT_EXIST);
-              return;
-            }
-            if (bookmarkedAncestor) {
-              setBookmark(bookmarkedAncestor);
-            }
-            setAncestor(ancestor);
-            const ancestorWoman = ancestorStore.getAncestorById(ancestor.woman);
-            const ancestorMan = ancestorStore.getAncestorById(ancestor.man);
-            setAncestorWoman(ancestorWoman);
-            setAncestorMan(ancestorMan);
-            setState(STATE_LOADED);
-          } catch (error) {
+        await ancestorStore.loadAllAncestors();
+        await bookmarkStore.loadAllBookmarks();
+        const ancestorId = parseInt(id);
+        const ancestor = await ancestorStore.loadAncestor(ancestorId);
+        const bookmarkedAncestor = bookmarkStore.getBookmarkByAncestorid(
+          ancestorId
+        );
+        if (!ancestor) {
+          setState(STATE_DOES_NOT_EXIST);
+          return;
+        }
+        if (bookmarkedAncestor) {
+          setBookmark(bookmarkedAncestor);
+        }
+        setAncestor(ancestor);
+        const ancestorWoman = ancestorStore.getAncestorById(ancestor.woman);
+        const ancestorMan = ancestorStore.getAncestorById(ancestor.man);
+        setAncestorWoman(ancestorWoman);
+        setAncestorMan(ancestorMan);
+        setState(STATE_LOADED);
+      } catch (error) {
         if (error.response && error.response.status === 404) {
           setState(STATE_DOES_NOT_EXIST);
         }
       }
-
     };
     loadAncestor(id);
-  }, [ancestor, ancestorStore.ancestors, bookmark, ancestorStore, bookmarkStore, id]);
-
+  }, [
+    ancestor,
+    ancestorStore.ancestors,
+    bookmark,
+    ancestorStore,
+    bookmarkStore,
+    id,
+  ]);
 
   const handleClickBookmark = async () => {
     await userStore.loadAllUsers();
-    uiStore.setCurrentUser(userStore.resolveUser('4e8baf11-bb77-3f6b-97d1-69b8e51c2ebe'));
+    uiStore.setCurrentUser(
+      userStore.resolveUser('4e8baf11-bb77-3f6b-97d1-69b8e51c2ebe')
+    );
 
     if (!bookmark) {
-      // pushen naar database maar niet succesful naar frontend (enkel bij page reload)
       const bookmarkedAncestor = new Bookmark({
-        // hoe gaan we id meegeven?
         user_id: uiStore.currentUser.id,
         ancestor_id: ancestor.id,
         store: bookmarkStore,
@@ -101,47 +107,53 @@ const DetailOne = () => {
       await bookmarkedAncestor.create();
       await setBookmark(bookmarkedAncestor);
       feedbackRef.current.classList.add(styles.feedback);
-      feedbackRef.current.innerHTML = "Added Bookmark";
+      feedbackRef.current.innerHTML = 'Added Bookmark';
     } else {
-      await bookmark.delete(); 
+      await bookmark.delete();
       await setBookmark(false);
       feedbackRef.current.classList.add(styles.feedbackkk);
-      feedbackRef.current.innerHTML = "Removed Bookmark";
+      feedbackRef.current.innerHTML = 'Removed Bookmark';
     }
-  }
+  };
 
-   window.addEventListener('scroll', () => {
-     const fromTop = window.scrollY + window.innerHeight / 2;
-     chapterLinks.forEach(link => {
-       if (link) {
-          chapterArticles.forEach(article => {
-            if (link.dataset.chapter === article.dataset.chapter) {
-              if (article.offsetTop <= fromTop && article.offsetTop + article.offsetHeight > fromTop) {
-                link.classList.add(styles.current);
-              } else {
-                link.classList.remove(styles.current);
-              }
+  window.addEventListener('scroll', () => {
+    const fromTop = window.scrollY + window.innerHeight / 2;
+    chapterLinks.forEach((link) => {
+      if (link) {
+        chapterArticles.forEach((article) => {
+          if (link.dataset.chapter === article.dataset.chapter) {
+            if (
+              article.offsetTop <= fromTop &&
+              article.offsetTop + article.offsetHeight > fromTop
+            ) {
+              link.classList.add(styles.current);
+            } else {
+              link.classList.remove(styles.current);
             }
-          })
-       }
-     });
-   });
+          }
+        });
+      }
+    });
+  });
 
   return useObserver(() => {
     if (state === STATE_DOES_NOT_EXIST) {
       return <p>does not exist</p>;
     }
     if (state === STATE_LOADING) {
-      return (<Loader/>);
+      return <Loader />;
     }
-  
+
     return (
       <>
         <Header
           logo={true}
           menu={true}
           togglePartners={true}
-          content={{ woman: `${ancestorWoman.name}`, man: `${ancestorMan.name}`  }}
+          content={{
+            woman: `${ancestorWoman.name}`,
+            man: `${ancestorMan.name}`,
+          }}
           to={{ woman: `${ancestor.woman}`, man: `${ancestor.man}` }}
         />
 
@@ -167,15 +179,25 @@ const DetailOne = () => {
 
         <div className={styles.timeline__wrapper}>
           <span>01</span>
-          <span ref={chapterOneRef} data-chapter={1} className={styles.current}>Origin</span>
+          <span ref={chapterOneRef} data-chapter={1} className={styles.current}>
+            Origin
+          </span>
           <span>02</span>
-          <span ref={chapterTwoRef} data-chapter={2}>Industrial Revolution</span>
+          <span ref={chapterTwoRef} data-chapter={2}>
+            Industrial Revolution
+          </span>
           <span>03</span>
-          <span ref={chapterThreeRef} data-chapter={3}>Evens Family</span>
+          <span ref={chapterThreeRef} data-chapter={3}>
+            Evens Family
+          </span>
           <span>04</span>
-          <span ref={chapterFourRef} data-chapter={4}>Profession</span>
+          <span ref={chapterFourRef} data-chapter={4}>
+            Profession
+          </span>
           <span>05</span>
-          <span ref={chapterFiveRef} data-chapter={5}>Cause of death</span>
+          <span ref={chapterFiveRef} data-chapter={5}>
+            Cause of death
+          </span>
         </div>
 
         <p
@@ -187,7 +209,11 @@ const DetailOne = () => {
 
         <div className={`${styles.detail} ${styles.detailMargeretEvans}`}>
           <div className={styles.container}>
-            <article ref={chapterOneRefArticle} data-chapter={1} className={`${styles.intro} ${styles.content}`}>
+            <article
+              ref={chapterOneRefArticle}
+              data-chapter={1}
+              className={`${styles.intro} ${styles.content}`}
+            >
               <div className={styles.intro__ancestor}>
                 <p className={styles.generation}>Sixth Generation</p>
                 <h1 className={styles.name}>
@@ -216,7 +242,13 @@ const DetailOne = () => {
               </div>
             </article>
 
-            <article ref={chapterTwoRefArticle} data-chapter={2} className={`${styles.timeframe} ${styles.content}`}>
+            <div className={styles.backgroundImage}></div>
+
+            <article
+              ref={chapterTwoRefArticle}
+              data-chapter={2}
+              className={`${styles.timeframe} ${styles.content}`}
+            >
               <div className={styles.titleCentered}>
                 <h2 className={styles.title}>Industrial Revolution</h2>
                 <span className={styles.dates}>1815 - 1914</span>
@@ -259,7 +291,11 @@ const DetailOne = () => {
               </div>
             </article>
 
-            <article ref={chapterThreeRefArticle} data-chapter={3} className={`${styles.living} ${styles.content}`}>
+            <article
+              ref={chapterThreeRefArticle}
+              data-chapter={3}
+              className={`${styles.living} ${styles.content}`}
+            >
               <div className={styles.living__text}>
                 <h2 className={styles.title}>Family Evans</h2>
                 <p className={styles.text}>
@@ -290,7 +326,11 @@ const DetailOne = () => {
               </div>
             </article>
 
-            <article ref={chapterFourRefArticle} data-chapter={4} className={`${styles.work} ${styles.content}`}>
+            <article
+              ref={chapterFourRefArticle}
+              data-chapter={4}
+              className={`${styles.work} ${styles.content}`}
+            >
               <h2 className={styles.hidden}>Work</h2>
               <img
                 className={styles.work__img}
@@ -320,7 +360,11 @@ const DetailOne = () => {
               </div>
             </article>
 
-            <article ref={chapterFiveRefArticle} data-chapter={5}>
+            <article
+              ref={chapterFiveRefArticle}
+              data-chapter={5}
+              className={`${styles.death} ${styles.content}`}
+            >
               <div className={styles.titleCentered}>
                 <h2 className={styles.title}>Cause of Death</h2>
                 <span className={styles.dates}>1815 - 1914</span>
@@ -360,12 +404,15 @@ const DetailOne = () => {
                 </Link>
               ) : (
                 ''
-              )};
+              )}
+              ;
               <Link
                 to={`${ancestor.child}`}
                 className={styles.buttons__next}
                 activeClassName={styles.tabActive}
-              >Next generation</Link>
+              >
+                Next generation
+              </Link>
             </div>
           </div>
         </div>

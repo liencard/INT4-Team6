@@ -8,7 +8,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 AOS.init({
-  once: true, // whether animation should happen only once - while scrolling down
+  once: true,
   easing: 'ease-in',
 });
 
@@ -17,8 +17,7 @@ const OnboardingThree = () => {
     return useObserver(() => (
         <>
             <div 
-                className={styles.onboarding__wrapper}
-                style={{backgroundImage: `url(assets/img/lines_bg.png)`}}
+                className={`${styles.onboarding__wrapper} ${styles.onboarding__three}`}
             >
 
             <div className={styles.header}>
@@ -50,9 +49,14 @@ const OnboardingThree = () => {
                     <p className={styles.paragraph}>Found some very interesting story? Share it with a friend! Find similarities in your friend’s family tree, you might have a vague connection?</p>
                     <p className={styles.paragraph}>Stories that are worth the read should be bookmarked in your personal collection so you find them right away!</p>
                 </div>
+                <div className={styles.buttons__wrapper}>
+                 <Link to={'onboarding-two'} className={styles.button__secondary}>
+                    back
+                </Link>
                 <Link to={'ancestors'}className={styles.button} style={{backgroundImage: `url(./assets/img/arrow.svg)`}}>
                     next step
                 </Link>
+                </div>
             </div>
     
             </div>

@@ -9,8 +9,7 @@ const OnboardingOne = () => {
     return useObserver(() => (
         <>
             <div 
-                className={styles.onboarding__wrapper}
-                // style={{backgroundImage: `url(assets/img/lines_bg.png)`}}
+                className={`${styles.onboarding__wrapper} ${styles.onboarding__one}`}
             >
 
                 <div className={styles.header}>
@@ -44,9 +43,14 @@ const OnboardingOne = () => {
                         <p className={styles.paragraph}>Or you can discover your ancestors by roots and see where all your ancestors originate from on a map.</p>
                         <p className={`${styles.paragraph} ${styles.paragraph__bold}`}>Go and explore.</p>
                     </div>
-                    <Link to={'onboarding-two'}className={styles.button} style={{backgroundImage: `url(./assets/img/arrow.svg)`}}>
-                        next step
-                    </Link>
+                     <div className={styles.buttons__wrapper}>
+                 <Link to={'/'} className={styles.button__secondary}>
+                    back
+                </Link>
+                <Link to={'onboarding-two'}className={styles.button} style={{backgroundImage: `url(./assets/img/arrow.svg)`}}>
+                    next step
+                </Link>
+                </div>
                 </div>
      
             </div>

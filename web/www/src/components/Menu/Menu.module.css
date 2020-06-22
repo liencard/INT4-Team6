@@ -39,4 +39,14 @@
     height: 1.6rem;
     left: 17.5rem;
     top: -.3rem;
-} 
+}  
+
+.menu__top {
+    margin-bottom: 50%;
+}
+
+@media only screen and (max-width: 730px) {
+    .menu__top {
+        margin-bottom: 100%;
+    }
+}

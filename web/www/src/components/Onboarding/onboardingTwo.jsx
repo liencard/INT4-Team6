@@ -17,8 +17,7 @@ const OnboardingTwo = () => {
     return useObserver(() => (
       <>
         <div
-          className={styles.onboarding__wrapper}
-          style={{ backgroundImage: `url(assets/img/lines_bg.png)` }}
+          className={`${styles.onboarding__wrapper} ${styles.onboarding__two}`}
         >
           <div className={styles.header}>
             <div className={styles.header__wrapper}>
@@ -76,13 +75,18 @@ const OnboardingTwo = () => {
                 took place when they lived.
               </p>
             </div>
-            <Link
-              to={'onboarding-three'}
-              className={styles.button}
-              style={{ backgroundImage: `url(./assets/img/arrow.svg)` }}
-            >
-              next step
-            </Link>
+            <div className={styles.buttons__wrapper}>
+              <Link to={'onboarding-one'} className={styles.button__secondary}>
+                back
+              </Link>
+              <Link
+                to={'onboarding-three'}
+                className={styles.button}
+                style={{ backgroundImage: `url(./assets/img/arrow.svg)` }}
+              >
+                next step
+              </Link>
+            </div>
           </div>
         </div>
       </>

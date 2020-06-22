@@ -103,26 +103,25 @@
 
 @media only screen and (max-width: 730px) {
 
-.bookmarks {
-    margin-top: 20vh;
-    height: 100%;
-}
-    
-.bookmarks__wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 3rem;
-    grid-row-gap: 3rem;
-    width: 100%;
-}
+    .bookmarks {
+        margin-top: 20vh;
+        height: 100%;
+    }
+        
+    .bookmarks__wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 3rem;
+        grid-row-gap: 3rem;
+        width: 100%;
+    }
 
-.bookmarks__btn {
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    padding: 0 4rem;
-    max-width: auto;
-}
-
+    .bookmarks__btn {
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        padding: 0 4rem;
+        max-width: auto;
+    }
     
 }

@@ -50,17 +50,19 @@ const Menu = () => {
         <>
           <div className={styles.menu__wrapper}>
             <div>
-              <img
-                className={styles.image}
-                src="/assets/img/ancestors/thumbnail/AliceBaker.jpg"
-                alt=""
-                height="140"
-                width="140"
-              />
-              <h2 className={styles.name}>Loading user</h2>
-            </div>
+              <div>
+                <img
+                  className={styles.image}
+                  src="/assets/img/ancestors/thumbnail/AliceBaker.jpg"
+                  alt=""
+                  height="140"
+                  width="140"
+                />
+                <h2 className={styles.name}>Loading user</h2>
+              </div>
 
-            <NavBar />
+              <NavBar />
+            </div>
 
             <Link to={ROUTES.home} className={styles.button}>
               Log out
@@ -73,17 +75,19 @@ const Menu = () => {
       <>
         <div className={styles.menu__wrapper}>
           <div>
-            <img
-              className={styles.image}
-              src={uiStore.currentUser.avatar}
-              alt=""
-              height="140"
-              width="140"
-            />
-            <h2 className={styles.name}>{currentUser.name}</h2>
-          </div>
+            <div className={styles.menu__top}>
+              <img
+                className={styles.image}
+                src={uiStore.currentUser.avatar}
+                alt=""
+                height="140"
+                width="140"
+              />
+              <h2 className={styles.name}>{currentUser.name}</h2>
+            </div>
 
-          <NavBar />
+            <NavBar />
+          </div>
 
           <Link to={ROUTES.home} className={styles.button}>
             Log out

@@ -8,7 +8,7 @@
   width: 100vw;
   display:grid;
   grid-template-columns: 1fr 55rem;
-
+ 
   background-image: url("/assets/img/lines_bg.png");
   /* als applicatie draait root map, anders package.json public path */
 }
@@ -77,4 +77,40 @@
 .empty {
     width: 4rem;
     height: 4rem;
+}
+
+.buttons__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button__secondary {
+    composes: smallSpaced from "../../styles/typo.module.css";
+}
+
+.button__secondary:hover {
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .onboarding__wrapper {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .tab {
+        display: none;
+    }
+
+    .text__wrapper {
+        width: 85vw;
+        margin: 0 auto;
+    }
+
+    .onboarding__one  .text__wrapper, .onboarding__two  .text__wrapper, .onboarding__three  .text__wrapper   {
+        margin-top: -4rem;
+    }
 }

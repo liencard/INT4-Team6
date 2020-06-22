@@ -1,0 +1,188 @@
+@value tokens: "../../styles/tokens.module.css";
+@value faded, fontTitle from tokens;
+
+.container {
+    max-width: 106rem;
+    margin: 0 auto 15rem;
+    padding-top: 10rem;
+} 
+
+/* TYPOGRAPHY */
+
+.title {
+    composes: titleLarge from "../../styles/typo.module.css";
+    padding-bottom: 2rem;
+}
+
+.subtitle {
+    composes: subtitle from "../../styles/typo.module.css";
+    padding-bottom: 2rem;
+}
+
+.text {
+    line-height: 1.5;
+    padding-bottom: 1.5rem;
+    z-index: 2;
+}
+
+.titleCentered {
+    text-align: center;
+    padding-bottom: 5rem;
+}
+
+.titleCaps {
+    font-size: 2rem;
+    composes: smallSpaced from "../../styles/typo.module.css";
+    text-transform: uppercase;
+    padding-top: 1rem;
+}
+
+.content {
+    margin-top: 20rem;
+}
+
+/* header */
+
+.titleHeader {
+    padding: 14rem 0 3rem;
+}
+
+.benefits {
+    composes: smallSpaced from "../../styles/typo.module.css";
+    font-size: 1.6rem;
+    margin-bottom: 5rem;
+}
+
+.benefits li {
+    padding: 1rem;
+}
+
+.header {
+    max-width: 44rem;
+    margin-left: auto;
+    padding-bottom: 10rem;
+}
+
+.header::before {
+    position: absolute;
+    content: '';
+    background-image: url("/assets/img/gettingstarted/hero.jpg");
+    z-index: -1;
+
+    height: 69rem;
+    width: calc((100vw - 1060px)/2 + 560px);
+    background-size: cover;
+    left: 0;
+}
+
+.intro__text {
+    margin-top: 3rem;
+    display: flex;
+    max-width: 76rem;
+}
+
+.work__text {
+    margin-top: 7rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 7rem;
+}
+
+.timeline {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin: 7rem 0 12rem;
+}
+
+.timeline__item {
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+}
+
+.timeline__item img {
+    margin: 0 auto;
+}
+
+.line {
+    height: 0.1rem;
+    width: 80%;
+    margin: 0 auto;
+    transform: translateY(2.5rem);
+    background-color: white;
+}
+
+.wait__text {
+    max-width: 64rem;
+    margin: 0 auto;
+}
+
+.plans {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+    max-width: 64rem;
+    margin: 8rem auto 0;
+}
+
+.plans__item {
+    display: grid;
+    grid-template-rows: repeat(4, auto);
+}
+
+.plan__price {
+    font-size: 6rem !important;
+    background-color: red;
+}
+
+.plan__benefits {
+    margin-bottom: 3rem;
+}
+
+.plan__benefits li {
+    padding: 1rem;
+}
+
+.review {
+    margin-top: 10rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 7rem;
+}
+
+.quote::before {
+    content: '';
+    position: absolute;
+    background-image: url("/assets/img/gettingstarted/quote.svg");
+    background-repeat: no-repeat;
+    height: 5rem;
+    width: 5rem;
+    transform: translateY(-4rem);
+}
+
+.customer {
+    display: flex;
+    margin-top: 2rem;
+}
+
+.customer img {
+    margin-right: 3rem;
+    border-radius: 50%;
+    height: 6rem;
+}
+
+.customer__type {
+    color: faded;
+    padding-top: .8rem;
+    text-transform: uppercase;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12rem;
+}
+
+.footer h2 {
+    font-size: 5.8rem;
+    transform: translateY(-2rem);
+}

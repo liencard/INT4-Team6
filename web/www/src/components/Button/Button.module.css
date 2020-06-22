@@ -1,3 +1,4 @@
 .button {
     composes: button from "../../styles/components.module.css";
+    background-image: url('/assets/img/arrow.svg')
 }

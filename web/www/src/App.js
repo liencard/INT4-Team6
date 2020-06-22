@@ -10,6 +10,7 @@ import OnboardingThree from './components/Onboarding/onboardingThree';
 import Home from './components/Home';
 import Bookmarks from './components/Bookmarks';
 import Detail from './components/Detail';
+import Start from './components/Start';
 
 import { Route } from 'react-router-dom';
 import { Switch } from 'react-router';
@@ -37,6 +38,9 @@ const App = () => {
       <Route path={ROUTES.map}>
         <Dashboard />
         <Map />
+      </Route>
+      <Route path={ROUTES.start}>
+        <Start />
       </Route>
       <Route path={ROUTES.detail.path}>
         <Detail />

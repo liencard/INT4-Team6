@@ -26,7 +26,7 @@ const Bookmark = ({bookmark}) => {
               height="300"
             />
             <div className={styles.bookmark__hover}>
-              <Button text={'Revisit'} to={'link to ancestor'} />
+              <Button text={'Revisit'} to={`/detail/${bookmark.ancestor_id}`} />
             </div>
           </div>
         </article>

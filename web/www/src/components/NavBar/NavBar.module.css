@@ -51,3 +51,14 @@
 	-moz-transform: translateX(0px);
 	transform: translateX(0px);
 }
+
+
+@media only screen and (max-width: 730px) {
+
+	.nav {
+		margin-bottom: 4rem;
+	}
+
+
+    
+}

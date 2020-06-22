@@ -14,7 +14,7 @@ const NavBar = () => {
                     to={`${ROUTES.ancestors}`}
                     className={styles.nav}
                     activeClassName={styles.tabActive}
-                >
+                > 
                     Family Tree
                 </NavLink>
                 <NavLink

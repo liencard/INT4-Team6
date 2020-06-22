@@ -10,6 +10,14 @@ import stylesHeader from '../Header/Header.module.css';
 import Header from '../Header/index.jsx';
 import Loader from '../Loader/index.jsx';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+AOS.init({
+  once: true, // whether animation should happen only once - while scrolling down
+  easing: 'ease-in-out',
+});
+
 const DetailOne = () => {
   const { id } = useParams();
   const { bookmarkStore, uiStore, userStore, ancestorStore } = useStore();
@@ -107,12 +115,14 @@ const DetailOne = () => {
       });
       await bookmarkedAncestor.create();
       await setBookmark(bookmarkedAncestor);
-      feedbackRef.current.classList.add(styles.feedback);
+      //feedbackRef.current.classList.add(styles.feedback__add);
+      //feedbackRef.current.classList.remove(styles.feedback__remove);
       feedbackRef.current.innerHTML = 'Added Bookmark';
     } else {
       await bookmark.delete();
       await setBookmark(false);
-      feedbackRef.current.classList.add(styles.feedbackkk);
+      //feedbackRef.current.classList.add(styles.feedback__remove);
+      //feedbackRef.current.classList.remove(styles.feedback__add);
       feedbackRef.current.innerHTML = 'Removed Bookmark';
     }
   };
@@ -164,17 +174,19 @@ const DetailOne = () => {
     return (
       <>
         {/* <div className={`${visible ? styles.header__visible : styles.header__hidden}`}> */}
-          <Header
-            logo={true}
-            menu={true}
-            togglePartners={true}
-            content={{
-              woman: `${ancestorWoman.name}`,
-              man: `${ancestorMan.name}`,
-            }}
-            to={{ woman: `${ancestor.woman}`, man: `${ancestor.man}` }}
-            className={`${visible ? stylesHeader.header : stylesHeader.header__hidden}`}
-          />
+        <Header
+          logo={true}
+          menu={true}
+          togglePartners={true}
+          content={{
+            woman: `${ancestorWoman.name}`,
+            man: `${ancestorMan.name}`,
+          }}
+          to={{ woman: `${ancestor.woman}`, man: `${ancestor.man}` }}
+          className={`${
+            visible ? stylesHeader.header : stylesHeader.header__hidden
+          }`}
+        />
         {/* </div> */}
 
         <div className={`${visible ? styles.buttons : styles.buttons__hidden}`}>
@@ -231,6 +243,8 @@ const DetailOne = () => {
           }`}
         ></p>
 
+        {/* <p ref={feedbackRef}></p> */}
+
         <div className={`${styles.detail} ${styles.detailMargeretEvans}`}>
           <div className={styles.container}>
             <article
@@ -266,12 +280,14 @@ const DetailOne = () => {
               </div>
             </article>
 
-            <div className={styles.backgroundImage}></div>
+            <div className={styles.backgroundImage} data-aos="fade-up"></div>
 
             <article
               ref={chapterTwoRefArticle}
               data-chapter={2}
               className={`${styles.timeframe} ${styles.content}`}
+              data-aos="fade-up"
+              data-aos-easing="ease-in-out"
             >
               <div className={styles.titleCentered}>
                 <h2 className={styles.title}>Industrial Revolution</h2>
@@ -319,6 +335,7 @@ const DetailOne = () => {
               ref={chapterThreeRefArticle}
               data-chapter={3}
               className={`${styles.living} ${styles.content}`}
+              data-aos="fade-up"
             >
               <div className={styles.living__text}>
                 <h2 className={styles.title}>Family Evans</h2>
@@ -354,6 +371,7 @@ const DetailOne = () => {
               ref={chapterFourRefArticle}
               data-chapter={4}
               className={`${styles.work} ${styles.content}`}
+              data-aos="fade-up"
             >
               <h2 className={styles.hidden}>Work</h2>
               <img
@@ -388,6 +406,7 @@ const DetailOne = () => {
               ref={chapterFiveRefArticle}
               data-chapter={5}
               className={`${styles.death} ${styles.content}`}
+              data-aos="fade-up"
             >
               <div className={styles.titleCentered}>
                 <h2 className={styles.title}>Cause of Death</h2>

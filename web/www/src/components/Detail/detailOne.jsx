@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 import Bookmark from '../../models/BookmarkModel';
 import styles from './Detail.module.css';
+import stylesHeader from '../Header/Header.module.css';
 import Header from '../Header/index.jsx';
 import Loader from '../Loader/index.jsx';
 
@@ -136,6 +137,22 @@ const DetailOne = () => {
     });
   });
 
+
+  // SCROLL NAV
+  const [visible, setVisibility] = useState(true);
+  const [prevScrollpos, setPrevScrollpos] = useState(window.pageYOffset);
+
+  const handleScroll = () => {
+    const currentScrollPos = window.pageYOffset;
+    const visible = prevScrollpos > currentScrollPos;
+    setPrevScrollpos(currentScrollPos);
+    setVisibility(visible)
+  };
+
+  window.addEventListener('scroll', handleScroll);
+
+
+
   return useObserver(() => {
     if (state === STATE_DOES_NOT_EXIST) {
       return <p>does not exist</p>;
@@ -146,18 +163,21 @@ const DetailOne = () => {
 
     return (
       <>
-        <Header
-          logo={true}
-          menu={true}
-          togglePartners={true}
-          content={{
-            woman: `${ancestorWoman.name}`,
-            man: `${ancestorMan.name}`,
-          }}
-          to={{ woman: `${ancestor.woman}`, man: `${ancestor.man}` }}
-        />
+        {/* <div className={`${visible ? styles.header__visible : styles.header__hidden}`}> */}
+          <Header
+            logo={true}
+            menu={true}
+            togglePartners={true}
+            content={{
+              woman: `${ancestorWoman.name}`,
+              man: `${ancestorMan.name}`,
+            }}
+            to={{ woman: `${ancestor.woman}`, man: `${ancestor.man}` }}
+            className={`${visible ? stylesHeader.header : stylesHeader.header__hidden}`}
+          />
+        {/* </div> */}
 
-        <div className={styles.buttons}>
+        <div className={`${visible ? styles.buttons : styles.buttons__hidden}`}>
           <button className={styles.addBookmark} onClick={handleClickBookmark}>
             {bookmark ? (
               <img
@@ -177,7 +197,11 @@ const DetailOne = () => {
           </button>
         </div>
 
-        <div className={styles.timeline__wrapper}>
+        <div
+          className={`${
+            visible ? styles.timeline__wrapper : styles.timeline__hidden
+          }`}
+        >
           <span>01</span>
           <span ref={chapterOneRef} data-chapter={1} className={styles.current}>
             Origin

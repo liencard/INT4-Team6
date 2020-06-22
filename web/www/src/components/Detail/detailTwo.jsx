@@ -131,6 +131,21 @@ const DetailTwo = () => {
       }
     });
   });
+
+  // SCROLL NAV
+  const [visible, setVisibility] = useState(true);
+  const [prevScrollpos, setPrevScrollpos] = useState(window.pageYOffset);
+
+  const handleScroll = () => {
+    const currentScrollPos = window.pageYOffset;
+    const visible = prevScrollpos > currentScrollPos;
+    setPrevScrollpos(currentScrollPos);
+    setVisibility(visible)
+  };
+
+  window.addEventListener('scroll', handleScroll);
+
+
   return useObserver(() => {
     if (state === STATE_DOES_NOT_EXIST) {
       return <p>does not exist</p>;
@@ -152,7 +167,7 @@ const DetailTwo = () => {
           to={{ woman: `${ancestor.woman}`, man: `${ancestor.man}` }}
         />
 
-        <div className={styles.buttons}>
+        <div className={`${visible ? styles.buttons : styles.buttons__hidden}`}>
           <button className={styles.addBookmark} onClick={handleClickBookmark}>
             {bookmark ? (
               <img
@@ -172,7 +187,11 @@ const DetailTwo = () => {
           </button>
         </div>
 
-        <div className={`${styles.timeline__wrapper} ${styles.timeline__Mary}`}>
+        <div
+          className={`${styles.timeline__Mary} ${
+            visible ? styles.timeline__wrapper : styles.timeline__hidden
+          }`}
+        >
           <span>01</span>
           <span ref={chapterOneRef} data-chapter={1} className={styles.current}>
             Origin

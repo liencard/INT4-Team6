@@ -49,10 +49,12 @@ const Ancestor = ({ ancestor }) => {
 
   const dates = `${ancestor.birthdate} - ${ancestor.deathdate}`;
 
-  const toggleHover = useCallback((e, value) => {
+  const toggleHover = (e, value) => {
     e.stopPropagation();
     setHover(value); // flicker bug
-  }); 
+    return null;
+  }; 
+  
 
   return (
     <>
@@ -82,22 +84,25 @@ const Ancestor = ({ ancestor }) => {
         />
       </a.mesh>
 
-      <a.mesh
-        castShadow
-        ancestorId={ancestor.id}
+      <group
         onPointerOver={(e) => toggleHover(e, true)}
         onPointerLeave={(e) => toggleHover(e, false)}
-        scale={states.scale}
-        position={[posX, posY, posZ]}
       >
-        <planeGeometry attach="geometry" args={[1, 1]} />
-        <a.meshBasicMaterial
-          attach="material"
-          map={imgMain}
-          transparent={true}
-          fog={true}
-        />
-      </a.mesh>
+        <a.mesh
+          castShadow
+          ancestorId={ancestor.id}
+          scale={states.scale}
+          position={[posX, posY, posZ]}
+        >
+          <planeGeometry attach="geometry" args={[1, 1]} />
+          <a.meshBasicMaterial
+            attach="material"
+            map={imgMain}
+            transparent={true}
+            fog={true}
+          />
+        </a.mesh>
+      </group>
 
       <mesh
         scale={[0.01, 0.01, 0.01]}
@@ -112,7 +117,7 @@ const Ancestor = ({ ancestor }) => {
 };
 
 Ancestor.propTypes = {
-  ancestor: PropTypes.string.isRequired,
+  ancestor: PropTypes.object.isRequired,
 };
 
 export default Ancestor;

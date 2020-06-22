@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 
 import Bookmark from '../../models/BookmarkModel';
 import styles from './Detail.module.css';
-import stylesHeader from '../Header/Header.module.css';
 import Header from '../Header/index.jsx';
 import Loader from '../Loader/index.jsx';
 
@@ -173,21 +172,13 @@ const DetailOne = () => {
 
     return (
       <>
-        {/* <div className={`${visible ? styles.header__visible : styles.header__hidden}`}> */}
         <Header
           logo={true}
           menu={true}
           togglePartners={true}
-          content={{
-            woman: `${ancestorWoman.name}`,
-            man: `${ancestorMan.name}`,
-          }}
+          content={{ woman: `${ancestorWoman.name}`, man: `${ancestorMan.name}`}}
           to={{ woman: `${ancestor.woman}`, man: `${ancestor.man}` }}
-          className={`${
-            visible ? stylesHeader.header : stylesHeader.header__hidden
-          }`}
         />
-        {/* </div> */}
 
         <div className={`${visible ? styles.buttons : styles.buttons__hidden}`}>
           <button className={styles.addBookmark} onClick={handleClickBookmark}>
@@ -287,7 +278,6 @@ const DetailOne = () => {
               data-chapter={2}
               className={`${styles.timeframe} ${styles.content}`}
               data-aos="fade-up"
-              data-aos-easing="ease-in-out"
             >
               <div className={styles.titleCentered}>
                 <h2 className={styles.title}>Industrial Revolution</h2>

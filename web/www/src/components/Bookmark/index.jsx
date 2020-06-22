@@ -18,13 +18,13 @@ const Bookmark = ({bookmark}) => {
             </p>
           </div>
           <div className={styles.img__wrapper}>
-            {/* <img
+            <img
               className={styles.bookmark__img}
               src={`./assets/img/ancestors/thumbnail/${imgName}.jpg`}
               alt="ancestor"
               width="300"
               height="300"
-            /> */}
+            />
             <div className={styles.bookmark__hover}>
               <Button text={'Revisit'} to={'link to ancestor'} />
             </div>

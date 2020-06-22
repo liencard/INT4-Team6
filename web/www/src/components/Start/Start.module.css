@@ -1,11 +1,26 @@
 @value tokens: "../../styles/tokens.module.css";
 @value faded, fontTitle from tokens;
 
+.lines {
+    background: 
+    linear-gradient(90deg, transparent, transparent 10%, faded 10.1%, transparent 10.1%),
+    linear-gradient(90deg, transparent, transparent 42%, faded 42.1%, transparent 42.1%),
+    linear-gradient(90deg, transparent, transparent 58%, faded 58.1%, transparent 58.1%),
+    linear-gradient(90deg, transparent, transparent 90%, faded 90.1%, transparent 90.1%),
+    linear-gradient(90deg, transparent, transparent 91%, faded 91.1%, transparent 91.1%);
+    z-index: -1;
+    height: 100vh;
+    position: fixed;
+    width: 100vw;
+    opacity: .1;
+}
+
 .container {
     max-width: 106rem;
-    margin: 0 auto 15rem;
+    margin: 0 auto 12rem;
     padding-top: 10rem;
-} 
+    z-index: 1;
+}
 
 /* TYPOGRAPHY */
 
@@ -38,7 +53,7 @@
 }
 
 .content {
-    margin-top: 20rem;
+    margin-top: 10rem;
 }
 
 /* header */
@@ -60,7 +75,7 @@
 .header {
     max-width: 44rem;
     margin-left: auto;
-    padding-bottom: 10rem;
+    padding-bottom: 20rem;
 }
 
 .header::before {
@@ -77,21 +92,49 @@
 
 .intro__text {
     margin-top: 3rem;
-    display: flex;
     max-width: 76rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 6rem;
+
+}
+
+.work::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    transform: translateY(-80rem);
+    background-image: url("/assets/img/gettingstarted/wolk_3.png");
+    width: 100vw;
+    height: 120%;
+    background-size: cover;
+    z-index: -1;
 }
 
 .work__text {
-    margin-top: 7rem;
+    margin-top: 10rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 7rem;
 }
 
+.work__text img {
+    margin-bottom: 3rem;
+}
+
+.work__text p {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.timeline__wrapper {
+    margin-top: 5rem;
+}
+
 .timeline {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    margin: 7rem 0 12rem;
+    margin: 0rem 0 12rem;
 }
 
 .timeline__item {
@@ -114,6 +157,23 @@
 .wait__text {
     max-width: 64rem;
     margin: 0 auto;
+}
+
+.packages::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    transform: translateY(-120rem);
+    background-image: url("/assets/img/gettingstarted/wolk_2.png");
+    width: 100vw;
+    height: 150%;
+    background-size: cover;
+    z-index: -1;
+}
+
+
+.packages {
+    margin: 10rem 0 15rem;
 }
 
 .plans {
@@ -142,7 +202,19 @@
     padding: 1rem;
 }
 
-.review {
+.review::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    transform: translateY(-50rem);
+    background-image: url("/assets/img/gettingstarted/wolk_1.png");
+    width: 100vw;
+    height: 100%;
+    background-size: cover;
+    z-index: -1;
+}
+
+.review > div{
     margin-top: 10rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -165,6 +237,7 @@
 }
 
 .customer img {
+    transform: translateY(-1rem);
     margin-right: 3rem;
     border-radius: 50%;
     height: 6rem;

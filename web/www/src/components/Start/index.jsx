@@ -5,10 +5,20 @@ import styles from './Start.module.css';
 import Header from '../Header/index.jsx';
 import Button from '../Button/index.jsx';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+AOS.init({
+  once: true, // whether animation should happen only once - while scrolling down
+  easing: 'ease-in-out',
+});
+
+
 const Start = () => {
 return (
   <>
     <Header logo={true} />
+    <div className={styles.lines}> </div>
     <article className={styles.container}>
       <section className={styles.header}>
         <h1 className={`${styles.title} ${styles.titleHeader}`}>
@@ -28,7 +38,7 @@ return (
         />
       </section>
 
-      <section className={styles.content}>
+      <section className={styles.content} data-aos="fade-up">
         <div className={styles.titleCentered}>
           <h2 className={styles.title}>Find your Family Roots</h2>
           <p className={styles.titleCaps}>What can you expect?</p>
@@ -55,18 +65,24 @@ return (
         </div>
       </section>
 
-      <section className={`${styles.content} ${styles.titleCentered}`}>
-        <div>
+      <section
+        className={`${styles.content} ${styles.titleCentered} ${styles.work}`}
+      >
+        <div data-aos="fade-up">
           <h2 className={styles.title}>How it all works</h2>
           <p className={styles.titleCaps}>
             Make a choice between the plans we offer
           </p>
         </div>
 
-        <div className={styles.work__text}>
+        <div className={styles.work__text} data-aos="fade-up">
           <section>
             <h3 className={styles.subtitle}>Standard Plan</h3>
-            <img src="/assets/img/gettingstarted/roots.png" alt="Roots" />
+            <img
+              src="/assets/img/gettingstarted/roots.png"
+              height="320px"
+              alt="Roots"
+            />
             <p className={styles.text}>
               The standard plan contains a search for your family tree and the
               respective ancestors.
@@ -78,9 +94,13 @@ return (
               easier our search will be.
             </p>
           </section>
-          <section>
+          <section data-aos="fade-up">
             <h3 className={styles.subtitle}>Premium Plan</h3>
-            <img src="/assets/img/gettingstarted/roots.png" alt="Roots" />
+            <img
+              src="/assets/img/gettingstarted/dna.png"
+              height="320px"
+              alt="DNA"
+            />
             <p className={styles.text}>
               Standard plan including an interactive map of your roots.
             </p>
@@ -93,7 +113,10 @@ return (
         </div>
       </section>
 
-      <section className={styles.titleCentered}>
+      <section
+        className={`${styles.content} ${styles.timeline__wrapper} ${styles.titleCentered}`}
+        data-aos="fade-up"
+      >
         <div className={styles.timeline}>
           <div className={styles.timeline__item}>
             <img
@@ -139,62 +162,77 @@ return (
         </div>
       </section>
 
-      <section className={styles.titleCentered}>
-        <h2 className={styles.title}>Packages and Prices</h2>
-        <p className={styles.titleCaps}>at the moment we offer two packages</p>
-        <div className={styles.plans}>
-          <section className={styles.plans__item}>
-            <h3 className={styles.subtitle}>Standard Plan</h3>
-            <p clasName={styles.plan__price}>$499</p>
-            <ul className={styles.plan__benefits}>
-              <li>Discover your ancestors </li>
-              <li>Hear their stories</li>
-              <li>DNA Test</li>
-            </ul>
-            <Button
-              className={styles.button}
-              text={'Get standard'}
-              to={ROUTES.start}
-            />
-          </section>
-          <section className={styles.plans__item}>
-            <h3 className={styles.subtitle}>Premium Plan</h3>
-            <p clasName={styles.plan__price}>$699</p>
-            <ul className={styles.plan__benefits}>
-              <li>Discover your ancestors </li>
-              <li>Hear their stories</li>
-              <li>DNA Test</li>
-            </ul>
-            <Button
-              className={styles.button}
-              text={'Get premium'}
-              to={ROUTES.start}
-            />
-          </section>
+      <section
+        className={`${styles.titleCentered} ${styles.packages} ${styles.content}`}
+      >
+        <div data-aos="fade-up">
+          <h2 className={styles.title}>Packages and Prices</h2>
+          <p className={styles.titleCaps}>
+            at the moment we offer two packages
+          </p>
+          <div className={styles.plans}>
+            <section className={styles.plans__item}>
+              <h3 className={styles.subtitle}>Standard Plan</h3>
+              <p clasName={styles.plan__price}>$499</p>
+              <ul className={styles.plan__benefits}>
+                <li>Discover your ancestors </li>
+                <li>Hear their stories</li>
+                <li>DNA Test</li>
+              </ul>
+              <Button
+                className={styles.button}
+                text={'Get standard'}
+                to={ROUTES.start}
+              />
+            </section>
+            <section className={styles.plans__item}>
+              <h3 className={styles.subtitle}>Premium Plan</h3>
+              <p clasName={styles.plan__price}>$699</p>
+              <ul className={styles.plan__benefits}>
+                <li>Discover your ancestors </li>
+                <li>Hear their stories</li>
+                <li>DNA Test</li>
+              </ul>
+              <Button
+                className={styles.button}
+                text={'Get premium'}
+                to={ROUTES.start}
+              />
+            </section>
+          </div>
         </div>
       </section>
 
-      <section className={styles.review}>
-        <h2 className={styles.title}>You shouldn't just take it from us</h2>
-        <div>
-          <img src="" alt="" />
-          <p className={`${styles.text} ${styles.quote}`}>
-            Thanks to FYFR I was able to understand myself better. It was a
-            struggle I was having for so long and the way I was able to discover
-            who I am was one I will never forget and would totally recommand.
-          </p>
-          <div className={styles.customer}>
-            <img src="/assets/img/gettingstarted/customer.jpg" alt="Customer" />
-            <div>
-              <p>Chris Heyndrickx</p>
-              <p className={styles.customer__type}>Customer</p>
-              <p></p>
+      <section className={`${styles.review} ${styles.content}`}>
+        <div data-aos="fade-up">
+          <h2 className={styles.title}>You shouldn't just take it from us</h2>
+          <div>
+            <img src="" alt="" />
+            <p className={`${styles.text} ${styles.quote}`}>
+              Thanks to FYFR I was able to understand myself better. It was a
+              struggle I was having for so long and the way I was able to
+              discover who I am was one I will never forget and would totally
+              recommand.
+            </p>
+            <div className={styles.customer}>
+              <img
+                src="/assets/img/gettingstarted/customer.jpg"
+                alt="Customer"
+              />
+              <div>
+                <p>Chris Heyndrickx</p>
+                <p className={styles.customer__type}>Customer</p>
+                <p></p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className={styles.footer}>
+      <section
+        data-aos="fade-up"
+        className={`${styles.footer} ${styles.content}`}
+      >
         <h2 className={styles.title}>Start your FYFR journey now.</h2>
         <div>
           <Button

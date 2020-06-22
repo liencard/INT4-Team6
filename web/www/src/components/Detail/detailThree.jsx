@@ -370,7 +370,6 @@ const DetailThree = () => {
                     width="850px"
                   ></img>
                 </div>
-
                 <section className={styles.lawyer__text}>
                   <h3 className={styles.subtitle}>Law firm</h3>
                   <p className={styles.text}>

@@ -25,8 +25,8 @@ const Dashboard = () => {
                 ? 'Travel through generations of ancestors by dragging & scrolling'
                 : 'Click or scroll on a region to zoom in and find your ancestors.'
             }`}
-            width="27"
-            height="27"
+            width="30"
+            height="30"
             viewBox="0 0 27 27"
             fill="none"
             className={styles.share__icon}
@@ -41,7 +41,7 @@ const Dashboard = () => {
 
           <ReactTooltip
             effect="solid"
-            border="true"
+            border={true}
             borderColor="grey"
             delayHide={700}
             className={styles.info__popup}

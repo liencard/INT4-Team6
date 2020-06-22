@@ -20,7 +20,7 @@ const Controls = ({ }) => {
       pan.sub(controls.current.target);
       camera.position.sub(pan);
     });
-
+    
     return (
       <trackballControls
         ref={controls}

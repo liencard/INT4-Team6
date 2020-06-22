@@ -4,6 +4,14 @@ import { ROUTES } from '../../consts';
 import { useObserver } from 'mobx-react-lite';
 import styles from './Onboarding.module.css';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+AOS.init({
+  once: true, // whether animation should happen only once - while scrolling down
+  easing: 'ease-in',
+});
+
 const OnboardingThree = () => {
 
     return useObserver(() => (
@@ -37,8 +45,8 @@ const OnboardingThree = () => {
             ></div>
 
             <div className={styles.text__wrapper}>
-                <h1 className={styles.title}>Exciting Features</h1>
-                <div className={styles.paragraph__wrapper}>
+                <h1 className={styles.title} data-aos="fade">Exciting Features</h1>
+                <div className={styles.paragraph__wrapper} data-aos="fade">
                     <p className={styles.paragraph}>Found some very interesting story? Share it with a friend! Find similarities in your friend’s family tree, you might have a vague connection?</p>
                     <p className={styles.paragraph}>Stories that are worth the read should be bookmarked in your personal collection so you find them right away!</p>
                 </div>

@@ -7,50 +7,11 @@
     right: 0;
     padding: 9rem 8rem 0;
     text-align: right;
+    transition: right 0.3s;
 }
 
-.detail .buttons__generation {
-    padding-bottom: 5rem;
-}
-
-.buttons__generation {
-    display: flex;
-    justify-content: space-between;
-    composes: smallSpaced from "../../styles/typo.module.css";
-    width: 73rem;
-    margin: 0 auto;
-    padding: 0 3.5rem;
-    position: relative;
-}
-
-.buttons__previous, .buttons__next{
-    color: faded;
-}
-
-.buttons__previous:hover, .buttons__next:hover {
-    color: white;
-}
-
-.buttons__next::after {
-    content: '';
-    position: absolute;
-    background-repeat: no-repeat;
-    width: 2.2rem;
-    height: 2.2rem;
-    right: -.1rem;
-    top: -.6rem;
-    background-image: url("/assets/img/icon_skip-right.svg");
-}
-
-.buttons__previous::before {
-    content: '';
-    position: absolute;
-    background-repeat: no-repeat;
-    width: 2.2rem;
-    height: 2.2rem;
-    left: -.1rem;
-    top: -.6rem;
-    background-image: url("/assets/img/icon_skip-left.svg");
+.buttons__hidden {
+    right: -15rem;
 }
 
 .timeline__wrapper {
@@ -68,7 +29,12 @@
     align-self: center;
     color: faded;
     z-index: 8;
+    transition: left 0.3s;
 } 
+
+.timeline__hidden {
+    left: -20rem;
+}
 
 .timeline__wrapper span {
     padding-top: 2.4rem;
@@ -87,6 +53,11 @@
     grid-template-rows: repeat(3, 15rem) 8rem;
 }
 
+.current {
+    color: white;
+    text-decoration: underline;
+}
+
 
 /* Feedback popup bookmarks */
 
@@ -99,16 +70,29 @@
     background-color: dark;
     z-index: 8;
     opacity: 0;
-}
+} 
 
 .feedback__add {
+    /* position: fixed;
+    right: 2rem;
+    top: 2rem;
+    padding: 1rem 2rem;
+    border: .1rem solid faded;
+    background-color: dark;
+    z-index: 8; */
     -webkit-animation: addAnimation 3s forwards; 
     animation: addAnimation 3s forwards;
     opacity: 1;
 }
 
 .feedback__remove {
-
+    /* position: fixed;
+    right: 2rem;
+    top: 2rem;
+    padding: 1rem 2rem;
+    border: .1rem solid faded;
+    background-color: dark;
+    z-index: 8; */
     -webkit-animation: removeAnimation 3s forwards; 
     animation: removeAnimation 3s forwards;
     opacity: 1;
@@ -157,15 +141,13 @@
 .hidden {
     display: none;
 }
-/* 
-.container {
+
+/* .container {
     max-width: 106rem;
     margin: 0 auto;
 } */
 
 .content {
-    /* margin-bottom: 20rem; */
-
     max-width: 106rem;
     margin: 0 auto 20rem;
 }
@@ -467,14 +449,20 @@
     justify-content: space-between;
     composes: smallSpaced from "../../styles/typo.module.css";
     width: 73rem;
+    max-height: 2rem;
     margin: 0 auto;
     color: faded;
     padding: 0 3.5rem;
     position: relative;
+    margin-bottom: 5rem;
 }
 
 .buttons__generation p:hover {
     color: white;
+}
+
+.buttons__previous, .buttons__next{
+    color: faded;
 }
 
 .buttons__next::after {
@@ -497,9 +485,4 @@
     left: -.1rem;
     top: -.6rem;
     background-image: url("/assets/img/icon_skip-left.svg");
-}
-
-.current {
-    color: white;
-    text-decoration: underline;
 }

@@ -59,6 +59,18 @@
     align-items: center;
 }
 
+.toggle__visible {
+    position: fixed;
+    top: 5;
+    transition: top 0.3s;
+    left: 35vw;
+}
+
+.toggle__hidden {
+    position: fixed;
+    top: -10rem;
+}
+
 .toggle {
     margin-top: 2rem;
 }

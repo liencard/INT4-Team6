@@ -9,13 +9,20 @@ import styles from './Detail.module.css';
 import Header from '../Header/index.jsx';
 import Loader from '../Loader/index.jsx';
 
-const DetailTwo = () => {
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
+AOS.init({
+  once: true, // whether animation should happen only once - while scrolling down
+  easing: 'ease-in-out',
+});
+
+const DetailTwo = () => {
   const { id } = useParams();
   const { bookmarkStore, uiStore, userStore, ancestorStore } = useStore();
   const feedbackRef = useRef();
 
-    // TIMELINE
+  // TIMELINE
   const chapterOneRef = useRef();
   const chapterTwoRef = useRef();
   const chapterThreeRef = useRef();
@@ -33,7 +40,7 @@ const DetailTwo = () => {
   const chapterThreeRefArticle = useRef();
   const chapterFourRefArticle = useRef();
 
-  let chapterArticles = []
+  let chapterArticles = [];
   chapterArticles.push(chapterOneRefArticle.current);
   chapterArticles.push(chapterTwoRefArticle.current);
   chapterArticles.push(chapterThreeRefArticle.current);
@@ -43,7 +50,7 @@ const DetailTwo = () => {
   const STATE_LOADING = 'loading';
   const STATE_DOES_NOT_EXIST = 'doesNotExist';
   const STATE_LOADED = 'fullyLoaded';
-  
+
   const [ancestor, setAncestor] = useState(undefined);
   const [bookmark, setBookmark] = useState(undefined);
   const [ancestorWoman, setAncestorWoman] = useState(undefined);
@@ -80,7 +87,14 @@ const DetailTwo = () => {
       }
     };
     loadAncestor(id);
-  }, [ancestor, ancestorStore.ancestors, bookmark, ancestorStore, bookmarkStore, id]);
+  }, [
+    ancestor,
+    ancestorStore.ancestors,
+    bookmark,
+    ancestorStore,
+    bookmarkStore,
+    id,
+  ]);
 
   // ADD & REMOVE BOOKMARK
   const handleClickBookmark = async () => {
@@ -108,20 +122,38 @@ const DetailTwo = () => {
 
   window.addEventListener('scroll', () => {
     const fromTop = window.scrollY + window.innerHeight / 2;
-    chapterLinks.forEach(link => {
+    chapterLinks.forEach((link) => {
       if (link) {
-         chapterArticles.forEach(article => {
-           if (link.dataset.chapter === article.dataset.chapter) {
-             if (article.offsetTop <= fromTop && article.offsetTop + article.offsetHeight > fromTop) {
-               link.classList.add(styles.current);
-             } else {
-               link.classList.remove(styles.current);
-             }
-           }
-         })
+        chapterArticles.forEach((article) => {
+          if (link.dataset.chapter === article.dataset.chapter) {
+            if (
+              article.offsetTop <= fromTop &&
+              article.offsetTop + article.offsetHeight > fromTop
+            ) {
+              link.classList.add(styles.current);
+            } else {
+              link.classList.remove(styles.current);
+            }
+          }
+        });
       }
     });
   });
+
+  // SCROLL NAV
+  const [visible, setVisibility] = useState(true);
+  const [prevScrollpos, setPrevScrollpos] = useState(window.pageYOffset);
+
+  const handleScroll = () => {
+    const currentScrollPos = window.pageYOffset;
+    const visible = prevScrollpos > currentScrollPos;
+    setPrevScrollpos(currentScrollPos);
+    setVisibility(visible)
+  };
+
+  window.addEventListener('scroll', handleScroll);
+
+
   return useObserver(() => {
     if (state === STATE_DOES_NOT_EXIST) {
       return <p>does not exist</p>;
@@ -143,7 +175,7 @@ const DetailTwo = () => {
           to={{ woman: `${ancestor.woman}`, man: `${ancestor.man}` }}
         />
 
-        <div className={styles.buttons}>
+        <div className={`${visible ? styles.buttons : styles.buttons__hidden}`}>
           <button className={styles.addBookmark} onClick={handleClickBookmark}>
             {bookmark ? (
               <img
@@ -163,7 +195,11 @@ const DetailTwo = () => {
           </button>
         </div>
 
-        <div className={`${styles.timeline__wrapper} ${styles.timeline__Mary}`}>
+        <div
+          className={`${styles.timeline__Mary} ${
+            visible ? styles.timeline__wrapper : styles.timeline__hidden
+          }`}
+        >
           <span>01</span>
           <span ref={chapterOneRef} data-chapter={1} className={styles.current}>
             Origin
@@ -223,12 +259,13 @@ const DetailTwo = () => {
               </div>
             </article>
 
-            <div className={styles.backgroundImage}></div>
+            <div className={styles.backgroundImage} data-aos="fade-up"></div>
 
             <article
               ref={chapterTwoRefArticle}
               data-chapter={2}
               className={`${styles.timeframe} ${styles.content}`}
+              data-aos="fade-up"
             >
               <div className={styles.titleCentered}>
                 <h2 className={styles.title}>
@@ -275,6 +312,7 @@ const DetailTwo = () => {
               ref={chapterThreeRefArticle}
               data-chapter={3}
               className={`${styles.living} ${styles.content}`}
+              data-aos="fade-up"
             >
               <div className={styles.living__text}>
                 <h2 className={styles.title}>Unknown life</h2>
@@ -301,6 +339,7 @@ const DetailTwo = () => {
               ref={chapterFourRefArticle}
               data-chapter={4}
               className={`${styles.death} ${styles.content}`}
+              data-aos="fade-up"
             >
               <div className={styles.titleCentered}>
                 <h2 className={styles.title}>Possible causes of death</h2>

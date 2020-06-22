@@ -9,6 +9,14 @@ import styles from './Detail.module.css';
 import Header from '../Header/index.jsx';
 import Loader from '../Loader/index.jsx';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+AOS.init({
+  once: true, // whether animation should happen only once - while scrolling down
+  easing: 'ease-in',
+});
+
 const DetailThree = () => {
   const { id } = useParams();
   const { bookmarkStore, uiStore, userStore, ancestorStore } = useStore();
@@ -41,7 +49,7 @@ const DetailThree = () => {
   const chapterSixRefArticle = useRef();
   const chapterSevenRefArticle = useRef();
 
-  let chapterArticles = []
+  let chapterArticles = [];
   chapterArticles.push(chapterOneRefArticle.current);
   chapterArticles.push(chapterTwoRefArticle.current);
   chapterArticles.push(chapterThreeRefArticle.current);
@@ -91,7 +99,14 @@ const DetailThree = () => {
       }
     };
     loadAncestor(id);
-  }, [ancestor, ancestorStore.ancestors, bookmark, ancestorStore, bookmarkStore, id]);
+  }, [
+    ancestor,
+    ancestorStore.ancestors,
+    bookmark,
+    ancestorStore,
+    bookmarkStore,
+    id,
+  ]);
 
   // ADD & REMOVE BOOKMARK
   const handleClickBookmark = async () => {
@@ -137,6 +152,19 @@ const DetailThree = () => {
     });
   });
 
+  // SCROLL NAV
+  const [visible, setVisibility] = useState(true);
+  const [prevScrollpos, setPrevScrollpos] = useState(window.pageYOffset);
+
+  const handleScroll = () => {
+    const currentScrollPos = window.pageYOffset;
+    const visible = prevScrollpos > currentScrollPos;
+    setPrevScrollpos(currentScrollPos);
+    setVisibility(visible)
+  };
+
+  window.addEventListener('scroll', handleScroll);
+
   return useObserver(() => {
     if (state === STATE_DOES_NOT_EXIST) {
       return <p>does not exist</p>;
@@ -158,7 +186,7 @@ const DetailThree = () => {
           to={{ woman: `${ancestor.woman}`, man: `${ancestor.man}` }}
         />
 
-        <div className={styles.buttons}>
+        <div className={`${visible ? styles.buttons : styles.buttons__hidden}`}>
           <button className={styles.addBookmark} onClick={handleClickBookmark}>
             {bookmark ? (
               <img
@@ -178,7 +206,11 @@ const DetailThree = () => {
           </button>
         </div>
 
-        <div className={`${styles.timeline__wrapper} ${styles.timeline__Ben}`}>
+        <div
+          className={`${styles.timeline__Ben} ${
+            visible ? styles.timeline__wrapper : styles.timeline__hidden
+          }`}
+        >
           <span>01</span>
           <span ref={chapterOneRef} data-chapter={1} className={styles.current}>
             Origin
@@ -252,12 +284,13 @@ const DetailThree = () => {
               </div>
             </article>
 
-            <div className={styles.backgroundImage}></div>
+            <div className={styles.backgroundImage} data-aos="fade-up"></div>
 
             <article
               ref={chapterTwoRefArticle}
               data-chapter={2}
               className={`${styles.timeframe} ${styles.content}`}
+              data-aos="fade-up"
             >
               <div className={styles.titleCentered}>
                 <h2 className={styles.title}>Black lives in America</h2>
@@ -303,6 +336,7 @@ const DetailThree = () => {
               ref={chapterThreeRefArticle}
               data-chapter={3}
               className={`${styles.living} ${styles.content}`}
+              data-aos="fade-up"
             >
               <div className={styles.living__text}>
                 <h2 className={styles.title}>Benjamin's life</h2>
@@ -356,6 +390,7 @@ const DetailThree = () => {
               ref={chapterFourRefArticle}
               data-chapter={4}
               className={`${styles.lawyer} ${styles.content}`}
+              data-aos="fade-up"
             >
               <div className={styles.titleCentered}>
                 <h2 className={styles.title}>The Lawyer</h2>
@@ -390,6 +425,7 @@ const DetailThree = () => {
               ref={chapterFiveRefArticle}
               data-chapter={5}
               className={`${styles.timeframe} ${styles.content}`}
+              data-aos="fade-up"
             >
               <div className={styles.titleCentered}>
                 <h2 className={styles.title}>African Americans in WWII</h2>
@@ -436,7 +472,6 @@ const DetailThree = () => {
                 </div>
                 <div className={styles.war__img}>
                   <img
-                    //className={styles.living__imgFamily}
                     src="/assets/img/detail/BenjaminCole_war.png"
                     alt="War picture Benjamin"
                     width="540px"
@@ -449,6 +484,7 @@ const DetailThree = () => {
               ref={chapterSixRefArticle}
               data-chapter={6}
               className={`${styles.event} ${styles.content}`}
+              data-aos="fade-up"
             >
               <div className={styles.titleCentered}>
                 <h2 className={styles.title}>Change of America</h2>
@@ -495,6 +531,7 @@ const DetailThree = () => {
               ref={chapterSevenRefArticle}
               data-chapter={7}
               className={`${styles.death} ${styles.content}`}
+              data-aos="fade-up"
             >
               <div className={styles.titleCentered}>
                 <h2 className={styles.title}>Cause of Death</h2>

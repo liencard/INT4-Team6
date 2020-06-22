@@ -3,6 +3,7 @@ import { useObserver } from 'mobx-react-lite';
 import styles from './Home.module.css';
 import Button from '../Button/index.jsx';
 import Login from '../Login/index.jsx';
+import { ROUTES } from '../../consts';
 
 const Home = () => {
   const [login, setLogin] = useState(false);
@@ -97,7 +98,7 @@ const Home = () => {
             }`}
           >
             <h1 className={styles.title}>Discover your hidden family roots</h1>
-            <Button text={'Start now'} to={'link'} />
+            <Button text={'Start now'} to={ROUTES.start} />
           </div>
 
           <p

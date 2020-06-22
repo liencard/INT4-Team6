@@ -9,8 +9,15 @@ import styles from './Detail.module.css';
 import Header from '../Header/index.jsx';
 import Loader from '../Loader/index.jsx';
 
-const DetailOne = () => {
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
+AOS.init({
+  once: true, // whether animation should happen only once - while scrolling down
+  easing: 'ease-in-out',
+});
+
+const DetailOne = () => {
   const { id } = useParams();
   const { bookmarkStore, uiStore, userStore, ancestorStore } = useStore();
   const feedbackRef = useRef();
@@ -36,7 +43,7 @@ const DetailOne = () => {
   const chapterFourRefArticle = useRef();
   const chapterFiveRefArticle = useRef();
 
-  let chapterArticles = []
+  let chapterArticles = [];
   chapterArticles.push(chapterOneRefArticle.current);
   chapterArticles.push(chapterTwoRefArticle.current);
   chapterArticles.push(chapterThreeRefArticle.current);
@@ -47,7 +54,7 @@ const DetailOne = () => {
   const STATE_LOADING = 'loading';
   const STATE_DOES_NOT_EXIST = 'doesNotExist';
   const STATE_LOADED = 'fullyLoaded';
-  
+
   const [ancestor, setAncestor] = useState(undefined);
   const [bookmark, setBookmark] = useState(undefined);
   const [ancestorWoman, setAncestorWoman] = useState(undefined);
@@ -57,38 +64,47 @@ const DetailOne = () => {
   useEffect(() => {
     const loadAncestor = async (id) => {
       try {
-            await ancestorStore.loadAllAncestors();
-            await bookmarkStore.loadAllBookmarks();
-            const ancestorId = parseInt(id);
-            const ancestor = await ancestorStore.loadAncestor(ancestorId);
-            const bookmarkedAncestor = bookmarkStore.getBookmarkByAncestorid(ancestorId);
-            if (!ancestor) {
-              setState(STATE_DOES_NOT_EXIST);
-              return;
-            }
-            if (bookmarkedAncestor) {
-              setBookmark(bookmarkedAncestor);
-            }
-            setAncestor(ancestor);
-            const ancestorWoman = ancestorStore.getAncestorById(ancestor.woman);
-            const ancestorMan = ancestorStore.getAncestorById(ancestor.man);
-            setAncestorWoman(ancestorWoman);
-            setAncestorMan(ancestorMan);
-            setState(STATE_LOADED);
-          } catch (error) {
+        await ancestorStore.loadAllAncestors();
+        await bookmarkStore.loadAllBookmarks();
+        const ancestorId = parseInt(id);
+        const ancestor = await ancestorStore.loadAncestor(ancestorId);
+        const bookmarkedAncestor = bookmarkStore.getBookmarkByAncestorid(
+          ancestorId
+        );
+        if (!ancestor) {
+          setState(STATE_DOES_NOT_EXIST);
+          return;
+        }
+        if (bookmarkedAncestor) {
+          setBookmark(bookmarkedAncestor);
+        }
+        setAncestor(ancestor);
+        const ancestorWoman = ancestorStore.getAncestorById(ancestor.woman);
+        const ancestorMan = ancestorStore.getAncestorById(ancestor.man);
+        setAncestorWoman(ancestorWoman);
+        setAncestorMan(ancestorMan);
+        setState(STATE_LOADED);
+      } catch (error) {
         if (error.response && error.response.status === 404) {
           setState(STATE_DOES_NOT_EXIST);
         }
       }
-
     };
     loadAncestor(id);
-  }, [ancestor, ancestorStore.ancestors, bookmark, ancestorStore, bookmarkStore, id]);
-
+  }, [
+    ancestor,
+    ancestorStore.ancestors,
+    bookmark,
+    ancestorStore,
+    bookmarkStore,
+    id,
+  ]);
 
   const handleClickBookmark = async () => {
     await userStore.loadAllUsers();
-    uiStore.setCurrentUser(userStore.resolveUser('4e8baf11-bb77-3f6b-97d1-69b8e51c2ebe'));
+    uiStore.setCurrentUser(
+      userStore.resolveUser('4e8baf11-bb77-3f6b-97d1-69b8e51c2ebe')
+    );
 
     if (!bookmark) {
       const bookmarkedAncestor = new Bookmark({
@@ -98,55 +114,73 @@ const DetailOne = () => {
       });
       await bookmarkedAncestor.create();
       await setBookmark(bookmarkedAncestor);
-      feedbackRef.current.classList.add(styles.feedback);
-      feedbackRef.current.innerHTML = "Added Bookmark";
+      //feedbackRef.current.classList.add(styles.feedback__add);
+      //feedbackRef.current.classList.remove(styles.feedback__remove);
+      feedbackRef.current.innerHTML = 'Added Bookmark';
     } else {
-      await bookmark.delete(); 
+      await bookmark.delete();
       await setBookmark(false);
-      feedbackRef.current.classList.add(styles.feedbackkk);
-      feedbackRef.current.innerHTML = "Removed Bookmark";
+      //feedbackRef.current.classList.add(styles.feedback__remove);
+      //feedbackRef.current.classList.remove(styles.feedback__add);
+      feedbackRef.current.innerHTML = 'Removed Bookmark';
     }
-  }
+  };
 
-   window.addEventListener('scroll', () => {
-     const fromTop = window.scrollY + window.innerHeight / 2;
-     chapterLinks.forEach(link => {
-       if (link) {
-          chapterArticles.forEach(article => {
-            if (link.dataset.chapter === article.dataset.chapter) {
-              if (article.offsetTop <= fromTop && article.offsetTop + article.offsetHeight > fromTop) {
-                link.classList.add(styles.current);
-              } else {
-                link.classList.remove(styles.current);
-              }
+  window.addEventListener('scroll', () => {
+    const fromTop = window.scrollY + window.innerHeight / 2;
+    chapterLinks.forEach((link) => {
+      if (link) {
+        chapterArticles.forEach((article) => {
+          if (link.dataset.chapter === article.dataset.chapter) {
+            if (
+              article.offsetTop <= fromTop &&
+              article.offsetTop + article.offsetHeight > fromTop
+            ) {
+              link.classList.add(styles.current);
+            } else {
+              link.classList.remove(styles.current);
             }
-          })
-       }
-     });
-   });
+          }
+        });
+      }
+    });
+  });
+
+
+  // SCROLL NAV
+  const [visible, setVisibility] = useState(true);
+  const [prevScrollpos, setPrevScrollpos] = useState(window.pageYOffset);
+
+  const handleScroll = () => {
+    const currentScrollPos = window.pageYOffset;
+    const visible = prevScrollpos > currentScrollPos;
+    setPrevScrollpos(currentScrollPos);
+    setVisibility(visible)
+  };
+
+  window.addEventListener('scroll', handleScroll);
+
+
 
   return useObserver(() => {
     if (state === STATE_DOES_NOT_EXIST) {
       return <p>does not exist</p>;
     }
     if (state === STATE_LOADING) {
-      return (<Loader/>);
+      return <Loader />;
     }
-  
+
     return (
       <>
         <Header
           logo={true}
           menu={true}
           togglePartners={true}
-          content={{
-            woman: `${ancestorWoman.name}`,
-            man: `${ancestorMan.name}`,
-          }}
+          content={{ woman: `${ancestorWoman.name}`, man: `${ancestorMan.name}`}}
           to={{ woman: `${ancestor.woman}`, man: `${ancestor.man}` }}
         />
 
-        <div className={styles.buttons}>
+        <div className={`${visible ? styles.buttons : styles.buttons__hidden}`}>
           <button className={styles.addBookmark} onClick={handleClickBookmark}>
             {bookmark ? (
               <img
@@ -166,7 +200,11 @@ const DetailOne = () => {
           </button>
         </div>
 
-        <div className={styles.timeline__wrapper}>
+        <div
+          className={`${
+            visible ? styles.timeline__wrapper : styles.timeline__hidden
+          }`}
+        >
           <span>01</span>
           <span ref={chapterOneRef} data-chapter={1} className={styles.current}>
             Origin
@@ -195,6 +233,8 @@ const DetailOne = () => {
             bookmark ? styles.feedback__add : styles.feedback__remove
           }`}
         ></p>
+
+        {/* <p ref={feedbackRef}></p> */}
 
         <div className={`${styles.detail} ${styles.detailMargeretEvans}`}>
           <div className={styles.container}>
@@ -231,12 +271,13 @@ const DetailOne = () => {
               </div>
             </article>
 
-            <div className={styles.backgroundImage}></div>
+            <div className={styles.backgroundImage} data-aos="fade-up"></div>
 
             <article
               ref={chapterTwoRefArticle}
               data-chapter={2}
               className={`${styles.timeframe} ${styles.content}`}
+              data-aos="fade-up"
             >
               <div className={styles.titleCentered}>
                 <h2 className={styles.title}>Industrial Revolution</h2>
@@ -284,6 +325,7 @@ const DetailOne = () => {
               ref={chapterThreeRefArticle}
               data-chapter={3}
               className={`${styles.living} ${styles.content}`}
+              data-aos="fade-up"
             >
               <div className={styles.living__text}>
                 <h2 className={styles.title}>Family Evans</h2>
@@ -319,6 +361,7 @@ const DetailOne = () => {
               ref={chapterFourRefArticle}
               data-chapter={4}
               className={`${styles.work} ${styles.content}`}
+              data-aos="fade-up"
             >
               <h2 className={styles.hidden}>Work</h2>
               <img
@@ -353,6 +396,7 @@ const DetailOne = () => {
               ref={chapterFiveRefArticle}
               data-chapter={5}
               className={`${styles.death} ${styles.content}`}
+              data-aos="fade-up"
             >
               <div className={styles.titleCentered}>
                 <h2 className={styles.title}>Cause of Death</h2>

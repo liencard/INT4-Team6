@@ -69,10 +69,12 @@ import Loader from '../Loader/index.jsx';
               </p>
               <div className={styles.bookmarks__wrapper}>
                   {bookmarkStore.bookmarks.map((bookmark) => (
+                    bookmark.id ? (
                     <div key={bookmark.id} bookmarkid={bookmark.id}>
                       {console.log(bookmark)}
                       <Bookmark bookmark={bookmark} />
                     </div>
+                    ) : ''
                   ))}
                 <Link to={`${ROUTES.ancestors}`} className={styles.btn}>
                   <div className={styles.bookmarks__btn}>

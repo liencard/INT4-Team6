@@ -5,7 +5,7 @@ import styles from './Button.module.css';
 
 const Button = ({ to, text }) => {
   return (
-    <Link to={`${to}`} className={styles.button} style={{backgroundImage: `url(./assets/img/arrow.svg)`}}>
+    <Link to={`${to}`} className={styles.button}>
       {text}
     </Link>
   );

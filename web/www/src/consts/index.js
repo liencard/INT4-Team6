@@ -7,7 +7,8 @@ const ROUTES = {
   onboardingTwo: '/onboarding-two',
   onboardingThree: '/onboarding-three',
   bookmarks: '/bookmarks',
-  detail: { path: '/detail/:id', to: '/detail/' }
+  start: '/start',
+  detail: { path: '/detail/:id', to: '/detail/' },
 };
 
 export { ROUTES };

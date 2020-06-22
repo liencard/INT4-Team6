@@ -6,7 +6,7 @@ import Button from '../Button/index.jsx';
 
 const Bookmark = ({bookmark}) => {
 
-    // const imgName = bookmark.name.split(' ').join('');
+    const imgName = bookmark.name.split(' ').join('');
 
     return useObserver(() => (
       <>

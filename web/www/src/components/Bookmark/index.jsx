@@ -6,7 +6,7 @@ import Button from '../Button/index.jsx';
 
 const Bookmark = ({bookmark}) => {
 
-    const imgName = bookmark.name.split(' ').join('');
+    // const imgName = bookmark.name.split(' ').join('');
 
     return useObserver(() => (
       <>
@@ -18,13 +18,13 @@ const Bookmark = ({bookmark}) => {
             </p>
           </div>
           <div className={styles.img__wrapper}>
-            <img
+            {/* <img
               className={styles.bookmark__img}
               src={`./assets/img/ancestors/thumbnail/${imgName}.jpg`}
               alt="ancestor"
               width="300"
               height="300"
-            />
+            /> */}
             <div className={styles.bookmark__hover}>
               <Button text={'Revisit'} to={'link to ancestor'} />
             </div>
@@ -35,7 +35,7 @@ const Bookmark = ({bookmark}) => {
 };
 
 Bookmark.propTypes = {
-  bookmark: PropTypes.string.isRequired,
+  bookmark: PropTypes.object.isRequired,
 };
 
 export default Bookmark;

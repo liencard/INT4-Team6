@@ -33,8 +33,11 @@ class BookmarkStore {
     if (!bookmark) {
       bookmark = new Bookmark({
         id: json.id,
+        ancestor_id: json.ancestor_id,
+        user_id: this.rootStore.uiStore.currentUser.id,
         store: this.rootStore.bookmarkStore,
       });
+      console.log(bookmark)
     }
     if (json.isDeleted) {
       this.bookmarks.remove(bookmark);

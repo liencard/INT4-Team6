@@ -91,7 +91,9 @@ const DetailOne = () => {
     uiStore.setCurrentUser(userStore.resolveUser('4e8baf11-bb77-3f6b-97d1-69b8e51c2ebe'));
 
     if (!bookmark) {
+      // pushen naar database maar niet succesful naar frontend (enkel bij page reload)
       const bookmarkedAncestor = new Bookmark({
+        // hoe gaan we id meegeven?
         user_id: uiStore.currentUser.id,
         ancestor_id: ancestor.id,
         store: bookmarkStore,

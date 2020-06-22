@@ -50,65 +50,72 @@ import Loader from '../Loader/index.jsx';
     } 
     
     return (
-     <>
-       <Header logo={true} menu={true} content={true} text={"Bookmarked Ancestors"} />
+      <>
+        <Header
+          logo={true}
+          menu={true}
+          content={true}
+          text={'Bookmarked Ancestors'}
+        />
         <div
-         className={styles.container}
-         style={{ backgroundImage: `url(assets/img/bookmark_bg.png)` }}
+          className={styles.container}
+          style={{ backgroundImage: `url(assets/img/bookmark_bg.png)` }}
         >
-         
-         {bookmarkStore.bookmarks.length > 0 ? (
-           <section className={styles.bookmarks}>
-             <h2 className={styles.hidden}>Bookmarked</h2>
-             <p className={styles.title}>
-               Stories you've saved that are worth the read.
-             </p>
-             <div className={styles.bookmarks__wrapper}>
-               {bookmarkStore.bookmarks.map((bookmark) => (
-                 <ul key={bookmark.id} bookmarkid={bookmark.id}>
-                   <Bookmark bookmark={bookmark} />
-                 </ul>
-               ))}
-               <Link to={`${ROUTES.ancestors}`} className={styles.btn}>
-                 <div className={styles.bookmarks__btn}>
-                   <img
-                     className={styles.img}
-                     src="./assets/img/icon_bookmark.svg"
-                     alt="bookmark icon"
-                     width="122"
-                     height="122"
-                   />
-                   <p className={styles.btn__text}>add other ancestors</p>
-                 </div>
-               </Link>
-             </div>
-           </section>
-         ) : (
-           <section className={styles.emty__state}>
-             <h2 className={styles.hidden}>Bookmarked</h2>
-             <p className={styles.title}>You haven't read any stories yet.</p>
-             <div className={styles.bookmarks__wrapper}>
-               <Link to={`${ROUTES.ancestors}`} className={styles.btn}>
-                 <div className={styles.bookmarks__btn}>
-                   <img
-                     className={styles.img}
-                     src="./assets/img/icon_bookmark.svg"
-                     alt="bookmark icon"
-                     width="122"
-                     height="122"
-                   />
-                   <p className={styles.btn__text}>add other ancestors</p>
-                 </div>
-               </Link>
-               <div className={styles.bookmark__empty}></div>
-               <div className={styles.bookmark__empty}></div>
-               <div className={styles.bookmark__empty}></div>
-             </div>
-           </section>
-         )}
-       </div>
-     </>
-    )
+          {bookmarkStore.bookmarks.length > 0 ? (
+            <section className={styles.bookmarks}>
+              <h2 className={styles.hidden}>Bookmarked</h2>
+              <p className={styles.title}>
+                Stories you've saved that are worth the read.
+              </p>
+              <div className={styles.bookmarks__wrapper}>
+                <ul>
+                  {bookmarkStore.bookmarks.map((bookmark) => (
+                    <li key={bookmark.id} bookmarkid={bookmark.id}>
+                      {console.log(bookmark)}
+                      <Bookmark bookmark={bookmark} />
+                    </li>
+                  ))}
+                </ul>
+                <Link to={`${ROUTES.ancestors}`} className={styles.btn}>
+                  <div className={styles.bookmarks__btn}>
+                    <img
+                      className={styles.img}
+                      src="./assets/img/icon_bookmark.svg"
+                      alt="bookmark icon"
+                      width="122"
+                      height="122"
+                    />
+                    <p className={styles.btn__text}>add other ancestors</p>
+                  </div>
+                </Link>
+              </div>
+            </section>
+          ) : (
+            <section className={styles.emty__state}>
+              <h2 className={styles.hidden}>Bookmarked</h2>
+              <p className={styles.title}>You haven't read any stories yet.</p>
+              <div className={styles.bookmarks__wrapper}>
+                <Link to={`${ROUTES.ancestors}`} className={styles.btn}>
+                  <div className={styles.bookmarks__btn}>
+                    <img
+                      className={styles.img}
+                      src="./assets/img/icon_bookmark.svg"
+                      alt="bookmark icon"
+                      width="122"
+                      height="122"
+                    />
+                    <p className={styles.btn__text}>add other ancestors</p>
+                  </div>
+                </Link>
+                <div className={styles.bookmark__empty}></div>
+                <div className={styles.bookmark__empty}></div>
+                <div className={styles.bookmark__empty}></div>
+              </div>
+            </section>
+          )}
+        </div>
+      </>
+    );
    });
  };
 

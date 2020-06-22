@@ -91,9 +91,7 @@ const DetailOne = () => {
     uiStore.setCurrentUser(userStore.resolveUser('4e8baf11-bb77-3f6b-97d1-69b8e51c2ebe'));
 
     if (!bookmark) {
-      // pushen naar database maar niet succesful naar frontend (enkel bij page reload)
       const bookmarkedAncestor = new Bookmark({
-        // hoe gaan we id meegeven?
         user_id: uiStore.currentUser.id,
         ancestor_id: ancestor.id,
         store: bookmarkStore,
@@ -141,7 +139,10 @@ const DetailOne = () => {
           logo={true}
           menu={true}
           togglePartners={true}
-          content={{ woman: `${ancestorWoman.name}`, man: `${ancestorMan.name}`  }}
+          content={{
+            woman: `${ancestorWoman.name}`,
+            man: `${ancestorMan.name}`,
+          }}
           to={{ woman: `${ancestor.woman}`, man: `${ancestor.man}` }}
         />
 
@@ -167,15 +168,25 @@ const DetailOne = () => {
 
         <div className={styles.timeline__wrapper}>
           <span>01</span>
-          <span ref={chapterOneRef} data-chapter={1} className={styles.current}>Origin</span>
+          <span ref={chapterOneRef} data-chapter={1} className={styles.current}>
+            Origin
+          </span>
           <span>02</span>
-          <span ref={chapterTwoRef} data-chapter={2}>Industrial Revolution</span>
+          <span ref={chapterTwoRef} data-chapter={2}>
+            Industrial Revolution
+          </span>
           <span>03</span>
-          <span ref={chapterThreeRef} data-chapter={3}>Evens Family</span>
+          <span ref={chapterThreeRef} data-chapter={3}>
+            Evens Family
+          </span>
           <span>04</span>
-          <span ref={chapterFourRef} data-chapter={4}>Profession</span>
+          <span ref={chapterFourRef} data-chapter={4}>
+            Profession
+          </span>
           <span>05</span>
-          <span ref={chapterFiveRef} data-chapter={5}>Cause of death</span>
+          <span ref={chapterFiveRef} data-chapter={5}>
+            Cause of death
+          </span>
         </div>
 
         <p
@@ -187,7 +198,11 @@ const DetailOne = () => {
 
         <div className={`${styles.detail} ${styles.detailMargeretEvans}`}>
           <div className={styles.container}>
-            <article ref={chapterOneRefArticle} data-chapter={1} className={`${styles.intro} ${styles.content}`}>
+            <article
+              ref={chapterOneRefArticle}
+              data-chapter={1}
+              className={`${styles.intro} ${styles.content}`}
+            >
               <div className={styles.intro__ancestor}>
                 <p className={styles.generation}>Sixth Generation</p>
                 <h1 className={styles.name}>
@@ -216,7 +231,13 @@ const DetailOne = () => {
               </div>
             </article>
 
-            <article ref={chapterTwoRefArticle} data-chapter={2} className={`${styles.timeframe} ${styles.content}`}>
+            <div className={styles.backgroundImage}></div>
+
+            <article
+              ref={chapterTwoRefArticle}
+              data-chapter={2}
+              className={`${styles.timeframe} ${styles.content}`}
+            >
               <div className={styles.titleCentered}>
                 <h2 className={styles.title}>Industrial Revolution</h2>
                 <span className={styles.dates}>1815 - 1914</span>
@@ -259,7 +280,11 @@ const DetailOne = () => {
               </div>
             </article>
 
-            <article ref={chapterThreeRefArticle} data-chapter={3} className={`${styles.living} ${styles.content}`}>
+            <article
+              ref={chapterThreeRefArticle}
+              data-chapter={3}
+              className={`${styles.living} ${styles.content}`}
+            >
               <div className={styles.living__text}>
                 <h2 className={styles.title}>Family Evans</h2>
                 <p className={styles.text}>
@@ -290,7 +315,11 @@ const DetailOne = () => {
               </div>
             </article>
 
-            <article ref={chapterFourRefArticle} data-chapter={4} className={`${styles.work} ${styles.content}`}>
+            <article
+              ref={chapterFourRefArticle}
+              data-chapter={4}
+              className={`${styles.work} ${styles.content}`}
+            >
               <h2 className={styles.hidden}>Work</h2>
               <img
                 className={styles.work__img}
@@ -320,7 +349,11 @@ const DetailOne = () => {
               </div>
             </article>
 
-            <article ref={chapterFiveRefArticle} data-chapter={5}>
+            <article
+              ref={chapterFiveRefArticle}
+              data-chapter={5}
+              className={`${styles.death} ${styles.content}`}
+            >
               <div className={styles.titleCentered}>
                 <h2 className={styles.title}>Cause of Death</h2>
                 <span className={styles.dates}>1815 - 1914</span>
@@ -360,12 +393,15 @@ const DetailOne = () => {
                 </Link>
               ) : (
                 ''
-              )};
+              )}
+              ;
               <Link
                 to={`${ancestor.child}`}
                 className={styles.buttons__next}
                 activeClassName={styles.tabActive}
-              >Next generation</Link>
+              >
+                Next generation
+              </Link>
             </div>
           </div>
         </div>

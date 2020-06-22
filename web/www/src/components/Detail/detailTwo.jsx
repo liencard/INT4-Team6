@@ -163,7 +163,7 @@ const DetailTwo = () => {
           </button>
         </div>
 
-        <div className={styles.timeline__wrapper}>
+        <div className={`${styles.timeline__wrapper} ${styles.timeline__Mary}`}>
           <span>01</span>
           <span ref={chapterOneRef} data-chapter={1} className={styles.current}>
             Origin
@@ -342,7 +342,8 @@ const DetailTwo = () => {
                 </Link>
               ) : (
                 ''
-              )};
+              )}
+              ;
               <Link
                 to={`${ancestor.child}`}
                 className={styles.buttons__next}

@@ -151,7 +151,10 @@ const DetailThree = () => {
           logo={true}
           menu={true}
           togglePartners={true}
-          content={{ woman: `${ancestorWoman.name}`, man: `${ancestorMan.name}` }}
+          content={{
+            woman: `${ancestorWoman.name}`,
+            man: `${ancestorMan.name}`,
+          }}
           to={{ woman: `${ancestor.woman}`, man: `${ancestor.man}` }}
         />
 
@@ -175,21 +178,35 @@ const DetailThree = () => {
           </button>
         </div>
 
-        <div className={styles.timeline__wrapper}>
+        <div className={`${styles.timeline__wrapper} ${styles.timeline__Ben}`}>
           <span>01</span>
-          <span ref={chapterOneRef} data-chapter={1} className={styles.current}>Origin</span>
+          <span ref={chapterOneRef} data-chapter={1} className={styles.current}>
+            Origin
+          </span>
           <span>02</span>
-          <span ref={chapterTwoRef} data-chapter={2}>Black lives in America</span>
+          <span ref={chapterTwoRef} data-chapter={2}>
+            Black lives in America
+          </span>
           <span>03</span>
-          <span ref={chapterThreeRef} data-chapter={3}>Benjamins life</span>
+          <span ref={chapterThreeRef} data-chapter={3}>
+            Benjamins life
+          </span>
           <span>04</span>
-          <span ref={chapterFourRef} data-chapter={4}>The lawyer</span>
+          <span ref={chapterFourRef} data-chapter={4}>
+            The lawyer
+          </span>
           <span>05</span>
-          <span ref={chapterFiveRef} data-chapter={5}>African Americans in WWII</span>
+          <span ref={chapterFiveRef} data-chapter={5}>
+            African Americans in WWII
+          </span>
           <span>06</span>
-          <span ref={chapterSixRef} data-chapter={6}>XXXXXX</span>
+          <span ref={chapterSixRef} data-chapter={6}>
+            Change of America
+          </span>
           <span>07</span>
-          <span ref={chapterSevenRef} data-chapter={7}>Possible causes of death</span>
+          <span ref={chapterSevenRef} data-chapter={7}>
+            Possible causes of death
+          </span>
         </div>
 
         <p
@@ -201,7 +218,11 @@ const DetailThree = () => {
 
         <div className={`${styles.detail} ${styles.detailBenjaminCole}`}>
           <div className={styles.container}>
-            <article ref={chapterOneRefArticle} data-chapter={1} className={`${styles.intro} ${styles.content}`}>
+            <article
+              ref={chapterOneRefArticle}
+              data-chapter={1}
+              className={`${styles.intro} ${styles.content}`}
+            >
               <div className={styles.intro__ancestor}>
                 <p className={styles.generation}>Third Generation</p>
                 <h1 className={styles.name}>
@@ -231,7 +252,13 @@ const DetailThree = () => {
               </div>
             </article>
 
-            <article ref={chapterTwoRefArticle} data-chapter={2} className={`${styles.timeframe} ${styles.content}`}>
+            <div className={styles.backgroundImage}></div>
+
+            <article
+              ref={chapterTwoRefArticle}
+              data-chapter={2}
+              className={`${styles.timeframe} ${styles.content}`}
+            >
               <div className={styles.titleCentered}>
                 <h2 className={styles.title}>Black lives in America</h2>
                 <span className={styles.dates}>1900 - 1990</span>
@@ -272,7 +299,11 @@ const DetailThree = () => {
               </div>
             </article>
 
-            <article ref={chapterThreeRefArticle} data-chapter={3} className={`${styles.living} ${styles.content}`}>
+            <article
+              ref={chapterThreeRefArticle}
+              data-chapter={3}
+              className={`${styles.living} ${styles.content}`}
+            >
               <div className={styles.living__text}>
                 <h2 className={styles.title}>Benjamin's life</h2>
                 <section>
@@ -321,21 +352,26 @@ const DetailThree = () => {
               </div>
             </article>
 
-            <article ref={chapterFourRefArticle} data-chapter={4} className={`${styles.profession} ${styles.content}`}>
+            <article
+              ref={chapterFourRefArticle}
+              data-chapter={4}
+              className={`${styles.lawyer} ${styles.content}`}
+            >
               <div className={styles.titleCentered}>
                 <h2 className={styles.title}>The Lawyer</h2>
                 <span className={styles.dates}>1927 - 1940</span>
               </div>
 
+              <div className={styles.lawyer__info}>
+                <div className={styles.lawyer__img}>
+                  <img
+                    src="/assets/img/detail/BenjaminCole_trail.png"
+                    alt="Court trial"
+                    width="850px"
+                  ></img>
+                </div>
 
-              <div className={styles.professionInfo}>
-                {/* <img
-                  className={styles.profession__img}
-                  src="/assets/img/detail/BenjaminCole_trail.png"
-                  alt="Court trial"
-                  width="850px"
-                /> */}
-                <section>
+                <section className={styles.lawyer__text}>
                   <h3 className={styles.subtitle}>Law firm</h3>
                   <p className={styles.text}>
                     After Benjamin graduated from Ohio State University he
@@ -351,25 +387,36 @@ const DetailThree = () => {
               </div>
             </article>
 
-            <article ref={chapterFiveRefArticle} data-chapter={5} className={`${styles.timeframe} ${styles.content}`}>
+            <article
+              ref={chapterFiveRefArticle}
+              data-chapter={5}
+              className={`${styles.timeframe} ${styles.content}`}
+            >
               <div className={styles.titleCentered}>
                 <h2 className={styles.title}>African Americans in WWII</h2>
                 <span className={styles.dates}>1941 - 1945</span>
               </div>
               <div className={styles.living}>
-                <div className={styles.living__text}>
+                <div className={styles.war__text}>
                   <section>
-                    <h3 className={styles.subtitle}>1903, Birthday</h3>
+                    <h3 className={styles.subtitle}>
+                      The beginning of of WWII
+                    </h3>
                     <p className={styles.text}>
-                      The family Cole’s were located in Louisiana were Benjamin
-                      was born and raised. They had two childeren, Issabelle
-                      whom was 4 years older than him. Until 16 they went to
-                      school in Louisiana but then decided to move to the North
-                      for a better life and better paying jobs.
+                      During World War II, the African Americans were prepared
+                      to fight for the “Four Freedoms” - freedom of speech, of
+                      worship, freedom from want and from fear - by President
+                      Franklin D. Roosevelt. More than 3 million black Americans
+                      registered, with some 500,000 seeing action overseas.
+                      Black and white people were separated in different units.
+                      Black servicemen were frustrated and forced to combat
+                      racism.
                     </p>
                     <p className={styles.text}>
-                      In the North they stayed at Ohio. His father started
-                      working in the auto industry, the Ford Motor Company.
+                      The first African American hero was Dorie Miller, who
+                      carried a wounded crewmember to safety and went to a
+                      machine gun post to shoot down several Japanese planes
+                      during the attack on Pearl Harbor.
                     </p>
                   </section>
                   <section>
@@ -388,50 +435,95 @@ const DetailThree = () => {
                     </p>
                   </section>
                 </div>
-                <div className={styles.living__img}>
+                <div className={styles.war__img}>
                   <img
                     //className={styles.living__imgFamily}
                     src="/assets/img/detail/BenjaminCole_war.png"
                     alt="War picture Benjamin"
-                    width="490px"
+                    width="540px"
                   />
                 </div>
               </div>
             </article>
 
-            <article ref={chapterSixRefArticle} data-chapter={6}>
-
-            </article>
-
-            <article ref={chapterSevenRefArticle} data-chapter={7} className={`${styles.death} ${styles.content}`}>
+            <article
+              ref={chapterSixRefArticle}
+              data-chapter={6}
+              className={`${styles.event} ${styles.content}`}
+            >
               <div className={styles.titleCentered}>
-                <h2 className={styles.title}>Possible causes of death</h2>
-                <span className={styles.dates}>1787 - 1844</span>
+                <h2 className={styles.title}>Change of America</h2>
+                <span className={styles.dates}>1950 - 1960</span>
               </div>
-              <div className={styles.death__start}>
-                <section>
-                  <h3 className={styles.subtitle}>Slavery</h3>
-                  <p className={styles.text}>
-                    At first, Ivory Coast traded gold, ivory and pepper with
-                    European and the Far East. With the rise of American
-                    colonies in the sixteenth century there was a need of
-                    slaves, which led to kidnapping and enslavement of people
-                    from West Africa.
-                  </p>
-                </section>
-                <section>
-                  <h3 className={styles.subtitle}>Olderdom</h3>
-                  <p className={styles.text}>
-                    In the 18th century, Ivory Coast was invaded by two groups.
-                    The Akans and The Agni’s. They occupied the southeast and
-                    the centrail section. In 1843-1844, the year Mary passed
-                    away, French Admiral Bouet-Willaumez signed treaties with
-                    the kings. The French had control over the area until 1915,
-                    in the beginning of World War One.
-                  </p>
-                </section>
+
+              <div className={styles.event__wrapper}>
+                <div className={styles.event__img}>
+                  <img
+                    className={styles.event__imgMLK}
+                    src="/assets/img/detail/BenjaminCole_mlk.png"
+                    alt="Martin Luther King waving"
+                    width="800px"
+                  />
+                </div>
+                <div className={styles.event__text}>
+                  <section>
+                    <h3 className={styles.subtitle}>Martin Luther King</h3>
+                    <p className={styles.text}>
+                      Martin Luther King was a well spokesperson and leader who
+                      was Christian minister and activist in the civil rights
+                      movement from 1955 until his assassinatin in 1968. He was
+                      well known for protesting civil rights without violence
+                      and civil disobedience. He was inspired by his Chrisitian
+                      beliefs and the nonviolent activism of Mahatma Gandhi. He
+                      was born in 1929 and killed with a gunshot wound in 1968.
+                    </p>
+                  </section>
+                  <section>
+                    <h3 className={styles.subtitle}>Awards</h3>
+                    <p className={styles.text}>
+                      King was awarded with the Presidential Medal of Freedom
+                      and the Congressional Gold Medal. He got his own day which
+                      is a holiday in cities and states throughout the United
+                      States. It was enacted at the federal level by legislation
+                      by President Ronald Reagan in 1986.
+                    </p>
+                  </section>
+                </div>
               </div>
             </article>
+
+            <article
+              ref={chapterSevenRefArticle}
+              data-chapter={7}
+              className={`${styles.death} ${styles.content}`}
+            >
+              <div className={styles.titleCentered}>
+                <h2 className={styles.title}>Cause of Death</h2>
+                <span className={styles.dates}>1992</span>
+              </div>
+              <section className={styles.death__start}>
+                <img
+                  className={styles.death__img}
+                  src="/assets/img/detail/BenjaminCole_death.png"
+                  alt="Death"
+                  width="525px"
+                />
+                <div className={styles.death__text}>
+                  <h3 className={styles.subtitle}>Natural Death</h3>
+                  <p className={styles.text}>
+                    After Benjamin came back from war he continued being a
+                    lawyer and was a father for his childeren.
+                  </p>
+                  <p className={styles.text}>
+                    When he got older Benjamin started having heart issues. At
+                    the age of 84 he got a heart attack and this is how he
+                    passed away. Benjamin is now graved in Ohio Western Reserve
+                    National Cemetery.
+                  </p>
+                </div>
+              </section>
+            </article>
+
             <div className={styles.buttons__generation}>
               <Link
                 to={`${ancestor.mother}`}

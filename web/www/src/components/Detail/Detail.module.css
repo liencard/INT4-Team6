@@ -68,7 +68,7 @@
     align-self: center;
     color: faded;
     z-index: 8;
-}
+} 
 
 .timeline__wrapper span {
     padding-top: 2.4rem;
@@ -78,6 +78,14 @@
     border-left: .1rem solid faded;
     padding-left: 1.5rem;
 } 
+
+.timeline__Ben {
+    grid-template-rows: repeat(6, 8rem) 4rem;
+}
+
+.timeline__Mary {
+    grid-template-rows: repeat(3, 15rem) 8rem;
+}
 
 
 /* Feedback popup bookmarks */
@@ -219,7 +227,7 @@
     margin-top: 20rem;
     display: grid;
     grid-template-columns: 2fr 3fr;
-    width: 50%;
+    width: 60%;
 }
 
 .intro__info section {
@@ -233,7 +241,7 @@
 
 /* CONTENT - TIMEFRAME */
 
-.detailMargeretEvans .timeframe::before {
+/* .detailMargeretEvans .timeframe::before {
     content: '';
     position: absolute;
     background-image: url("/assets/img/detail/MargeretEvans_revolution.png");
@@ -245,27 +253,29 @@
     background-size: auto 100%;
     width: 50vw;
     height: 60rem;
-}
+} */
 
 .backgroundImage {
-    background-image: url("/assets/img/detail/MaryWallcott_slaves.png");
     background-repeat: no-repeat;
-    min-width: 100vw;
-    min-height: 100vh;
-    margin-bottom: -60rem;
+    width: 100vw;
+    height: 100vh;
     z-index: 0;
 } 
 
-/* .detailMaryWallcott .timeframe::after {
-    content: '';
-    position: absolute;
+.detailMargeretEvans .backgroundImage {
+    background-image: url("/assets/img/detail/MargeretEvans_revolution.png");
+    margin-bottom: -60rem;
+}
+
+.detailMaryWallcott .backgroundImage {
     background-image: url("/assets/img/detail/MaryWallcott_slaves.png");
-    background-repeat: no-repeat;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    top: 100rem;
-} */
+    margin-bottom: -60rem;
+}
+
+.detailBenjaminCole .backgroundImage {
+    background-image: url("/assets/img/detail/BenjaminCole_america.png");
+    margin-bottom: -70rem;
+}
 
 .timeframe {
     z-index: 2;
@@ -313,7 +323,7 @@
 }
 
 .detailBenjaminCole .living__text section {
-    margin-bottom: 7rem;
+    margin-bottom: 4rem;
 }
 
 .detailBenjaminCole .living__imgFamily {
@@ -324,6 +334,8 @@
 .detailBenjaminCole .living__imgPicture {
     transform: translate(18rem, 0);
 }
+
+
 
 /* CONTENT - WORK */
 
@@ -347,13 +359,44 @@
     margin-bottom: 3rem;
 }
 
-.professionInfo {
-    /* display: grid;
-    grid-template-columns: auto 45rem; */
+.lawyer {
+    margin-bottom: 30rem;
+}
+
+.lawyer__info {
+    display: grid;
+    grid-template-columns: auto 38rem;
     background-color: red;
 }
 
-.profession__img {
+.lawyer__img {
+    position: absolute;
+    left: 0;
+}
+
+/* CONTENT - WAR */
+
+.war__text {
+    max-width: 39rem;
+    z-index: 2;
+}
+
+.war__img {
+    margin-top: -5rem;
+}
+
+/* CONTENT - EVENT */
+
+.event__wrapper {
+    display: grid;
+    grid-template-columns: auto 38rem;
+}
+
+.event__text section {
+    padding-bottom: 5rem;
+}
+
+.event__imgMLK {
     position: absolute;
     left: 0;
 }
@@ -361,12 +404,22 @@
 
 /* CONTENT - DEATH */
 .death {
-    padding: 15rem 0;
+    padding-top: 15rem;
 }
 
 .detailMaryWallcott .death {
     width: 72.5rem;
     margin: 0 auto;
+    padding-bottom: 15rem;
+}
+
+.detailMargeretEvans .death {
+    margin-bottom: 0;
+}
+
+.detailBenjaminCole .death {
+    margin-bottom: 0;
+    padding-top: 5rem;
 }
 
 .death__start {
@@ -379,6 +432,11 @@
 .detailMaryWallcott .death__start {
     margin-top: 4rem;
 }
+
+.detailBenjaminCole .death__start {
+    padding: 0 4rem;
+}
+
 
 .death__text {
     max-width: 41rem;

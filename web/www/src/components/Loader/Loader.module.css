@@ -10,11 +10,11 @@
 }
 
 .loader {
-  border: .8rem solid darkgray;
+  border: .4rem solid darkgray;
   border-radius: 50%;
-  border-top: .8rem solid faded;
-  width: 10rem;
-  height: 10rem;
+  border-top: .4rem solid faded;
+  width: 4rem;
+  height: 4rem;
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 2s linear infinite;
 }

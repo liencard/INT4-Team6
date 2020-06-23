@@ -187,7 +187,10 @@ const DetailOne = () => {
           logo={true}
           menu={true}
           togglePartners={true}
-          content={{ woman: `${ancestorWoman.name}`, man: `${ancestorMan.name}`}}
+          content={{
+            woman: `${ancestorWoman.name}`,
+            man: `${ancestorMan.name}`,
+          }}
           to={{ woman: `${ancestor.woman}`, man: `${ancestor.man}` }}
         />
 
@@ -238,7 +241,7 @@ const DetailOne = () => {
           </span>
         </div>
 
-          {/* LEGE BOX */}
+        {/* LEGE BOX */}
 
         {/* <p
           ref={feedbackRef}
@@ -299,7 +302,7 @@ const DetailOne = () => {
                 <span className={styles.dates}>1815 - 1914</span>
               </div>
               <div className={styles.timeframe__info}>
-                <section>
+                <section className={styles.info__one}>
                   <h3 className={styles.subtitle}>The start</h3>
                   <p className={styles.text}>
                     During the 19th century life changed into the Industrial
@@ -309,7 +312,7 @@ const DetailOne = () => {
                     for the ordinary.
                   </p>
                 </section>
-                <section>
+                <section className={styles.info__two}>
                   <h3 className={styles.subtitle}>The conflict</h3>
                   <p className={styles.text}>
                     A lot of people emigrated to Australia and North America to
@@ -323,7 +326,7 @@ const DetailOne = () => {
                     Britian in London.
                   </p>
                 </section>
-                <section>
+                <section className={styles.info__three}>
                   <h3 className={styles.subtitle}>Resulting in</h3>
                   <p className={styles.text}>
                     Britain was ruled by the elite in the early 19th century,
@@ -364,11 +367,16 @@ const DetailOne = () => {
                   alt="Family"
                   width="260px"
                 />
-                <img
+                {/* <img
                   src="/assets/img/detail/MargeretEvans_house.png"
                   alt="House"
                   width="560px"
-                />
+                /> */}
+                <picture>
+                  <source media="(max-width: 1000px)" srcset="/assets/img/detail/MargeretEvans_house_tab.png 100w" />
+                  <source media="(min-width: 1000px)" srcset="/assets/img/detail/MargeretEvans_house.png 560w" />
+                  <img src="/assets/img/detail/MargeretEvans_house.png" className={styles.living__imgHouse} alt="House" width="560px"/>
+                </picture>
               </div>
             </article>
 

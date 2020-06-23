@@ -5,7 +5,7 @@ import styles from './Header.module.css';
 import { useObserver } from 'mobx-react-lite';
 import Sidebar from '../Sidebar/index.jsx';
 
-//import {DropdownButton, Dropdown} from 'react-bootstrap';
+const url = window.location.pathname;
 
 const Header = ({logo, menu, content, text, toggleDashboard, togglePartners, to, ancestor}) => {
     const [menuToggle, setMenu] = useState(false);
@@ -21,8 +21,6 @@ const Header = ({logo, menu, content, text, toggleDashboard, togglePartners, to,
       };
  
     window.addEventListener('scroll', handleScroll);
-
-    console.log(`${ancestor} lalal`);
 
     const LogoView = () => {
         if (logo) {
@@ -67,7 +65,8 @@ const Header = ({logo, menu, content, text, toggleDashboard, togglePartners, to,
       )
     } else if (content && toggleDashboard) {
       return (
-        <div>
+        <>
+        <div className={styles.toggle__big}>
           <NavLink
             to={`${ROUTES.ancestors}`}
             className={styles.tab}
@@ -83,6 +82,27 @@ const Header = ({logo, menu, content, text, toggleDashboard, togglePartners, to,
             Roots DNA
             </NavLink>
         </div>
+
+        <div className={styles.toggle__small}>
+          <NavLink
+            to=
+            {(url === '/ancestor') ? (
+              `${ROUTES.ancestors}`
+            ) : (
+                `${ROUTES.map}`
+              )}
+            className={styles.tab}
+            activeClassName={styles.tabActive}
+          >
+            {(url === '/ancestor') ? (
+              `Family Tree`
+            ) : (
+                `Roots DNA`
+              )}
+
+          </NavLink>
+        </div>
+        </>
       );
     } else if (content && togglePartners) { 
         return (
@@ -146,12 +166,6 @@ const Header = ({logo, menu, content, text, toggleDashboard, togglePartners, to,
               </div>
 
               <div className={`${styles.toggle} ${styles.toggle__small}`}>
-                {/* <DropdownButton id="dropdown-basic-button" title="Dropdown button">
-                  <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                </DropdownButton> */}
-
                 <NavLink
                   to=
                   {(ancestor.id === ancestor.woman) ? (
@@ -167,9 +181,7 @@ const Header = ({logo, menu, content, text, toggleDashboard, togglePartners, to,
                   ): (
                     `${ content.woman }`
                   )}
-                  
                 </NavLink>
-
               </div>
             </div>
           </div>

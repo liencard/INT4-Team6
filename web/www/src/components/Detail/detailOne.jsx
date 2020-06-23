@@ -373,6 +373,7 @@ const DetailOne = () => {
                   width="560px"
                 /> */}
                 <picture>
+                  <source media="(max-width: 500px)" srcset="/assets/img/detail/MargeretEvans_house.png 560w" />
                   <source media="(max-width: 1000px)" srcset="/assets/img/detail/MargeretEvans_house_tab.png 100w" />
                   <source media="(min-width: 1000px)" srcset="/assets/img/detail/MargeretEvans_house.png 560w" />
                   <img src="/assets/img/detail/MargeretEvans_house.png" className={styles.living__imgHouse} alt="House" width="560px"/>

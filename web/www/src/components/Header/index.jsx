@@ -156,17 +156,8 @@ const Header = ({logo, menu, content, text, toggleDashboard, togglePartners, to}
     } else {
          return '';
     }
-   
 
   }
-
-    // const SidebarView = () => {
-    //     if (menu) {
-    //         return <Sidebar type={'menu'} toggle={menuToggle} setToggle={setMenu}/>;
-    //     } else {
-    //         return '';
-    //     }
-    // }
 
   return useObserver(() => (
     <>
@@ -175,7 +166,6 @@ const Header = ({logo, menu, content, text, toggleDashboard, togglePartners, to}
         <TextView />
         <MenuView />
       </div>
-      {/* <SidebarView /> */}
       <Sidebar type={'menu'} toggle={menuToggle} setToggle={setMenu} />
     </>
   ));

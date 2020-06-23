@@ -274,7 +274,7 @@ const DetailTwo = () => {
                 <span className={styles.dates}>1483 - 1885</span>
               </div>
               <div className={styles.timeframe__info}>
-                <section>
+                <section className={styles.info__one}>
                   <h3 className={styles.subtitle}>The start</h3>
                   <p className={styles.text}>
                     At first, Ivory Coast traded gold, ivory and pepper with
@@ -284,7 +284,7 @@ const DetailTwo = () => {
                     from West Africa.
                   </p>
                 </section>
-                <section>
+                <section className={styles.info__two}>
                   <h3 className={styles.subtitle}>The conflict</h3>
                   <p className={styles.text}>
                     In the 18th century, Ivory Coast was invaded by two groups.
@@ -295,7 +295,7 @@ const DetailTwo = () => {
                     in the beginning of World War One.
                   </p>
                 </section>
-                <section>
+                <section className={styles.info__three}>
                   <h3 className={styles.subtitle}>Resulting in</h3>
                   <p className={styles.text}>
                     In 1840’s, the French build fortified posts with the purpose

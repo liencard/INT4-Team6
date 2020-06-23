@@ -485,23 +485,29 @@
 
 @media only screen and (max-width: 1050px) {
 
-    .timeline__wrapper {
+    .timeline__wrapper, .timeline__hidden {
         display: none;
+        opacity: 0;
     }
 
     .detail {
-        padding: 0 8rem;
+        padding-top: 45vh;
         width: 100%;
+    }
+
+    .buttons {
+        padding: 8rem 5rem;
     }
 
     .detailMargeretEvans {
         background-size: auto 80vh, auto 60vh, contain;
-        background-position: top right, top left 20%, center;
+        background-position: top 5rem right, top left 20%, center;
         width: 100%;
     }
 
-    .intro {
-        padding-top: 45vh;
+    .detailMaryWallcott {
+        background-size: auto 60vh, auto 80vh, contain;
+        background-position: top 10rem right, top 5% right 70%, center;
     }
 
     .intro__ancestor {
@@ -523,15 +529,19 @@
 
     .content {
         margin: 0 auto 15rem;
+        padding: 0 8rem;
     }
 
     /* TIMEFRAME */
     .backgroundImage {
         width: 100vw;
         height: 90vh;
-        z-index: 0;
         left: 0;
-        position: absolute;
+    }
+
+    .detailMaryWallcott .backgroundImage {
+        margin-bottom: -15rem;
+        height: 40vh;
     }
 
     .detailMargeretEvans .backgroundImage {
@@ -541,9 +551,10 @@
 
     .timeframe__info {
         display: grid;
-        grid-template-columns: 1fr;
         grid-template-columns: repeat(4, 1fr);
-        grid-gap: 4rem;
+        grid-column-gap: 4rem;
+        grid-row-gap: 1rem;
+        z-index: 4;
     }
 
     .timeframe__info section:not(:last-of-type){
@@ -555,7 +566,6 @@
     }
 
     .info__three {
-        /* grid-column: 2 / 4; */
         grid-column: span 4;
     }
 
@@ -574,6 +584,11 @@
         width: 25vw;
         transform: translate(-4rem, 20rem);
         z-index: 2;
+    }
+
+    .detailMaryWallcott .living__imgFamily {
+        width: 45vw;
+        transform: translate(0, 0);
     }
 
     .living__imgHouse {
@@ -603,26 +618,42 @@
         grid-gap: 4rem;
     }
 
+    .work section {
+        margin-bottom: 0;
+    }
+
 
     /* CONTENT - DEATH */
     .death {
         padding-top: 0;
     }
 
-    .death__start {
-        margin-top: -5rem;
-        grid-template-columns: 1fr;
-        align-items: center;
-        grid-gap: 2rem;
+    .detailMaryWallcott .death {
+        width: 100%;
+        padding-bottom: 0;
     }
 
+    .death__start {
+        margin-top: -5rem;
+    }
+
+    .detailMargeretEvans .death__start {
+        grid-template-columns: 1fr;
+        align-items: center;
+        grid-gap: 4rem;
+        width: 60vw;
+        margin: 0 auto;
+    }
+
+
     .death__img {
-        align-self: flex-end;
-        justify-self: flex-end;
-        transform: translate(0, 3rem);
         width: 50vw;
     }
 
+    .detailMargeretEvans .death__img {
+        transform: translate(0, 0);
+        justify-self: center;
+    }
 
     /* CONTENT - BUTTONS */
     .buttons__generation {
@@ -634,10 +665,6 @@
 
 @media only screen and (max-width: 500px) {
 
-    .detail {
-        padding: 0 2rem;
-    }
-
     .buttons {
         padding: 7rem 2rem;
     }
@@ -645,6 +672,11 @@
     .detailMargeretEvans {
         background-size: auto 80vh, auto 40vh, contain;
         background-position: top 10rem right -15rem, top 10rem left 20%, center;
+    }
+
+    .detailMaryWallcott {
+        background-size: auto 50vh, auto 50vh, contain;
+        background-position: top 10rem right -10rem, top 10rem right 70%, center;
     }
 
     .name {
@@ -660,6 +692,83 @@
         width: 100%;
         grid-template-columns: 1fr;
         grid-row-gap: 2rem;
+    }
+
+    .content {
+        margin-bottom: 10rem;
+        padding: 0 2rem;
+    }
+
+    .detailMaryWallcott .backgroundImage {
+        margin-bottom: -20rem;
+        height: 50vh;
+    }
+
+    .timeframe__info {
+        grid-template-columns: 1fr;
+    }
+
+    .info__one, .info__two, .info__three {
+        grid-column: span 1;
+    }
+
+    .living {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .living__img {
+        position: relative;
+    }
+
+    .living__imgHouse {
+        width: 80vw;
+    }
+
+    .living__imgFamily {
+        transform: translate(0, 15rem);
+        width: 40vw;
+    }
+
+    .living__text {
+        max-width: 100%;
+    }
+
+    .detailMaryWallcott .living__text {
+        padding-right: 1rem;
+    }
+
+    .detailMaryWallcott .living__imgFamily {
+        width: 90vw;
+    }
+
+    .work {
+        flex-direction: column-reverse;
+    }
+
+    .work__img {
+        position: relative;
+        width: 90vw;
+    }
+
+    .work__text {
+        grid-template-columns: 1fr;
+        margin-top: 0;
+        margin-bottom: 5rem;
+    }
+
+     .detailMargeretEvans .death__start {
+        width: 100%;
+    }
+
+    .death__img {
+        width: 90vw;
+    }
+
+    .detailMaryWallcott .death__start {
+        grid-template-columns: 1fr;
+        grid-gap: 2rem;
+        margin-top: 0rem;
     }
 
 }

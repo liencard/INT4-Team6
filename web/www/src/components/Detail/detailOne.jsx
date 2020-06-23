@@ -105,7 +105,7 @@ const DetailOne = () => {
     uiStore.setCurrentUser(
       userStore.resolveUser('4e8baf11-bb77-3f6b-97d1-69b8e51c2ebe')
     );
-
+ 
     if (!bookmark) {
       const bookmarkedAncestor = new Bookmark({
         user_id: uiStore.currentUser.id,
@@ -114,14 +114,14 @@ const DetailOne = () => {
       });
       await bookmarkedAncestor.create();
       await setBookmark(bookmarkedAncestor);
-      //feedbackRef.current.classList.add(styles.feedback__add);
-      //feedbackRef.current.classList.remove(styles.feedback__remove);
+      feedbackRef.current.classList.add(styles.feedback__add); {/* VOEGT VANZELF TERUG TOE */ }
+      feedbackRef.current.classList.remove(styles.feedback__remove); {/* VOEGT VANZELF TERUG TOE */}
       feedbackRef.current.innerHTML = 'Added Bookmark';
     } else {
       await bookmark.delete();
       await setBookmark(false);
-      //feedbackRef.current.classList.add(styles.feedback__remove);
-      //feedbackRef.current.classList.remove(styles.feedback__add);
+      feedbackRef.current.classList.add(styles.feedback__remove); {/* VOEGT VANZELF TERUG TOE */ }
+      feedbackRef.current.classList.remove(styles.feedback__add); {/* VOEGT VANZELF TERUG TOE */ }
       feedbackRef.current.innerHTML = 'Removed Bookmark';
     }
   };
@@ -227,14 +227,18 @@ const DetailOne = () => {
           </span>
         </div>
 
-        <p
+          {/* LEGE BOX */}
+
+        {/* <p
           ref={feedbackRef}
           className={`${styles.feedback} ${
             bookmark ? styles.feedback__add : styles.feedback__remove
           }`}
-        ></p>
+        ></p> */}
 
-        {/* <p ref={feedbackRef}></p> */}
+        {/* VOEGT VANZELF TERUG TOE */}
+
+        <p ref={feedbackRef}></p>
 
         <div className={`${styles.detail} ${styles.detailMargeretEvans}`}>
           <div className={styles.container}>

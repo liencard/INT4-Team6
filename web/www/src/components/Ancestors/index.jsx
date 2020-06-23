@@ -21,6 +21,7 @@ const Ancestors = () => {
   const [canvas, setCanvas] = useState(false);
   let ancestors = ancestorStore.ancestors;
 
+  const ancestorGroup = useRef();
   const scrolliconRef = useRef();
 
 
@@ -54,6 +55,21 @@ const Ancestors = () => {
     gl.domElement.addEventListener('wheel', () => {
       scrolliconRef.current.classList.add(styles.iconscrollHidden);
     });
+
+    console.log(gl)
+
+    gl.domElement.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      console.log("test canvas")
+    });
+
+    console.log(ancestorGroup);
+
+    ancestorGroup.current.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      console.log('test ancestor');
+    });
+
   }
 
   const CanvasView = () => {
@@ -81,7 +97,8 @@ const Ancestors = () => {
           <group
             key={ancestor.id}
             ancestorId={ancestor.id}
-            
+            ref={ancestorGroup}
+
             // touchscreen devices
             onTouchEnd={(e) => console.log('touch end ')}
             onTouchStart={(e) => console.log('touch start ')}

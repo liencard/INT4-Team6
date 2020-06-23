@@ -101,7 +101,7 @@
 
 
 
-@media only screen and (max-width: 730px) {
+@media only screen and (max-width: 750px) {
 
     .bookmarks {
         margin-top: 20vh;
@@ -114,6 +114,8 @@
         grid-gap: 3rem;
         grid-row-gap: 3rem;
         width: 100%;
+
+        overflow-x: inherit;
     }
 
     .bookmarks__btn {

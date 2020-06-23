@@ -79,7 +79,7 @@ import Loader from '../Loader/index.jsx';
                   ) : (
                     ''
                   )
-                )}
+                )} 
                 <Link to={`${ROUTES.ancestors}`} className={styles.btn}>
                   <div className={styles.bookmarks__btn}>
                     <img

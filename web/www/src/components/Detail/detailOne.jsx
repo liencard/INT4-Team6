@@ -13,7 +13,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 AOS.init({
-  once: true, // whether animation should happen only once - while scrolling down
+  once: true,
   easing: 'ease-in-out',
 });
 
@@ -94,11 +94,10 @@ const DetailOne = () => {
   }, [
     ancestor,
     ancestorStore.ancestors,
-    bookmark,
     ancestorStore,
-    bookmarkStore,
     id,
   ]);
+  /* bookmark past aan -> useEffect wordt opnieuw opgeroepen, bookmark & bookmarkStore hier uitgehaald */
 
   const handleClickBookmark = async () => {
     await userStore.loadAllUsers();
@@ -113,15 +112,27 @@ const DetailOne = () => {
         store: bookmarkStore,
       });
       await bookmarkedAncestor.create();
+
+      /* ancestor uit database halen */
+      await bookmarkStore.loadAllBookmarks();
+      const ancestorId = parseInt(id);
+      const bookmarkedAncestorCreated = bookmarkStore.getBookmarkByAncestorid(
+        ancestorId
+      );
+      console.log(bookmarkedAncestorCreated); // ancestor & user id wel gekend enzo, maar we hebben id zelf nodig zoals bij useffect
+      /* dit moet de ancestor zijn in database met id en al gekend!!! Anders kan delete pas na page reload */
+      
       await setBookmark(bookmarkedAncestor);
-      feedbackRef.current.classList.add(styles.feedback__add); {/* VOEGT VANZELF TERUG TOE */ }
-      feedbackRef.current.classList.remove(styles.feedback__remove); {/* VOEGT VANZELF TERUG TOE */}
+      setBookmark(bookmarkedAncestor);
+
+      feedbackRef.current.classList.add(styles.feedback__add); 
+      feedbackRef.current.classList.remove(styles.feedback__remove);
       feedbackRef.current.innerHTML = 'Added Bookmark';
     } else {
       await bookmark.delete();
-      await setBookmark(false);
-      feedbackRef.current.classList.add(styles.feedback__remove); {/* VOEGT VANZELF TERUG TOE */ }
-      feedbackRef.current.classList.remove(styles.feedback__add); {/* VOEGT VANZELF TERUG TOE */ }
+      setBookmark(false);
+      feedbackRef.current.classList.add(styles.feedback__remove);
+      feedbackRef.current.classList.remove(styles.feedback__add); 
       feedbackRef.current.innerHTML = 'Removed Bookmark';
     }
   };

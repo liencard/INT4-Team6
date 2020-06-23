@@ -8,19 +8,23 @@ import Button from '../Button/index.jsx';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-AOS.init({
-  once: true, // whether animation should happen only once - while scrolling down
-  easing: 'ease-in-out',
-});
-
 
 const Start = () => {
+  AOS.init({
+    once: true,
+    easing: 'ease-in-out',
+  });
+
 return (
   <>
     <Header logo={true} />
     <div className={styles.lines}> </div>
     <article className={styles.container}>
-      <section className={styles.header}>
+      <section
+        className={styles.header}
+        data-aos="fade"
+        data-aos-duration="3000"
+      >
         <h1 className={`${styles.title} ${styles.titleHeader}`}>
           The things you’ll get to know
         </h1>
@@ -74,7 +78,6 @@ return (
             Make a choice between the plans we offer
           </p>
         </div>
-
         <div className={styles.work__text} data-aos="fade-up">
           <section>
             <h3 className={styles.subtitle}>Standard Plan</h3>

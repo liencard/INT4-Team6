@@ -80,10 +80,18 @@
     margin-bottom: -.2rem;
 }
 
+.toggle__small {
+    display: none;
+}
+
 @media only screen and (max-width: 1000px) {
 
     .toggle__visible {
         left: 22vw;
+    }
+
+    .header {
+       padding: 3.5rem 5rem 0;
     }
 }
 
@@ -92,6 +100,14 @@
 
     .header {
        padding: 2rem 2rem 0;
+    }
+
+    .toggle__small {
+        display: inline;
+    }
+
+    .toggle__big{
+        display: none;
     }
 
    

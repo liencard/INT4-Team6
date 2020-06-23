@@ -328,7 +328,7 @@
 }
 
 .lawyer {
-    margin-bottom: 30rem;
+    margin-bottom: 100rem;
 }
 
 .lawyer__info {
@@ -337,9 +337,18 @@
     background-color: red;
 }
 
+.testje {
+    display: grid;
+    grid-template-columns: auto 38rem;
+}
+
 .lawyer__img {
     position: absolute;
     left: 0;
+}
+
+.lawyer__text {
+    grid-column: 2;
 }
 
 /* CONTENT - WAR */
@@ -517,7 +526,6 @@
     }
 
     /* TIMEFRAME */
-
     .backgroundImage {
         width: 100vw;
         height: 90vh;
@@ -552,8 +560,6 @@
     }
 
     /* CONTENT - Living */
-
-
     .living__text {
         max-width: 30rem;
     }
@@ -622,6 +628,38 @@
     .buttons__generation {
         width: 75vw;
         margin-top: 10rem;
+    }
+
+}
+
+@media only screen and (max-width: 500px) {
+
+    .detail {
+        padding: 0 2rem;
+    }
+
+    .buttons {
+        padding: 7rem 2rem;
+    }
+
+    .detailMargeretEvans {
+        background-size: auto 80vh, auto 40vh, contain;
+        background-position: top 10rem right -15rem, top 10rem left 20%, center;
+    }
+
+    .name {
+        font-size: 8rem;
+    }
+
+    .date {
+        font-size: 4rem;
+    }
+
+    .intro__info {
+        margin-top: 10rem;
+        width: 100%;
+        grid-template-columns: 1fr;
+        grid-row-gap: 2rem;
     }
 
 }

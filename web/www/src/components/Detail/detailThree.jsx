@@ -16,7 +16,7 @@ AOS.init({
   once: true, // whether animation should happen only once - while scrolling down
   easing: 'ease-in',
 });
-
+ 
 const DetailThree = () => {
   const { id } = useParams();
   const { bookmarkStore, uiStore, userStore, ancestorStore } = useStore();
@@ -387,41 +387,6 @@ const DetailThree = () => {
             </article>
 
             <article
-              ref={chapterFourRefArticle}
-              data-chapter={4}
-              className={`${styles.lawyer} ${styles.content}`}
-              data-aos="fade-up"
-            >
-              <div className={styles.titleCentered}>
-                <h2 className={styles.title}>The Lawyer</h2>
-                <span className={styles.dates}>1927 - 1940</span>
-              </div>
-
-              <div className={styles.lawyer__info}>
-                <div className={styles.lawyer__img}>
-                  <img
-                    src="/assets/img/detail/BenjaminCole_trail.png"
-                    alt="Court trial"
-                    width="850px"
-                  ></img>
-                </div>
-                <section className={styles.lawyer__text}>
-                  <h3 className={styles.subtitle}>Law firm</h3>
-                  <p className={styles.text}>
-                    After Benjamin graduated from Ohio State University he
-                    procedeed to work in a law firm in Ohio. He specialized in
-                    the right of citizens, most specificly most of his cases
-                    were helping his fellow African Americans who weren’t
-                    threated right by the justice system.
-                  </p>
-                  <p className={styles.text}>
-                    Unfortuantly, the law firm doesn’t exist anymore.
-                  </p>
-                </section>
-              </div>
-            </article>
-
-            <article
               ref={chapterFiveRefArticle}
               data-chapter={5}
               className={`${styles.timeframe} ${styles.content}`}
@@ -477,6 +442,41 @@ const DetailThree = () => {
                     width="540px"
                   />
                 </div>
+              </div>
+            </article>
+
+            <article
+              ref={chapterFourRefArticle}
+              data-chapter={4}
+              className={`${styles.lawyer} ${styles.content}`}
+              data-aos="fade-up"
+            >
+              <div className={styles.titleCentered}>
+                <h2 className={styles.title}>The Lawyer</h2>
+                <span className={styles.dates}>1927 - 1940</span>
+              </div>
+
+              <div className={styles.testje}>
+                <div className={styles.lawyer__img}>
+                  <img
+                    src="/assets/img/detail/BenjaminCole_trail.png"
+                    alt="Court trial"
+                    width="850px"
+                  ></img>
+                </div>
+                <section className={styles.lawyer__text}>
+                  <h3 className={styles.subtitle}>Law firm</h3>
+                  <p className={styles.text}>
+                    After Benjamin graduated from Ohio State University he
+                    procedeed to work in a law firm in Ohio. He specialized in
+                    the right of citizens, most specificly most of his cases
+                    were helping his fellow African Americans who weren’t
+                    threated right by the justice system.
+                  </p>
+                  <p className={styles.text}>
+                    Unfortuantly, the law firm doesn’t exist anymore.
+                  </p>
+                </section>
               </div>
             </article>
 

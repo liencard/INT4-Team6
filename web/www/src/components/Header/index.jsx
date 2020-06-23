@@ -5,6 +5,8 @@ import styles from './Header.module.css';
 import { useObserver } from 'mobx-react-lite';
 import Sidebar from '../Sidebar/index.jsx';
 
+import {DropdownButton, Dropdown} from 'react-bootstrap';
+
 const Header = ({logo, menu, content, text, toggleDashboard, togglePartners, to}) => {
     const [menuToggle, setMenu] = useState(false);
 
@@ -82,10 +84,14 @@ const Header = ({logo, menu, content, text, toggleDashboard, togglePartners, to}
       );
     } else if (content && togglePartners) { 
         return (
-          <div className={`${ visible ? styles.toggle__visible : styles.toggle__hidden}`}>
+          <div
+            className={`${
+              visible ? styles.toggle__visible : styles.toggle__hidden
+            }`}
+          >
             <div className={styles.partners__wrapper}>
               <p className={styles.text}>Toggle between partners</p>
-              <div className={styles.toggle}>
+              <div className={`${styles.toggle} ${styles.toggle__big}`}>
                 <NavLink
                   to={`${to.woman}`}
                   className={styles.tab}
@@ -135,6 +141,14 @@ const Header = ({logo, menu, content, text, toggleDashboard, togglePartners, to}
                   </svg>
                   {content.man}
                 </NavLink>
+              </div>
+
+              <div className={`${styles.toggle} ${styles.toggle__small}`}>
+                {/* <DropdownButton id="dropdown-basic-button" title="Dropdown button">
+                  <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                  <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                  <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                </DropdownButton> */}
               </div>
             </div>
           </div>

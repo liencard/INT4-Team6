@@ -21,6 +21,7 @@ import Loader from '../Loader/index.jsx';
 
   useEffect(() => {
     const loadBookmarks = async () => {
+      console.log(bookmarks)
       try {
         await bookmarkStore.loadAllBookmarks();
         if (bookmarks) {
@@ -36,7 +37,7 @@ import Loader from '../Loader/index.jsx';
       }
     };
     loadBookmarks();
-  }, [setBookmarks, bookmarks, bookmarkStore]);
+  }, [bookmarks]);
  
    return useObserver(() => {
     
@@ -71,7 +72,6 @@ import Loader from '../Loader/index.jsx';
                 {bookmarkStore.bookmarks.map((bookmark) =>
                   bookmark.id ? (
                     <div key={bookmark.id} bookmarkid={bookmark.id}>
-                      {console.log(bookmark)}
                       <Link to={`detail/${bookmark.ancestor_id}`}>
                         <Bookmark bookmark={bookmark} />
                       </Link>

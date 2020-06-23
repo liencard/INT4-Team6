@@ -218,7 +218,7 @@
     }
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1050px) {
 
     .home__wrapper {
         background-image: url('/assets/img/header_tablet.png');

@@ -944,4 +944,8 @@
         transform: translate(0, -4rem);
     }
 
+    .detail__other {
+        padding-top: 44rem;
+    }
+
 }

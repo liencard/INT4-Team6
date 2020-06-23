@@ -21,13 +21,15 @@ const OnboardingTwo = () => {
         >
           <div className={styles.header}>
             <div className={styles.header__wrapper}>
-              <img
-                className={styles.img}
-                src="./assets/img/fyfr.svg"
-                alt="group img"
-                width="37"
-                height="39"
-              />
+              <Link to={`${ROUTES.home}`}>
+                <img
+                  className={styles.img}
+                  src="./assets/img/fyfr.svg"
+                  alt="group img"
+                  width="37"
+                  height="39"
+                />
+              </Link>
               <div className="dashboard__views">
                 <NavLink
                   to={`${ROUTES.onboardingOne}`}

@@ -2,7 +2,7 @@
 @value fontBody, faded, spacerBig, spacer from tokens;
 
 .content__wrapper {
-    margin: 0 spacerBig;
+    /* margin: 0 spacerBig; */
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -165,7 +165,7 @@
 
 .checkbox__input:after {
   content: "";
-  position: absolute;
+  position: absolute; 
   display: none;
 }
 
@@ -183,4 +183,33 @@
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+
+@media only screen and (max-width: 1000px) {
+
+    .content__wrapper {
+        background-color: rgba(0,0,0,.6);
+        width: 100vw;
+        margin: 0;
+        padding: 0 20%;
+    }
+}
+
+
+@media only screen and (max-width: 500px) {
+
+    .content__wrapper {
+        margin: 0;
+        padding: 0 10%;
+    }
+
+    .title {
+        font-size: 4.6rem;
+    }
+
+    .subtitle {
+        font-size: 1.6rem;
+    }
+
 }

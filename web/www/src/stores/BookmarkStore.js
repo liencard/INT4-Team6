@@ -37,7 +37,6 @@ class BookmarkStore {
         user_id: this.rootStore.uiStore.currentUser.id,
         store: this.rootStore.bookmarkStore,
       });
-      console.log(bookmark)
     }
     if (json.isDeleted) {
       this.bookmarks.remove(bookmark);
@@ -47,7 +46,8 @@ class BookmarkStore {
     return bookmark;
   }
 
-  getBookmarkByAncestorid = (id) => this.bookmarks.find((bookmark) => bookmark.ancestor_id === id);
+  getBookmarkByAncestorid = (id) =>
+    this.bookmarks.find((bookmark) => bookmark.ancestor_id === id);
 }
 
 decorate(BookmarkStore, {

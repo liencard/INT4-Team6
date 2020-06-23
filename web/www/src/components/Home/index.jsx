@@ -14,7 +14,7 @@ const Home = () => {
     } else {
       return '';
     }
-  };
+  }; 
 
   return useObserver(() => (
     <>

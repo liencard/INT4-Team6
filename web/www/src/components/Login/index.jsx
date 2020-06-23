@@ -9,10 +9,10 @@ import { ROUTES } from '../../consts';
 const Login = ({login}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    let history = useHistory();
+    //let history = useHistory();
 
-    const {uiStore, userStore} = useStore();
-    console.log(uiStore.currentUser);
+    //const {uiStore, userStore} = useStore();
+    //console.log(uiStore.currentUser);
 
     // const handleSubmitLogin = async (e) => {
     //   e.preventDefault();

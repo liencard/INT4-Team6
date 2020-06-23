@@ -49,7 +49,6 @@ return (
           to={ROUTES.start}
         />
       </section>
-
       <section className={`${styles.content} ${styles.intro}`}>
         <div data-aos="fade-up">
           <div className={styles.titleCentered}>

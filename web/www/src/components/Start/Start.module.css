@@ -12,13 +12,13 @@
     height: 100vh;
     position: fixed;
     width: 100vw;
-    opacity: .1;
+    opacity: .15;
 }
 
 .container {
-    max-width: calc(106rem-16rem);
+    max-width: 106rem;
     margin: 0 auto 12rem;
-    padding: 10rem 8rem 0;
+    padding-top: 10rem;
     z-index: 1;
 }
 
@@ -28,14 +28,6 @@
     right: 10rem;
     top: 5rem;
 }
-
-.button {
-    composes: button from "../../styles/components.module.css";
-    margin: 0;
-    opacity: 1;
-    transition: opacity 0.4s ease-in-out;
-}
-
 
 
 /* TYPOGRAPHY ----------------------- */
@@ -321,7 +313,7 @@
 
 /* MEDIA ----------------------- */
 
-@media only screen and (max-width: 1020px) {
+@media only screen and (max-width: 1060px) {
     .header {
         margin: 0 auto;
         padding-bottom: 10rem;
@@ -330,6 +322,7 @@
 
     .container {
         margin: 0 8rem 12rem;
+        padding: 10rem 8rem 0;
     }
 
     .button__wrapper {

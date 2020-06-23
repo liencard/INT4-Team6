@@ -5,9 +5,9 @@
     padding: 3.5rem 8rem 0;
     height: 100vh;
 
-    background-image: url('/assets/img/bg_lines.png');
+    /* background-image: url('/assets/img/bg_lines.png');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
 }
 
 .header {
@@ -23,6 +23,20 @@
     justify-content: space-between;
     align-items: center;
     
+}
+
+.lines {
+    background: 
+    linear-gradient(90deg, transparent, transparent 10%, faded 10.1%, transparent 10.1%),
+    linear-gradient(90deg, transparent, transparent 42%, faded 42.1%, transparent 42.1%),
+    linear-gradient(90deg, transparent, transparent 58%, faded 58.1%, transparent 58.1%),
+    linear-gradient(90deg, transparent, transparent 90%, faded 90.1%, transparent 90.1%),
+    linear-gradient(90deg, transparent, transparent 91%, faded 91.1%, transparent 91.1%);
+    z-index: -1;
+    height: 100vh;
+    position: fixed;
+    width: 100vw;
+    opacity: .15;
 }
 
 /* IMAGES */

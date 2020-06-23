@@ -19,6 +19,7 @@ const Home = () => {
   return useObserver(() => (
     <>
       <LoginView />
+      <div className={styles.lines}></div>
       <div className={styles.home__wrapper}>
         <div className={styles.header}>
           <div className={styles.header__wrapper}>
@@ -28,7 +29,7 @@ const Home = () => {
               alt="logo"
               width="37"
               height="39"
-            /> 
+            />
             <div className={styles.button__wrapper}>
               <button
                 className={`${login ? styles.buttonDissapear : styles.button}`}
@@ -38,7 +39,9 @@ const Home = () => {
                 Login
               </button>
               <button
-                className={`${login ? styles.button__back : styles.buttonDissapear}`}
+                className={`${
+                  login ? styles.button__back : styles.buttonDissapear
+                }`}
                 onClick={(e) => setLogin(false)}
               >
                 Back
@@ -73,7 +76,6 @@ const Home = () => {
             alt="small"
           />
         </div>
-
         <div className={styles.content__wrapper}>
           <div
             className={`${styles.timeline__wrapper} ${
@@ -91,7 +93,7 @@ const Home = () => {
             <span>05</span>
             <span>Go explore</span>
           </div>
-  
+
           <div
             className={`${styles.title__wrapper} ${
               login ? styles.title__wrapperDissapear : ''

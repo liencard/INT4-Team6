@@ -297,7 +297,7 @@ const DetailThree = () => {
                 <span className={styles.dates}>1900 - 1990</span>
               </div>
               <div className={styles.timeframe__info}>
-                <section>
+                <section className={styles.info__one}>
                   <h3 className={styles.subtitle}>The start</h3>
                   <p className={styles.text}>
                     The begin of the nineteenth century was a time of
@@ -308,7 +308,7 @@ const DetailThree = () => {
                     whites.
                   </p>
                 </section>
-                <section>
+                <section className={styles.info__two}>
                   <h3 className={styles.subtitle}>The conflict</h3>
                   <p className={styles.text}>
                     Through the early 1900s, many laws such as the Jim Crow laws
@@ -317,7 +317,7 @@ const DetailThree = () => {
                     systems and lodging. This wasn’t equality.
                   </p>
                 </section>
-                <section>
+                <section className={styles.info__three}>
                   <h3 className={styles.subtitle}>Resulting in</h3>
                   <p className={styles.text}>
                     African Americans moved to the north to work there, due
@@ -387,16 +387,51 @@ const DetailThree = () => {
             </article>
 
             <article
+              ref={chapterFourRefArticle}
+              data-chapter={4}
+              className={`${styles.lawyer} ${styles.content}`}
+              data-aos="fade-up"
+            >
+              <div className={styles.titleCentered}>
+                <h2 className={styles.title}>The Lawyer</h2>
+                <span className={styles.dates}>1927 - 1940</span>
+              </div>
+
+              <div className={styles.testje}>
+                <div className={styles.lawyer__img}>
+                  <img
+                    src="/assets/img/detail/BenjaminCole_trail.png"
+                    alt="Court trial"
+                    width="850px"
+                  ></img>
+                </div>
+                <section className={styles.lawyer__text}>
+                  <h3 className={styles.subtitle}>Law firm</h3>
+                  <p className={styles.text}>
+                    After Benjamin graduated from Ohio State University he
+                    procedeed to work in a law firm in Ohio. He specialized in
+                    the right of citizens, most specificly most of his cases
+                    were helping his fellow African Americans who weren’t
+                    threated right by the justice system.
+                  </p>
+                  <p className={styles.text}>
+                    Unfortuantly, the law firm doesn’t exist anymore.
+                  </p>
+                </section>
+              </div>
+            </article>
+
+            <article
               ref={chapterFiveRefArticle}
               data-chapter={5}
-              className={`${styles.timeframe} ${styles.content}`}
+              className={`${styles.timeframe} ${styles.content}  ${styles.war}`}
               data-aos="fade-up"
             >
               <div className={styles.titleCentered}>
                 <h2 className={styles.title}>African Americans in WWII</h2>
                 <span className={styles.dates}>1941 - 1945</span>
               </div>
-              <div className={styles.living}>
+              <div className={`${styles.living}`}>
                 <div className={styles.war__text}>
                   <section>
                     <h3 className={styles.subtitle}>
@@ -446,41 +481,6 @@ const DetailThree = () => {
             </article>
 
             <article
-              ref={chapterFourRefArticle}
-              data-chapter={4}
-              className={`${styles.lawyer} ${styles.content}`}
-              data-aos="fade-up"
-            >
-              <div className={styles.titleCentered}>
-                <h2 className={styles.title}>The Lawyer</h2>
-                <span className={styles.dates}>1927 - 1940</span>
-              </div>
-
-              <div className={styles.testje}>
-                <div className={styles.lawyer__img}>
-                  <img
-                    src="/assets/img/detail/BenjaminCole_trail.png"
-                    alt="Court trial"
-                    width="850px"
-                  ></img>
-                </div>
-                <section className={styles.lawyer__text}>
-                  <h3 className={styles.subtitle}>Law firm</h3>
-                  <p className={styles.text}>
-                    After Benjamin graduated from Ohio State University he
-                    procedeed to work in a law firm in Ohio. He specialized in
-                    the right of citizens, most specificly most of his cases
-                    were helping his fellow African Americans who weren’t
-                    threated right by the justice system.
-                  </p>
-                  <p className={styles.text}>
-                    Unfortuantly, the law firm doesn’t exist anymore.
-                  </p>
-                </section>
-              </div>
-            </article>
-
-            <article
               ref={chapterSixRefArticle}
               data-chapter={6}
               className={`${styles.event} ${styles.content}`}
@@ -493,12 +493,12 @@ const DetailThree = () => {
 
               <div className={styles.event__wrapper}>
                 <div className={styles.event__img}>
-                  <img
-                    className={styles.event__imgMLK}
-                    src="/assets/img/detail/BenjaminCole_mlk.png"
-                    alt="Martin Luther King waving"
-                    width="800px"
-                  />
+                  <picture>
+                    <source media="(max-width: 500px)" srcset="/assets/img/detail/BenjaminCole_mlk.png 560w" />
+                    <source media="(max-width: 1000px)" srcset="/assets/img/detail/BenjaminCole_mlk_tab.png 100w" />
+                    <source media="(min-width: 1000px)" srcset="/assets/img/detail/BenjaminCole_mlk.png 560w" />
+                    <img src="/assets/img/detail/BenjaminCole_mlk.png" className={styles.event__imgMLK} alt="Martin Luther King waving" width="800px" />
+                  </picture>
                 </div>
                 <div className={styles.event__text}>
                   <section>

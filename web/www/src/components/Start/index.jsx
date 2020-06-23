@@ -18,6 +18,14 @@ const Start = () => {
 return (
   <>
     <Header logo={true} />
+
+    <div className={styles.button__wrapper}>
+      <Button
+        text="login"
+        to="/"
+      />
+    </div>
+
     <div className={styles.lines}> </div>
     <article className={styles.container}>
       <section
@@ -42,30 +50,32 @@ return (
         />
       </section>
 
-      <section className={styles.content} data-aos="fade-up">
-        <div className={styles.titleCentered}>
-          <h2 className={styles.title}>Find your Family Roots</h2>
-          <p className={styles.titleCaps}>What can you expect?</p>
-        </div>
-        <div className={styles.intro__text}>
-          <section>
-            <h3 className={styles.subtitle}>Family Tree</h3>
-            <p className={styles.text}>
-              Get to know your ancestors by name and family name. You’ll
-              discover when and where they lived over the years. If they were
-              schooled and which profession they practiced. Important
-              achievements they realized over the course of their life. All
-              refined in a coherent story to get to know them better.
-            </p>
-          </section>
-          <section>
-            <h3 className={styles.subtitle}>DNA - Roots</h3>
-            <p className={styles.text}>
-              A more in depth result that unlocks a map where you can view your
-              ancestors across the world. Discovering your roots in multiple
-              continents that go back in time even more.
-            </p>
-          </section>
+      <section className={`${styles.content} ${styles.intro}`}>
+        <div data-aos="fade-up">
+          <div className={styles.titleCentered}>
+            <h2 className={styles.title}>Find your Family Roots</h2>
+            <p className={styles.titleCaps}>What can you expect?</p>
+          </div>
+          <div className={styles.intro__text}>
+            <section>
+              <h3 className={styles.subtitle}>Family Tree</h3>
+              <p className={styles.text}>
+                Get to know your ancestors by name and family name. You’ll
+                discover when and where they lived over the years. If they were
+                schooled and which profession they practiced. Important
+                achievements they realized over the course of their life. All
+                refined in a coherent story to get to know them better.
+              </p>
+            </section>
+            <section>
+              <h3 className={styles.subtitle}>DNA - Roots</h3>
+              <p className={styles.text}>
+                A more in depth result that unlocks a map where you can view
+                your ancestors across the world. Discovering your roots in
+                multiple continents that go back in time even more.
+              </p>
+            </section>
+          </div>
         </div>
       </section>
 

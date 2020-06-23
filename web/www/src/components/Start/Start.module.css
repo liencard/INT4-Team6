@@ -16,11 +16,27 @@
 }
 
 .container {
-    max-width: 106rem;
+    max-width: calc(106rem-16rem);
     margin: 0 auto 12rem;
-    padding-top: 10rem;
+    padding: 10rem 8rem 0;
     z-index: 1;
 }
+
+.button__wrapper {
+    position: absolute;
+    z-index: 7;
+    right: 10rem;
+    top: 5rem;
+}
+
+.button {
+    composes: button from "../../styles/components.module.css";
+    margin: 0;
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out;
+}
+
+
 
 /* TYPOGRAPHY ----------------------- */
 
@@ -96,6 +112,19 @@
 
 /* INTRO ----------------------- */
 
+.intro::before {
+    position: absolute;
+    content: '';
+    background-image: url("/assets/img/gettingstarted/intro.png");
+    z-index: -1;
+
+    height: 100%;
+    transform: translateY(-50rem);
+    width: calc((100vw - 1060px)/2 + 560px);
+    background-size: cover;
+    right: 0;
+}
+
 .intro__text {
     margin-top: 3rem;
     max-width: 76rem;
@@ -130,6 +159,8 @@
 
 .work__text img {
     margin-bottom: 3rem;
+    max-width: 80%;
+    object-fit: cover;
 }
 
 .work__text p {
@@ -276,6 +307,7 @@
 
 .footer {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     margin-top: 12rem;
 }
@@ -295,12 +327,20 @@
         padding-bottom: 10rem;
         text-align: center;
     }
+
+    .container {
+        margin: 0 8rem 12rem;
+    }
+
+    .button__wrapper {
+        right: 4rem;
+    }
 }
 
 @media only screen and (max-width: 730px) {
     .container {
-        margin: 0 auto 12rem;
-        padding: 10rem 4rem 0;
+        margin: 0 8rem 12rem;
+        padding: 10rem 0 0;
         z-index: 1;
     }
 
@@ -308,7 +348,6 @@
         grid-template-columns: 1fr;
         text-align: center;
         margin: 0 auto;
-        max-width: 80%;
     }
 
     .work__text {
@@ -321,7 +360,6 @@
 
     .review div {
         grid-template-columns: 1fr;
-        max-width: 80%;
         margin: 0 auto;
     }
 
@@ -358,11 +396,38 @@
     .footer {
         flex-direction: column;
         text-align: center;
-        max-width: 80%;
         margin: 10rem auto;
     }
 
     .packages {
         margin: 5rem 0 10rem;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .container {
+        margin: 0 4rem 12rem;
+    }
+
+    .plans {
+        grid-template-columns: 1fr;
+        grid-gap: 8rem;
+    }
+
+    .timeline {
+        grid-template-columns: 1fr;
+        grid-gap: 4rem;
+    }
+
+    .timeline p {
+        padding: .5rem;
+    }
+
+    .line {
+        display: none;
+    }
+
+    .button__wrapper {
+        top: 4rem;
     }
 }

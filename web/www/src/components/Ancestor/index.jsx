@@ -87,6 +87,9 @@ const Ancestor = ({ ancestor }) => {
       <group
         onPointerOver={(e) => toggleHover(e, true)}
         onPointerLeave={(e) => toggleHover(e, false)}
+        onClick={(e) => console.log('on click')}
+        onTouchStart={(e) => console.log('touch start')}
+        onMouseDown={(e) => console.log('mouse')}
       >
         <a.mesh
           castShadow

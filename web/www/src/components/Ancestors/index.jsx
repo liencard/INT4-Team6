@@ -40,7 +40,7 @@ const Ancestors = () => {
   }, [canvas, ancestors]);
 
   const handleClickAncestor = (e) => {
-        console.log(e);
+    console.log(e);
     e.stopPropagation();
     const clickedAncestor = ancestorStore.getAncestorById(e.eventObject.ancestorId);
     setPreview(true);
@@ -58,10 +58,10 @@ const Ancestors = () => {
 
     console.log(gl)
 
-    gl.domElement.addEventListener('touchstart', (e) => {
-      e.preventDefault();
-      console.log("test canvas")
-    });
+    // gl.domElement.addEventListener('touchstart', (e) => {
+    //   e.preventDefault();
+    //   console.log("test canvas")
+    // });
 
     console.log(ancestorGroup);
 
@@ -101,7 +101,7 @@ const Ancestors = () => {
 
             // touchscreen devices
             onTouchEnd={(e) => console.log('touch end ')}
-            onTouchStart={(e) => console.log('touch start ')}
+           
             onMouseDown={(e) => console.log('mouse down')}
 
             onClick={(e) => handleClickAncestor(e)} // works for desktop

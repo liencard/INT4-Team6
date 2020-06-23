@@ -23,7 +23,7 @@ const OnboardingThree = () => {
             <div className={styles.header}>
                 <div className={styles.header__wrapper}>
                     <Link to={`${ROUTES.home}`}>
-                        <img className={styles.img} src='./assets/img/fyfr.svg' alt="group img" width="37" height="39" />
+                        <img className={styles.img} src='./assets/img/AVOS.svg' alt="group img" width="37" height="39" />
                     </Link>
                     <div className="dashboard__views">
                         <NavLink to={`${ROUTES.onboardingOne}`} className={styles.tab} activeClassName={styles.tabActive}>

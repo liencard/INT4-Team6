@@ -486,3 +486,35 @@
     top: -.6rem;
     background-image: url("/assets/img/icon_skip-left.svg");
 }
+
+
+@media only screen and (max-width: 1050px) {
+
+    .timeline__wrapper {
+        display: none;
+    }
+
+    .detail {
+        padding: 0 8rem;
+        width: 100%;
+    }
+
+    .detailMargeretEvans {
+        background-size: auto 80vh, auto 60vh, contain;
+        background-position: top right, top left 20%, center;
+        width: 100%;
+    }
+
+    .intro {
+        padding-top: 45vh;
+    }
+
+    .intro__ancestor {
+        margin-left: 0;
+    } 
+
+    .intro__info {
+        margin-top: 10rem;
+        width: 100%;
+    }
+}

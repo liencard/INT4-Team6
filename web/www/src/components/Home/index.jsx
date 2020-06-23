@@ -24,7 +24,7 @@ const Home = () => {
           <div className={styles.header__wrapper}>
             <img
               className={styles.logo}
-              src="/assets/img/FYFR.svg"
+              src="/assets/img/AVOS.svg"
               alt="logo"
               width="37"
               height="39"

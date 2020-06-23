@@ -24,7 +24,7 @@ const OnboardingTwo = () => {
               <Link to={`${ROUTES.home}`}>
                 <img
                   className={styles.img}
-                  src="./assets/img/fyfr.svg"
+                  src="./assets/img/AVOS.svg"
                   alt="group img"
                   width="37"
                   height="39"

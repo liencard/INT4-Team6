@@ -26,7 +26,7 @@ const Header = ({logo, menu, content, text, toggleDashboard, togglePartners, to}
               <Link to={ROUTES.ancestors}>
                 <img
                   className={styles.logo}
-                  src="/assets/img/FYFR.svg"
+                  src="/assets/img/AVOS.svg"
                   alt="logo"
                   width="37"
                   height="39"

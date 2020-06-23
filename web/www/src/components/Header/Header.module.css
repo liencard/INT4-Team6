@@ -102,6 +102,11 @@
        padding: 2rem 2rem 0;
     }
 
+
+    .toggle__visible {
+        left: 25vw;
+    }
+
     .toggle__small {
         display: inline;
     }

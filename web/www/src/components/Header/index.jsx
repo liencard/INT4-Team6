@@ -5,9 +5,9 @@ import styles from './Header.module.css';
 import { useObserver } from 'mobx-react-lite';
 import Sidebar from '../Sidebar/index.jsx';
 
-import {DropdownButton, Dropdown} from 'react-bootstrap';
+//import {DropdownButton, Dropdown} from 'react-bootstrap';
 
-const Header = ({logo, menu, content, text, toggleDashboard, togglePartners, to}) => {
+const Header = ({logo, menu, content, text, toggleDashboard, togglePartners, to, ancestor}) => {
     const [menuToggle, setMenu] = useState(false);
 
     const [visible, setVisibility] = useState(true);
@@ -19,8 +19,10 @@ const Header = ({logo, menu, content, text, toggleDashboard, togglePartners, to}
         setPrevScrollpos(currentScrollPos);
         setVisibility(visible);
       };
-
+ 
     window.addEventListener('scroll', handleScroll);
+
+    console.log(`${ancestor} lalal`);
 
     const LogoView = () => {
         if (logo) {
@@ -149,6 +151,25 @@ const Header = ({logo, menu, content, text, toggleDashboard, togglePartners, to}
                   <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
                   <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                 </DropdownButton> */}
+
+                <NavLink
+                  to=
+                  {(ancestor.id === ancestor.woman) ? (
+                    `${to.man}`
+                  ) : (
+                      `${to.woman}`
+                    )}
+                  className={styles.tab}
+                  activeClassName={styles.tabActive}
+                >
+                  {(ancestor.id === ancestor.woman) ? (
+                    `${content.man }`
+                  ): (
+                    `${ content.woman }`
+                  )}
+                  
+                </NavLink>
+
               </div>
             </div>
           </div>

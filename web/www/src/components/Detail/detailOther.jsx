@@ -81,6 +81,7 @@ const DetailOther = () => {
             woman: `${ancestorWoman ? ancestor.woman : ancestor.man}`,
             man: `${ancestorMan ? ancestor.man : ancestor.woman}`,
           }}
+          ancestor={ancestor}
         />
         <div className={`${styles.detail} ${styles.detail__other}`}>
           <div className={styles.container}>

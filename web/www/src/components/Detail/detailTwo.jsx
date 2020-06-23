@@ -173,6 +173,7 @@ const DetailTwo = () => {
             man: `${ancestorMan.name}`,
           }}
           to={{ woman: `${ancestor.woman}`, man: `${ancestor.man}` }}
+          ancestor={ancestor}
         />
 
         <div className={`${visible ? styles.buttons : styles.buttons__hidden}`}>

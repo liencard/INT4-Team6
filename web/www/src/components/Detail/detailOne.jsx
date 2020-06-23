@@ -192,6 +192,7 @@ const DetailOne = () => {
             man: `${ancestorMan.name}`,
           }}
           to={{ woman: `${ancestor.woman}`, man: `${ancestor.man}` }}
+          ancestor={ancestor}
         />
 
         <div className={`${visible ? styles.buttons : styles.buttons__hidden}`}>
@@ -240,17 +241,6 @@ const DetailOne = () => {
             Cause of death
           </span>
         </div>
-
-        {/* LEGE BOX */}
-
-        {/* <p
-          ref={feedbackRef}
-          className={`${styles.feedback} ${
-            bookmark ? styles.feedback__add : styles.feedback__remove
-          }`}
-        ></p> */}
-
-        {/* VOEGT VANZELF TERUG TOE */}
 
         <p ref={feedbackRef}></p>
 

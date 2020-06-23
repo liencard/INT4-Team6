@@ -23,6 +23,7 @@ const Ancestors = () => {
 
   const scrolliconRef = useRef();
 
+
   /* eerste keer site inladen */
   const stopObserve = observe(ancestorStore, (change) => {
     if (change.name === 'loadAllComplete') {
@@ -38,6 +39,7 @@ const Ancestors = () => {
   }, [canvas, ancestors]);
 
   const handleClickAncestor = (e) => {
+        console.log(e);
     e.stopPropagation();
     const clickedAncestor = ancestorStore.getAncestorById(e.eventObject.ancestorId);
     setPreview(true);
@@ -56,8 +58,8 @@ const Ancestors = () => {
 
   const CanvasView = () => {
     return (
-      <Canvas 
-        camera={{fov: 50,position: [0, 1.5, 25],near: 2,far: 50,focus: 1,}}
+      <Canvas
+        camera={{ fov: 50, position: [0, 1.5, 25], near: 2, far: 50, focus: 1 }}
         onCreated={({ gl }) => canvasCreated(gl)}
       >
         <Lines />
@@ -66,13 +68,27 @@ const Ancestors = () => {
         <Effects />
         <Shadow />
 
-        <mesh scale={[0.01, 0.01, 0.01]} rotation-x={-Math.PI / 2} position={new THREE.Vector3(0, 0, 21)}>
+        <mesh
+          scale={[0.01, 0.01, 0.01]}
+          rotation-x={-Math.PI / 2}
+          position={new THREE.Vector3(0, 0, 21)}
+        >
           <circleGeometry attach="geometry" args={[5, 32]} />
           <meshStandardMaterial attach="material" color="white" />
         </mesh>
 
         {ancestors.map((ancestor) => (
-          <group key={ancestor.id} ancestorId={ancestor.id} onClick={(e) => handleClickAncestor(e)}>
+          <group
+            key={ancestor.id}
+            ancestorId={ancestor.id}
+            
+            // touchscreen devices
+            onTouchEnd={(e) => console.log('touch end ')}
+            onTouchStart={(e) => console.log('touch start ')}
+            onMouseDown={(e) => console.log('mouse down')}
+
+            onClick={(e) => handleClickAncestor(e)} // works for desktop
+          >
             <Ancestor ancestor={ancestor} ancestorStore={ancestorStore} />
           </group>
         ))}
@@ -91,7 +107,9 @@ const Ancestors = () => {
       />
       <div
         ref={scrolliconRef}
-        className={`${styles.iconscroll} ${canvas ? '' : styles.iconscrollHidden}`}
+        className={`${styles.iconscroll} ${
+          canvas ? '' : styles.iconscrollHidden
+        }`}
       >
         <img
           className={styles.icon}

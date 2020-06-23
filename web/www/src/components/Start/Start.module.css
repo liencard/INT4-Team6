@@ -289,8 +289,15 @@
 
 /* MEDIA ----------------------- */
 
+@media only screen and (max-width: 1020px) {
+    .header {
+        margin: 0 auto;
+        padding-bottom: 10rem;
+        text-align: center;
+    }
+}
+
 @media only screen and (max-width: 730px) {
-    /* tijdlijn, footer button, packages */
     .container {
         margin: 0 auto 12rem;
         padding: 10rem 4rem 0;
@@ -329,12 +336,6 @@
 
     .customer div {
         margin: 0;
-    }
-
-    .header {
-        margin: 0 auto;
-        padding-bottom: 10rem;
-        text-align: center;
     }
 
     .header::before {

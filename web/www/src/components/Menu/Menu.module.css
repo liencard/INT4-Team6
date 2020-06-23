@@ -50,3 +50,10 @@
         margin-bottom: 50%;
     }
 }
+
+
+@media only screen and (max-width: 500px) {
+    .button::after {
+        left: 19.5rem;
+    }
+}

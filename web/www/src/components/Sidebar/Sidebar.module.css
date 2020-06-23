@@ -7,7 +7,7 @@
     right: 0;
     width: 33rem;
     color: white;
-    z-index: 8;
+    z-index: 12;
     transition: transform 0.3s ease-in-out;
     box-shadow: 0 0 5rem 0 rgba(0,0,0,0.20);
     justify-content: space-between;

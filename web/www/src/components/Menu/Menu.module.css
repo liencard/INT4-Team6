@@ -45,8 +45,8 @@
     margin-bottom: 50%;
 }
 
-@media only screen and (max-width: 730px) {
+@media only screen and (max-width: 1000px) {
     .menu__top {
-        margin-bottom: 100%;
+        margin-bottom: 50%;
     }
 }

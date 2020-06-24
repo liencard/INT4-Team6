@@ -133,9 +133,9 @@
 }
 
 .detailBenjaminCole {
-    background-image: url('/assets/img/detail/BenjaminCole_portrait.png'), url('/assets/img/detail/MaryWallcott_country.png'), url('/assets/img/detail/texture.jpg');
-    background-size: auto 90rem, auto 80vh, contain;
-    background-position: top 1rem right 10rem, top 5% right 70%, center;
+    background-image: url('/assets/img/detail/BenjaminCole_portrait.png'), url('/assets/img/detail/BenjaminCole_country.png'), url('/assets/img/detail/texture.jpg');
+    background-size: auto 90rem, auto 85vh, contain;
+    background-position: top 1rem right 8rem, top 12rem right 40%, center;
 }
 
 .hidden {
@@ -503,8 +503,8 @@
     }
 
     .detailBenjaminCole {
-        background-size: auto 80vh, auto 70vh, contain;
-        background-position: top 15rem right -8rem, top 15rem right 70%, center;
+        background-size: auto 80vh, auto 45vh, contain;
+        background-position: top 15rem right -8rem, top 30rem right 70%, center;
     }
 
     .intro__ancestor {

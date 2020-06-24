@@ -2,7 +2,6 @@
 @value faded, dark, fontBody from tokens;
 
 .container {
-    padding: 3.5rem 8rem;
     z-index: 2;
     background-color: transparent;
     position: fixed;
@@ -14,8 +13,9 @@
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    bottom: 5%;
-    width: 90vw;
+    bottom: 5rem;
+    width: 100%;
+    padding: 0 8rem;
 }
 
 .footer__share {
@@ -46,15 +46,20 @@
     font-family: fontBody !important;
 }
 
-@media only screen and (max-width: 500px) {
-
-    .container {
-       padding: 1rem 4rem;
-    }
+@media only screen and (max-width: 1050px) {
 
     .dashboard__footer {
-        width: 85vw;
+        padding: 0 4rem;
     }
-
-   
 }
+
+@media only screen and (max-width: 500px) {
+
+    .dashboard__footer {
+        padding: 0 2.5rem;
+          bottom: 3rem;
+    }
+}
+
+
+

@@ -21,7 +21,6 @@ import Loader from '../Loader/index.jsx';
 
   useEffect(() => {
     const loadBookmarks = async () => {
-      console.log(bookmarks)
       try {
         await bookmarkStore.loadAllBookmarks();
         if (bookmarks) {

@@ -11,10 +11,15 @@
 }
 
 .play__btn {
-    position: fixed;
-    left: 7.5rem;
-    bottom: 10vh;
-    z-index: 5;
+  position: fixed;
+  left: 8rem;
+  bottom: 10rem;
+  z-index: 5;
+  padding: 0;
+}
+
+.play__btn:hover {
+  cursor: pointer;
 }
 
 .modal {
@@ -155,10 +160,19 @@
   transform: rotate(45deg);
 }
 
+@media only screen and (max-width: 1050px) {
+
+   .play__btn {
+    left: 4rem;
+  }
+}
+
 
 @media only screen and (max-width: 500px) {
 
    .play__btn {
-    left: 3.5rem;
+    left: 2.5rem;
+    bottom: 9rem;
   }
+
 }

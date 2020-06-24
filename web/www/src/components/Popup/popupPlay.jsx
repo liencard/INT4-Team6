@@ -39,9 +39,9 @@ const PopupPlay = () => {
       >
         {(close) => (
           <div className={styles.modal}>
-            <a className={styles.close} onClick={close}>
+            <button className={styles.close} onClick={close}>
               &times;
-            </a>
+            </button>
             <div className={styles.header}> New Feature, Coming Soon </div>
             <div className={styles.content}>
               <p className={styles.intro}>

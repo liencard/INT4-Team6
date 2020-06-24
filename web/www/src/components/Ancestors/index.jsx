@@ -25,7 +25,7 @@ const Ancestors = () => {
 
 
   /* eerste keer site inladen */
-  const stopObserve = observe(ancestorStore, (change) => {
+  observe(ancestorStore, (change) => {
     if (change.name === 'loadAllComplete') {
       setCanvas(<CanvasView />);
     }
@@ -66,7 +66,6 @@ const Ancestors = () => {
         <Lines />
         <Controls />
         <Light />
-        <Effects />
         <Shadow />
 
         <mesh

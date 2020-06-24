@@ -14,6 +14,10 @@
     color: white;
 }
 
+.button {
+    composes: button from "../../styles/components.module.css";
+    background-image: url('/assets/img/arrow.svg')
+}
 
 .bookmark__name {
     composes: top from "../../styles/typo.module.css";

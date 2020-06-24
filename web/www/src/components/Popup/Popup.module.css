@@ -12,7 +12,7 @@
 
 .play__btn {
     position: fixed;
-    left: 3.5rem;
+    left: 7.5rem;
     bottom: 10vh;
     z-index: 5;
 }
@@ -153,4 +153,12 @@
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+
+@media only screen and (max-width: 500px) {
+
+   .play__btn {
+    left: 3.5rem;
+  }
 }

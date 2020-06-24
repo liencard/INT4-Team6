@@ -2,7 +2,6 @@
 @value fontBody, faded, spacerBig, spacer from tokens;
 
 .content__wrapper {
-    /* margin: 0 spacerBig; */
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -52,10 +51,9 @@
     composes: button from "../../styles/components.module.css";
 }
 
-/* Visually hidden - zie thatsapp firebase */
 .form__label {
     position: absolute !important;
-    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px 1px 1px 1px);
     clip: rect(1px, 1px, 1px, 1px);
     padding: 0 !important;
     border: 0 !important;

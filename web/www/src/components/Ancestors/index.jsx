@@ -1,7 +1,6 @@
 import React, { useState, useLayoutEffect, useRef} from 'react';
 import { Canvas} from 'react-three-fiber';
 import Controls from '../Threejs/controls.js';
-import Effects from '../Threejs/effects.jsx';
 import Lines from '../Threejs/lines.jsx';
 import Light from '../Threejs/light.jsx';
 import Shadow from '../Threejs/shadow.jsx';

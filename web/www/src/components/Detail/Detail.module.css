@@ -3,7 +3,7 @@
 
 .buttons {
     composes: smallSpaced from "../../styles/typo.module.css";
-    position: fixed; /* of fixed */
+    position: fixed;
     right: 0;
     padding: 9rem 8rem 0;
     text-align: right;
@@ -60,7 +60,6 @@
 
 
 /* Feedback popup bookmarks */
-
 .feedback {
     position: fixed;
     right: 2rem;
@@ -73,26 +72,12 @@
 } 
 
 .feedback__add {
-    /* position: fixed;
-    right: 2rem;
-    top: 2rem;
-    padding: 1rem 2rem;
-    border: .1rem solid faded;
-    background-color: dark;
-    z-index: 8; */
     -webkit-animation: addAnimation 3s forwards; 
     animation: addAnimation 3s forwards;
     opacity: 1;
 }
 
 .feedback__remove {
-    /* position: fixed;
-    right: 2rem;
-    top: 2rem;
-    padding: 1rem 2rem;
-    border: .1rem solid faded;
-    background-color: dark;
-    z-index: 8;  */
     -webkit-animation: removeAnimation 3s forwards; 
     animation: removeAnimation 3s forwards;
     opacity: 1;
@@ -215,7 +200,6 @@
 
 
 /* CONTENT - TIMEFRAME */
-
 .backgroundImage {
     background-repeat: no-repeat;
     width: 100vw;
@@ -258,7 +242,6 @@
 
 
 /* CONTENT - LIVING */
-
 .living {
     display: flex;
     justify-content: space-between;
@@ -299,7 +282,6 @@
 
 
 /* CONTENT - WORK */
-
 .work {
     display: flex;
 }
@@ -346,7 +328,6 @@
 }
 
 /* CONTENT - WAR */
-
 .war__text {
     max-width: 39rem;
     z-index: 2;
@@ -357,7 +338,6 @@
 }
 
 /* CONTENT - EVENT */
-
 .event__wrapper {
     display: grid;
     grid-template-columns: auto 38rem;

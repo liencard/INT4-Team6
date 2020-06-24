@@ -7,12 +7,11 @@ import styles from './Onboarding.module.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-AOS.init({
-  once: true, // whether animation should happen only once - while scrolling down
-  easing: 'ease-in',
-});
-
 const OnboardingTwo = () => {
+  AOS.init({
+    once: true,
+    easing: 'ease-in',
+  });
 
     return useObserver(() => (
       <>

@@ -46,12 +46,6 @@
   font-size: 1.2rem;
 }
 
-/* icon */ 
-
-/* .icon__wrapper {
-  z-index: 10;
-} */
-
 .iconclick {
   display:flex;
   flex-direction: column;

@@ -5,9 +5,9 @@ import styles from './Header.module.css';
 import { useObserver } from 'mobx-react-lite';
 import Sidebar from '../Sidebar/index.jsx';
 
-const url = window.location.pathname;
 
 const Header = ({logo, menu, content, text, toggleDashboard, togglePartners, to, ancestor}) => {
+    const url = window.location.pathname;
     const [menuToggle, setMenu] = useState(false);
 
     const [visible, setVisibility] = useState(true);
@@ -86,7 +86,7 @@ const Header = ({logo, menu, content, text, toggleDashboard, togglePartners, to,
         <div className={styles.toggle__small}>
           <NavLink
             to=
-            {(url === '/ancestor') ? (
+            {(url === '/map') ? (
               `${ROUTES.ancestors}`
             ) : (
                 `${ROUTES.map}`
@@ -94,7 +94,7 @@ const Header = ({logo, menu, content, text, toggleDashboard, togglePartners, to,
             className={styles.tab}
             activeClassName={styles.tabActive}
           >
-            {(url === '/ancestor') ? (
+            {(url === '/map') ? (
               `Family Tree`
             ) : (
                 `Roots DNA`

@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { ROUTES } from '../../consts';
 import styles from './Start.module.css';
-import Header from '../Header/index.jsx';
+import { Link } from 'react-router-dom';
 import Button from '../Button/index.jsx';
 
 import AOS from 'aos';
@@ -17,17 +16,17 @@ const Start = () => {
 
 return (
   <>
-    <Header logo={true} />
-
+    <div className={styles.logo}>
+      <Link to={ROUTES.home}>
+        <img src="/assets/img/AVOS.svg" alt="logo" width="37" height="39" />
+      </Link>
+    </div>
     <div className={styles.button__wrapper}>
-      <Button
-        text="login"
-        to="/"
-      />
+      <Button text="login" to="/" />
     </div>
 
     <div className={styles.lines}> </div>
-    <article className={styles.container}>
+    <div className={styles.container}>
       <section
         className={styles.header}
         data-aos="fade"
@@ -185,7 +184,7 @@ return (
           <div className={styles.plans}>
             <section className={styles.plans__item}>
               <h3 className={styles.subtitle}>Standard Plan</h3>
-              <p clasName={styles.plan__price}>$499</p>
+              <p className={styles.plan__price}>$499</p>
               <ul className={styles.plan__benefits}>
                 <li>Discover your ancestors </li>
                 <li>Hear their stories</li>
@@ -199,7 +198,7 @@ return (
             </section>
             <section className={styles.plans__item}>
               <h3 className={styles.subtitle}>Premium Plan</h3>
-              <p clasName={styles.plan__price}>$699</p>
+              <p className={styles.plan__price}>$699</p>
               <ul className={styles.plan__benefits}>
                 <li>Discover your ancestors </li>
                 <li>Hear their stories</li>
@@ -254,7 +253,7 @@ return (
           />
         </div>
       </section>
-    </article>
+    </div>
   </>
 );
 };

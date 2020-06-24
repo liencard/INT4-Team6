@@ -2,7 +2,7 @@ import React, { useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import { useObserver } from 'mobx-react-lite';
 import { useStore } from '../../hooks/useStore';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import Header from '../Header/index.jsx';
 import styles from './Detail.module.css';
@@ -98,22 +98,25 @@ const DetailOther = () => {
             </article>
 
             <div className={styles.buttons__generation}>
-              { (ancestor.mother || ancestor.father) ? (
-                  <Link
-                    to={`${ancestor.woman ? ancestor.mother : ancestor.father}`}
-                    className={styles.buttons__previous}
-                    activeClassName={styles.tabActive}
-                  >
-                    Previous generation
-                  </Link>
-              ) : ('')};
-              <Link
+              {ancestor.mother || ancestor.father ? (
+                <NavLink
+                  to={`${ancestor.woman ? ancestor.mother : ancestor.father}`}
+                  className={styles.buttons__previous}
+                  activeClassName={styles.tabActive}
+                >
+                  Previous generation
+                </NavLink>
+              ) : (
+                ''
+              )}
+              ;
+              <NavLink
                 to={`${ancestor.child}`}
                 className={styles.buttons__next}
                 activeClassName={styles.tabActive}
               >
                 Next generation
-              </Link>
+              </NavLink>
             </div>
           </div>
         </div>

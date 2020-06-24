@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { useObserver } from 'mobx-react-lite';
 import { useStore } from '../../hooks/useStore';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import Bookmark from '../../models/BookmarkModel';
 import styles from './Detail.module.css';
@@ -96,8 +96,8 @@ const DetailOne = () => {
     ancestorStore.ancestors,
     ancestorStore,
     id,
+    bookmarkStore
   ]);
-  /* bookmark past aan -> useEffect wordt opnieuw opgeroepen, bookmark & bookmarkStore hier uitgehaald */
 
   const handleClickBookmark = async () => {
     await userStore.loadAllUsers();
@@ -113,24 +113,17 @@ const DetailOne = () => {
       });
       await bookmarkedAncestor.create();
 
-      /* ancestor uit database halen */
       await bookmarkStore.loadAllBookmarks();
       const ancestorId = parseInt(id);
-      const bookmarkedAncestorCreated = bookmarkStore.getBookmarkByAncestorid(
-        ancestorId
-      );
-      console.log(bookmarkedAncestorCreated); // ancestor & user id wel gekend enzo, maar we hebben id zelf nodig zoals bij useffect
-      /* dit moet de ancestor zijn in database met id en al gekend!!! Anders kan delete pas na page reload */
-      
       await setBookmark(bookmarkedAncestor);
-      setBookmark(bookmarkedAncestor);
+      await setBookmark(bookmarkedAncestor);
 
       feedbackRef.current.classList.add(styles.feedback__add); 
       feedbackRef.current.classList.remove(styles.feedback__remove);
       feedbackRef.current.innerHTML = 'Added Bookmark';
     } else {
       await bookmark.delete();
-      setBookmark(false);
+      await setBookmark(false);
       feedbackRef.current.classList.add(styles.feedback__remove);
       feedbackRef.current.classList.remove(styles.feedback__add); 
       feedbackRef.current.innerHTML = 'Removed Bookmark';
@@ -242,7 +235,12 @@ const DetailOne = () => {
           </span>
         </div>
 
-        <p ref={feedbackRef}></p>
+        <p
+          ref={feedbackRef}
+          className={`${styles.feedback} ${
+            bookmark ? styles.feedback__add : styles.feedback__remove
+          }`}
+        ></p>
 
         <div className={`${styles.detail} ${styles.detailMargeretEvans}`}>
           <div className={styles.container}>
@@ -358,10 +356,24 @@ const DetailOne = () => {
                   width="260px"
                 />
                 <picture>
-                  <source media="(max-width: 500px)" srcset="/assets/img/detail/MargeretEvans_house.png 560w" />
-                  <source media="(max-width: 1000px)" srcset="/assets/img/detail/MargeretEvans_house_tab.png 100w" />
-                  <source media="(min-width: 1000px)" srcset="/assets/img/detail/MargeretEvans_house.png 560w" />
-                  <img src="/assets/img/detail/MargeretEvans_house.png" className={styles.living__imgHouse} alt="House" width="560px"/>
+                  <source
+                    media="(max-width: 500px)"
+                    srcSet="/assets/img/detail/MargeretEvans_house.png 560w"
+                  />
+                  <source
+                    media="(max-width: 1000px)"
+                    srcSet="/assets/img/detail/MargeretEvans_house_tab.png 100w"
+                  />
+                  <source
+                    media="(min-width: 1000px)"
+                    srcSet="/assets/img/detail/MargeretEvans_house.png 560w"
+                  />
+                  <img
+                    src="/assets/img/detail/MargeretEvans_house.png"
+                    className={styles.living__imgHouse}
+                    alt="House"
+                    width="560px"
+                  />
                 </picture>
               </div>
             </article>
@@ -437,24 +449,24 @@ const DetailOne = () => {
 
             <div className={styles.buttons__generation}>
               {ancestor.mother || ancestor.father ? (
-                <Link
+                <NavLink
                   to={`${ancestor.woman ? ancestor.mother : ancestor.father}`}
                   className={styles.buttons__previous}
                   activeClassName={styles.tabActive}
                 >
                   Previous generation
-                </Link>
+                </NavLink>
               ) : (
                 ''
               )}
               ;
-              <Link
+              <NavLink
                 to={`${ancestor.child}`}
                 className={styles.buttons__next}
                 activeClassName={styles.tabActive}
               >
                 Next generation
-              </Link>
+              </NavLink>
             </div>
           </div>
         </div>

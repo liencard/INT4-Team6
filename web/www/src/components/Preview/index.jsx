@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 
 const Preview = ({ancestor}) => {
   const imgName = ancestor.name.split(' ').join('');
-  console.log(ancestor.name);
 
   return useObserver(() => (
     <>
@@ -68,7 +67,7 @@ const Preview = ({ancestor}) => {
 };
 
 Preview.propTypes = {
-  ancestor: PropTypes.string.isRequired,
+  ancestor: PropTypes.object.isRequired,
 };
 
 export default Preview;

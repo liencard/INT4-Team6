@@ -58,9 +58,9 @@ const PopupShare = () => {
       >
         {(close) => (
           <div className={`${styles.modal} ${styles.share}`}>
-            <a className={styles.close} onClick={close}>
+            <button className={styles.close} onClick={close}>
               &times;
-            </a>
+            </button>
             <div className={styles.header}> Share your story </div>
             <div className={styles.content}>
               <p className={styles.intro}>

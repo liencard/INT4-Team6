@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { useObserver } from 'mobx-react-lite';
 import { useStore } from '../../hooks/useStore';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import Bookmark from '../../models/BookmarkModel';
 import styles from './Detail.module.css';
@@ -381,7 +381,7 @@ const DetailThree = () => {
                 <img
                   className={styles.living__imgPicture}
                   src="/assets/img/detail/BenjaminCole_family.png"
-                  alt="Family pictures of Benjamin"
+                  alt="Family of Benjamin"
                   width="700px"
                 />
               </div>
@@ -474,7 +474,7 @@ const DetailThree = () => {
                 <div className={styles.war__img}>
                   <img
                     src="/assets/img/detail/BenjaminCole_war.png"
-                    alt="War picture Benjamin"
+                    alt="Benjamin in war"
                     width="540px"
                   />
                 </div>
@@ -495,10 +495,24 @@ const DetailThree = () => {
               <div className={styles.event__wrapper}>
                 <div className={styles.event__img}>
                   <picture>
-                    <source media="(max-width: 500px)" srcset="/assets/img/detail/BenjaminCole_mlk.png 560w" />
-                    <source media="(max-width: 1000px)" srcset="/assets/img/detail/BenjaminCole_mlk_tab.png 100w" />
-                    <source media="(min-width: 1000px)" srcset="/assets/img/detail/BenjaminCole_mlk.png 560w" />
-                    <img src="/assets/img/detail/BenjaminCole_mlk.png" className={styles.event__imgMLK} alt="Martin Luther King waving" width="800px" />
+                    <source
+                      media="(max-width: 500px)"
+                      srcset="/assets/img/detail/BenjaminCole_mlk.png 560w"
+                    />
+                    <source
+                      media="(max-width: 1000px)"
+                      srcset="/assets/img/detail/BenjaminCole_mlk_tab.png 100w"
+                    />
+                    <source
+                      media="(min-width: 1000px)"
+                      srcset="/assets/img/detail/BenjaminCole_mlk.png 560w"
+                    />
+                    <img
+                      src="/assets/img/detail/BenjaminCole_mlk.png"
+                      className={styles.event__imgMLK}
+                      alt="Martin Luther King waving"
+                      width="800px"
+                    />
                   </picture>
                 </div>
                 <div className={styles.event__text}>
@@ -562,20 +576,20 @@ const DetailThree = () => {
             </article>
 
             <div className={styles.buttons__generation}>
-              <Link
+              <NavLink
                 to={`${ancestor.mother}`}
                 className={styles.buttons__previous}
                 activeClassName={styles.tabActive}
               >
                 Previous generation
-              </Link>
-              <Link
+              </NavLink>
+              <NavLink
                 to={`${ancestor.child}`}
                 className={styles.buttons__next}
                 activeClassName={styles.tabActive}
               >
                 Next generation
-              </Link>
+              </NavLink>
             </div>
           </div>
         </div>

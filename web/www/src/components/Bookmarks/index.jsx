@@ -36,7 +36,7 @@ import Loader from '../Loader/index.jsx';
       }
     };
     loadBookmarks();
-  }, [bookmarks]);
+  }, [bookmarks, bookmarkStore]);
  
    return useObserver(() => {
     

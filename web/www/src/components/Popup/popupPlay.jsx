@@ -14,7 +14,7 @@ const PopupPlay = () => {
   };
 
   return (
-    <> 
+    <>
       <Popup
         trigger={
           <button className={styles.play__btn}>
@@ -45,11 +45,13 @@ const PopupPlay = () => {
             <div className={styles.header}> New Feature, Coming Soon </div>
             <div className={styles.content}>
               <p className={styles.intro}>
-                Sit relaxed on your couch and experience your roots. A new free feature will release next month.
+                Sit relaxed on your couch and experience your roots. A new free
+                feature will release next month.
               </p>
 
               <iframe
                 src="https://player.vimeo.com/video/431288217?autoplay=1&title=0&byline=0&portrait=0"
+                title="play"
                 width="580"
                 height="326"
                 frameborder="0"

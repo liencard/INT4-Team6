@@ -14,9 +14,6 @@ const Detail = () => {
   const { ancestorStore } = useStore();
   const ancestor = ancestorStore.getAncestorById(id);
   
-  console.log(id);
-  console.log(ancestor)
-
   return useObserver(() => (
     <>
 

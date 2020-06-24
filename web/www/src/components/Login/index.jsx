@@ -68,9 +68,9 @@ const Login = ({login}) => {
               />
             </div>
             <div className={styles.form__extra}>
-              <a href="#" className={styles.link}>
+              <p className={styles.link}>
                 Forgot password?
-              </a>
+              </p>
               <label className={styles.checkbox}>
                 <input type="checkbox" name="remember" />
                 <span className={styles.checkbox__input}></span>
@@ -95,9 +95,9 @@ const Login = ({login}) => {
 
         <p className={styles.subtext}>
           Don't have an account?{' '}
-          <a className={styles.link} href="#">
+          <button className={styles.link}>
             Sign up
-          </a>
+          </button>
         </p>
       </div>
     ));

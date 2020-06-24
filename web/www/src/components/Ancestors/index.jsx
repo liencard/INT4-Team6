@@ -36,7 +36,7 @@ const Ancestors = () => {
     if (ancestorStore.loadAllComplete && !canvas) {
       setCanvas(<CanvasView />);
     }
-  }, [canvas, ancestors]);
+  }, [canvas, ancestors, ancestorStore.loadAllComplete]);
 
   const handleClickAncestor = ( e, ...ThreeEvent ) => {
     e.stopPropagation();
@@ -94,31 +94,34 @@ const Ancestors = () => {
 
   return (
     <>
-      <Sidebar
-        type={'preview'}
-        content={ancestor}
-        toggle={preview}
-        setToggle={setPreview}
-      />
-      <div
-        ref={scrolliconRef}
-        className={`${styles.iconscroll} ${
-          canvas ? '' : styles.iconscrollHidden
-        }`}
-      >
-        <img
-          className={styles.icon}
-          src="/assets/img/icon_scroll.svg"
-          alt="Death"
-          width="40px"
-          height="40px"
+      <article className={styles.wrapper}>
+        <h1 className={styles.hidden}>Family tree</h1>
+        <Sidebar
+          type={'preview'}
+          content={ancestor}
+          toggle={preview}
+          setToggle={setPreview}
         />
-        scroll
-      </div>
+        <div
+          ref={scrolliconRef}
+          className={`${styles.iconscroll} ${
+            canvas ? '' : styles.iconscrollHidden
+          }`}
+        >
+          <img
+            className={styles.icon}
+            src="/assets/img/icon_scroll.svg"
+            alt="Death"
+            width="40px"
+            height="40px"
+          />
+          scroll
+        </div>
 
-      <div className={styles.canvas__container}>
-        {canvas ? canvas : <Loader />}
-      </div>
+        <div className={styles.canvas__container}>
+          {canvas ? canvas : <Loader />}
+        </div>
+      </article>
     </>
   ); 
 

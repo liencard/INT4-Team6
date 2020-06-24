@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Bookmark.module.css';
 import { useObserver } from 'mobx-react-lite';
-import Button from '../Button/index.jsx';
 
 const Bookmark = ({bookmark}) => {
 

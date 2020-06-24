@@ -2,10 +2,11 @@ import * as React from 'react';
 import { extend, useThree, useFrame } from 'react-three-fiber';
 import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls';
 import * as THREE from 'three';
+import { useObserver } from 'mobx-react-lite';
 
 extend({ TrackballControls });
 
-const Controls = ({ }) => {
+const Controls = () => {
     const controls = React.useRef();
     const { camera, gl } = useThree();
 
@@ -21,7 +22,7 @@ const Controls = ({ }) => {
       camera.position.sub(pan);
     });
     
-    return (
+    return  useObserver(() =>  (
       <trackballControls
         ref={controls}
         args={[camera, gl.domElement]}
@@ -29,14 +30,17 @@ const Controls = ({ }) => {
         zoomSpeed={0.5}
         minDistance={0}
         maxDistance={25}
-
         mouseButtons={{
           LEFT: THREE.MOUSE.PAN,
           MIDDLE: THREE.MOUSE.ZOOM,
           RIGHT: THREE.MOUSE.ROTATE,
         }}
+        touches={{
+          ONE: THREE.TOUCH.PAN,
+          TWO: THREE.TOUCH.ROTATE,
+        }}
       />
-    );
+    ));
 };
 
 export default Controls;

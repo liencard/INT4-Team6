@@ -39,37 +39,23 @@ const Ancestors = () => {
     }
   }, [canvas, ancestors]);
 
-  const handleClickAncestor = (e) => {
-    console.log(e);
+  const handleClickAncestor = ( e, ...ThreeEvent ) => {
     e.stopPropagation();
-    const clickedAncestor = ancestorStore.getAncestorById(e.eventObject.ancestorId);
+    const clickedAncestor = ancestorStore.getAncestorById(
+      e.eventObject.ancestorId
+    );
     setPreview(true);
     setAncestor(clickedAncestor);
+    console.log(...ThreeEvent)
   };
 
   const canvasCreated = (gl) => {
-    // gl.setClearColor('#1c1c1c');
     gl.shadowMapType = THREE.PCFSoftShadowMap;
     gl.shadowMap.renderSingleSided = false;
     gl.shadowMap.enabled = true;
     gl.domElement.addEventListener('wheel', () => {
       scrolliconRef.current.classList.add(styles.iconscrollHidden);
     });
-
-    console.log(gl)
-
-    // gl.domElement.addEventListener('touchstart', (e) => {
-    //   e.preventDefault();
-    //   console.log("test canvas")
-    // });
-
-    console.log(ancestorGroup);
-
-    ancestorGroup.current.addEventListener('touchstart', (e) => {
-      e.preventDefault();
-      console.log('test ancestor');
-    });
-
   }
 
   const CanvasView = () => {
@@ -98,13 +84,7 @@ const Ancestors = () => {
             key={ancestor.id}
             ancestorId={ancestor.id}
             ref={ancestorGroup}
-
-            // touchscreen devices
-            onTouchEnd={(e) => console.log('touch end ')}
-           
-            onMouseDown={(e) => console.log('mouse down')}
-
-            onClick={(e) => handleClickAncestor(e)} // works for desktop
+            onClick={(e) => handleClickAncestor(e)} 
           >
             <Ancestor ancestor={ancestor} ancestorStore={ancestorStore} />
           </group>

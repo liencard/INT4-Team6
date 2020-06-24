@@ -8,6 +8,7 @@ const Ancestor = ({ ancestor }) => {
   const imgName = ancestor.name.split(' ').join('');
   const imgType = ancestor.img;
   const imgSrc = `${imgName}`;
+
   let imgSizeVertical = 1;
   let textOffset = 1.55;
 
@@ -51,7 +52,7 @@ const Ancestor = ({ ancestor }) => {
 
   const toggleHover = (e, value) => {
     e.stopPropagation();
-    setHover(value); // flicker bug
+    setHover(value);
     return null;
   }; 
   
@@ -87,9 +88,6 @@ const Ancestor = ({ ancestor }) => {
       <group
         onPointerOver={(e) => toggleHover(e, true)}
         onPointerLeave={(e) => toggleHover(e, false)}
-        onClick={(e) => console.log('on click')}
-        onTouchStart={(e) => console.log('touch start')}
-        onMouseDown={(e) => console.log('mouse')}
       >
         <a.mesh
           castShadow
